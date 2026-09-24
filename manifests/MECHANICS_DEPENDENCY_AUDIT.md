@@ -12,20 +12,21 @@ This audit tracks:
 ## Progress
 
 - Required effect scripts: **173**
-- Audited in F2 so far: **20/173**
-- Current batch: sorted required-effect positions **11–20**
+- Audited in F2 so far: **30/173**
+- Current batch: sorted required-effect positions **21–30**
 - Direct battle-subscript calls found in this batch: **0**
-- Side-effect pointer dependencies found in this batch: **4 unique**
-- Cumulative unique side-effect pointers observed: **10**
-- Generic-damage-only scripts in this batch: **1** (effect 42, BIND_HIT)
+- Side-effect pointer dependencies found in this batch: **7 unique**
+- Cumulative unique side-effect pointers observed: **17**
+- Generic-damage-only scripts in this batch: **2** (effects 101 and 103)
 
-## Batch 02 dependency notes
+## Batch 03 dependency notes
 
-- Effects 29 and 44 directly depend on the engine's multi-hit machinery.
-- Effect 40 computes half-current-HP damage directly and sets type effectiveness to be ignored.
-- Effect 42 is byte-identical to the generic HIT script; trapping/bind behavior must be supplied elsewhere.
-- Effect 45 relies on `ABILITY_RECKLESS` and `BATTLE_STATUS_CRASH_DAMAGE`, which require engine processing beyond the script.
-- Effects 31, 51, 61, and 68 delegate their stat/status behavior to side-effect pointer handlers.
+- Effects 69–73 delegate one-stage defensive/offensive stat drops to dedicated side-effect handlers.
+- Effect 76 delegates confusion to `MOVE_SUBSCRIPT_PTR_CONFUSE`.
+- Effect 80 delegates recharge-turn handling to `MOVE_SUBSCRIPT_PTR_RECHARGE_TURN`.
+- Effect 85 is a true non-damaging no-op script that sets `MOVE_STATUS_SPLASH`.
+- Effect 101 (LEAVE_WITH_1_HP) is byte-identical to the generic HIT script; the non-KO behavior must be enforced elsewhere.
+- Effect 103 (PRIORITY_1) is also byte-identical to generic HIT; priority must be supplied by move data and/or engine turn-order handling.
 
 The dependency manifest is `manifests/mechanics_dependencies.csv`.
 
