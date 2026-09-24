@@ -5,20 +5,16 @@ Phase F3 resolves the `MOVE_SUBSCRIPT_PTR_*` dependencies discovered in Phase F2
 ## Progress
 
 - Unique side-effect pointers requiring resolution: **90**
-- Resolved in F3 so far: **70/90**
-- Concrete subscript files collected so far: **60 unique**
+- Resolved in F3 so far: **80/90**
+- Concrete subscript files collected so far: **62 unique**
 - Source: `BluRosie/hg-engine @ 398a3020943f1ae98987e5b12b73d9086bbba3ce`
 
-## Batch 07 notes
+## Batch 08 notes
 
-- `RECHARGE_TURN` sets the recharge status, locks the attacker to the current move, and stores the recharge turn state.
-- `REFLECT` delegates side-condition setup to the specialized `TryReflect` command and then uses the prepared-message animation path.
-- `RESET_ALL_STAT_STAGES` directly invokes `ResetAllStatChanges`.
-- `SHED_TAIL` is a substantial compound script: it rejects an existing Substitute, requires a valid switch option and more than half HP, pays half max HP, creates a quarter-max-HP Substitute, clears the user's stat stages, removes Leech Seed, and marks Baton Pass-style switching state.
-- `SHELL_SMASH` applies Attack/Sp. Atk/Speed +2 and Defense/Sp. Def -1 through the common stat-stage engine.
-- `SHIFT_GEAR` applies Attack +1 and Speed +2 through the common stat updater.
-- `SLEEP` is a full modern status pipeline covering Insomnia/Vital Spirit, Comatose, Purifying Salt, Leaf Guard/weather suppression, Flower Veil, Electric/Misty Terrain, Shield Dust, Substitute, Uproar/Soundproof, Safeguard/Infiltrator, sleep-turn generation, move-choice unlocking, and semi-invulnerable state cleanup.
-- The three Speed-stage pointers in this batch all resolve to the already-collected `BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE`.
+- Seven ordinary stat-change pointers in this batch, plus `SPEED_UP_2_STAGES`, all resolve to the already-collected shared `BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE`.
+- `SPICY_EXTRACT` is a two-stat wrapper: Attack +2 and Defense -2, both dispatched through the common stat updater after one shared attack-message/animation path.
+- `STRENGTH_SAP` is a compound healing/stat script. It calls the specialized `StrengthSapCalc` command to determine healing from the target's Attack, lowers the target's Attack by one stage, applies held-item leech-boost scaling, reverses healing under Liquid Ooze, respects Magic Guard on that damage path, and uses the shared HP recovery/update subscripts.
+- This batch strongly reinforces that a large fraction of modern move behavior depends on one central stat-stage engine, while the genuinely unique mechanics tend to live in specialized wrapper scripts and battle commands.
 
 The mapping manifest is `manifests/mechanics_subscript_resolution.csv`.
 
