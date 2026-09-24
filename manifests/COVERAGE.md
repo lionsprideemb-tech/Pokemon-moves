@@ -8,8 +8,8 @@ Primary source snapshot: BluRosie/hg-engine @ 398a3020943f1ae98987e5b12b73d9086b
 | Gen 6 | 563–624 | 62/62 | 62/62 | ✅ Phase B certified |
 | Gen 7 | 625–745 | 121/121 | 121/121 | ✅ Phase C certified |
 | Gen 8 + Legends: Arceus | 746–853 | 108/108 | 108/108 | ✅ Phase D certified |
-| Gen 9 + DLC | 854–922 | 69 | pending audit | Pending |
-| **Total** | **471–922** | **452** |  |  |
+| Gen 9 + DLC | 854–922 | 69/69 | 69/69 | ✅ Phase E certified |
+| **Total** | **471–922** | **452/452** | **452/452** | **✅ A–E source coverage complete** |
 
 ## Certification method
 
@@ -56,3 +56,22 @@ The pinned hg-engine snapshot contains a dedicated DS animation script for every
 - Shared hg-engine animation/dependency support snapshot: exact SHA match
 - 108/108 animation files have unique blob SHAs within this phase
 - Semantic reuse / generic-effect quality classification deferred to Phase H
+
+
+### Phase E — Gen 9 + DLC
+- IDs: 854–922
+- Animation coverage: 69/69
+- Source hash mismatches: 0
+- Mechanics coverage: 69/69
+- Missing IDs: none
+- Shared hg-engine animation/dependency support snapshot: exact SHA match
+- 69/69 animation files have unique blob SHAs within this phase
+- Final move in range: 922 — Malignant Chain
+- Semantic reuse / generic-effect quality classification deferred to Phase H
+
+## A–E collection milestone
+- Complete post-Gen-IV ID range: 471–922
+- Total expected modern move animations: 452
+- Total present: 452/452
+- Total matching battle/mechanics scripts: 452/452
+- Missing IDs: none
