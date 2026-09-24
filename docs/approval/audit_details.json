@@ -4318,21 +4318,27 @@
     },
     "ZOMBIESTRIKE": {
       "status": "complete",
-      "move_description": "Deals damage.",
-      "effect_text": "Deals damage.",
-      "priority": "0",
-      "target": "normal",
-      "move_flags": "contact, protect",
-      "contact": "Yes"
+      "move_description": "A straightforward physical Ghost-type strike.",
+      "effect_text": "Deals 90 base-power physical Ghost-type damage. It has 90% accuracy, 15 PP, makes contact, and has no secondary effect in the pinned Insurgence source.",
+      "priority": "0 (normal priority)",
+      "target": "One adjacent Pokémon",
+      "contact": "Yes",
+      "effect_chance": "No secondary effect",
+      "status_effects": "None",
+      "stat_changes": "None",
+      "source_mechanics": "Poilerwags/Insurgence-Showdown data/moves.ts at pinned commit 72d72a7af4642d3c8391ab1118f0afbb2647020b."
     },
     "TIROTEO": {
       "status": "complete",
-      "move_description": "Hits 2–5 times.",
-      "effect_text": "Hits 2–5 times.",
-      "priority": "0",
-      "target": "00",
+      "move_description": "Fires a volley of Dark-type projectiles that strike several times.",
+      "effect_text": "A 25 base-power physical Dark-type attack that hits 2–5 times per use. Each hit has 25 base power. It has 95% accuracy and 20 PP. No additional secondary effect is encoded in the source row.",
+      "priority": "0 (normal priority)",
+      "target": "One Pokémon",
       "contact": "No",
-      "move_flags": "bef"
+      "multi_hit": "Hits 2–5 times; 25 BP per hit.",
+      "effect_chance": "No secondary effect",
+      "source_description": "Dispara una salva de proyectiles de 2 a 5 veces.",
+      "source_mechanics": "xorgies/PokemonOpalo JsonTransformer/txt/opalo/moves.txt at pinned commit 2133a2c0db1a0d8a78a6cc7090fddc62a0d0afeb."
     },
     "ELECTROBABA": {
       "status": "complete",
@@ -4421,23 +4427,28 @@
     },
     "FURIATOTEMICA": {
       "status": "complete",
-      "move_description": "Deals damage. 30% source effect can inflict burn, paralysis, or freeze.",
-      "effect_text": "Deals damage. 30% source effect can inflict burn, paralysis, or freeze.",
-      "priority": "0",
-      "target": "00",
+      "move_description": "Calls on ancestral fury and may inflict one of three major status conditions.",
+      "effect_text": "Deals 90 base-power special Ground-type damage. It has a 30% chance to inflict one of burn, paralysis, or freeze on the target.",
+      "priority": "0 (normal priority)",
+      "target": "One Pokémon",
       "contact": "No",
-      "move_flags": "bcde",
-      "effect_chance": "30%"
+      "effect_chance": "30%",
+      "status_effects": "30% chance to inflict burn, paralysis, or freeze.",
+      "source_description": "Invoca la furia de los ancestros para atacar al oponente. Puede quemar, paralizar o congelar.",
+      "source_mechanics": "xorgies/PokemonOpalo JsonTransformer/txt/opalo/moves.txt at pinned commit 2133a2c0db1a0d8a78a6cc7090fddc62a0d0afeb."
     },
     "ZARZAS": {
       "status": "complete",
-      "move_description": "Damages and traps the the target for residual damage. Source effect is binding/trapping-style.",
-      "effect_text": "Damages and traps the the target for residual damage. Source effect is binding/trapping-style.",
-      "priority": "0",
-      "target": "00",
-      "contact": "No",
-      "move_flags": "abcdef",
-      "effect_chance": "100%"
+      "move_description": "Entangles the target in damaging brambles.",
+      "effect_text": "Deals 90 base-power physical Grass-type damage, then applies a binding/trapping effect that continues damaging the target at the end of each turn. The mirrored source row guarantees the effect but does not encode a separate player-facing duration in its text, so no duration is invented here.",
+      "priority": "0 (normal priority)",
+      "target": "One Pokémon",
+      "contact": "Yes",
+      "effect_chance": "100%",
+      "status_effects": "Binding/trapping residual-damage effect.",
+      "switching_behavior": "Binding-style effect restricts normal escape/switching according to the source effect family.",
+      "source_description": "Ataca al oponente con unas zarzas que le van haciendo daño al final de cada turno.",
+      "source_mechanics": "xorgies/PokemonOpalo JsonTransformer/txt/opalo/moves.txt at pinned commit 2133a2c0db1a0d8a78a6cc7090fddc62a0d0afeb."
     },
     "SOMBRATELA": {
       "status": "complete",
@@ -4541,13 +4552,15 @@
     },
     "COLMILLOSALVAJE": {
       "status": "complete",
-      "move_description": "Deals damage. 30% source effect can inflict burn, paralysis, or freeze.",
-      "effect_text": "Deals damage. 30% source effect can inflict burn, paralysis, or freeze.",
-      "priority": "0",
-      "target": "00",
-      "contact": "No",
-      "move_flags": "bcde",
-      "effect_chance": "30%"
+      "move_description": "An elemental fang attack that may inflict burn, paralysis, or freeze.",
+      "effect_text": "Deals 90 base-power physical Normal-type damage. It has a 30% chance to inflict one of burn, paralysis, or freeze on the target.",
+      "priority": "0 (normal priority)",
+      "target": "One Pokémon",
+      "contact": "Source row uses the physical/contact-capable effect family; original flags are preserved separately.",
+      "effect_chance": "30%",
+      "status_effects": "30% chance to inflict burn, paralysis, or freeze.",
+      "source_description": "Un potente colmillo de fuerza elemental. Puede quemar, paralizar o congelar.",
+      "source_mechanics": "xorgies/PokemonOpalo JsonTransformer/txt/opalo/moves.txt at pinned commit 2133a2c0db1a0d8a78a6cc7090fddc62a0d0afeb."
     },
     "BRAZOMUSGO": {
       "status": "complete",
@@ -4580,12 +4593,15 @@
     },
     "FLECHASTRAL": {
       "status": "complete",
-      "move_description": "Hits 2–5 times.",
-      "effect_text": "Hits 2–5 times.",
-      "priority": "0",
-      "target": "00",
+      "move_description": "Fires several magical Fairy-type arrows in succession.",
+      "effect_text": "A 25 base-power physical Fairy-type attack that hits 2–5 times per use. Each hit has 25 base power. It has 100% accuracy and 20 PP, with no additional secondary effect encoded in the source row.",
+      "priority": "0 (normal priority)",
+      "target": "One Pokémon",
       "contact": "No",
-      "move_flags": "abef"
+      "multi_hit": "Hits 2–5 times; 25 BP per hit.",
+      "effect_chance": "No secondary effect",
+      "source_description": "Dispara de 2 a 5 flechas mágicas al oponente.",
+      "source_mechanics": "xorgies/PokemonOpalo JsonTransformer/txt/opalo/moves.txt at pinned commit 2133a2c0db1a0d8a78a6cc7090fddc62a0d0afeb."
     },
     "LINGOTAZO": {
       "status": "complete",
@@ -4954,21 +4970,36 @@
     },
     "PUNZADABURBUJA": {
       "status": "complete",
-      "move_description": "Deals damage.",
-      "effect_text": "Deals damage.",
-      "priority": "0"
+      "move_description": "Launches a high-speed horn like a projectile.",
+      "effect_text": "Deals 45 base-power physical Water-type damage with 100% accuracy and 25 PP. The source row defines no secondary effect.",
+      "priority": "0 (normal priority)",
+      "target": "One Pokémon",
+      "contact": "No",
+      "effect_chance": "No secondary effect",
+      "source_description": "Ataca disparando su cuerno, que es propulsado a gran velocidad.",
+      "source_mechanics": "xorgies/PokemonOpalo JsonTransformer/txt/armonia/moves.txt at pinned commit 2133a2c0db1a0d8a78a6cc7090fddc62a0d0afeb."
     },
     "FLORALETEO": {
       "status": "complete",
-      "move_description": "Deals damage.",
-      "effect_text": "Deals damage.",
-      "priority": "0"
+      "move_description": "Blasts the target with seeds propelled by powerful wingbeats.",
+      "effect_text": "Deals 50 base-power special Grass-type damage with 100% accuracy and 15 PP. The source row defines no secondary effect.",
+      "priority": "0 (normal priority)",
+      "target": "One Pokémon",
+      "contact": "No",
+      "effect_chance": "No secondary effect",
+      "source_description": "Azota al objetivo con semillas propulsadas por un fuerte aleteo.",
+      "source_mechanics": "xorgies/PokemonOpalo JsonTransformer/txt/armonia/moves.txt at pinned commit 2133a2c0db1a0d8a78a6cc7090fddc62a0d0afeb."
     },
     "CUERNARDIENTE": {
       "status": "complete",
-      "move_description": "Deals damage.",
-      "effect_text": "Deals damage.",
-      "priority": "0"
+      "move_description": "Cloaks the user's horns in flame and charges the target.",
+      "effect_text": "Deals 45 base-power physical Fire-type damage with 100% accuracy and 25 PP. The source row defines no secondary effect.",
+      "priority": "0 (normal priority)",
+      "target": "One Pokémon",
+      "contact": "Yes",
+      "effect_chance": "No secondary effect",
+      "source_description": "Envuelve en llamas su cornamenta para luego embestir con ella.",
+      "source_mechanics": "xorgies/PokemonOpalo JsonTransformer/txt/armonia/moves.txt at pinned commit 2133a2c0db1a0d8a78a6cc7090fddc62a0d0afeb."
     },
     "FERMENTACION": {
       "status": "complete",
@@ -4977,10 +5008,16 @@
       "priority": "0"
     },
     "PROTOPLUMA": {
-      "status": "complete",
-      "move_description": "Deals damage. Source description says it can flinch; exact chance needs source-script verification.",
-      "effect_text": "Deals damage. Source description says it can flinch; exact chance needs source-script verification.",
-      "priority": "0"
+      "status": "source-limited",
+      "move_description": "Strikes with wings wrapped in prehistoric energy and may make the target flinch.",
+      "effect_text": "Deals 60 base-power physical Rock-type damage with 100% accuracy and 15 PP. The source description explicitly says the move can make the target flinch. However, the mirrored Armonia row stores a 0 in its numeric effect-chance field, so the exact flinch percentage cannot be source-certified from this mirror and is intentionally not guessed.",
+      "priority": "0 (normal priority)",
+      "target": "One Pokémon",
+      "contact": "No",
+      "effect_chance": "Flinch chance exists, but exact percentage is not encoded consistently in the audited mirror.",
+      "status_effects": "May cause flinching.",
+      "source_description": "Envuelve sus alas en energía prehistórica y golpea. Puede hacer retroceder al objetivo.",
+      "source_mechanics": "xorgies/PokemonOpalo JsonTransformer/txt/armonia/moves.txt at pinned commit 2133a2c0db1a0d8a78a6cc7090fddc62a0d0afeb. Effect code 00F is a flinch-family effect, while the mirrored chance field is 0."
     },
     "PODERNINFA": {
       "status": "complete",
@@ -5331,12 +5368,15 @@
     },
     "WARHEAD": {
       "status": "complete",
-      "move_description": "Deals damage.",
-      "effect_text": "Deals damage.",
+      "move_description": "A high-powered Steel-type special attack with no added effect.",
+      "effect_text": "Deals 110 base-power special Steel-type damage. It has 80% accuracy, 5 PP, normal priority, and no secondary effect in the pinned Clover source.",
       "priority": "0 (normal priority)",
-      "target": "one adjacent target",
+      "target": "One adjacent Pokémon",
       "contact": "No",
-      "move_flags": "protect, mirror"
+      "effect_chance": "No secondary effect",
+      "status_effects": "None",
+      "stat_changes": "None",
+      "source_mechanics": "Squeetz/clovermon-showdown data/moves.ts at pinned commit 008196c839c1efe859e2d59c092c88370b7752d6."
     },
     "WEIRDFLEX": {
       "status": "complete",
@@ -5413,12 +5453,15 @@
     },
     "PIXIEPUMMEL": {
       "status": "complete",
-      "move_description": "Deals damage.",
-      "effect_text": "Deals damage.",
+      "move_description": "A powerful contact Fairy-type physical attack with no added effect.",
+      "effect_text": "Deals 120 base-power physical Fairy-type damage. It has 80% accuracy, 5 PP, makes contact, and has no secondary effect in the pinned Clover source.",
       "priority": "0 (normal priority)",
-      "target": "one adjacent target",
+      "target": "One adjacent Pokémon",
       "contact": "Yes",
-      "move_flags": "contact, protect, mirror"
+      "effect_chance": "No secondary effect",
+      "status_effects": "None",
+      "stat_changes": "None",
+      "source_mechanics": "Squeetz/clovermon-showdown data/moves.ts at pinned commit 008196c839c1efe859e2d59c092c88370b7752d6."
     },
     "GAYAGENDA": {
       "status": "complete",
@@ -5441,12 +5484,16 @@
     },
     "GREATRAGE": {
       "status": "complete",
-      "move_description": "Deals damage.",
-      "effect_text": "Deals damage.",
+      "move_description": "An extremely powerful sound-based Grass-type physical attack.",
+      "effect_text": "Deals 140 base-power physical Grass-type damage with 100% accuracy and 10 PP. It is flagged as a sound move, does not make contact, and has no secondary effect in the pinned Clover source.",
       "priority": "0 (normal priority)",
-      "target": "one adjacent target",
+      "target": "One adjacent Pokémon",
       "contact": "No",
-      "move_flags": "sound, protect, mirror"
+      "move_flags": "Sound move; Protect-affected; Mirror Move-compatible",
+      "effect_chance": "No secondary effect",
+      "status_effects": "None",
+      "stat_changes": "None",
+      "source_mechanics": "Squeetz/clovermon-showdown data/moves.ts at pinned commit 008196c839c1efe859e2d59c092c88370b7752d6."
     },
     "WOWWIENER": {
       "status": "complete",
@@ -5487,30 +5534,41 @@
     },
     "ELBOWDROP": {
       "status": "complete",
-      "move_description": "Deals damage.",
-      "effect_text": "Deals damage.",
+      "move_description": "A heavy contact Ghost-type physical attack with no added effect.",
+      "effect_text": "Deals 100 base-power physical Ghost-type damage. It has 100% accuracy, 5 PP, makes contact, and has no secondary effect in the pinned Clover source.",
       "priority": "0 (normal priority)",
-      "target": "one adjacent target",
+      "target": "One adjacent Pokémon",
       "contact": "Yes",
-      "move_flags": "contact, protect, mirror"
+      "effect_chance": "No secondary effect",
+      "status_effects": "None",
+      "stat_changes": "None",
+      "source_mechanics": "Squeetz/clovermon-showdown data/moves.ts at pinned commit 008196c839c1efe859e2d59c092c88370b7752d6."
     },
     "ANATTACK": {
       "status": "complete",
-      "move_description": "Deals damage.",
-      "effect_text": "Deals damage.",
+      "move_description": "A powerful physical attack using Clover's custom ??? type.",
+      "effect_text": "Deals 120 base-power physical damage of Clover's source-native ??? type. It has 100% accuracy, 5 PP, does not make contact, and has no secondary effect. In the source's Z-Move system its Z base power is 190.",
       "priority": "0 (normal priority)",
-      "target": "one adjacent target",
+      "target": "One adjacent Pokémon",
       "contact": "No",
-      "move_flags": "protect, mirror"
+      "effect_chance": "No secondary effect",
+      "status_effects": "None",
+      "stat_changes": "None",
+      "custom_conditions": "Uses Clover's source-native ??? type; source Z base power is 190.",
+      "source_mechanics": "Squeetz/clovermon-showdown data/moves.ts at pinned commit 008196c839c1efe859e2d59c092c88370b7752d6."
     },
     "CHAOSDUNK": {
       "status": "complete",
-      "move_description": "Deals damage.",
-      "effect_text": "Deals damage.",
+      "move_description": "A powerful contact Rock-type physical attack with no added effect.",
+      "effect_text": "Deals 110 base-power physical Rock-type damage. It has 100% accuracy, 5 PP, makes contact, and has no secondary effect. In the source's Z-Move system its Z base power is 185.",
       "priority": "0 (normal priority)",
-      "target": "one adjacent target",
+      "target": "One adjacent Pokémon",
       "contact": "Yes",
-      "move_flags": "contact, protect, mirror"
+      "effect_chance": "No secondary effect",
+      "status_effects": "None",
+      "stat_changes": "None",
+      "custom_conditions": "Source Z base power is 185.",
+      "source_mechanics": "Squeetz/clovermon-showdown data/moves.ts at pinned commit 008196c839c1efe859e2d59c092c88370b7752d6."
     },
     "COMENGO": {
       "status": "complete",
@@ -5584,12 +5642,16 @@
     },
     "FIREBOMB": {
       "status": "complete",
-      "move_description": "Deals damage.",
-      "effect_text": "Deals damage.",
+      "move_description": "A strong Fire-type physical attack with no added effect.",
+      "effect_text": "Deals 100 base-power physical Fire-type damage. It has 95% accuracy, 10 PP, does not make contact, and has no secondary effect. In the source's Z-Move system its Z base power is 180.",
       "priority": "0 (normal priority)",
-      "target": "one adjacent target",
+      "target": "One adjacent Pokémon",
       "contact": "No",
-      "move_flags": "protect, mirror"
+      "effect_chance": "No secondary effect",
+      "status_effects": "None",
+      "stat_changes": "None",
+      "custom_conditions": "Source Z base power is 180.",
+      "source_mechanics": "Squeetz/clovermon-showdown data/moves.ts at pinned commit 008196c839c1efe859e2d59c092c88370b7752d6."
     },
     "FIZZBITCH": {
       "status": "complete",
