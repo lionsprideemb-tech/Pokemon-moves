@@ -5,17 +5,24 @@ Phase F3 resolves the `MOVE_SUBSCRIPT_PTR_*` dependencies discovered in Phase F2
 ## Progress
 
 - Unique side-effect pointers requiring resolution: **90**
-- Resolved in F3 so far: **80/90**
-- Concrete subscript files collected so far: **62 unique**
+- Resolved side-effect pointers: **90/90**
+- Concrete subscript files collected from pointer resolution: **72 unique**
 - Source: `BluRosie/hg-engine @ 398a3020943f1ae98987e5b12b73d9086bbba3ce`
 
-## Batch 08 notes
+## Batch 09 notes
 
-- Seven ordinary stat-change pointers in this batch, plus `SPEED_UP_2_STAGES`, all resolve to the already-collected shared `BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE`.
-- `SPICY_EXTRACT` is a two-stat wrapper: Attack +2 and Defense -2, both dispatched through the common stat updater after one shared attack-message/animation path.
-- `STRENGTH_SAP` is a compound healing/stat script. It calls the specialized `StrengthSapCalc` command to determine healing from the target's Attack, lowers the target's Attack by one stage, applies held-item leech-boost scaling, reverses healing under Liquid Ooze, respects Magic Guard on that damage path, and uses the shared HP recovery/update subscripts.
-- This batch strongly reinforces that a large fraction of modern move behavior depends on one central stat-stage engine, while the genuinely unique mechanics tend to live in specialized wrapper scripts and battle commands.
+- `STUFF_CHEEKS` boosts Defense by two stages, invokes the specialized `StuffCheeks` command to process the Berry, then removes the held item.
+- `TAKE_HEART` raises Sp. Atk and Sp. Def by one stage each and also clears the user's major status condition.
+- `THRASH` writes the rampage duration into status state and locks the attacker to the current move.
+- `TIDY_UP` is a large field-cleanup script: it removes Substitutes from all battler slots, clears Spikes, Toxic Spikes, Stealth Rock, and Sticky Web on both sides, then raises the user's Attack and Speed.
+- `TOXIC_THREAD` combines Speed -2 through the common stat updater with the full Poison subscript.
+- `USER_DEF_AND_SPDEF_DOWN_1_STAGE`, `USER_DEF_DOWN_HIT`, `V_CREATE`, and `WORK_UP` are wrappers around the shared stat-stage system.
+- `USER_SWAP_ATK_AND_DEF` toggles the Power Trick move-effect flag and directly swaps the user's Attack and Defense values.
+
+## Side-effect pointer resolution status
+
+**Complete: 90/90.**
+
+This does not finish all of Phase F3. The next step is to resolve and collect the **9 direct `BATTLE_SUBSCRIPT_*` dependencies** discovered in Phase F2, then continue into specialized battle-command and engine-hook mapping.
 
 The mapping manifest is `manifests/mechanics_subscript_resolution.csv`.
-
-Phase F3 is not complete until all 90 side-effect pointers, the nine direct battle-subscript dependencies from Phase F2, and their important nested/engine dependencies are resolved.
