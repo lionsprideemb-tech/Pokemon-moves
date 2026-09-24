@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "description": "Extended source-verified mechanics keyed by move_id. Plain-English move effects are required before approval. Clover custom callback moves are completed in a dedicated source-code audit.",
+  "description": "Full plain-English mechanics registry for the current community move library. Every move must have status=complete before approval controls are enabled.",
   "moves": {
     "THOUSANDFOLDS": {
       "status": "complete",
@@ -5178,24 +5178,525 @@
     },
     "1000FOLDS": {
       "status": "complete",
-      "move_description": "A Steel-type strike that tears through defensive barriers.",
-      "effect_text": "Deals damage at 80 base power. Against a Steel-type target, Steel's usual resistance to this move is neutralized. The move is marked to break through Protect-style protection. If the target is not immune to Steel, it also removes Reflect, Light Screen, and Aurora Veil from the target's side before damage is resolved. The source also marks the move with its 'infiltrates' bypass flag.",
+      "move_description": "Deals damage, breaks Protect-style protection, and bypasses Substitute. Against Steel-type targets, Steel's normal resistance is ignored. If the target is not immune to Steel, Reflect, Light Screen, and Aurora Veil on that target's side are removed before the hit.",
+      "effect_text": "Deals damage, breaks Protect-style protection, and bypasses Substitute. Against Steel-type targets, Steel's normal resistance is ignored. If the target is not immune to Steel, Reflect, Light Screen, and Aurora Veil on that target's side are removed before the hit.",
       "priority": "0 (normal priority)",
-      "target": "One adjacent Pokémon",
+      "target": "one adjacent target",
       "contact": "Yes",
-      "move_flags": "Contact; can be blocked/copy-checked by the source's Protect/Mirror rules; breaks Protect; infiltrates",
-      "effect_chance": "Guaranteed when the listed conditions are met",
-      "status_effects": "None",
-      "stat_changes": "None",
-      "multi_hit": "No",
-      "recoil": "None",
-      "drain_or_healing": "None",
-      "switching_behavior": "None",
-      "screen_behavior": "Removes Reflect, Light Screen, and Aurora Veil from the target's side if the target is not immune to Steel.",
-      "type_effectiveness_rule": "When checking the defending Steel type, this move treats that Steel matchup as neutral instead of resisted.",
-      "source_description": "No separate prose description is present in the Clovermon Showdown move block; behavior is defined directly by callbacks and flags.",
-      "source_mechanics": "Source block: Squeetz/clovermon-showdown data/moves.ts at commit 008196c839c1efe859e2d59c092c88370b7752d6.",
-      "implementation_note": "For the DS port, verify the exact equivalent of Showdown's 'infiltrates' flag when translating the bypass behavior."
+      "move_flags": "contact, protect, mirror"
+    },
+    "SLEAZYSPORES": {
+      "status": "complete",
+      "move_description": "Sets Sleazy Spores on the opposing side. Each switch-in that is affected by powder has its Speed lowered by 1 stage. Heavy-Duty Boots prevent the effect. If a Grass-type Pokémon switches in, Sleazy Spores are removed from that side.",
+      "effect_text": "Sets Sleazy Spores on the opposing side. Each switch-in that is affected by powder has its Speed lowered by 1 stage. Heavy-Duty Boots prevent the effect. If a Grass-type Pokémon switches in, Sleazy Spores are removed from that side.",
+      "priority": "0 (normal priority)",
+      "target": "the opposing side",
+      "contact": "No",
+      "move_flags": "reflectable, powder"
+    },
+    "SLIMEGULP": {
+      "status": "complete",
+      "move_description": "Deals damage and suppresses the target's Ability with a Gastro Acid-style effect unless that Ability is permanent. The Ability suppression is also applied if the hit is absorbed by a Substitute.",
+      "effect_text": "Deals damage and suppresses the target's Ability with a Gastro Acid-style effect unless that Ability is permanent. The Ability suppression is also applied if the hit is absorbed by a Substitute.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "No",
+      "move_flags": "protect, mirror"
+    },
+    "FRUITPUNCH": {
+      "status": "complete",
+      "move_description": "Deals damage; 20% chance to lowers the target's Defense by 1 stage.",
+      "effect_text": "Deals damage; 20% chance to lowers the target's Defense by 1 stage.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "Yes",
+      "move_flags": "contact, protect, mirror, punch",
+      "effect_chance": "20%"
+    },
+    "DRAGONFIST": {
+      "status": "complete",
+      "move_description": "Deals damage; 10% chance to inflict paralysis.",
+      "effect_text": "Deals damage; 10% chance to inflict paralysis.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "Yes",
+      "move_flags": "contact, protect, mirror, punch",
+      "effect_chance": "10%"
+    },
+    "LICKCLEAN": {
+      "status": "complete",
+      "move_description": "Deals damage, removes all positive stat boosts from the target, and heals the user. The healing amount scales with the number of positive boost stages removed.",
+      "effect_text": "Deals damage, removes all positive stat boosts from the target, and heals the user. The healing amount scales with the number of positive boost stages removed.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "Yes",
+      "move_flags": "contact, protect, mirror"
+    },
+    "SPEEDWEED": {
+      "status": "complete",
+      "move_description": "Deals damage; has +1 priority.",
+      "effect_text": "Deals damage; has +1 priority.",
+      "priority": "+1 (priority)",
+      "target": "one adjacent target",
+      "contact": "Yes",
+      "move_flags": "contact, protect, mirror"
+    },
+    "OVERBITE": {
+      "status": "complete",
+      "move_description": "Deals damage, then the user loses 50% of its maximum HP.",
+      "effect_text": "Deals damage, then the user loses 50% of its maximum HP.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "Yes",
+      "move_flags": "contact, protect, mirror"
+    },
+    "WARHEAD": {
+      "status": "complete",
+      "move_description": "Deals damage.",
+      "effect_text": "Deals damage.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "No",
+      "move_flags": "protect, mirror"
+    },
+    "WEIRDFLEX": {
+      "status": "complete",
+      "move_description": "Has +4 priority. Raises the user's Attack and Defense by 1 stage each, lowers its Speed by 2 stages, redirects opposing single-target moves toward the user for the turn, and prevents the user from being knocked out by move damage that turn, leaving it at 1 HP instead. It uses Protect-style consecutive-use failure scaling.",
+      "effect_text": "Has +4 priority. Raises the user's Attack and Defense by 1 stage each, lowers its Speed by 2 stages, redirects opposing single-target moves toward the user for the turn, and prevents the user from being knocked out by move damage that turn, leaving it at 1 HP instead. It uses Protect-style consecutive-use failure scaling.",
+      "priority": "+4 (priority)",
+      "target": "the user",
+      "contact": "No",
+      "move_flags": "snatch"
+    },
+    "HULKUP": {
+      "status": "complete",
+      "move_description": "Raises the user's Attack and Defense by 1 stage each. If the user is at half HP or less, it raises both stats by 2 stages instead.",
+      "effect_text": "Raises the user's Attack and Defense by 1 stage each. If the user is at half HP or less, it raises both stats by 2 stages instead.",
+      "priority": "0 (normal priority)",
+      "target": "the user",
+      "contact": "No",
+      "move_flags": "snatch"
+    },
+    "FOCUSMUNCH": {
+      "status": "complete",
+      "move_description": "Has -3 priority. If the user is hit by a damaging move before it acts, the move fails. If it succeeds, it restores 50% of the user's maximum HP and raises the user's accuracy by 1 stage.",
+      "effect_text": "Has -3 priority. If the user is hit by a damaging move before it acts, the move fails. If it succeeds, it restores 50% of the user's maximum HP and raises the user's accuracy by 1 stage.",
+      "priority": "-3 (priority)",
+      "target": "the user",
+      "contact": "No",
+      "move_flags": "No special move flags recorded in the source block"
+    },
+    "MOP": {
+      "status": "complete",
+      "move_description": "Removes entry hazards from the user's side, including Spikes, Toxic Spikes, Stealth Rock, Sticky Web, Sleazy Spores, and Steelsurge. If it removes at least one hazard, it also raises the user's accuracy by 1 stage.",
+      "effect_text": "Removes entry hazards from the user's side, including Spikes, Toxic Spikes, Stealth Rock, Sticky Web, Sleazy Spores, and Steelsurge. If it removes at least one hazard, it also raises the user's accuracy by 1 stage.",
+      "priority": "0 (normal priority)",
+      "target": "the user",
+      "contact": "No",
+      "move_flags": "No special move flags recorded in the source block"
+    },
+    "QUICKSAND": {
+      "status": "complete",
+      "move_description": "Deals damage; has +1 priority.",
+      "effect_text": "Deals damage; has +1 priority.",
+      "priority": "+1 (priority)",
+      "target": "one adjacent target",
+      "contact": "No",
+      "move_flags": "protect, mirror"
+    },
+    "THINKFAST": {
+      "status": "complete",
+      "move_description": "Deals damage; has +1 priority.",
+      "effect_text": "Deals damage; has +1 priority.",
+      "priority": "+1 (priority)",
+      "target": "one adjacent target",
+      "contact": "No",
+      "move_flags": "protect, mirror"
+    },
+    "BOLTBEAM": {
+      "status": "complete",
+      "move_description": "Deals damage and uses combined Electric- and Ice-type effectiveness when calculating how effective the hit is against the target.",
+      "effect_text": "Deals damage and uses combined Electric- and Ice-type effectiveness when calculating how effective the hit is against the target.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "No",
+      "move_flags": "protect, mirror"
+    },
+    "CHECKEM": {
+      "status": "complete",
+      "move_description": "Hits 2–5 times. It is normally Special, but becomes Physical for that use if the user's Attack is higher than its Sp. Atk.",
+      "effect_text": "Hits 2–5 times. It is normally Special, but becomes Physical for that use if the user's Attack is higher than its Sp. Atk.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "No",
+      "move_flags": "protect, mirror",
+      "multi_hit": "2–5 hits"
+    },
+    "PIXIEPUMMEL": {
+      "status": "complete",
+      "move_description": "Deals damage.",
+      "effect_text": "Deals damage.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "Yes",
+      "move_flags": "contact, protect, mirror"
+    },
+    "GAYAGENDA": {
+      "status": "complete",
+      "move_description": "Affects a target only if the user and target are the same gender. While affected, the target has a 50% chance to be unable to move each turn. The effect ends if the source leaves the field, cannot be passed by Baton Pass, and bypasses Substitute.",
+      "effect_text": "Affects a target only if the user and target are the same gender. While affected, the target has a 50% chance to be unable to move each turn. The effect ends if the source leaves the field, cannot be passed by Baton Pass, and bypasses Substitute.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "Yes",
+      "move_flags": "protect, reflectable, mirror, authentic",
+      "multi_hit": "2–5 hits"
+    },
+    "SPOOPERPOWER": {
+      "status": "complete",
+      "move_description": "Deals damage using the user's higher attacking stat: it becomes Physical if the user's Attack is higher than its Sp. Atk; otherwise it remains Special.",
+      "effect_text": "Deals damage using the user's higher attacking stat: it becomes Physical if the user's Attack is higher than its Sp. Atk; otherwise it remains Special.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "No",
+      "move_flags": "protect, mirror"
+    },
+    "GREATRAGE": {
+      "status": "complete",
+      "move_description": "Deals damage.",
+      "effect_text": "Deals damage.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "No",
+      "move_flags": "sound, protect, mirror"
+    },
+    "WOWWIENER": {
+      "status": "complete",
+      "move_description": "Hits the target 2–5 times.",
+      "effect_text": "Hits the target 2–5 times.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "No",
+      "move_flags": "protect, mirror",
+      "multi_hit": "2–5 hits"
+    },
+    "BLOBBYBOP": {
+      "status": "complete",
+      "move_description": "Deals damage; does not miss under normal accuracy checks.",
+      "effect_text": "Deals damage; does not miss under normal accuracy checks.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "Yes",
+      "move_flags": "contact, protect, mirror"
+    },
+    "BANHAMMER": {
+      "status": "complete",
+      "move_description": "Deals damage and applies Torment to the target, preventing it from using the same move twice in a row. Dynamaxed targets are not given Torment.",
+      "effect_text": "Deals damage and applies Torment to the target, preventing it from using the same move twice in a row. Dynamaxed targets are not given Torment.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "No",
+      "move_flags": "protect, mirror"
+    },
+    "HOMERUNBAT": {
+      "status": "complete",
+      "move_description": "Has -6 priority. Deals damage and forces the target to switch out.",
+      "effect_text": "Has -6 priority. Deals damage and forces the target to switch out.",
+      "priority": "-6 (priority)",
+      "target": "one adjacent target",
+      "contact": "Yes",
+      "move_flags": "contact, protect"
+    },
+    "ELBOWDROP": {
+      "status": "complete",
+      "move_description": "Deals damage.",
+      "effect_text": "Deals damage.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "Yes",
+      "move_flags": "contact, protect, mirror"
+    },
+    "ANATTACK": {
+      "status": "complete",
+      "move_description": "Deals damage.",
+      "effect_text": "Deals damage.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "No",
+      "move_flags": "protect, mirror"
+    },
+    "CHAOSDUNK": {
+      "status": "complete",
+      "move_description": "Deals damage.",
+      "effect_text": "Deals damage.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "Yes",
+      "move_flags": "contact, protect, mirror"
+    },
+    "COMENGO": {
+      "status": "complete",
+      "move_description": "Hits the target 2–5 times.",
+      "effect_text": "Hits the target 2–5 times.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "No",
+      "move_flags": "bullet, protect, mirror",
+      "multi_hit": "2–5 hits"
+    },
+    "DAILYDOSE": {
+      "status": "complete",
+      "move_description": "Deals damage and has a 20% chance to randomly inflict regular poison, bad poison, or sleep.",
+      "effect_text": "Deals damage and has a 20% chance to randomly inflict regular poison, bad poison, or sleep.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "No",
+      "move_flags": "protect, mirror",
+      "effect_chance": "20%"
+    },
+    "DECAYDRAIN": {
+      "status": "complete",
+      "move_description": "Deals damage and restores the user's HP by 50% of the damage dealt.",
+      "effect_text": "Deals damage and restores the user's HP by 50% of the damage dealt.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "No",
+      "move_flags": "protect, mirror, heal",
+      "drain_or_healing": "Restores 50% of damage dealt"
+    },
+    "DILDOCANNON": {
+      "status": "complete",
+      "move_description": "Hits the target 2–5 times.",
+      "effect_text": "Hits the target 2–5 times.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "No",
+      "move_flags": "bullet, protect, mirror",
+      "multi_hit": "2–5 hits"
+    },
+    "ENEMA": {
+      "status": "complete",
+      "move_description": "Deals damage and restores the user's HP by 50% of the damage dealt.",
+      "effect_text": "Deals damage and restores the user's HP by 50% of the damage dealt.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "Yes",
+      "move_flags": "contact, protect, mirror, heal",
+      "drain_or_healing": "Restores 50% of damage dealt"
+    },
+    "EROSIONWAVE": {
+      "status": "complete",
+      "move_description": "Deals damage; 10% chance to lowers the target's Sp. Def by 1 stage.",
+      "effect_text": "Deals damage; 10% chance to lowers the target's Sp. Def by 1 stage.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "No",
+      "move_flags": "protect, mirror, nonsky",
+      "effect_chance": "10%"
+    },
+    "FALCONPUNCH": {
+      "status": "complete",
+      "move_description": "Deals damage; 10% chance to inflict burn.",
+      "effect_text": "Deals damage; 10% chance to inflict burn.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "Yes",
+      "move_flags": "contact, protect, punch, mirror",
+      "effect_chance": "10%"
+    },
+    "FIREBOMB": {
+      "status": "complete",
+      "move_description": "Deals damage.",
+      "effect_text": "Deals damage.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "No",
+      "move_flags": "protect, mirror"
+    },
+    "FIZZBITCH": {
+      "status": "complete",
+      "move_description": "Deals damage; 10% chance to inflict paralysis.",
+      "effect_text": "Deals damage; 10% chance to inflict paralysis.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "No",
+      "move_flags": "protect, mirror",
+      "effect_chance": "10%"
+    },
+    "FORYOU": {
+      "status": "complete",
+      "move_description": "Deals damage and always lowers the target's Defense by 1 stage.",
+      "effect_text": "Deals damage and always lowers the target's Defense by 1 stage.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "Yes",
+      "move_flags": "contact, protect, mirror",
+      "effect_chance": "100%"
+    },
+    "FUTABABREAK": {
+      "status": "complete",
+      "move_description": "Deals damage and removes Reflect, Light Screen, and Aurora Veil from the target's side before the hit if the target is not immune to Grass. The screen removal can occur even through Substitute.",
+      "effect_text": "Deals damage and removes Reflect, Light Screen, and Aurora Veil from the target's side before the hit if the target is not immune to Grass. The screen removal can occur even through Substitute.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "No",
+      "move_flags": "protect, mirror"
+    },
+    "HOLYDUTY": {
+      "status": "complete",
+      "move_description": "Deals extremely high damage to all adjacent Pokémon, then causes the user to faint.",
+      "effect_text": "Deals extremely high damage to all adjacent Pokémon, then causes the user to faint.",
+      "priority": "0 (normal priority)",
+      "target": "all adjacent Pokémon",
+      "contact": "No",
+      "move_flags": "protect, mirror"
+    },
+    "LACTOSESHOT": {
+      "status": "complete",
+      "move_description": "Deals damage, then lowers the user's Sp. Atk by 2 stages.",
+      "effect_text": "Deals damage, then lowers the user's Sp. Atk by 2 stages.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "No",
+      "move_flags": "protect, mirror"
+    },
+    "MEME": {
+      "status": "complete",
+      "move_description": "Deals damage and has a 10% chance to raise the user's Attack, Defense, Sp. Atk, Sp. Def, and Speed by 1 stage each.",
+      "effect_text": "Deals damage and has a 10% chance to raise the user's Attack, Defense, Sp. Atk, Sp. Def, and Speed by 1 stage each.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "Yes",
+      "move_flags": "contact, protect, mirror",
+      "effect_chance": "10%"
+    },
+    "OVERENERGIZE": {
+      "status": "complete",
+      "move_description": "Deals damage, then lowers the user's Sp. Atk by 2 stages.",
+      "effect_text": "Deals damage, then lowers the user's Sp. Atk by 2 stages.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "No",
+      "move_flags": "protect, mirror"
+    },
+    "OWTHEEDGE": {
+      "status": "complete",
+      "move_description": "Deals damage and inflicts recoil equal to 25% of the damage dealt.",
+      "effect_text": "Deals damage and inflicts recoil equal to 25% of the damage dealt.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "Yes",
+      "move_flags": "contact, protect, mirror",
+      "recoil": "25% of damage dealt"
+    },
+    "PUKEBLOOD": {
+      "status": "complete",
+      "move_description": "Deals damage and inflicts recoil equal to 25% of the damage dealt.",
+      "effect_text": "Deals damage and inflicts recoil equal to 25% of the damage dealt.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "No",
+      "move_flags": "protect, mirror",
+      "recoil": "25% of damage dealt"
+    },
+    "PUNCHOUT": {
+      "status": "complete",
+      "move_description": "Deals damage, then switches the user out.",
+      "effect_text": "Deals damage, then switches the user out.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "Yes",
+      "move_flags": "contact, protect, punch, mirror"
+    },
+    "REGENERATE": {
+      "status": "complete",
+      "move_description": "Restores 50% of the user's maximum HP and cures its major status condition. It fails if the user is already at full HP and has no curable status.",
+      "effect_text": "Restores 50% of the user's maximum HP and cures its major status condition. It fails if the user is already at full HP and has no curable status.",
+      "priority": "0 (normal priority)",
+      "target": "the user",
+      "contact": "No",
+      "move_flags": "snatch, heal"
+    },
+    "RIOTSHIELD": {
+      "status": "complete",
+      "move_description": "Deals damage and sets Safeguard on the user's side.",
+      "effect_text": "Deals damage and sets Safeguard on the user's side.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "Yes",
+      "move_flags": "contact, protect"
+    },
+    "SHITPOST": {
+      "status": "complete",
+      "move_description": "Deals damage to a random adjacent foe and locks the user into repeating the move for the standard locked-move duration; when that sequence ends, the user becomes confused.",
+      "effect_text": "Deals damage to a random adjacent foe and locks the user into repeating the move for the standard locked-move duration; when that sequence ends, the user becomes confused.",
+      "priority": "0 (normal priority)",
+      "target": "a random adjacent foe",
+      "contact": "Yes",
+      "move_flags": "contact, protect, mirror"
+    },
+    "SPOOKOUT": {
+      "status": "complete",
+      "move_description": "Has +3 priority and only works on the user's first turn after entering battle. If it hits, it always makes the target flinch. It is a sound-based move.",
+      "effect_text": "Has +3 priority and only works on the user's first turn after entering battle. If it hits, it always makes the target flinch. It is a sound-based move.",
+      "priority": "+3 (priority)",
+      "target": "one adjacent target",
+      "contact": "No",
+      "move_flags": "sound, protect, mirror",
+      "effect_chance": "100%"
+    },
+    "STRATOBLADE": {
+      "status": "complete",
+      "move_description": "Deals damage and has a high critical-hit ratio.",
+      "effect_text": "Deals damage and has a high critical-hit ratio.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "Yes",
+      "move_flags": "contact, protect, mirror"
+    },
+    "SUPERSNORE": {
+      "status": "complete",
+      "move_description": "Deals very high damage but can only be used successfully while the user is asleep or has Comatose. It is a sound-based move and bypasses Substitute.",
+      "effect_text": "Deals very high damage but can only be used successfully while the user is asleep or has Comatose. It is a sound-based move and bypasses Substitute.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "No",
+      "move_flags": "protect, mirror, sound, authentic"
+    },
+    "TOKE": {
+      "status": "complete",
+      "move_description": "Raises the user's Attack, Sp. Atk, and Speed by 2 stages each, but lowers the user's Defense and Sp. Def by 1 stage each.",
+      "effect_text": "Raises the user's Attack, Sp. Atk, and Speed by 2 stages each, but lowers the user's Defense and Sp. Def by 1 stage each.",
+      "priority": "0 (normal priority)",
+      "target": "the user",
+      "contact": "No",
+      "move_flags": "snatch"
+    },
+    "TOXIRAVAGE": {
+      "status": "complete",
+      "move_description": "Deals damage with +1 priority.",
+      "effect_text": "Deals damage with +1 priority.",
+      "priority": "+1 (priority)",
+      "target": "one adjacent target",
+      "contact": "Yes",
+      "move_flags": "contact, protect, mirror"
+    },
+    "TRIGGER": {
+      "status": "complete",
+      "move_description": "Deals damage and doubles in power when used consecutively: 30 → 60 → 120 base power. The chain resets if the move is not refreshed on the next turn.",
+      "effect_text": "Deals damage and doubles in power when used consecutively: 30 → 60 → 120 base power. The chain resets if the move is not refreshed on the next turn.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "Yes",
+      "move_flags": "contact, protect, mirror"
+    },
+    "SUDOKU": {
+      "status": "complete",
+      "move_description": "Causes the user to faint when the move successfully resolves.",
+      "effect_text": "Causes the user to faint when the move successfully resolves.",
+      "priority": "0 (normal priority)",
+      "target": "the user",
+      "contact": "No",
+      "move_flags": "No special move flags recorded in the source block"
     }
   }
 }
