@@ -56,11 +56,11 @@ Result: **63** imported, including 8 Sound-type designs.
 
 ### Pokémon Rejuvenation via Rejuvenation Wiki Converter — All-Type Source Sweep 03
 Pinned commit: `05677bfc23298db5bbe484f731ec60c7fd801c5a`
-Result: **43** imported.
+Result: **43** imported, including Qmarks/Shadow source-specific records.
 
 ### Pokémon Reborn Episode 19.16 snapshot — All-Type Source Sweep 04
 Pinned commit: `655411b65ee3fc166c916b6f15c55a398d9daf01`
-Result: **0** imported after official filtering.
+Result: **0** original named move designs after auditing 771 move records and filtering official move IDs/names.
 
 ### Pokémon Uranium 1.3.1 via uranium-mining — All-Type Source Sweep 05
 Pinned commit: `33e18f15c892e431f2d188363daba64bd51406b4`
@@ -68,18 +68,18 @@ Result: **30** imported, including 12 Nuclear-type designs.
 
 ### Pokémon Insurgence via Insurgence-Showdown — All-Type Source Sweep 06
 Pinned commit: `72d72a7af4642d3c8391ab1118f0afbb2647020b`
-Result: **22** imported, including 1 Crystal-type design.
+Result: **22** imported after direct diff against upstream Pokémon Showdown.
 
 ### Pokémon Clover via Clovermon Showdown — All-Type Source Sweep 07
 Pinned commit: `008196c839c1efe859e2d59c092c88370b7752d6`
-Result after direct diff against upstream Pokémon Showdown:
-- 60 fork-specific move designs identified
-- 2 already present in the master catalog: Inverse Room and Scorched Earth
-- **58 new designs imported**
+Result: **58** imported after direct diff against upstream Pokémon Showdown.
+Two fork-specific records, **Inverse Room** and **Scorched Earth**, were already present in the master catalog and were not duplicated.
+This sweep added:
 - 33 Physical
 - 16 Special
 - 9 Status
-- 2 use Clover's source-native `???` type
+- 56 canonical-type designs
+- 2 source-native `???`-type designs
 
 Master catalog progression: **187 → 250 → 293 → 293 → 323 → 345 → 403**.
 
