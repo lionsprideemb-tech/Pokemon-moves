@@ -1,29 +1,43 @@
 #!/usr/bin/env python3
 from pathlib import Path
+import re
 import sys
 
 root = Path(__file__).resolve().parents[1]
-anim = root / "animations" / "hg-engine"
 expected = set(range(471, 923))
-present = set()
 
-for path in anim.glob("*.s"):
+animations = set()
+for path in (root / "animations" / "hg-engine").glob("gen*/*.s"):
     try:
-        present.add(int(path.stem))
+        animations.add(int(path.stem))
     except ValueError:
         pass
 
-missing = sorted(expected - present)
-extra = sorted(present - expected)
+mechanics = set()
+rx = re.compile(r"move_script_(\d{4})_.*\.s$")
+for path in (root / "mechanics" / "hg-engine" / "move_scripts").glob("move_script_*.s"):
+    m = rx.match(path.name)
+    if m:
+        mechanics.add(int(m.group(1)))
 
-print(f"Expected: {len(expected)}")
-print(f"Present:  {len(present & expected)}")
-if missing:
-    print("Missing:", ", ".join(map(str, missing)))
-if extra:
-    print("Extra numeric IDs:", ", ".join(map(str, extra)))
+missing_anim = sorted(expected - animations)
+missing_mech = sorted(expected - mechanics)
+extra_anim = sorted(animations - expected)
+extra_mech = sorted(mechanics - expected)
 
-if missing:
+print(f"Animations: {len(animations & expected)}/452")
+print(f"Mechanics:  {len(mechanics & expected)}/452")
+
+if missing_anim:
+    print("Missing animations:", ", ".join(map(str, missing_anim)))
+if missing_mech:
+    print("Missing mechanics:", ", ".join(map(str, missing_mech)))
+if extra_anim:
+    print("Extra animation IDs:", ", ".join(map(str, extra_anim)))
+if extra_mech:
+    print("Extra mechanics IDs:", ", ".join(map(str, extra_mech)))
+
+if missing_anim or missing_mech:
     sys.exit(1)
 
-print("PASS: 452/452 modern DS move animation scripts are present.")
+print("PASS: complete 452/452 modern DS move animation + mechanics coverage.")
