@@ -1,10 +1,10 @@
 # Community Discovery Matrix
 
 Status legend:
-- **N** — source-certified non-vanilla moves already in `community_moves.csv`
-- **Pending** — no move in that category has been found in the sources audited so far
+- **Seeded (N)** — source-certified non-vanilla moves are already in `community_moves.csv`
+- **Pending** — that category still has no discovery from the sources audited so far
 
-## Canonical Pokémon types
+## Canonical 18-type coverage
 
 | Type | Physical | Special | Status | Total |
 |---|---:|---:|---:|---:|
@@ -28,27 +28,36 @@ Status legend:
 | Fairy | **12** | **1** | Pending | **13** |
 | **Canonical total** | **163** | **53** | **26** | **242** |
 
-## Source-native custom types
+## Source-specific custom types retained
 
-Some fangames introduce their own type systems. These are retained source-faithfully instead of being forced into one of the canonical 18 types.
+Vanguard defines a non-canonical **Sound** type. These designs are preserved source-faithfully instead of being silently remapped:
 
-| Source type | Physical | Special | Status | Total |
+| Custom Type | Physical | Special | Status | Total |
 |---|---:|---:|---:|---:|
 | Sound | **6** | **1** | **1** | **8** |
 
-**Grand catalog total: 250 unique community move designs — 169 Physical, 54 Special, 27 Status.**
+**Grand total: 250 unique non-vanilla move designs**
+- 169 Physical
+- 54 Special
+- 27 Status
 
 ## Source coverage so far
 
 ### Pokémon Elite Redux — All-Type Source Sweep 01
 Pinned config commit: `e32616fea6ccf5245096d8d7eeb54f0f5ac0b2a7`
 
-Result: **187** source-certified non-vanilla moves across all 18 canonical types.
+Result: **187** distinct non-vanilla moves across all 18 canonical types.
 
-### Pokémon Vanguard — All-Type Source Sweep 02
-Data source: Vanguard PBS snapshot bundled with PokeRover.
-Pinned PokeRover commit: `4919c813a9d1f3f1e1bed54189bf541d46fc7e8a`
+### Pokémon Vanguard via PokeRover PBS snapshot — All-Type Source Sweep 02
+Pinned snapshot commit: `4919c813a9d1f3f1e1bed54189bf541d46fc7e8a`
 
-Result: **63 unique custom move designs** after filtering official Pokémon moves and deduplicating a repeated Code:Power definition. Of these, 55 use canonical types and 8 use Vanguard's custom Sound type.
+PokeRover states that its bundled PBS files are from Pokémon Vanguard patch 3.0.16.
 
-This matrix is updated after each **source-wide** sweep. Empty cells are useful gap signals, but they do not change the workflow into one-cell-at-a-time searching.
+Result after official-move filtering and source-local deduplication:
+- 64 custom PBS sections identified
+- 63 unique custom move designs retained
+- 55 designs use canonical Pokémon types
+- 8 designs use Vanguard's custom Sound type
+- Master catalog increased from **187 → 250** unique designs
+
+This matrix is updated from the canonical master manifest after each source-wide sweep. We do **not** search one type/category cell at a time; remaining gaps are targets for later source projects.
