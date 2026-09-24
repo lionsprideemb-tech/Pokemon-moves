@@ -1,34 +1,34 @@
 # Current 519-Move Mechanics Audit — Status Checkpoint
 
-Status: **SOURCE RECOVERY COMPLETE — FOUR MERCURY DESIGN DECISIONS REMAIN**
+Status: **MECHANICS COMPLETE — 519/519 READY FOR APPROVAL**
 
 Date: 2026-09-24
 
-## Current coverage
+## Coverage
 
 - Master catalog: **519 unique moves**
 - Audit-detail records: **519/519**
-- Fully source-resolved mechanics records: **515**
-- Source-limited records: **3**
-- Source-conflict records: **1**
-- Total unresolved/design-decision blockers: **4**
+- Mercury mechanics-complete records: **519/519**
+- Mechanics blockers: **0**
+- Compact provisional ID range: **923–1441**
+- IDs unique, ordered, and contiguous
 
-The 11-batch validation sweep is complete. Additional public-source recovery was then attempted for every remaining blocker.
+The final four source gaps were resolved by explicit Mercury Redux design decisions after public-source recovery was exhausted. They are not mislabeled as recovered source behavior.
 
-## Remaining design-decision blockers
+## Final four Mercury resolutions
 
-### MOVE_AIRBORNE_SLAM — Airborne Slam
-Elite Redux never supplies power, accuracy, or PP in the audited public config/history. Its Normal/Physical identity, hammer flag, ignores-Protect behavior, 20% confusion intent, and Gigaton Hammer animation reference are source-supported. A downstream implementation supplies 85/100/10 but changes the type to Fighting, so those numbers are fallback design evidence rather than authoritative ER recovery.
+- **1013 — Airborne Slam:** Normal / Physical / 85 BP / 100% / 10 PP / 20% confusion; Hammer-based; ignores Protect.
+- **1160 — Hunter's Wilds:** Attack >= Sp. Atk lowers target Defense by 2; otherwise lowers target Sp. Def by 2.
+- **1162 — Terrestrial Claw:** 70 BP Dragon contact attack; Electric -> Speed +1, Grassy -> Defense +1, Psychic -> Attack +1, Misty -> Sp. Def +1; no terrain -> no boost.
+- **1219 — Shuffle:** 80% normal 60 BP damage; 20% no damage and heal target 25% max HP.
 
-### HUNTERSWILDS — Hunter's Wilds
-Vanguard's public PBS references custom function `EffectDependsOnHigherDamage`, but the public repository contains no matching runtime script. The exact Attack-higher and Sp. Atk-higher branches are not recoverable.
+## Visual workload
 
-### TERRESTRIALCLAW — Terrestrial Claw
-Vanguard's public PBS says terrain changes which stat is raised, but its assigned function name matches standard Terrain Pulse semantics and the custom override is absent. The terrain-to-stat mapping is not recoverable.
+- **365** defer until move approval
+- **61** unique post-Gen-4 donor certifications after Platinum-native porting
+- **93** Platinum/base-era donor spot-check cases
+- **0** blocked
 
-### SHUFFLE — Shuffle
-Uranium's public row is internally inconsistent: 60 BP Normal/Special damage data, Present-like healing prose, Roost's function code, and a 100% chance field. The public repository contains no runtime scripts to reconcile those fields.
+## Next phase
 
-## Recommended next step
-
-Use `checkpoints/MERCURY_RECOMMENDED_RESOLUTIONS_FOR_4_BLOCKERS.md` as the explicit Mercury design proposal. Once those four behaviors are accepted (or adjusted), promote them to `complete`, regenerate the compact plan, run full-catalog QA, and begin the approval/import stage.
+The mechanics audit is complete. Next is the **approval pass**, followed by compact final-ID regeneration for approved moves and then native Platinum implementation/import in controlled batches.
