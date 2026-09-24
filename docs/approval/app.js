@@ -514,20 +514,22 @@ function renderMove(m) {
   ]);
 
   const effects = [
-    ["Primary effect", displayValue(m.primary_effect), true],
-    ["Secondary effect", displayValue(m.secondary_effect), true]
+    ["What it does", plainEnglishEffect(m), true],
+    ["Primary source effect", displayValue(cleanEffectText(m.primary_effect)), true],
+    ["Secondary source effect", displayValue(cleanEffectText(m.secondary_effect)), true]
   ];
 
   if (m.audit && Object.keys(m.audit).length) {
     Object.keys(m.audit).forEach(function(key) {
-      if (key === "status" || key === "notes") return;
+      if (["status","notes","move_description","effect_text"].includes(key)) return;
       effects.push([prettyKey(key), displayValue(m.audit[key]), String(m.audit[key] || "").length > 80]);
     });
+    if (m.audit.move_description) effects.splice(1, 0, ["Move description", m.audit.move_description, true]);
     if (m.audit.notes) effects.push(["Detailed audit notes", m.audit.notes, true]);
   } else {
     effects.push([
       "Detailed mechanics audit",
-      "Pending. Priority, exact target behavior, contact/flag verification, effect chances, stat/status rules, recoil/drain, multihit, field interactions, and custom conditions will be added here as each move is source-audited.",
+      "Pending full source verification. This move should not be treated as ready for approval until its effect, priority, targeting, flags, status/stat changes, multihit rules, recoil/drain, switching behavior, and field interactions are written out in plain English.",
       true
     ]);
   }
@@ -698,6 +700,50 @@ function renderGrid(container, items) {
 function setPill(node, text, extraClass) {
   node.textContent = text;
   node.className = "pill" + (extraClass ? " " + extraClass : "");
+}
+
+function plainEnglishEffect(m) {
+  if (m.audit && m.audit.effect_text) return m.audit.effect_text;
+
+  const primary = cleanEffectText(m.primary_effect);
+  const secondary = cleanEffectText(m.secondary_effect);
+  const parts = [];
+
+  if (primary) {
+    if (/^damage$/i.test(primary)) parts.push("Deals damage.");
+    else parts.push(ensureSentence(primary));
+  }
+
+  if (secondary && !/^(none|n\/a)$/i.test(secondary)) {
+    parts.push(ensureSentence(secondary));
+  }
+
+  if (!parts.length) {
+    return "Plain-English effect pending full source audit.";
+  }
+
+  return parts.join(" ");
+}
+
+function cleanEffectText(value) {
+  let text = String(value == null ? "" : value).trim();
+  if (!text) return "";
+
+  // Remove internal implementation labels when a human-readable explanation follows.
+  text = text.replace(/^FunctionCode\s+[^;]+;\s*/i, "");
+
+  // If the record is only an internal effect code, don't pretend it is user-friendly.
+  if (/^(FunctionCode|effect code|custom_behavior)\b/i.test(text)) {
+    return "Plain-English effect pending source verification";
+  }
+
+  return text;
+}
+
+function ensureSentence(text) {
+  const t = String(text || "").trim();
+  if (!t) return "";
+  return /[.!?]$/.test(t) ? t : t + ".";
 }
 
 function displayValue(value) {
