@@ -4915,7 +4915,8 @@
       "target": "One adjacent Pokémon",
       "audit_basis": "Source-verified against the pinned Pokémon-Showdown-Sage move definition.",
       "source_mechanics": "Catalog stats: 120 power, 0 accuracy, 10 PP. Source record: SageFox/Pokemon-Showdown-Sage@f6757adccfc138272f10e738afdc36472387e646 → data/moves.js.",
-      "move_flags": "contact;drain;magikarp-only;rain-setting;aqua-ring;magic-coat;recharge;confusion;defense-drop;spatk-drop"
+      "move_flags": "contact;drain;magikarp-only;rain-setting;aqua-ring;magic-coat;recharge;confusion;defense-drop;spatk-drop",
+      "contact": "Yes"
     },
     "SLIMESHOT": {
       "status": "complete",
@@ -5098,7 +5099,8 @@
       "target": "User",
       "audit_basis": "Source-verified against the pinned Pokémon Untamed PBS move data and, where necessary, the project's battle-script implementation.",
       "source_mechanics": "Catalog stats: 0 power, 0 accuracy, 20 PP. Source record: untamed-team/project-untamed@8d757cdeb132c947602dce6a9f327fc5883e84c2 → PBS/moves.txt.",
-      "move_flags": "target-User"
+      "move_flags": "target-User",
+      "contact": "No"
     },
     "SCATTERDUST": {
       "status": "complete",
@@ -5267,7 +5269,8 @@
       "target": "One adjacent Pokémon",
       "audit_basis": "Source-verified against the pinned Pokémon Untamed PBS move data and, where necessary, the project's battle-script implementation.",
       "source_mechanics": "Catalog stats: 0 power, 85 accuracy, 10 PP. Source record: untamed-team/project-untamed@8d757cdeb132c947602dce6a9f327fc5883e84c2 → PBS/moves.txt.",
-      "move_flags": "source-specific-type-qmarks;target-NearOther"
+      "move_flags": "source-specific-type-qmarks;target-NearOther",
+      "contact": "No"
     },
     "TRIMTACKLE": {
       "status": "complete",
@@ -5300,7 +5303,8 @@
       "target": "User",
       "audit_basis": "Source-verified against the pinned Pokémon Untamed PBS move data and, where necessary, the project's battle-script implementation.",
       "source_mechanics": "Catalog stats: 0 power, 0 accuracy, 5 PP. Source record: untamed-team/project-untamed@8d757cdeb132c947602dce6a9f327fc5883e84c2 → PBS/moves.txt.",
-      "move_flags": "target-User"
+      "move_flags": "target-User",
+      "contact": "No"
     },
     "GOLDENSPLASH": {
       "status": "complete",
