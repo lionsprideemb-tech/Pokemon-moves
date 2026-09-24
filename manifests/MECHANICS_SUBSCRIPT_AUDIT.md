@@ -5,22 +5,20 @@ Phase F3 resolves the `MOVE_SUBSCRIPT_PTR_*` dependencies discovered in Phase F2
 ## Progress
 
 - Unique side-effect pointers requiring resolution: **90**
-- Resolved in F3 so far: **60/90**
-- Concrete subscript files collected so far: **53 unique**
+- Resolved in F3 so far: **70/90**
+- Concrete subscript files collected so far: **60 unique**
 - Source: `BluRosie/hg-engine @ 398a3020943f1ae98987e5b12b73d9086bbba3ce`
 
-## Batch 06 notes
+## Batch 07 notes
 
-- `POISON` is a full modern status pipeline covering Immunity, Comatose, Purifying Salt, Leaf Guard/weather suppression, Flower Veil, grounding, Misty Terrain, Shield Dust, Substitute, Corrosion, Poison/Steel typing including the third-type slot, Safeguard/Infiltrator, Synchronize, Toxic Spikes context, and berry curing.
-- `POLLEN_PUFF_HEAL` heals an allied target for half max HP via `BATTLE_SUBSCRIPT_RECOVER_HP` while ignoring normal type-effectiveness flow.
-- `POWDER` uses `SetMoveConditionFlag`, exposing another condition-state path for the later command/engine audit.
-- `POWER_SPLIT` directly averages both battlers' Attack and Sp. Atk values.
-- `PRESENT_HEAL` checks Heal Block before dispatching HP recovery.
-- `PRINT_MESSAGE_AND_PLAY_ANIMATION` is the generic buffered-message/animation helper used by several otherwise unrelated mechanics, including Sticky Web setup.
-- `PROTECT` depends on the specialized `TryProtection` command and then displays the prepared protection message.
-- `QUASH` uses `ChangeExecutionOrderPriority`, mirroring the execution-order dependency already seen with After You.
-- `QUIVER_DANCE` fans out through Sp. Atk, Sp. Def, and Speed stat-stage updates.
-- `RAISE_ATTACK_AND_ACCURACY` fans out through Attack and Accuracy stat-stage updates.
+- `RECHARGE_TURN` sets the recharge status, locks the attacker to the current move, and stores the recharge turn state.
+- `REFLECT` delegates side-condition setup to the specialized `TryReflect` command and then uses the prepared-message animation path.
+- `RESET_ALL_STAT_STAGES` directly invokes `ResetAllStatChanges`.
+- `SHED_TAIL` is a substantial compound script: it rejects an existing Substitute, requires a valid switch option and more than half HP, pays half max HP, creates a quarter-max-HP Substitute, clears the user's stat stages, removes Leech Seed, and marks Baton Pass-style switching state.
+- `SHELL_SMASH` applies Attack/Sp. Atk/Speed +2 and Defense/Sp. Def -1 through the common stat-stage engine.
+- `SHIFT_GEAR` applies Attack +1 and Speed +2 through the common stat updater.
+- `SLEEP` is a full modern status pipeline covering Insomnia/Vital Spirit, Comatose, Purifying Salt, Leaf Guard/weather suppression, Flower Veil, Electric/Misty Terrain, Shield Dust, Substitute, Uproar/Soundproof, Safeguard/Infiltrator, sleep-turn generation, move-choice unlocking, and semi-invulnerable state cleanup.
+- The three Speed-stage pointers in this batch all resolve to the already-collected `BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE`.
 
 The mapping manifest is `manifests/mechanics_subscript_resolution.csv`.
 
