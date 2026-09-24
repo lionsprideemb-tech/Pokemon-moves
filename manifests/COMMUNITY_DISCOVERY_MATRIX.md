@@ -8,25 +8,25 @@ Status legend:
 
 | Type | Physical | Special | Status | Total |
 |---|---:|---:|---:|---:|
-| Normal | **13** | **14** | **5** | **32** |
-| Fire | **17** | **10** | **5** | **32** |
-| Water | **11** | **5** | **2** | **18** |
-| Electric | **10** | **5** | **5** | **20** |
-| Grass | **15** | **4** | **5** | **24** |
-| Ice | **10** | **3** | **2** | **15** |
+| Normal | **14** | **16** | **5** | **35** |
+| Fire | **18** | **11** | **5** | **34** |
+| Water | **12** | **5** | **2** | **19** |
+| Electric | **10** | **7** | **5** | **22** |
+| Grass | **17** | **4** | **5** | **26** |
+| Ice | **12** | **3** | **2** | **17** |
 | Fighting | **14** | Pending | **3** | **17** |
-| Poison | **13** | **5** | **4** | **22** |
-| Ground | **17** | **4** | **2** | **23** |
-| Flying | **10** | **6** | Pending | **16** |
-| Psychic | **8** | **11** | **4** | **23** |
+| Poison | **13** | **6** | **4** | **23** |
+| Ground | **17** | **6** | **2** | **25** |
+| Flying | **11** | **7** | Pending | **18** |
+| Psychic | **8** | **13** | **4** | **25** |
 | Bug | **6** | **2** | Pending | **8** |
-| Rock | **10** | **7** | **1** | **18** |
-| Ghost | **10** | **8** | **2** | **20** |
+| Rock | **11** | **7** | **1** | **19** |
+| Ghost | **11** | **11** | **2** | **24** |
 | Dragon | **14** | **3** | **3** | **20** |
-| Dark | **13** | **8** | **3** | **24** |
-| Steel | **16** | **4** | **3** | **23** |
-| Fairy | **16** | **2** | **3** | **21** |
-| **Canonical total** | **223** | **101** | **52** | **376** |
+| Dark | **16** | **8** | **4** | **28** |
+| Steel | **17** | **4** | **3** | **24** |
+| Fairy | **17** | **3** | **3** | **23** |
+| **Canonical total** | **238** | **116** | **53** | **407** |
 
 ## Source-specific custom types retained
 
@@ -39,10 +39,10 @@ Status legend:
 | Shadow | Pending | Pending | **1** | **1** |
 | Sound | **6** | **1** | **1** | **8** |
 
-**Grand total: 403 unique non-vanilla move designs**
-- 236 Physical
-- 110 Special
-- 57 Status
+**Grand total: 434 unique non-vanilla move designs**
+- 251 Physical
+- 125 Special
+- 58 Status
 
 ## Source coverage so far
 
@@ -81,6 +81,19 @@ This sweep added:
 - 56 canonical-type designs
 - 2 source-native `???`-type designs
 
-Master catalog progression: **187 → 250 → 293 → 293 → 323 → 345 → 403**.
+### Pokémon Opalo via xorgies/PokemonOpalo — All-Type Source Sweep 08
+Pinned commit: `2133a2c0db1a0d8a78a6cc7090fddc62a0d0afeb`
+
+The repository is a data-conversion/web project for Pokémon Opalo and includes the Spanish move table at `JsonTransformer/txt/opalo/moves.txt`.
+
+Result: **30** new non-vanilla designs imported after excluding official/translated aliases such as High Jump Kick, Smelling Salts, Struggle, Dual Wingbeat, Liquidation, Flip Turn, First Impression, Smart Strike, Scorching Sands, High Horsepower, Pollen Puff, Psychic Fangs, Darkest Lariat, Accelerock, Lunge, and Fire Lash.
+
+Sweep 08 added:
+- 14 Physical
+- 15 Special
+- 1 Status
+- all 30 use canonical Pokémon types
+
+Master catalog progression: **187 → 250 → 293 → 293 → 323 → 345 → 403 → 434**.
 
 This matrix is updated after every source-wide audit. We do **not** search one type/category cell at a time; remaining gaps guide source selection without narrowing the sweep.
