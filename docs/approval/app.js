@@ -18,7 +18,8 @@ const animationManifests = [
   "manifests/OPALO_DS_ANIMATION_PASS_08.csv",
   "manifests/SAGE_DS_ANIMATION_PASS_09.csv",
   "manifests/UNTAMED_DS_ANIMATION_PASS_10.csv",
-  "manifests/ARMONIA_DS_ANIMATION_PASS_11.csv"
+  "manifests/ARMONIA_DS_ANIMATION_PASS_11.csv",
+  "manifests/COMMUNITY_DS_ANIMATION_RESCUE_PASS_12.csv"
 ];
 
 const state = {
