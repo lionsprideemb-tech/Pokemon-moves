@@ -13,29 +13,26 @@ Phase F3 has completed script dependency resolution and is now mapping mechanics
 - Batch 01: **10 commands**
 - Batch 02: **10 commands**
 - Batch 03: **10 commands**
-- Cumulative resolved command mappings: **30**
+- Batch 04: **10 commands**
+- Cumulative resolved command mappings: **40**
 
-The audit distinguishes three implementation classes:
+## Batch 04 findings
 
-1. **hg-engine new command table** — extended commands implemented in `src/battle/battle_script_commands.c`.
-2. **vanilla opcode replaced by hg-engine hook** — original HGSS command IDs whose runtime behavior is redirected to hg-engine implementations.
-3. **vanilla BattleScriptCmdTable** — commands still supplied by the base HGSS engine where no hg-engine replacement implementation was found.
-
-## Batch 03 findings
-
-- `UpdateTerrainOverlay` and `GotoIfTerrainOverlayIsType` define the modern terrain overlay state used by Grassy, Misty, Electric, and Psychic Terrain. The update command delegates to the shared terrain helper in `src/battle/ability.c`.
-- `ActivateParadoxAbility` and `ResetParadoxAbility` are explicit extended commands. They process Protosynthesis/Quark Drive state in battler speed order and coordinate field-condition versus Booster Energy activation/end scripts.
-- `SetFieldCondition2` and `IsFieldCondition2On` provide the secondary field-condition state used by Magic Room. The setter owns the five-turn Magic Room counter; `ServerFieldConditionCheck.c` is the engine-side lifetime/expiry dependency.
-- `TryIncinerate` implements modern item destruction for Berries/Gems, including Sticky Hold behavior and no-Recycle deletion.
-- `AddType` plus `GoToIfThirdType` formalize hg-engine's explicit third-type system, which is important for Forest's Curse, Trick-or-Treat, Leech Seed immunity, and several modern status checks.
-- `RemoveItem` remains a dependency on the original HGSS command table. It is used by several otherwise-modern mechanics, so Mercury integration cannot treat the extended C source alone as sufficient.
+- `HandleForestsCurse` and `HandleTrickOrTreat` are genuine engine-level third-type mutations, not cosmetic script effects. They add Grass/Ghost, store persistent move-condition flags, and are guarded against Terastallized targets. Their fail conditions are also enforced in `BattleController_BeforeMove.c`.
+- `HandleBurnUp` and `HandleDoubleShock` remove Fire/Electric typing respectively and store engine state flags. Their type-presence eligibility checks live in `BattleController_BeforeMove.c`, so copying only the post-hit command would be incomplete.
+- `ClearSmog` resets the defender's stat stages, but its activation is wired through `ServerDoPostMoveEffects.c`; this is a concrete example of why post-move hooks must be collected alongside scripts and commands.
+- `ClearAuroraVeil` directly clears the side flag and counter, complementing the broader `TryBreakScreens` command from Batch 02.
+- `AbilityPopup` is a full asynchronous UI command with allocation, animation state, script pausing, and cleanup—not just a message call.
+- `SetCurrentMoveSwitchingStatus` feeds a shared switching state used by Baton Pass, Parting Shot, pivot/forced-switch flows and consumed later by post-move/MoveEnd logic.
+- `RemoveEntryHazardFromQueue` is the cleanup half of the hazard queue model already identified through `AddEntryHazardToQueue`.
 
 ## Additional engine sources collected
 
-- `mechanics/hg-engine/engine/ability.c` — terrain/paradox helpers.
-- `mechanics/hg-engine/engine/other_battle_calculators.c` — shared type helpers including AddType.
-- `mechanics/hg-engine/engine/ServerFieldConditionCheck.c` — field-condition lifetime handling including Magic Room expiry.
+- `mechanics/hg-engine/engine/BattleController_BeforeMove.c`
+- `mechanics/hg-engine/engine/ServerDoPostMoveEffects.c`
+
+These files capture move eligibility/failure gates and post-hit dispatch that cannot be recovered from battle scripts alone.
 
 The cumulative command mapping is `manifests/mechanics_command_engine_audit.csv`.
 
-This is source resolution, not runtime certification. More mechanics-specific commands and before-move/post-move engine hooks still require mapping.
+This remains source resolution, not runtime certification. The next audit pass should continue through modern item, grounding/terrain, hazard, and protection-contact commands, then expand the before/post-move hook manifest.
