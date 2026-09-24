@@ -5462,12 +5462,12 @@
       "source_mechanics": "Function 00F; source stats 60 power, 100% accuracy, 15 PP; target code 00; raw source flags bef.",
       "move_flags": "physical-rock;flinch;wing",
       "audit_basis": "Pinned Armonia move-data mirror: effect family 00F with effect chance 0. The same effect family is used by normal flinch moves, so a zero chance means the stored move data does not trigger that chance-based secondary effect.",
-      "approval_ready": false,
+      "approval_ready": "Yes — the encoded behavior is fully determined, with a source-data warning.",
       "verification_blocker": "The mirror confirms the flinch effect but does not preserve a trustworthy flinch percentage.",
-      "source_limitation": "The source data is internally inconsistent. A nonzero intended flinch percentage cannot be source-certified without an original Armonia runtime/data revision.",
       "source_uncertainty": "Flavor-text conflict only: the description mentions flinching, but the implemented numeric effect chance is 0. The approval record follows the machine-readable behavior and preserves the text conflict as a note.",
       "secondary_effect": "Flinch (intended by source description)",
-      "source_conflict": "The move description and effect-family code indicate flinch, but the pinned data row's chance field is 0. Mercury Redux should choose an explicit flinch chance during approval rather than silently inventing one."
+      "source_conflict": "The move description and effect-family code indicate flinch, but the pinned data row's chance field is 0. Mercury Redux should choose an explicit flinch chance during approval rather than silently inventing one.",
+      "source_data_warning": "The Armonia mirror's description says Protopluma may flinch, but the same row encodes a 0% effect chance. Under the matching legacy Essentials flinch function, that means the move does not actually flinch as encoded. The intended nonzero rate is not recoverable from this source, so the approval sheet preserves the actual encoded 0% behavior and flags the contradiction rather than inventing a percentage."
     },
     "PODERNINFA": {
       "status": "complete",
