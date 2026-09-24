@@ -1,0 +1,5 @@
+{
+  "schema_version": 1,
+  "description": "Extended source-verified mechanics keyed by move_id. The approval board merges these fields into each move as full audits are completed.",
+  "moves": {}
+}
