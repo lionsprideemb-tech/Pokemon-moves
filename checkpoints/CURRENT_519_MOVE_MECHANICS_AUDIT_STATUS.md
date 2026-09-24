@@ -1,6 +1,6 @@
 # Current 519-Move Mechanics Audit — Status Checkpoint
 
-Status: **MECHANICS AUDIT NEAR-COMPLETE — FOUR SOURCE BLOCKERS REMAIN**
+Status: **SOURCE RECOVERY COMPLETE — FOUR MERCURY DESIGN DECISIONS REMAIN**
 
 Date: 2026-09-24
 
@@ -11,25 +11,24 @@ Date: 2026-09-24
 - Fully source-resolved mechanics records: **515**
 - Source-limited records: **3**
 - Source-conflict records: **1**
-- Total unresolved/blocker records: **4**
+- Total unresolved/design-decision blockers: **4**
 
-The approval board treats a move as mechanically approval-ready only when its audit status is `complete` and `approval_ready !== false`.
+The 11-batch validation sweep is complete. Additional public-source recovery was then attempted for every remaining blocker.
 
-## Remaining source blockers
+## Remaining design-decision blockers
 
 ### MOVE_AIRBORNE_SLAM — Airborne Slam
-Pinned Elite Redux MoveList.textproto omits power, accuracy, PP, and effect chance for this move and assigns EFFECT_PLACEHOLDER. The intended battle values cannot be certified from the audited source.
+Elite Redux never supplies power, accuracy, or PP in the audited public config/history. Its Normal/Physical identity, hammer flag, ignores-Protect behavior, 20% confusion intent, and Gigaton Hammer animation reference are source-supported. A downstream implementation supplies 85/100/10 but changes the type to Fighting, so those numbers are fallback design evidence rather than authoritative ER recovery.
 
 ### HUNTERSWILDS — Hunter's Wilds
-Targets one adjacent Pokémon with 100% accuracy and 2 PP. The public Vanguard data states that the move produces different effects depending on which of the user's attacking stats is higher, but the public PokeRover snapshot does not include the custom runtime function that defines those branches. The exact Attack-higher and Sp. Atk-higher effects therefore remain unverified and are not guessed.
+Vanguard's public PBS references custom function `EffectDependsOnHigherDamage`, but the public repository contains no matching runtime script. The exact Attack-higher and Sp. Atk-higher branches are not recoverable.
 
 ### TERRESTRIALCLAW — Terrestrial Claw
-Deals 70 base-power physical Dragon-type damage with 100% accuracy and makes contact. The source says it raises different stats depending on the active terrain, but the public PokeRover snapshot does not contain the custom TypeAndPowerDependOnTerrain implementation or the terrain-to-stat mapping. Those exact boosts are therefore not guessed.
+Vanguard's public PBS says terrain changes which stat is raised, but its assigned function name matches standard Terrain Pulse semantics and the custom override is absent. The terrain-to-stat mapping is not recoverable.
 
 ### SHUFFLE — Shuffle
-Source limitation: exact heal chance/amount is not documented in the audited public move data.
+Uranium's public row is internally inconsistent: 60 BP Normal/Special damage data, Present-like healing prose, Roost's function code, and a 100% chance field. The public repository contains no runtime scripts to reconcile those fields.
 
-## Recently cleared
+## Recommended next step
 
-- **ZARZAS / Brambles** — 0CF binding behavior source-resolved to 4–5 turns and 1/16 max-HP residual damage.
-- **PROTOPLUMA / Proto Feather** — encoded behavior resolved as 0% functional flinch; conflicting prose retained as a warning rather than a blocker.
+Use `checkpoints/MERCURY_RECOMMENDED_RESOLUTIONS_FOR_4_BLOCKERS.md` as the explicit Mercury design proposal. Once those four behaviors are accepted (or adjusted), promote them to `complete`, regenerate the compact plan, run full-catalog QA, and begin the approval/import stage.
