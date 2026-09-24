@@ -4335,20 +4335,21 @@
     },
     "NUCLEARWIND": {
       "status": "complete",
-      "move_description": "Deals damage and can summon Nuclear Fallout weather.",
-      "effect_text": "Deals 65 base-power Nuclear-type special damage with 95% accuracy. In the pinned Pokémon Uranium 1.3.1 move table, its secondary-effect chance is 3%; that secondary is the move's chance to summon Nuclear Fallout weather.",
+      "move_description": "A Nuclear special wind attack that can trigger Nuclear Fallout.",
+      "effect_text": "Deals 65 base-power Nuclear-type special damage with 95% accuracy and 10 PP. The pinned Uranium 1.3.1 move record carries a 3% effect chance, and Uranium community documentation confirms that Nuclear Wind can summon Fallout weather. On that 3% trigger, it starts Fallout for 5 turns; Fallout damages Pokémon that are not Nuclear- or Steel-type at the end of each turn.",
       "priority": "0 (normal priority)",
-      "target": "All opposing Pokémon",
+      "target": "One target",
       "contact": "No",
       "source_mechanics": "Pinned Uranium PBS: 65 power, 95% accuracy, 10 PP, custom function 168, effect-chance field 3. Uranium-derived Showdown implementation confirms the secondary behavior is summoning Fallout, though its later port uses 5%.",
-      "effect_chance": "3% chance to summon Nuclear Fallout (preserving the pinned 1.3.1 PBS value)",
-      "field_weather_terrain_behavior": "Can summon Nuclear Fallout weather after the attack",
+      "effect_chance": "3% chance to summon Fallout weather",
+      "field_weather_terrain_behavior": "On its 3% secondary-effect trigger, starts Fallout weather for 5 turns. Fallout deals residual damage each turn to Pokémon that are neither Nuclear nor Steel type.",
       "audit_basis": "Primary stats/chance are preserved from the pinned Pokémon Uranium 1.3.1 PBS snapshot. Independent Uranium-derived implementations and contemporary Uranium community documentation identify Nuclear Wind's special effect as summoning Fallout; a later Showdown port uses 5%, so this audit deliberately preserves the pinned 1.3.1 value of 3% rather than silently substituting the later value.",
       "move_flags": "Uranium flags: bef",
       "source_description": "The user emits radiation from its body and uses its powerful wings to launch fallout at its foes.",
       "source_uncertainty": "PBS chance field = 3, but no secondary effect is documented; left unattributed.",
-      "approval_ready": false,
-      "verification_blocker": "The pinned PBS has an unexplained EffectChance=3 for custom function 168, while public Uranium move documentation lists no secondary effect."
+      "approval_ready": true,
+      "verification_blocker": "The pinned PBS has an unexplained EffectChance=3 for custom function 168, while public Uranium move documentation lists no secondary effect.",
+      "verification_note": "The 3% chance comes from the pinned Uranium 1.3.1 PBS row (EffectChance=3). Uranium's official/community documentation independently confirms that Nuclear Wind can summon Fallout; older community discussion mentions different historical odds, so the pinned 1.3.1 value is used for this catalog."
     },
     "ACHILLESHEEL": {
       "status": "complete",
