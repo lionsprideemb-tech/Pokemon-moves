@@ -3321,8 +3321,8 @@
     },
     "VENAMSKISS": {
       "status": "complete",
-      "move_description": "The user kisses with corrosive acid that may leave the target poisoned. It is Super Effective against Steel-types.",
-      "effect_text": "The user kisses with corrosive acid that may leave the target poisoned. It is Super Effective against Steel-types.",
+      "move_description": "A contact Poison attack with a 10% poison chance that hits Steel-types super effectively.",
+      "effect_text": "Deals 75 base-power physical Poison-type damage and has a 10% chance to poison the target. The move is specifically super effective against Steel-type targets and makes contact.",
       "priority": "0 (normal priority)",
       "target": "One target other than the user",
       "contact": "Yes",
@@ -3330,7 +3330,9 @@
       "effect_chance": "10%",
       "source_description": "The user kisses with corrosive acid that may leave the target poisoned. It is Super Effective against Steel-types.",
       "source_mechanics": "Effect code 005. Power 75, Accuracy 100, PP 15.",
-      "audit_basis": "Source-verified against the pinned Rejuvenation Wiki Converter move database; custom behavior is expanded only where supporting public Rejuvenation-derived move logic was available."
+      "audit_basis": "Source-verified against the pinned Rejuvenation Wiki Converter move database; custom behavior is expanded only where supporting public Rejuvenation-derived move logic was available.",
+      "status_effects": "10% chance to poison",
+      "type_effectiveness_rule": "Specifically super effective against Steel-type targets."
     },
     "GALESTRIKE": {
       "status": "complete",
@@ -3386,16 +3388,17 @@
     },
     "BARBEDWEB": {
       "status": "complete",
-      "move_description": "The user spreads spiked silk which may inflict Poison.",
-      "effect_text": "The user spreads spiked silk which may inflict Poison.",
+      "move_description": "A spread Bug attack with a high critical-hit ratio and a 30% poison chance.",
+      "effect_text": "Deals 70 base-power physical Bug-type damage to all opposing Pokémon. It has a 30% chance to poison each target and has an increased critical-hit ratio.",
       "priority": "0 (normal priority)",
       "target": "All opposing Pokémon",
       "contact": "No",
-      "move_flags": "{\"HighCrit\"}; {\"Kingrock\"}",
+      "move_flags": "High critical-hit rate; King's Rock-compatible",
       "effect_chance": "30%",
       "source_description": "The user spreads spiked silk which may inflict Poison.",
       "source_mechanics": "Effect code 005. Power 70, Accuracy 100, PP 10.",
-      "audit_basis": "Source-verified against the pinned Rejuvenation Wiki Converter move database; custom behavior is expanded only where supporting public Rejuvenation-derived move logic was available."
+      "audit_basis": "Source-verified against the pinned Rejuvenation Wiki Converter move database; custom behavior is expanded only where supporting public Rejuvenation-derived move logic was available.",
+      "status_effects": "30% chance to poison each affected target"
     },
     "COLDTRUTH": {
       "status": "complete",
@@ -3530,8 +3533,8 @@
     },
     "PYROKINESIS": {
       "status": "complete",
-      "move_description": "The user lobs a ball of fire at the target formed from psychic energy. It may also leave the target with a burn.",
-      "effect_text": "The user lobs a ball of fire at the target formed from psychic energy. It may also leave the target with a burn.",
+      "move_description": "A Psychic projectile with a 30% burn chance.",
+      "effect_text": "Deals 80 base-power special Psychic-type damage and has a 30% chance to burn the target. It can thaw/defrost the user according to the source move flags.",
       "priority": "0 (normal priority)",
       "target": "One target other than the user",
       "contact": "No",
@@ -3539,7 +3542,8 @@
       "effect_chance": "30%",
       "source_description": "The user lobs a ball of fire at the target formed from psychic energy. It may also leave the target with a burn.",
       "source_mechanics": "Effect code 00A. Power 80, Accuracy 100, PP 15.",
-      "audit_basis": "Source-verified against the pinned Rejuvenation Wiki Converter move database; custom behavior is expanded only where supporting public Rejuvenation-derived move logic was available."
+      "audit_basis": "Source-verified against the pinned Rejuvenation Wiki Converter move database; custom behavior is expanded only where supporting public Rejuvenation-derived move logic was available.",
+      "status_effects": "30% chance to burn"
     },
     "ALPHASHOT": {
       "status": "complete",
@@ -3582,8 +3586,8 @@
     },
     "POISONSWEEP": {
       "status": "complete",
-      "move_description": "The user engulfs their foot with poison and proceeds to knock over their opponent. It may lower speed.",
-      "effect_text": "The user engulfs their foot with poison and proceeds to knock over their opponent. It may lower speed.",
+      "move_description": "A contact Poison attack with a 30% chance to lower Speed by 1 stage.",
+      "effect_text": "Deals 50 base-power physical Poison-type damage and has a 30% chance to lower the target's Speed by 1 stage. It makes contact.",
       "priority": "0 (normal priority)",
       "target": "One target other than the user",
       "contact": "Yes",
@@ -3591,7 +3595,8 @@
       "effect_chance": "30%",
       "source_description": "The user engulfs their foot with poison and proceeds to knock over their opponent. It may lower speed.",
       "source_mechanics": "Effect code 044. Power 50, Accuracy 100, PP 10.",
-      "audit_basis": "Source-verified against the pinned Rejuvenation Wiki Converter move database; custom behavior is expanded only where supporting public Rejuvenation-derived move logic was available."
+      "audit_basis": "Source-verified against the pinned Rejuvenation Wiki Converter move database; custom behavior is expanded only where supporting public Rejuvenation-derived move logic was available.",
+      "stat_changes": "30% chance: target Speed -1 stage"
     },
     "STACKINGSHOT": {
       "status": "complete",
@@ -3660,8 +3665,8 @@
     },
     "SLASHANDBURN": {
       "status": "complete",
-      "move_description": "The user slashes the opponent harshly. It may leave the target with a burn.",
-      "effect_text": "The user slashes the opponent harshly. It may leave the target with a burn.",
+      "move_description": "A slicing Grass attack with a 10% burn chance.",
+      "effect_text": "Deals 90 base-power physical Grass-type damage and has a 10% chance to burn the target. It makes contact and is flagged as a slicing/sharp move.",
       "priority": "0 (normal priority)",
       "target": "One target other than the user",
       "contact": "Yes",
@@ -3669,7 +3674,8 @@
       "effect_chance": "10%",
       "source_description": "The user slashes the opponent harshly. It may leave the target with a burn.",
       "source_mechanics": "Effect code 00A. Power 90, Accuracy 90, PP 10.",
-      "audit_basis": "Source-verified against the pinned Rejuvenation Wiki Converter move database; custom behavior is expanded only where supporting public Rejuvenation-derived move logic was available."
+      "audit_basis": "Source-verified against the pinned Rejuvenation Wiki Converter move database; custom behavior is expanded only where supporting public Rejuvenation-derived move logic was available.",
+      "status_effects": "10% chance to burn"
     },
     "ARENITEWALL": {
       "status": "complete",
@@ -3685,9 +3691,9 @@
       "audit_basis": "Source-verified against the pinned Rejuvenation Wiki Converter move database; custom behavior is expanded only where supporting public Rejuvenation-derived move logic was available."
     },
     "QUICKSILVERSPEAR": {
-      "status": "complete",
-      "move_description": "The user hurls a spear of quicksilver to pin the target. Drops speed and deals constant damage on Shadows/Rifts.",
-      "effect_text": "The user hurls a spear of quicksilver to pin the target. Drops speed and deals constant damage on Shadows/Rifts.",
+      "status": "source-limited",
+      "move_description": "A trapping Steel spear that always lowers Speed; it also deals extra constant damage to Shadow/Rift Pokémon.",
+      "effect_text": "Deals 80 base-power physical Steel-type damage with 75% accuracy. It traps every Pokémon it hits and always lowers the target's Speed by 1 stage. Against Shadow Pokémon and Rift Pokémon, the source also applies an additional fixed/constant-damage component, but the public move database and wiki do not expose the exact amount of that extra damage, so that number is not guessed.",
       "priority": "0 (normal priority)",
       "target": "One target other than the user",
       "contact": "No",
@@ -3695,7 +3701,12 @@
       "effect_chance": "100%",
       "source_description": "The user hurls a spear of quicksilver to pin the target. Drops speed and deals constant damage on Shadows/Rifts.",
       "source_mechanics": "Effect code 20A. Power 80, Accuracy 75, PP 5.",
-      "audit_basis": "Source-verified against the pinned Rejuvenation Wiki Converter move database; custom behavior is expanded only where supporting public Rejuvenation-derived move logic was available."
+      "audit_basis": "Source-verified against the pinned Rejuvenation Wiki Converter move database; custom behavior is expanded only where supporting public Rejuvenation-derived move logic was available.",
+      "stat_changes": "Target Speed -1 stage (100%)",
+      "switching_behavior": "Traps targets hit by the move.",
+      "custom_conditions": "Applies additional constant damage to Shadow/Rift Pokémon; exact amount is not exposed in the audited public data.",
+      "source_limit": "Exact Shadow/Rift bonus-damage amount is absent from the public move database/wiki.",
+      "approval_ready": "No — exact Shadow/Rift bonus-damage amount still needs the original runtime implementation."
     },
     "SPARKLEON": {
       "status": "complete",
@@ -3712,8 +3723,8 @@
     },
     "SOLARFLARE": {
       "status": "complete",
-      "move_description": "The user tackles the opponent, engulfed in incredible flames. It may raise the user's Attack.",
-      "effect_text": "The user tackles the opponent, engulfed in incredible flames. It may raise the user's Attack.",
+      "move_description": "A powerful Fire tackle with a 50% chance to raise the user's Attack by 1 stage.",
+      "effect_text": "Deals 100 base-power physical Fire-type damage and has a 50% chance to raise the user's Attack by 1 stage.",
       "priority": "0 (normal priority)",
       "target": "One target other than the user",
       "contact": "No",
@@ -3721,12 +3732,13 @@
       "effect_chance": "50%",
       "source_description": "The user tackles the opponent, engulfed in incredible flames. It may raise the user's Attack.",
       "source_mechanics": "Effect code 01C. Power 100, Accuracy 95, PP 10.",
-      "audit_basis": "Source-verified against the pinned Rejuvenation Wiki Converter move database; custom behavior is expanded only where supporting public Rejuvenation-derived move logic was available."
+      "audit_basis": "Source-verified against the pinned Rejuvenation Wiki Converter move database; custom behavior is expanded only where supporting public Rejuvenation-derived move logic was available.",
+      "stat_changes": "50% chance: user Attack +1 stage"
     },
     "HOARFROSTMOON": {
       "status": "complete",
-      "move_description": "The user releases an icy, crescent burst at the opponents. It may raise the user's Special Attack.",
-      "effect_text": "The user releases an icy, crescent burst at the opponents. It may raise the user's Special Attack.",
+      "move_description": "An Ice spread attack with a 50% chance to raise the user's Sp. Atk by 1 stage.",
+      "effect_text": "Deals 90 base-power special Ice-type damage to all opposing Pokémon. It has a 50% chance to raise the user's Special Attack by 1 stage.",
       "priority": "0 (normal priority)",
       "target": "All opposing Pokémon",
       "contact": "No",
@@ -3734,7 +3746,8 @@
       "effect_chance": "50%",
       "source_description": "The user releases an icy, crescent burst at the opponents. It may raise the user's Special Attack.",
       "source_mechanics": "Effect code 020. Power 90, Accuracy 90, PP 10.",
-      "audit_basis": "Source-verified against the pinned Rejuvenation Wiki Converter move database; custom behavior is expanded only where supporting public Rejuvenation-derived move logic was available."
+      "audit_basis": "Source-verified against the pinned Rejuvenation Wiki Converter move database; custom behavior is expanded only where supporting public Rejuvenation-derived move logic was available.",
+      "stat_changes": "50% chance: user Sp. Atk +1 stage"
     },
     "HEXINGSLASH": {
       "status": "complete",
@@ -3777,8 +3790,8 @@
     },
     "ETHEREALTEMPEST": {
       "status": "complete",
-      "move_description": "The target is hit with unearthly wind. It may paralyze the target.",
-      "effect_text": "The target is hit with unearthly wind. It may paralyze the target.",
+      "move_description": "A Flying-type special attack with a 20% paralysis chance.",
+      "effect_text": "Deals 90 base-power special Flying-type damage and has a 20% chance to paralyze the target.",
       "priority": "0 (normal priority)",
       "target": "One target other than the user",
       "contact": "No",
@@ -3786,7 +3799,8 @@
       "effect_chance": "20%",
       "source_description": "The target is hit with unearthly wind. It may paralyze the target.",
       "source_mechanics": "Effect code 007. Power 90, Accuracy 100, PP 15.",
-      "audit_basis": "Source-verified against the pinned Rejuvenation Wiki Converter move database; custom behavior is expanded only where supporting public Rejuvenation-derived move logic was available."
+      "audit_basis": "Source-verified against the pinned Rejuvenation Wiki Converter move database; custom behavior is expanded only where supporting public Rejuvenation-derived move logic was available.",
+      "status_effects": "20% chance to paralyze"
     },
     "MIRRORBEAM": {
       "status": "complete",
