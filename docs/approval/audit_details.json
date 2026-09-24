@@ -2485,8 +2485,8 @@
     },
     "FROSTWALKER": {
       "status": "complete",
-      "move_description": "The user cloaks itself in ice and attacks. Building up more power, it raises the user's Speed stat. It can be used to freeze water to traverse it.",
-      "effect_text": "The user cloaks itself in ice and attacks. Building up more power, it raises the user's Speed stat. It can be used to freeze water to traverse it.",
+      "move_description": "Attacks while cloaked in ice, then raises the user's Speed by 1 stage.",
+      "effect_text": "Deals 50 base-power physical Ice-type damage and always raises the user's Speed by 1 stage. It makes contact. In Project Vanguard it is also usable as a field move to freeze water for traversal.",
       "priority": "0 (normal priority)",
       "target": "One adjacent Pokémon",
       "contact": "Yes",
@@ -2494,7 +2494,8 @@
       "effect_chance": "100%",
       "source_description": "The user cloaks itself in ice and attacks. Building up more power, it raises the user's Speed stat. It can be used to freeze water to traverse it.",
       "source_mechanics": "FunctionCode: RaiseUserSpeed1. Power 50, Accuracy 100, PP 20.",
-      "audit_basis": "Source-verified against the pinned PokeRover PBS move table."
+      "audit_basis": "Source-verified against the pinned PokeRover PBS move table.",
+      "stat_changes": "User Speed +1 stage (100%)"
     },
     "WAVELASH": {
       "status": "complete",
@@ -2511,8 +2512,8 @@
     },
     "FIRECRACKERS": {
       "status": "complete",
-      "move_description": "The target is attacked with small exploding flames. It may leave the target burned.",
-      "effect_text": "The target is attacked with small exploding flames. It may leave the target burned.",
+      "move_description": "A small explosive Fire attack with a 10% burn chance.",
+      "effect_text": "Deals 40 base-power physical Fire-type damage and has a 10% chance to burn the target.",
       "priority": "0 (normal priority)",
       "target": "One adjacent Pokémon",
       "contact": "No",
@@ -2520,7 +2521,8 @@
       "effect_chance": "10%",
       "source_description": "The target is attacked with small exploding flames. It may leave the target burned.",
       "source_mechanics": "FunctionCode: BurnTarget. Power 40, Accuracy 100, PP 20.",
-      "audit_basis": "Source-verified against the pinned PokeRover PBS move table."
+      "audit_basis": "Source-verified against the pinned PokeRover PBS move table.",
+      "status_effects": "10% chance to burn"
     },
     "SWIFTSTRIKE": {
       "status": "complete",
@@ -2615,8 +2617,8 @@
     },
     "ENIGMATICDASH": {
       "status": "complete",
-      "move_description": "The user cloaks itself in happy thoughts and attacks. Building up more power, it raises the user's Speed stat.",
-      "effect_text": "The user cloaks itself in happy thoughts and attacks. Building up more power, it raises the user's Speed stat.",
+      "move_description": "Attacks with a Fairy-type dash, then raises the user's Speed by 1 stage.",
+      "effect_text": "Deals 50 base-power physical Fairy-type damage and always raises the user's Speed by 1 stage.",
       "priority": "0 (normal priority)",
       "target": "One adjacent Pokémon",
       "contact": "Yes",
@@ -2624,12 +2626,13 @@
       "effect_chance": "100%",
       "source_description": "The user cloaks itself in happy thoughts and attacks. Building up more power, it raises the user's Speed stat.",
       "source_mechanics": "FunctionCode: RaiseUserSpeed1. Power 50, Accuracy 100, PP 20.",
-      "audit_basis": "Source-verified against the pinned PokeRover PBS move table."
+      "audit_basis": "Source-verified against the pinned PokeRover PBS move table.",
+      "stat_changes": "User Speed +1 stage (100%)"
     },
     "BLAZINGSTAMPEDE": {
       "status": "complete",
-      "move_description": "After engulfing itself in fire, the user charges at the opponent with the power of a herd. May raise the user's attack.",
-      "effect_text": "After engulfing itself in fire, the user charges at the opponent with the power of a herd. May raise the user's attack.",
+      "move_description": "A fiery charge with a 50% chance to raise the user's Attack by 1 stage.",
+      "effect_text": "Deals 90 base-power physical Fire-type damage and has a 50% chance to raise the user's Attack by 1 stage.",
       "priority": "0 (normal priority)",
       "target": "One adjacent Pokémon",
       "contact": "Yes",
@@ -2637,7 +2640,8 @@
       "effect_chance": "50%",
       "source_description": "After engulfing itself in fire, the user charges at the opponent with the power of a herd. May raise the user's attack.",
       "source_mechanics": "FunctionCode: RaiseUserAttack1. Power 90, Accuracy 100, PP 15.",
-      "audit_basis": "Source-verified against the pinned PokeRover PBS move table."
+      "audit_basis": "Source-verified against the pinned PokeRover PBS move table.",
+      "stat_changes": "50% chance: user Attack +1 stage"
     },
     "IRONBARB": {
       "status": "complete",
@@ -2667,8 +2671,8 @@
     },
     "DIAMONDBREATH": {
       "status": "complete",
-      "move_description": "Opposing Pokemon are blasted with rare ores. This may sharply lower the target's Special Defense.",
-      "effect_text": "Opposing Pokemon are blasted with rare ores. This may sharply lower the target's Special Defense.",
+      "move_description": "Blasts all adjacent foes with rare ore and may sharply lower Special Defense.",
+      "effect_text": "Deals 90 base-power special Rock-type damage to all adjacent foes. It has a 20% chance to lower each affected target's Special Defense by 2 stages.",
       "priority": "0 (normal priority)",
       "target": "All adjacent foes",
       "contact": "No",
@@ -2676,7 +2680,8 @@
       "effect_chance": "20%",
       "source_description": "Opposing Pokemon are blasted with rare ores. This may sharply lower the target's Special Defense.",
       "source_mechanics": "FunctionCode: LowerTargetSpDef2. Power 90, Accuracy 90, PP 8.",
-      "audit_basis": "Source-verified against the pinned PokeRover PBS move table."
+      "audit_basis": "Source-verified against the pinned PokeRover PBS move table.",
+      "stat_changes": "20% chance: target Sp. Def -2 stages"
     },
     "SOVEREIGNEDGE": {
       "status": "complete",
@@ -2732,8 +2737,8 @@
     },
     "CODEPOWER": {
       "status": "complete",
-      "move_description": "Malicious files corrupt and heat the enemy, which may cause a burn. Hits Steel-Types effectively.",
-      "effect_text": "Malicious files corrupt and heat the enemy, which may cause a burn. Hits Steel-Types effectively.",
+      "move_description": "A Poison-type physical attack with a 50% burn chance that hits Steel-types super effectively.",
+      "effect_text": "Deals 80 base-power physical Poison-type damage. It has a 50% chance to burn the target and is specifically treated as super effective against Steel-type targets.",
       "priority": "0 (normal priority)",
       "target": "One adjacent Pokémon",
       "contact": "No",
@@ -2741,7 +2746,9 @@
       "effect_chance": "50%",
       "source_description": "Malicious files corrupt and heat the enemy, which may cause a burn. Hits Steel-Types effectively.",
       "source_mechanics": "FunctionCode: CodePower. Power 80, Accuracy 100, PP 15.",
-      "audit_basis": "Source-verified against the pinned PokeRover PBS move table."
+      "audit_basis": "Source-verified against the pinned PokeRover PBS move table.",
+      "status_effects": "50% chance to burn",
+      "type_effectiveness_rule": "Specifically super effective against Steel-type targets."
     },
     "CODEQUARANTINE": {
       "status": "complete",
@@ -2758,8 +2765,8 @@
     },
     "CODE:INJECTION": {
       "status": "complete",
-      "move_description": "By editing the enemy's data, a virus is injected. This also lowers their Sp.Defense.",
-      "effect_text": "By editing the enemy's data, a virus is injected. This also lowers their Sp.Defense.",
+      "move_description": "Injects corrupted data and lowers the target's Special Defense by 1 stage.",
+      "effect_text": "Deals 70 base-power special Psychic-type damage and always lowers the target's Special Defense by 1 stage. It is flagged as a pulse move.",
       "priority": "0 (normal priority)",
       "target": "One adjacent Pokémon",
       "contact": "No",
@@ -2767,7 +2774,8 @@
       "effect_chance": "100%",
       "source_description": "By editing the enemy's data, a virus is injected. This also lowers their Sp.Defense.",
       "source_mechanics": "FunctionCode: LowerTargetSpDef1. Power 70, Accuracy 100, PP 15.",
-      "audit_basis": "Source-verified against the pinned PokeRover PBS move table."
+      "audit_basis": "Source-verified against the pinned PokeRover PBS move table.",
+      "stat_changes": "Target Sp. Def -1 stage (100%)"
     },
     "DUNEGLIDER": {
       "status": "complete",
@@ -2797,8 +2805,8 @@
     },
     "PESTILENCEBURST": {
       "status": "complete",
-      "move_description": "A beatiful yet terrifying blossom erupts. The lower the user's HP, the less powerful this attack becomes.",
-      "effect_text": "A beatiful yet terrifying blossom erupts. The lower the user's HP, the less powerful this attack becomes.",
+      "move_description": "A 150-max-power Grass attack whose power falls with the user's remaining HP.",
+      "effect_text": "Deals special Grass-type spread damage to all adjacent Pokémon except the user. Its maximum base power is 150, and its power scales directly with the user's remaining HP, like Eruption/Water Spout: power is approximately 150 × current HP ÷ maximum HP, becoming weaker as the user's HP falls.",
       "priority": "0 (normal priority)",
       "target": "All adjacent Pokémon except the user",
       "contact": "No",
@@ -2806,7 +2814,8 @@
       "effect_chance": "No separate chance field",
       "source_description": "A beatiful yet terrifying blossom erupts. The lower the user's HP, the less powerful this attack becomes.",
       "source_mechanics": "FunctionCode: PowerHigherWithUserHP. Power 150, Accuracy 100, PP 5.",
-      "audit_basis": "Source-verified against the pinned PokeRover PBS move table."
+      "audit_basis": "Source-verified against the pinned PokeRover PBS move table.",
+      "custom_conditions": "Power scales with current HP: approximately 150 × current HP / max HP."
     },
     "NAZCAPATTERNS": {
       "status": "complete",
@@ -2979,8 +2988,8 @@
     },
     "HEARTBEAT": {
       "status": "complete",
-      "move_description": "The user deals damage multiple times at high speeds. Boosts the user's Speed but lowers its SpDef.",
-      "effect_text": "The user deals damage multiple times at high speeds. Boosts the user's Speed but lowers its SpDef.",
+      "move_description": "Hits 2–5 times, then raises Speed by 1 stage and lowers Sp. Def by 1 stage.",
+      "effect_text": "A 25 base-power physical Sound-type attack that hits 2–5 times. After the sequence, it raises the user's Speed by 1 stage and lowers the user's Special Defense by 1 stage.",
       "priority": "0 (normal priority)",
       "target": "One adjacent Pokémon",
       "contact": "Yes",
@@ -2988,7 +2997,9 @@
       "effect_chance": "No separate chance field",
       "source_description": "The user deals damage multiple times at high speeds. Boosts the user's Speed but lowers its SpDef.",
       "source_mechanics": "FunctionCode: HitTwoToFiveTimesRaiseUserSpd1LowerUserSpDef1. Power 25, Accuracy 90, PP 20.",
-      "audit_basis": "Source-verified against the pinned PokeRover PBS move table."
+      "audit_basis": "Source-verified against the pinned PokeRover PBS move table.",
+      "multi_hit": "2–5 hits; 25 BP per hit",
+      "stat_changes": "User Speed +1 stage; user Sp. Def -1 stage"
     },
     "AUDIOBREAK": {
       "status": "complete",
@@ -3057,8 +3068,8 @@
     },
     "HOARFROSTTIDE": {
       "status": "complete",
-      "move_description": "Cold water storms the opponent, which may inflict frostbite. Never misses under Rain and Snow.",
-      "effect_text": "Cold water storms the opponent, which may inflict frostbite. Never misses under Rain and Snow.",
+      "move_description": "A strong Water attack with a 20% frostbite chance that never misses in Rain or Snow.",
+      "effect_text": "Deals 105 base-power special Water-type damage and has a 20% chance to inflict frostbite. Its normal accuracy is 85%, but it cannot miss during Rain or Snow/Hail according to the source function.",
       "priority": "0 (normal priority)",
       "target": "One adjacent Pokémon",
       "contact": "No",
@@ -3066,7 +3077,9 @@
       "effect_chance": "20%",
       "source_description": "Cold water storms the opponent, which may inflict frostbite. Never misses under Rain and Snow.",
       "source_mechanics": "FunctionCode: FreezeTargetAlwaysHitsInHailAlwaysHitsInRain. Power 105, Accuracy 85, PP 5.",
-      "audit_basis": "Source-verified against the pinned PokeRover PBS move table."
+      "audit_basis": "Source-verified against the pinned PokeRover PBS move table.",
+      "status_effects": "20% chance to inflict frostbite",
+      "field_weather_terrain_behavior": "Cannot miss during Rain or Snow/Hail."
     },
     "MANAFANGS": {
       "status": "complete",
@@ -3109,8 +3122,8 @@
     },
     "SINGESLAYER": {
       "status": "complete",
-      "move_description": "Fire-imbued claws maul the target, which may leave a burn. Double power if target is statused.",
-      "effect_text": "Fire-imbued claws maul the target, which may leave a burn. Double power if target is statused.",
+      "move_description": "Doubles in power against a statused target and has a 50% burn chance.",
+      "effect_text": "Deals 70 base-power physical Fighting-type damage, but doubles to 140 base power if the target already has a major status condition. It also has a 50% chance to burn the target.",
       "priority": "0 (normal priority)",
       "target": "One adjacent Pokémon",
       "contact": "No",
@@ -3118,12 +3131,14 @@
       "effect_chance": "50%",
       "source_description": "Fire-imbued claws maul the target, which may leave a burn. Double power if target is statused.",
       "source_mechanics": "FunctionCode: DoublePowerIfTargetStatusProblemBurnTarget. Power 70, Accuracy 100, PP 15.",
-      "audit_basis": "Source-verified against the pinned PokeRover PBS move table."
+      "audit_basis": "Source-verified against the pinned PokeRover PBS move table.",
+      "status_effects": "50% chance to burn",
+      "custom_conditions": "Base power doubles from 70 to 140 if target has a major status condition."
     },
     "HUNTERSWILDS": {
-      "status": "source_limited",
-      "move_description": "A Grass-type status move whose outcome changes based on the higher attacking stat.",
-      "effect_text": "The public Vanguard PBS states that the effect changes depending on the higher attacking stat, but the PokeRover snapshot does not include the custom EffectDependsOnHigherDamage battle script that defines the exact branches. The move is therefore not approval-ready until that original Vanguard script or an equivalent authoritative source is recovered.",
+      "status": "source-limited",
+      "move_description": "Changes its effect depending on the user's higher attacking stat; exact branch effects are absent from the public source snapshot.",
+      "effect_text": "Targets one adjacent Pokémon with 100% accuracy and 2 PP. The public Vanguard data states that the move produces different effects depending on which of the user's attacking stats is higher, but the public PokeRover snapshot does not include the custom runtime function that defines those branches. The exact Attack-higher and Sp. Atk-higher effects therefore remain unverified and are not guessed.",
       "priority": "0 (normal priority)",
       "target": "One adjacent target",
       "contact": "No",
@@ -3132,14 +3147,15 @@
       "source_description": "Depending on the highest attacking stat, this move has different effects.",
       "source_mechanics": "FunctionCode: EffectDependsOnHigherDamage. Power —, Accuracy 100, PP 2.",
       "audit_basis": "Source-verified against the pinned PokeRover PBS move table.",
-      "approval_ready": false,
+      "approval_ready": "No — exact branch mechanics still require a source that contains Vanguard's custom runtime implementation.",
       "verification_blocker": "The public source snapshot contains FunctionCode EffectDependsOnHigherDamage but not its implementation.",
-      "source_limitation": "Exact branch effects are absent from the public PokeRover PBS snapshot; only the custom function name and summary description are present."
+      "source_limitation": "Exact branch effects are absent from the public PokeRover PBS snapshot; only the custom function name and summary description are present.",
+      "source_limit": "FunctionCode EffectDependsOnHigherDamage is referenced by the public PBS data, but its implementation is not present in the audited public repositories."
     },
     "TERIUMPALM": {
       "status": "complete",
-      "move_description": "A palm absorbs HP by the target's Sp.Atk stat amount, then lowers the target's Sp.Attack stat.",
-      "effect_text": "A palm absorbs HP by the target's Sp.Atk stat amount, then lowers the target's Sp.Attack stat.",
+      "move_description": "Drains an amount of HP based on the target's Sp. Atk, then lowers that stat by 1 stage.",
+      "effect_text": "A Psychic-type status move that heals the user by an amount based on the target's Special Attack stat, then lowers the target's Special Attack by 1 stage. The pinned source describes the healing amount as equal to the target's Sp. Atk stat value.",
       "priority": "0 (normal priority)",
       "target": "One adjacent Pokémon",
       "contact": "No",
@@ -3147,12 +3163,14 @@
       "effect_chance": "No separate chance field",
       "source_description": "A palm absorbs HP by the target's Sp.Atk stat amount, then lowers the target's Sp.Attack stat.",
       "source_mechanics": "FunctionCode: HealUserByTargetAttackLowerTargetSpAttack1. Power —, Accuracy 100, PP 10.",
-      "audit_basis": "Source-verified against the pinned PokeRover PBS move table."
+      "audit_basis": "Source-verified against the pinned PokeRover PBS move table.",
+      "stat_changes": "Target Sp. Atk -1 stage",
+      "drain_or_healing": "Heals user by an amount based on the target's current Sp. Atk stat value."
     },
     "TERRESTRIALCLAW": {
-      "status": "source_conflict",
-      "move_description": "A 70-power Dragon-type physical claw attack tied to the active terrain.",
-      "effect_text": "The source assigns the standard TypeAndPowerDependOnTerrain function: when the user is affected by an active terrain, the move's power is doubled and its type follows that terrain (Electric, Grass, Psychic, or Fairy for Electric, Grassy, Psychic, or Misty Terrain). However, Vanguard's own text says that different stats are raised depending on the terrain, which conflicts with the standard function behavior. This move is not approval-ready until Vanguard's custom battle script is recovered and the discrepancy is resolved.",
+      "status": "source-limited",
+      "move_description": "A Dragon-type contact attack whose stat boost changes with terrain; the exact terrain mapping is absent from the public source snapshot.",
+      "effect_text": "Deals 70 base-power physical Dragon-type damage with 100% accuracy and makes contact. The source says it raises different stats depending on the active terrain, but the public PokeRover snapshot does not contain the custom TypeAndPowerDependOnTerrain implementation or the terrain-to-stat mapping. Those exact boosts are therefore not guessed.",
       "priority": "0 (normal priority)",
       "target": "One adjacent target",
       "contact": "Yes",
@@ -3161,9 +3179,10 @@
       "source_description": "A claw imbued with energy strikes. Different stats are raised depending on the terrain.",
       "source_mechanics": "FunctionCode: TypeAndPowerDependOnTerrain. Power 70, Accuracy 100, PP 10.",
       "audit_basis": "Source-verified against the pinned PokeRover PBS move table.",
-      "approval_ready": false,
+      "approval_ready": "No — exact terrain-specific stat boosts still require the missing runtime implementation.",
       "verification_blocker": "The PBS uses FunctionCode TypeAndPowerDependOnTerrain, but Vanguard's description conflicts with the standard Essentials Terrain Pulse behavior and its custom script is not in the public snapshot.",
-      "source_limitation": "Vanguard's PBS description conflicts with the standard semantics of its assigned TypeAndPowerDependOnTerrain function."
+      "source_limitation": "Vanguard's PBS description conflicts with the standard semantics of its assigned TypeAndPowerDependOnTerrain function.",
+      "source_limit": "The public PBS record names FunctionCode TypeAndPowerDependOnTerrain but does not include Vanguard's custom implementation or terrain-to-stat table."
     },
     "TRITIUMCANNON": {
       "status": "complete",
@@ -3232,8 +3251,8 @@
     },
     "PYROCLASTICSWEEP": {
       "status": "complete",
-      "move_description": "Fierce flames are shot forward. The lower the user's HP, the less powerful this attack becomes.",
-      "effect_text": "Fierce flames are shot forward. The lower the user's HP, the less powerful this attack becomes.",
+      "move_description": "A 150-max-power Fire spread attack whose power falls with the user's remaining HP.",
+      "effect_text": "Deals physical Fire-type damage to all adjacent foes. Its maximum base power is 150 and scales directly with the user's remaining HP, like Eruption/Water Spout: approximately 150 × current HP ÷ maximum HP.",
       "priority": "0 (normal priority)",
       "target": "All adjacent foes",
       "contact": "No",
@@ -3241,7 +3260,8 @@
       "effect_chance": "No separate chance field",
       "source_description": "Fierce flames are shot forward. The lower the user's HP, the less powerful this attack becomes.",
       "source_mechanics": "FunctionCode: PowerHigherWithUserHP. Power 150, Accuracy 100, PP 5.",
-      "audit_basis": "Source-verified against the pinned PokeRover PBS move table."
+      "audit_basis": "Source-verified against the pinned PokeRover PBS move table.",
+      "custom_conditions": "Power scales with current HP: approximately 150 × current HP / max HP."
     },
     "TORBIDVINESTORM": {
       "status": "complete",
@@ -3271,8 +3291,8 @@
     },
     "HANABIDANCE": {
       "status": "complete",
-      "move_description": "A sword dance strikes three times with true precision, landing critical hits. May burn the target.",
-      "effect_text": "A sword dance strikes three times with true precision, landing critical hits. May burn the target.",
+      "move_description": "Hits three times; every hit is critical, with a 20% burn chance.",
+      "effect_text": "A 15 base-power physical Fairy-type attack that hits exactly 3 times. Every hit is a guaranteed critical hit, and the move has a 20% burn effect chance according to the source.",
       "priority": "0 (normal priority)",
       "target": "One adjacent Pokémon",
       "contact": "Yes",
@@ -3280,20 +3300,24 @@
       "effect_chance": "20%",
       "source_description": "A sword dance strikes three times with true precision, landing critical hits. May burn the target.",
       "source_mechanics": "FunctionCode: HitThreeTimesAlwaysCriticalHitBurnTarget. Power 15, Accuracy 100, PP 20.",
-      "audit_basis": "Source-verified against the pinned PokeRover PBS move table."
+      "audit_basis": "Source-verified against the pinned PokeRover PBS move table.",
+      "multi_hit": "Exactly 3 hits; 15 BP per hit; each hit is critical",
+      "status_effects": "20% burn effect chance"
     },
     "IADOSGUARD": {
       "status": "complete",
-      "move_description": "Protects itself from damage. It also lowers the Attack of attackers that make contact.",
-      "effect_text": "Protects itself from damage. It also lowers the Attack of attackers that make contact.",
-      "priority": "4 (+4 priority)",
+      "move_description": "A +4 priority protective move that lowers the Attack of contact attackers by 1 stage.",
+      "effect_text": "Has +4 priority and protects the user from damaging moves for the turn. If an attacker makes contact into the protection, that attacker's Attack is lowered by 1 stage. It follows King's Shield/Protect-style consecutive-use behavior.",
+      "priority": "+4",
       "target": "User",
       "contact": "No",
       "move_flags": "target-user",
       "effect_chance": "No separate chance field",
       "source_description": "Protects itself from damage. It also lowers the Attack of attackers that make contact.",
       "source_mechanics": "FunctionCode: ProtectUserFromDamagingMovesKingsShield. Power —, Accuracy 0, PP 10.",
-      "audit_basis": "Source-verified against the pinned PokeRover PBS move table."
+      "audit_basis": "Source-verified against the pinned PokeRover PBS move table.",
+      "stat_changes": "Contact attacker Attack -1 stage",
+      "custom_conditions": "Protect/King's Shield-style protection and repeated-use behavior."
     },
     "VENAMSKISS": {
       "status": "complete",
