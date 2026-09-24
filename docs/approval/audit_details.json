@@ -4934,6 +4934,27 @@
       "contact": "No",
       "effect_chance": "10%",
       "status_effects": "freeze"
+    },
+    "1000FOLDS": {
+      "status": "complete",
+      "move_description": "A Steel-type strike that tears through defensive barriers.",
+      "effect_text": "Deals damage at 80 base power. Against a Steel-type target, Steel's usual resistance to this move is neutralized. The move is marked to break through Protect-style protection. If the target is not immune to Steel, it also removes Reflect, Light Screen, and Aurora Veil from the target's side before damage is resolved. The source also marks the move with its 'infiltrates' bypass flag.",
+      "priority": "0 (normal priority)",
+      "target": "One adjacent Pokémon",
+      "contact": "Yes",
+      "move_flags": "Contact; can be blocked/copy-checked by the source's Protect/Mirror rules; breaks Protect; infiltrates",
+      "effect_chance": "Guaranteed when the listed conditions are met",
+      "status_effects": "None",
+      "stat_changes": "None",
+      "multi_hit": "No",
+      "recoil": "None",
+      "drain_or_healing": "None",
+      "switching_behavior": "None",
+      "screen_behavior": "Removes Reflect, Light Screen, and Aurora Veil from the target's side if the target is not immune to Steel.",
+      "type_effectiveness_rule": "When checking the defending Steel type, this move treats that Steel matchup as neutral instead of resisted.",
+      "source_description": "No separate prose description is present in the Clovermon Showdown move block; behavior is defined directly by callbacks and flags.",
+      "source_mechanics": "Source block: Squeetz/clovermon-showdown data/moves.ts at commit 008196c839c1efe859e2d59c092c88370b7752d6.",
+      "implementation_note": "For the DS port, verify the exact equivalent of Showdown's 'infiltrates' flag when translating the bypass behavior."
     }
   }
 }
