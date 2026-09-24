@@ -514,10 +514,17 @@ function renderMove(m) {
   ]);
 
   const effects = [
-    ["What it does", plainEnglishEffect(m), true],
-    ["Primary source effect", displayValue(cleanEffectText(m.primary_effect)), true],
-    ["Secondary source effect", displayValue(cleanEffectText(m.secondary_effect)), true]
+    ["What it does", plainEnglishEffect(m), true]
   ];
+
+  const primarySourceEffect = cleanEffectText(m.primary_effect);
+  const secondarySourceEffect = cleanEffectText(m.secondary_effect);
+  if (primarySourceEffect && !isInternalEffectText(m.primary_effect) && primarySourceEffect !== plainEnglishEffect(m)) {
+    effects.push(["Source catalog effect", primarySourceEffect, true]);
+  }
+  if (secondarySourceEffect && !isInternalEffectText(m.secondary_effect)) {
+    effects.push(["Source catalog secondary effect", secondarySourceEffect, true]);
+  }
 
   if (m.audit && Object.keys(m.audit).length) {
     Object.keys(m.audit).forEach(function(key) {
@@ -723,6 +730,12 @@ function plainEnglishEffect(m) {
   }
 
   return parts.join(" ");
+}
+
+function isInternalEffectText(value) {
+  const text = String(value == null ? "" : value).trim();
+  if (!text) return true;
+  return /^(EFFECT_|FunctionCode\b|effect code\b|custom[_ ]?behavior\b|custom callback\b|damage\/status logic\b|Rejuvenation effect code\b|Uranium effect code\b|Armonia effect code\b|Filler\b)/i.test(text);
 }
 
 function cleanEffectText(value) {
