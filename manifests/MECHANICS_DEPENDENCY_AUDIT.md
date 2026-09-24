@@ -12,24 +12,21 @@ This audit tracks:
 ## Progress
 
 - Required effect scripts: **173**
-- Audited in F2 so far: **80/173**
-- Current batch: sorted required-effect positions **71–80**
-- Direct battle-subscript calls found in this batch: **1 unique**
-- Side-effect pointer dependencies found in this batch: **3 unique**
-- Cumulative unique side-effect pointers observed: **42**
-- Generic-damage-only scripts in this batch: **1** (effect 300)
+- Audited in F2 so far: **90/173**
+- Current batch: sorted required-effect positions **81–90**
+- Direct battle-subscript calls found in this batch: **0**
+- Side-effect pointer dependencies found in this batch: **8 unique**
+- Cumulative unique side-effect pointers observed: **50**
+- Generic-damage-only scripts in this batch: **0**
 
-## Batch 08 dependency notes
+## Batch 09 dependency notes
 
-- Effect 291 delegates V-create-style defensive/Speed drops to `MOVE_SUBSCRIPT_PTR_V_CREATE`.
-- Effect 292 uses the specialized `CalcHeavySlamPower` battle command.
-- Effect 293 combines Reckless-aware scaling, crash-damage processing, and confusion.
-- Effect 294 directly calls `BATTLE_SUBSCRIPT_CREATE_TERRAIN_OVERLAY` after `UpdateTerrainOverlay`.
-- Effect 295 introduces the `MOVE_SUBSCRIPT_PTR_WORK_UP` handler.
-- Effect 296 combines fixed two-hit logic with the FLINCH side effect.
-- Effects 297 and 298 rely on `MULTIHIT_TRIPLE_KICK` engine behavior; 297 requests up to 10 hits and 298 requests three escalating hits.
-- Effect 299 uses ordinary fixed three-hit multi-hit handling.
-- Effect 300 (PSYBLADE) is generic crit/damage only; its Electric Terrain power modifier is engine-side.
+- Effect 301 delegates sleep application to `MOVE_SUBSCRIPT_PTR_SLEEP`.
+- Effects 302–306 introduce dedicated handlers for Spicy Extract, Fillet Away, Shed Tail, After You, and Quash.
+- Effect 307 (Techno Blast) performs Drive detection directly with `CheckItemHoldEffect` and rewrites `BSCRIPT_VAR_MOVE_TYPE`.
+- Effect 308 (Multi-Attack) does the same across the full Memory item set, including Fairy.
+- Effect 310 delegates Leech Seed startup through `MOVE_SUBSCRIPT_PTR_LEECH_SEED_START` and checks target HP.
+- Effect 311 delegates on-hit Light Screen setup to `MOVE_SUBSCRIPT_PTR_LIGHT_SCREEN`.
 
 The dependency manifest is `manifests/mechanics_dependencies.csv`.
 
