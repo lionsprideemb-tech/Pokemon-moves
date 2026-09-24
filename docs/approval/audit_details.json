@@ -3918,123 +3918,213 @@
     },
     "INSTANTCRUSH": {
       "status": "complete",
-      "move_description": "Uranium effect code 000. The user compress the foe with it's psychic powers. This attack always goes first.",
-      "effect_text": "Uranium effect code 000. The user compress the foe with it's psychic powers. This attack always goes first.",
-      "priority": "0"
+      "move_description": "A fast psychic crush that strikes before most attacks.",
+      "effect_text": "Deals damage with +1 priority, allowing it to act before normal-priority moves.",
+      "priority": "+1",
+      "target": "One Pokémon other than the user",
+      "contact": "No",
+      "status_effects": "None",
+      "stat_changes": "None",
+      "source_mechanics": "Pinned Pokémon Uranium 1.3.1 PBS move row."
     },
     "GETLUCKY": {
       "status": "complete",
-      "move_description": "Uranium effect code 023. Effect chance: 100% The user locates the foe weak spot and sends strong psychic waves to hit it. Raises critical chances.",
-      "effect_text": "Uranium effect code 023. Effect chance: 100% The user locates the foe weak spot and sends strong psychic waves to hit it. Raises critical chances.",
-      "priority": "0"
+      "move_description": "Hits the target's weak point and improves the user's future critical-hit chance.",
+      "effect_text": "Deals damage, then raises the user's critical-hit rate by 2 stages.",
+      "priority": "0 (normal priority)",
+      "target": "One Pokémon other than the user",
+      "contact": "No",
+      "stat_changes": "Raises the user's critical-hit ratio by 2 stages.",
+      "source_mechanics": "Pinned Uranium PBS plus Pokémon Uranium Wiki move documentation."
     },
     "LASERPULSE": {
       "status": "complete",
-      "move_description": "Uranium effect code 164. Effect chance: 20% The user attack with a laser that cycles between Fire, Electric and Ice types.",
-      "effect_text": "Uranium effect code 164. Effect chance: 20% The user attack with a laser that cycles between Fire, Electric and Ice types.",
-      "priority": "0"
+      "move_description": "A pulse attack whose effective type is randomly Fire, Electric, or Ice.",
+      "effect_text": "Deals damage as a randomly selected Fire-, Electric-, or Ice-type attack each time it is used. The displayed move is Normal-type, but the actual damaging type is chosen from those three. It receives the source game's Mega Launcher boost and is not converted by Normal-type conversion effects such as Pixilate-style abilities.",
+      "priority": "0 (normal priority)",
+      "target": "One Pokémon other than the user",
+      "contact": "No",
+      "custom_conditions": "Randomly becomes Fire, Electric, or Ice for damage and STAB calculations.",
+      "source_mechanics": "Pinned Uranium PBS plus Pokémon Uranium Wiki Laser Pulse documentation."
     },
     "GEMSTONEGLIMMER": {
       "status": "complete",
-      "move_description": "Uranium effect code 047. Effect chance: 25% Unleashes a blinding light from its body. May lower the foe's accuracy.",
-      "effect_text": "Uranium effect code 047. Effect chance: 25% Unleashes a blinding light from its body. May lower the foe's accuracy.",
-      "priority": "0"
+      "move_description": "Blinds the target with a gemstone flash.",
+      "effect_text": "Deals damage and has a 25% chance to lower the target's Accuracy by 1 stage.",
+      "priority": "0 (normal priority)",
+      "target": "One Pokémon other than the user",
+      "contact": "No",
+      "effect_chance": "25%",
+      "stat_changes": "25% chance to lower target Accuracy by 1 stage.",
+      "source_mechanics": "Pinned Uranium PBS move row."
     },
     "HALFLIFE": {
       "status": "complete",
-      "move_description": "Uranium effect code 06C. It cuts the target's HP to half.",
-      "effect_text": "Uranium effect code 06C. It cuts the target's HP to half.",
-      "priority": "0"
+      "move_description": "Cuts the target's remaining HP in half.",
+      "effect_text": "If it hits, the target's current HP is reduced by half rather than using normal base-power damage.",
+      "priority": "0 (normal priority)",
+      "target": "One Pokémon other than the user",
+      "contact": "No",
+      "custom_conditions": "Fixed fractional damage: cuts current HP in half.",
+      "source_mechanics": "Pinned Uranium PBS plus Pokémon Uranium Wiki Nuclear move documentation."
     },
     "OCEANSWRATH": {
       "status": "complete",
-      "move_description": "Uranium effect code 0D0. Traps foes in a giant whirlpool for four to five turns.",
-      "effect_text": "Uranium effect code 0D0. Traps foes in a giant whirlpool for four to five turns.",
-      "priority": "0"
+      "move_description": "Traps the target inside a giant whirlpool.",
+      "effect_text": "Deals damage and partially traps the target for 4–5 turns, dealing residual trapping damage while preventing normal switching.",
+      "priority": "0 (normal priority)",
+      "target": "One Pokémon other than the user",
+      "contact": "No",
+      "hit_count_or_duration": "Binding effect lasts 4–5 turns.",
+      "switching_behavior": "Target is partially trapped during the binding effect.",
+      "source_mechanics": "Pinned Uranium PBS plus Pokémon Uranium Wiki Ocean's Wrath documentation."
     },
     "FISSIONBURST": {
       "status": "complete",
-      "move_description": "Uranium effect code 0E0. The user explodes to inflict damage on those around it. The user faints upon using this move.",
-      "effect_text": "Uranium effect code 0E0. The user explodes to inflict damage on those around it. The user faints upon using this move.",
-      "priority": "0"
+      "move_description": "A massive nuclear explosion that knocks out the user.",
+      "effect_text": "Deals 150-power damage to every adjacent Pokémon other than the user. After the move is used, the user faints.",
+      "priority": "0 (normal priority)",
+      "target": "All adjacent Pokémon except the user",
+      "contact": "No",
+      "recoil": "User faints after using the move.",
+      "source_mechanics": "Pinned Uranium PBS plus Pokémon Uranium Wiki Fission Burst documentation."
     },
     "CAUSTICBREATH": {
       "status": "complete",
-      "move_description": "Uranium effect code 165. Effect chance: 100% The user damages opposing Pokémon and lower its defense and special defense.",
-      "effect_text": "Uranium effect code 165. Effect chance: 100% The user damages opposing Pokémon and lower its defense and special defense.",
-      "priority": "0"
+      "move_description": "A corrosive breath attack that weakens both defenses.",
+      "effect_text": "Deals damage to opposing Pokémon and lowers each target's Defense and Special Defense by 1 stage.",
+      "priority": "0 (normal priority)",
+      "target": "Opposing Pokémon",
+      "contact": "No",
+      "effect_chance": "100%",
+      "stat_changes": "Lowers Defense by 1 stage and Sp. Def by 1 stage.",
+      "source_mechanics": "Pinned Uranium PBS; the source row records a 100% secondary-effect chance and the official description names both defenses."
     },
     "NUCLEARSLASH": {
       "status": "complete",
-      "move_description": "Uranium effect code 000. The target is attacked with a slash of claws or blades. Critical hits land more easily.",
-      "effect_text": "Uranium effect code 000. The target is attacked with a slash of claws or blades. Critical hits land more easily.",
-      "priority": "0"
+      "move_description": "A Nuclear-type slash with an increased critical-hit rate.",
+      "effect_text": "Deals damage and has a higher-than-normal critical-hit ratio.",
+      "priority": "0 (normal priority)",
+      "target": "One Pokémon other than the user",
+      "contact": "Yes",
+      "move_flags": "Contact; high critical-hit rate",
+      "source_mechanics": "Pinned Uranium PBS plus Pokémon Uranium Wiki Nuclear move documentation."
     },
     "THUNDERSTORM": {
       "status": "complete",
-      "move_description": "Uranium effect code 166. Summons a five-turn thunderstorm to hurt all combatants except the Ground and Electric types every other turn.",
-      "effect_text": "Uranium effect code 166. Summons a five-turn thunderstorm to hurt all combatants except the Ground and Electric types every other turn.",
-      "priority": "0"
+      "move_description": "Creates Uranium's Thunderstorm weather for five turns.",
+      "effect_text": "Creates Thunderstorm weather for 5 turns. At the end of every odd-numbered turn, affected non-Electric and non-Ground Pokémon take damage based on their Electric-type weakness: 3.125% at 0.25×, 6.25% at 0.5×, 12.5% at 1×, 25% at 2×, or 50% at 4× effectiveness. Electric-type moves are boosted by 50%, and Thunder becomes perfectly accurate. Motor Drive, Volt Absorb, Lightning Rod, Magic Guard, and semi-invulnerable states are also exempt from the weather damage.",
+      "priority": "0 (normal priority)",
+      "target": "Entire battlefield",
+      "contact": "No",
+      "hit_count_or_duration": "Weather lasts 5 turns.",
+      "field_weather_terrain_behavior": "Creates Thunderstorm weather with Electric-effectiveness residual damage, +50% Electric move power, and perfect-accuracy Thunder.",
+      "source_mechanics": "Pinned Uranium PBS plus Pokémon Uranium Wiki Thunderstorm weather documentation."
     },
     "SUDDENSTRIKE": {
       "status": "complete",
-      "move_description": "Uranium effect code 000. The user strikes the target in a sudden burst of speed.",
-      "effect_text": "Uranium effect code 000. The user strikes the target in a sudden burst of speed.",
-      "priority": "0"
+      "move_description": "A sudden Dark-type strike that moves ahead of normal attacks.",
+      "effect_text": "Deals damage with +1 priority.",
+      "priority": "+1",
+      "target": "One Pokémon other than the user",
+      "contact": "Yes",
+      "source_mechanics": "Pinned Uranium PBS move row."
     },
     "EXPUNGE": {
       "status": "complete",
-      "move_description": "Uranium effect code 168. Purges the foe of impurities, dealing extra damage to Nuclear types.",
-      "effect_text": "Uranium effect code 168. Purges the foe of impurities, dealing extra damage to Nuclear types.",
-      "priority": "0"
+      "move_description": "A powerful Nuclear attack especially effective against Nuclear Pokémon.",
+      "effect_text": "Deals damage and is super effective against Nuclear-type Pokémon. During Nuclear Fallout, its accuracy increases from 70% to 100%. Outside battle in Uranium, it can also purify feral Nuclear Pokémon.",
+      "priority": "0 (normal priority)",
+      "target": "One Pokémon other than the user",
+      "contact": "Source wiki marks the move as making contact.",
+      "field_weather_terrain_behavior": "Accuracy becomes 100% during Nuclear Fallout.",
+      "type_effectiveness_rule": "Specifically super effective against Nuclear-type targets.",
+      "source_mechanics": "Pinned Uranium PBS plus Pokémon Uranium Wiki Expunge documentation."
     },
     "FALLOUT": {
       "status": "complete",
-      "move_description": "Uranium effect code 167. Summons a five-turn nuclear fallout to hurt all combatants except the Nuclear and Steel types every turn.",
-      "effect_text": "Uranium effect code 167. Summons a five-turn nuclear fallout to hurt all combatants except the Nuclear and Steel types every turn.",
-      "priority": "0"
+      "move_description": "Creates Nuclear Fallout weather for five turns.",
+      "effect_text": "Creates Nuclear Fallout for 5 turns. At the end of every odd-numbered turn, non-Nuclear and non-Steel Pokémon take damage based on their weakness to the Nuclear type: 3.125% at 0.25×, 6.25% at 0.5×, 12.5% at 1×, 25% at 2×, or 50% at 4× effectiveness. Nuclear-type Pokémon have their weaknesses reduced during the weather, and Expunge gains increased accuracy.",
+      "priority": "0 (normal priority)",
+      "target": "Entire battlefield",
+      "contact": "No",
+      "hit_count_or_duration": "Weather lasts 5 turns.",
+      "field_weather_terrain_behavior": "Creates Nuclear Fallout and applies Nuclear-effectiveness residual damage while modifying Nuclear-type weaknesses and Expunge accuracy.",
+      "source_mechanics": "Pinned Uranium PBS plus Pokémon Uranium Wiki Nuclear Fallout documentation."
     },
     "PROTONBEAM": {
       "status": "complete",
-      "move_description": "Uranium effect code 03F. The user attacks the target at full power. The attack's recoil sharply reduces the user's Sp. Atk stat.",
-      "effect_text": "Uranium effect code 03F. The user attacks the target at full power. The attack's recoil sharply reduces the user's Sp. Atk stat.",
-      "priority": "0"
+      "move_description": "A powerful radioactive beam that sharply lowers the user's Special Attack.",
+      "effect_text": "Deals damage, then lowers the user's Special Attack by 2 stages.",
+      "priority": "0 (normal priority)",
+      "target": "One Pokémon other than the user",
+      "contact": "No",
+      "stat_changes": "Lowers the user's Sp. Atk by 2 stages after attacking.",
+      "source_mechanics": "Pinned Uranium PBS plus Pokémon Uranium Wiki Nuclear move documentation."
     },
     "INFERNALBLADE": {
       "status": "complete",
-      "move_description": "Uranium effect code 00A. Effect chance: 10% The user slashes the foe with cursed fire, hits Fairy-type for super effective damage and may also cause burn.",
-      "effect_text": "Uranium effect code 00A. Effect chance: 10% The user slashes the foe with cursed fire, hits Fairy-type for super effective damage and may also cause burn.",
-      "priority": "0"
+      "move_description": "A cursed fiery slash that punishes Fairy-types.",
+      "effect_text": "Deals damage, is specifically super effective against Fairy-type Pokémon, and has a 10% chance to burn the target.",
+      "priority": "0 (normal priority)",
+      "target": "One Pokémon other than the user",
+      "contact": "Yes",
+      "effect_chance": "10% burn chance",
+      "status_effects": "10% chance to burn.",
+      "type_effectiveness_rule": "Specifically super effective against Fairy-type targets.",
+      "source_mechanics": "Pinned Uranium PBS and Pokémon Uranium move documentation."
     },
     "QUANTUMLEAP": {
       "status": "complete",
-      "move_description": "Uranium effect code 0CD. The user vanishes in the first turn and attacks the foe with full power in the next one.",
-      "effect_text": "Uranium effect code 0CD. The user vanishes in the first turn and attacks the foe with full power in the next one.",
-      "priority": "0"
+      "move_description": "A two-turn Nuclear attack that vanishes from the field before striking.",
+      "effect_text": "On the first turn, the user vanishes and becomes semi-invulnerable. On the second turn, it returns and deals damage. Like Phantom Force, the attack bypasses Protect-style protection. In Uranium it can also be used outside battle to travel to visited locations or escape caves.",
+      "priority": "0 (normal priority)",
+      "target": "One Pokémon other than the user",
+      "contact": "Yes",
+      "hit_count_or_duration": "Two-turn attack; first turn vanishes, second turn strikes.",
+      "custom_conditions": "Semi-invulnerable during the charging turn; bypasses Protect-style protection.",
+      "source_mechanics": "Pinned Uranium PBS plus Pokémon Uranium Wiki Quantum Leap documentation."
     },
     "METALCRUNCHER": {
       "status": "complete",
-      "move_description": "Uranium effect code 043. Effect chance: 70% The user crunches up the target with metal fangs. It has a high chance of lowering the target's Defense.",
-      "effect_text": "Uranium effect code 043. Effect chance: 70% The user crunches up the target with metal fangs. It has a high chance of lowering the target's Defense.",
-      "priority": "0"
+      "move_description": "Crushes the target with metal fangs and often lowers Defense.",
+      "effect_text": "Deals damage and has a 70% chance to lower the target's Defense by 1 stage.",
+      "priority": "0 (normal priority)",
+      "target": "One Pokémon other than the user",
+      "contact": "Yes",
+      "effect_chance": "70%",
+      "stat_changes": "70% chance to lower target Defense by 1 stage.",
+      "source_mechanics": "Pinned Uranium PBS move row."
     },
     "DRAINLIFE": {
       "status": "complete",
-      "move_description": "Uranium effect code 0DD. The user drains the foe's energy with its fangs. The user's HP is restored by half the damage inflicted.",
-      "effect_text": "Uranium effect code 0DD. The user drains the foe's energy with its fangs. The user's HP is restored by half the damage inflicted.",
-      "priority": "0"
+      "move_description": "A biting attack that drains the target's life energy.",
+      "effect_text": "Deals damage and restores the user's HP by 50% of the damage dealt.",
+      "priority": "0 (normal priority)",
+      "target": "One Pokémon other than the user",
+      "contact": "Yes",
+      "drain_or_healing": "Restores HP equal to 50% of damage dealt.",
+      "source_mechanics": "Pinned Uranium PBS plus Pokémon Uranium move documentation."
     },
     "STICKYTERRAIN": {
       "status": "complete",
-      "move_description": "Uranium effect code 169. The user makes the ground all slimy and gooey for five turns. Priority attacks won't work.",
-      "effect_text": "Uranium effect code 169. The user makes the ground all slimy and gooey for five turns. Priority attacks won't work.",
-      "priority": "0"
+      "move_description": "Covers the ground in sticky sludge that blocks priority attacks.",
+      "effect_text": "Creates Sticky Terrain for 5 turns. Grounded Pokémon are affected by it, and priority moves fail against affected targets for the terrain's duration. It does not provide an additional Poison-type damage boost in Uranium.",
+      "priority": "0 (normal priority)",
+      "target": "Entire battlefield",
+      "contact": "No",
+      "hit_count_or_duration": "Terrain lasts 5 turns.",
+      "field_weather_terrain_behavior": "Grounded Pokémon are affected; priority attacks are disabled against them.",
+      "source_mechanics": "Pinned Uranium PBS plus Uranium terrain documentation and competitive notes."
     },
     "NUCLEARWIND": {
       "status": "complete",
-      "move_description": "Uranium effect code 168. Effect chance: 3% The user emits radiation from its body and uses its powerful wings to launch fallout at its foes.",
-      "effect_text": "Uranium effect code 168. Effect chance: 3% The user emits radiation from its body and uses its powerful wings to launch fallout at its foes.",
-      "priority": "0"
+      "move_description": "Launches radioactive fallout at opposing Pokémon.",
+      "effect_text": "Deals Nuclear-type special damage to opposing Pokémon. The public Uranium move documentation does not list an additional player-facing secondary effect for this move; its main special behavior comes from Nuclear typing and spread targeting.",
+      "priority": "0 (normal priority)",
+      "target": "Opposing Pokémon",
+      "contact": "No",
+      "source_mechanics": "Pinned Uranium 1.3.1 PBS plus Pokémon Uranium move documentation. The PBS contains a custom effect-family/chance field, but no additional secondary effect is documented for players, so none is invented here."
     },
     "ACHILLESHEEL": {
       "status": "complete",
