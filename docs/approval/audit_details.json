@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "description": "Extended source-verified mechanics keyed by move_id. The approval board merges these fields into each move as full audits are completed.",
+  "description": "Extended source-verified mechanics keyed by move_id. Plain-English move effects are required before approval. Clover custom callback moves are completed in a dedicated source-code audit.",
   "moves": {
     "THOUSANDFOLDS": {
       "status": "complete",
@@ -20,6 +20,4069 @@
       "field_weather_terrain_behavior": "None",
       "source_description": "A folded blade that tears through a target using Protect or Detect.",
       "source_mechanics": "FunctionCode = RemoveProtections. The source function clears Baneful Bunker, King's Shield, Obstruct, Protect/Detect, Spiky Shield, Crafty Shield, Mat Block, Quick Guard, and Wide Guard."
+    },
+    "MOVE_SMITE": {
+      "status": "complete",
+      "move_description": "Attacks from above with strong electricity. 20% paralysis chance. Smack Down effect.",
+      "effect_text": "Attacks from above with strong electricity. 20% paralysis chance. Smack Down effect.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected",
+      "effect_chance": "20%"
+    },
+    "MOVE_SHOCKING_JAB": {
+      "status": "complete",
+      "move_description": "An electric jab strikes the foe. 20% paralysis chance. Mighty Horn boost.",
+      "effect_text": "An electric jab strikes the foe. 20% paralysis chance. Mighty Horn boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, horn",
+      "effect_chance": "20%"
+    },
+    "MOVE_SHOCKING_EDGE": {
+      "status": "complete",
+      "move_description": "The foe is slashed with an electric blade. 10% paralyze chance. Keen Edge boost.",
+      "effect_text": "The foe is slashed with an electric blade. 10% paralyze chance. Keen Edge boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, keen_edge",
+      "effect_chance": "10%"
+    },
+    "MOVE_LIGHTNING_STRIKE": {
+      "status": "complete",
+      "move_description": "Leaps, strikes with a lightning bolt. 20% chance to raise Speed. Mega Launcher boost.",
+      "effect_text": "Leaps, strikes with a lightning bolt. 20% chance to raise Speed. Mega Launcher boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, mega_launcher, arrow",
+      "effect_chance": "20%"
+    },
+    "MOVE_VOLT_BOLT": {
+      "status": "complete",
+      "move_description": "Doubles damage if foe is paralyzed. Arrow move. Archer boost.",
+      "effect_text": "Doubles damage if foe is paralyzed. Arrow move. Archer boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, arrow"
+    },
+    "MOVE_DEATHROLL": {
+      "status": "complete",
+      "move_description": "20% confusion chance. Strong Jaw boost. Ignores target\\'s stat changes.",
+      "effect_text": "20% confusion chance. Strong Jaw boost. Ignores target\\'s stat changes.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "ignores_stat_stages, mirror_move_affected, strong_jaw",
+      "effect_chance": "20%"
+    },
+    "MOVE_EXCALIBUR": {
+      "status": "complete",
+      "move_description": "Double damage on Dragons. High critical ratio. Keen Edge boost.",
+      "effect_text": "Double damage on Dragons. High critical ratio. Keen Edge boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "keen_edge",
+      "effect_chance": "20%"
+    },
+    "MOVE_AQUA_FANG": {
+      "status": "complete",
+      "move_description": "Bites with aquatic fangs. Has 20% flinch chance. Strong Jaw boost.",
+      "effect_text": "Bites with aquatic fangs. Has 20% flinch chance. Strong Jaw boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "strong_jaw",
+      "effect_chance": "20%"
+    },
+    "MOVE_OUTBURST": {
+      "status": "complete",
+      "move_description": "The user explodes to inflict terrible damage even while fainting itself.",
+      "effect_text": "The user explodes to inflict terrible damage even while fainting itself.",
+      "priority": "0",
+      "target": "FOES_AND_ALLY",
+      "contact": "No",
+      "move_flags": "mirror_move_affected"
+    },
+    "MOVE_SEISMIC_FIST": {
+      "status": "complete",
+      "move_description": "Throws a ground-breaking fist. 20% chance to drop the foe\\'s Def.",
+      "effect_text": "Throws a ground-breaking fist. 20% chance to drop the foe\\'s Def.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, iron_fist",
+      "effect_chance": "20%"
+    },
+    "MOVE_IRON_FANGS": {
+      "status": "complete",
+      "move_description": "Breaks any barrier like Light Screen and Reflect. Strong Jaw boost.",
+      "effect_text": "Breaks any barrier like Light Screen and Reflect. Strong Jaw boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, strong_jaw"
+    },
+    "MOVE_SHADOW_FANGS": {
+      "status": "complete",
+      "move_description": "The foe shudders. 10% chance to curse the foe. Strong Jaw boost.",
+      "effect_text": "The foe shudders. 10% chance to curse the foe. Strong Jaw boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, strong_jaw",
+      "effect_chance": "10%"
+    },
+    "MOVE_LOVELY_BITE": {
+      "status": "complete",
+      "move_description": "An affectionate bite. 10% chance to infatuate the foe. Strong Jaw boost.",
+      "effect_text": "An affectionate bite. 10% chance to infatuate the foe. Strong Jaw boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, strong_jaw",
+      "effect_chance": "10%"
+    },
+    "MOVE_JAGGED_FANGS": {
+      "status": "complete",
+      "move_description": "A ferocious bite. 10% chance to raise user\\'s Attack. Strong Jaw boost.",
+      "effect_text": "A ferocious bite. 10% chance to raise user\\'s Attack. Strong Jaw boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, strong_jaw",
+      "effect_chance": "10%"
+    },
+    "MOVE_SCORCHED_EARTH": {
+      "status": "complete",
+      "move_description": "Fire or Ground based on effectiveness. Has 10% burn chance.",
+      "effect_text": "Fire or Ground based on effectiveness. Has 10% burn chance.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected",
+      "effect_chance": "10%"
+    },
+    "MOVE_PLASMA_PULSE": {
+      "status": "complete",
+      "move_description": "Double damage against status. 10% paralyze chance. Mega Launcher boost",
+      "effect_text": "Double damage against status. 10% paralyze chance. Mega Launcher boost",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, mega_launcher",
+      "effect_chance": "10%"
+    },
+    "MOVE_PRIMAL_BEAM": {
+      "status": "complete",
+      "move_description": "An strange beam that uses the user\\'s Attack, may rise own Atk.",
+      "effect_text": "An strange beam that uses the user\\'s Attack, may rise own Atk.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, mega_launcher",
+      "effect_chance": "20%"
+    },
+    "MOVE_DRACONIC_FANGS": {
+      "status": "complete",
+      "move_description": "The user bites with draconic fangs. 20% flinch chance. Strong Jaw boost.",
+      "effect_text": "The user bites with draconic fangs. 20% flinch chance. Strong Jaw boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, strong_jaw",
+      "effect_chance": "20%"
+    },
+    "MOVE_PIXIE_BEAM": {
+      "status": "complete",
+      "move_description": "A powerful magic beam. 20% chance to lower SpAtk. Mega launcher.",
+      "effect_text": "A powerful magic beam. 20% chance to lower SpAtk. Mega launcher.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, mega_launcher",
+      "effect_chance": "20%"
+    },
+    "MOVE_PIXIE_SLASH": {
+      "status": "complete",
+      "move_description": "The foe is slashed with a whimsical blade. High Crit ratio. Keen Edge boost.",
+      "effect_text": "The foe is slashed with a whimsical blade. High Crit ratio. Keen Edge boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, keen_edge"
+    },
+    "MOVE_SEISMIC_BLADE": {
+      "status": "complete",
+      "move_description": "The foe is slashed with a tectonic blade. High Crit ratio. Keen Edge boost.",
+      "effect_text": "The foe is slashed with a tectonic blade. High Crit ratio. Keen Edge boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, keen_edge"
+    },
+    "MOVE_MOUNTAIN_CHUNK": {
+      "status": "complete",
+      "move_description": "Hurls a chunk of a mountain at the foe. 30% flinch chance. Mega Launcher boost.",
+      "effect_text": "Hurls a chunk of a mountain at the foe. 30% flinch chance. Mega Launcher boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, mega_launcher",
+      "effect_chance": "30%"
+    },
+    "MOVE_ARCHER_SHOT": {
+      "status": "complete",
+      "move_description": "Shoots a dead center arrow at the target. Archer boost.",
+      "effect_text": "Shoots a dead center arrow at the target. Archer boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, arrow"
+    },
+    "MOVE_FROST_BRAND": {
+      "status": "complete",
+      "move_description": "Slahes with an ice-cold cryo blade. 10% frostbite chance. Keen Edge boost.",
+      "effect_text": "Slahes with an ice-cold cryo blade. 10% frostbite chance. Keen Edge boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, keen_edge",
+      "effect_chance": "10%"
+    },
+    "MOVE_FROST_BOLT": {
+      "status": "complete",
+      "move_description": "The user shoots a freezing arrow. 20% frostbite chance. Arrow boost.",
+      "effect_text": "The user shoots a freezing arrow. 20% frostbite chance. Arrow boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, arrow",
+      "effect_chance": "20%"
+    },
+    "MOVE_GLACIER_CRASH": {
+      "status": "complete",
+      "move_description": "A large glacier crashes into foes. Hits all others. Mega Launcher boost.",
+      "effect_text": "A large glacier crashes into foes. Hits all others. Mega Launcher boost.",
+      "priority": "0",
+      "target": "FOES_AND_ALLY",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, mega_launcher"
+    },
+    "MOVE_SUPERSONIC_SHOT": {
+      "status": "complete",
+      "move_description": "Fires a high-speed arrow. Always crits. Archer boost.",
+      "effect_text": "Fires a high-speed arrow. Always crits. Archer boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, arrow"
+    },
+    "MOVE_ZEPHYR_RUSH": {
+      "status": "complete",
+      "move_description": "User fires itself with a gale. Hurts on miss. Mega Launcher boost. Air-based.",
+      "effect_text": "User fires itself with a gale. Hurts on miss. Mega Launcher boost. Air-based.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, reckless, mega_launcher, air"
+    },
+    "MOVE_KINETIC_BARRAGE": {
+      "status": "complete",
+      "move_description": "Lifts up objects and hurls them at the foe. 30% confusion. Mega Launcher boost.",
+      "effect_text": "Lifts up objects and hurls them at the foe. 30% confusion. Mega Launcher boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, mega_launcher",
+      "effect_chance": "30%"
+    },
+    "MOVE_FERTILE_FANGS": {
+      "status": "complete",
+      "move_description": "Inserts ingraining fangs. 10% chance to apply Leech Seed. Strong Jaw boost.",
+      "effect_text": "Inserts ingraining fangs. 10% chance to apply Leech Seed. Strong Jaw boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, strong_jaw",
+      "effect_chance": "10%"
+    },
+    "MOVE_SCATTER_BLAST": {
+      "status": "complete",
+      "move_description": "A blast of sand that scatters Stealth Rocks. Mega Launcher boost.",
+      "effect_text": "A blast of sand that scatters Stealth Rocks. Mega Launcher boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, mega_launcher",
+      "effect_chance": "100%"
+    },
+    "MOVE_JAGGED_PUNCH": {
+      "status": "complete",
+      "move_description": "The foe is punched by a stony fist. 10% chance to set Stealth Rocks.",
+      "effect_text": "The foe is punched by a stony fist. 10% chance to set Stealth Rocks.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, iron_fist",
+      "effect_chance": "10%"
+    },
+    "MOVE_CUTSIE_SLAP": {
+      "status": "complete",
+      "move_description": "The foe is slapped cutely. 10% infatuation chance. Iron Fist boost.",
+      "effect_text": "The foe is slapped cutely. 10% infatuation chance. Iron Fist boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, iron_fist",
+      "effect_chance": "10%"
+    },
+    "MOVE_FAIRY_SPHERES": {
+      "status": "complete",
+      "move_description": "Magical spheres hit 2 to 5 times. Hits SpDef. Mega Launcher boost.",
+      "effect_text": "Magical spheres hit 2 to 5 times. Hits SpDef. Mega Launcher boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, mega_launcher"
+    },
+    "MOVE_BRAMBLE_BLAST": {
+      "status": "complete",
+      "move_description": "Fires thorny brambles. 30% chance to apply Leech Seed. Archer boost.",
+      "effect_text": "Fires thorny brambles. 30% chance to apply Leech Seed. Archer boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, arrow",
+      "effect_chance": "30%"
+    },
+    "MOVE_ASTEROID_DOWNFALL": {
+      "status": "complete",
+      "move_description": "Launches a small asteroid onto the target. Cannot miss. Mega Launcher boost.",
+      "effect_text": "Launches a small asteroid onto the target. Cannot miss. Mega Launcher boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, mega_launcher"
+    },
+    "MOVE_AQUA_BASH": {
+      "status": "complete",
+      "move_description": "A mystical jab strikes the foe. 20% flinch chance. Mighty Horn boost.",
+      "effect_text": "A mystical jab strikes the foe. 20% flinch chance. Mighty Horn boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, horn",
+      "effect_chance": "20%"
+    },
+    "MOVE_TECTONIC_FANGS": {
+      "status": "complete",
+      "move_description": "User inserts its ground shaking fangs, 10% chance to flinch. Strong Jaw boost.",
+      "effect_text": "User inserts its ground shaking fangs, 10% chance to flinch. Strong Jaw boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, strong_jaw",
+      "effect_chance": "10%"
+    },
+    "MOVE_CUPID_SHOT": {
+      "status": "complete",
+      "move_description": "20% chance to infatuate the foe. Arrow move. Archer boost.",
+      "effect_text": "20% chance to infatuate the foe. Arrow move. Archer boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, arrow",
+      "effect_chance": "20%"
+    },
+    "MOVE_CLAY_DART": {
+      "status": "complete",
+      "move_description": "Super-effective on Flying-types. Arrow move. Archer boost.",
+      "effect_text": "Super-effective on Flying-types. Arrow move. Archer boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, arrow"
+    },
+    "MOVE_DIAMOND_ARROW": {
+      "status": "complete",
+      "move_description": "Cuts through foe\\'s stat changes. Sharp as a diamond. Archer boost.",
+      "effect_text": "Cuts through foe\\'s stat changes. Sharp as a diamond. Archer boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "ignores_stat_stages, mirror_move_affected, arrow"
+    },
+    "MOVE_DIAMOND_BLADE": {
+      "status": "complete",
+      "move_description": "Slashes with an unbreakable blade. 10% chance of Stealth Rocks. Keen Edge boost.",
+      "effect_text": "Slashes with an unbreakable blade. 10% chance of Stealth Rocks. Keen Edge boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, keen_edge",
+      "effect_chance": "10%"
+    },
+    "MOVE_VENOM_BOLT": {
+      "status": "complete",
+      "move_description": "Shoots a toxic arrow with precision. +1 crit 20% poison chance. Archer boost.",
+      "effect_text": "Shoots a toxic arrow with precision. +1 crit 20% poison chance. Archer boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, arrow",
+      "effect_chance": "20%"
+    },
+    "MOVE_FUMIGATION_BOMB": {
+      "status": "complete",
+      "move_description": "Hurls a pesticide bomb. Super-effective on Bug-types. Mega Launcher boost.",
+      "effect_text": "Hurls a pesticide bomb. Super-effective on Bug-types. Mega Launcher boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, mega_launcher"
+    },
+    "MOVE_BLACK_MAGIC": {
+      "status": "complete",
+      "move_description": "Calls on dark power to attack. 20% chance to inflict bleed.",
+      "effect_text": "Calls on dark power to attack. 20% chance to inflict bleed.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, mega_launcher",
+      "effect_chance": "20%"
+    },
+    "MOVE_FLAME_TONGUE": {
+      "status": "complete",
+      "move_description": "Slashes foe with a fiery blade. 10% chance to burn. Keen Edge boost.",
+      "effect_text": "Slashes foe with a fiery blade. 10% chance to burn. Keen Edge boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, keen_edge",
+      "effect_chance": "10%"
+    },
+    "MOVE_BLAZING_ARROW": {
+      "status": "complete",
+      "move_description": "Fires a blazing arrow. +1 crit chance. 20% burn chance. Archer boost.",
+      "effect_text": "Fires a blazing arrow. +1 crit chance. 20% burn chance. Archer boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, arrow",
+      "effect_chance": "20%"
+    },
+    "MOVE_ROCKET_PUNCH": {
+      "status": "complete",
+      "move_description": "Launches a body part like a rocket. Has +1 crit rate. Mega Launcher boost.",
+      "effect_text": "Launches a body part like a rocket. Has +1 crit rate. Mega Launcher boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, mega_launcher"
+    },
+    "MOVE_WEB_SHOT": {
+      "status": "complete",
+      "move_description": "Fires a sticky trap. Sets up Sticky Web. +1 crit chance. Archer boost.",
+      "effect_text": "Fires a sticky trap. Sets up Sticky Web. +1 crit chance. Archer boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, arrow",
+      "effect_chance": "100%"
+    },
+    "MOVE_AURA_FORCE": {
+      "status": "complete",
+      "move_description": "Imbues strikes with aura power. Super-effective on Ghost. Mega Launcher boost.",
+      "effect_text": "Imbues strikes with aura power. Super-effective on Ghost. Mega Launcher boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, mega_launcher"
+    },
+    "MOVE_DRAKE_MISSILE": {
+      "status": "complete",
+      "move_description": "Hits both foes on the field with draconic force. Archer boost.",
+      "effect_text": "Hits both foes on the field with draconic force. Archer boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, arrow"
+    },
+    "MOVE_LOTUS_SHOWER": {
+      "status": "complete",
+      "move_description": "Lotus drifts to foes and explodes. Hits both foes. 10% Sleep. Mega Launcher boost.",
+      "effect_text": "Lotus drifts to foes and explodes. Hits both foes. 10% Sleep. Mega Launcher boost.",
+      "priority": "0",
+      "target": "BOTH",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, mega_launcher",
+      "effect_chance": "10%"
+    },
+    "MOVE_JAGGED_HORNS": {
+      "status": "complete",
+      "move_description": "A rocky jab strikes the foe. 10% flinch chance. 10% bleed chance. Mighty Horn boost.",
+      "effect_text": "A rocky jab strikes the foe. 10% flinch chance. 10% bleed chance. Mighty Horn boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, horn",
+      "effect_chance": "10%"
+    },
+    "MOVE_BLOOD_SHOT": {
+      "status": "complete",
+      "move_description": "Hurls a sphere of cursed blood magic. Causes the foe to bleed profusely.",
+      "effect_text": "Hurls a sphere of cursed blood magic. Causes the foe to bleed profusely.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected"
+    },
+    "MOVE_FLASH_FREEZE": {
+      "status": "complete",
+      "move_description": "Rapidly chills the foe, causing frostbite. Never misses if user is Ice-type.",
+      "effect_text": "Rapidly chills the foe, causing frostbite. Never misses if user is Ice-type.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected"
+    },
+    "MOVE_PHANTOM_GLOVES": {
+      "status": "complete",
+      "move_description": "Throws foe with a ghostly hand. 30% chance to lower Speed. Mega Launcher boost.",
+      "effect_text": "Throws foe with a ghostly hand. 30% chance to lower Speed. Mega Launcher boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, mega_launcher",
+      "effect_chance": "30%"
+    },
+    "MOVE_HOMING_FLETCH": {
+      "status": "complete",
+      "move_description": "User fires a seeking arrow. Cannot miss. Has +1 crit chance. Archer boost.",
+      "effect_text": "User fires a seeking arrow. Cannot miss. Has +1 crit chance. Archer boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, arrow"
+    },
+    "MOVE_DEVIOUS_SHOT": {
+      "status": "complete",
+      "move_description": "A devious arrow strike. +1 crit chance. 50% bleed chance. Archer boost.",
+      "effect_text": "A devious arrow strike. +1 crit chance. 50% bleed chance. Archer boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, arrow",
+      "effect_chance": "50%"
+    },
+    "MOVE_STARBURST": {
+      "status": "complete",
+      "move_description": "The user crashes a star shaped ray down. 30% flinch chance. Mega Launcher boost.",
+      "effect_text": "The user crashes a star shaped ray down. 30% flinch chance. Mega Launcher boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, mega_launcher",
+      "effect_chance": "30%"
+    },
+    "MOVE_CHEAP_SHOT": {
+      "status": "complete",
+      "move_description": "The user sneaks into shadows, then attacks with hidden projectile. Mega Launcher boost.",
+      "effect_text": "The user sneaks into shadows, then attacks with hidden projectile. Mega Launcher boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, mega_launcher"
+    },
+    "MOVE_TORRENT_FIST": {
+      "status": "complete",
+      "move_description": "Strikes with a water-infused fist. 20% chance to drop speed. Iron Fist boost.",
+      "effect_text": "Strikes with a water-infused fist. 20% chance to drop speed. Iron Fist boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, iron_fist",
+      "effect_chance": "20%"
+    },
+    "MOVE_STAR_CRASH": {
+      "status": "complete",
+      "move_description": "Strikes the foe like a falling star. 33% recoil damage.",
+      "effect_text": "Strikes the foe like a falling star. 33% recoil damage.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, reckless"
+    },
+    "MOVE_ENERGY_WAVE": {
+      "status": "complete",
+      "move_description": "The user unleashes a deadly wave of energy to strike the enemy.",
+      "effect_text": "The user unleashes a deadly wave of energy to strike the enemy.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected"
+    },
+    "MOVE_FLUTTERING_LEAF": {
+      "status": "complete",
+      "move_description": "The user moves like a fluttering leaf and strikes. User switches afterwards.",
+      "effect_text": "The user moves like a fluttering leaf and strikes. User switches afterwards.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected"
+    },
+    "MOVE_WHIRLING_STRIKES": {
+      "status": "complete",
+      "move_description": "Hits 3 times. Each hit does more damage. Striker.",
+      "effect_text": "Hits 3 times. Each hit does more damage. Striker.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, striker"
+    },
+    "MOVE_MIND_BREAK": {
+      "status": "complete",
+      "move_description": "Uses psychic power to shatter foes\\' psyche. 20% chance to confuse.",
+      "effect_text": "Uses psychic power to shatter foes\\' psyche. 20% chance to confuse.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected",
+      "effect_chance": "20%"
+    },
+    "MOVE_WYRM_WIND": {
+      "status": "complete",
+      "move_description": "Hits 2-5 times. Lowers SpDef. Raises Speed. Mega launcher boost.",
+      "effect_text": "Hits 2-5 times. Lowers SpDef. Raises Speed. Mega launcher boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, mega_launcher, ballistic",
+      "effect_chance": "100%"
+    },
+    "MOVE_BERRY_SMASH": {
+      "status": "complete",
+      "move_description": "User smashes its berry, gaining its effect. Super Slammer boost.",
+      "effect_text": "User smashes its berry, gaining its effect. Super Slammer boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, hammer"
+    },
+    "MOVE_SUPERHOT_FLAME": {
+      "status": "complete",
+      "move_description": "Deals damage. Deals increased damage in rain.",
+      "effect_text": "Deals damage. Deals increased damage in rain.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected"
+    },
+    "MOVE_DOUBLE_LARIAT": {
+      "status": "complete",
+      "move_description": "User hits both foes with whirling arms. Foes cannot use any sound moves after.",
+      "effect_text": "User hits both foes with whirling arms. Foes cannot use any sound moves after.",
+      "priority": "0",
+      "target": "BOTH",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected"
+    },
+    "MOVE_LEECH_BLADE": {
+      "status": "complete",
+      "move_description": "Heals 50% of damage done to the foe. Keen Edge boost.",
+      "effect_text": "Heals 50% of damage done to the foe. Keen Edge boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, keen_edge"
+    },
+    "MOVE_YGGDRASIL_FORCE": {
+      "status": "complete",
+      "move_description": "Nature\\'s overcharges the user\\'s strike. Lowers Atk and Def.",
+      "effect_text": "Nature\\'s overcharges the user\\'s strike. Lowers Atk and Def.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected"
+    },
+    "MOVE_DRAIN_BRAIN": {
+      "status": "complete",
+      "move_description": "Saps the foe\\'s SpAtk and heals HP by the same amount.",
+      "effect_text": "Saps the foe\\'s SpAtk and heals HP by the same amount.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "magic_coat_affected, mirror_move_affected"
+    },
+    "MOVE_PSYCHOKINETIC_SLAM": {
+      "status": "complete",
+      "move_description": "User charges, boosted by psychic power. 33% recoil damage.",
+      "effect_text": "User charges, boosted by psychic power. 33% recoil damage.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, reckless"
+    },
+    "MOVE_GEM_MISSILE": {
+      "status": "complete",
+      "move_description": "A fast attack that strikes the foe with a sharp gem. +1 priority.",
+      "effect_text": "A fast attack that strikes the foe with a sharp gem. +1 priority.",
+      "priority": "1",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected"
+    },
+    "MOVE_RIDER_KICK": {
+      "status": "complete",
+      "move_description": "An unerring kick that ignores the foe\\'s ability. Can\\'t miss. Striker boost.",
+      "effect_text": "An unerring kick that ignores the foe\\'s ability. Can\\'t miss. Striker boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "ignores_ability, mirror_move_affected, striker"
+    },
+    "MOVE_INVERSE_ROOM": {
+      "status": "complete",
+      "move_description": "The user exerts an unknown power that reverses the type chart for 5 turns.",
+      "effect_text": "The user exerts an unknown power that reverses the type chart for 5 turns.",
+      "priority": "0",
+      "target": "ALL_BATTLERS",
+      "contact": "No",
+      "move_flags": "mirror_move_affected"
+    },
+    "MOVE_BLAZING_BONE": {
+      "status": "complete",
+      "move_description": "Strikes with a fiery bone 2-5 times. Has +1 priority. Bone-based.",
+      "effect_text": "Strikes with a fiery bone 2-5 times. Has +1 priority. Bone-based.",
+      "priority": "1",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, bone"
+    },
+    "MOVE_KARMA": {
+      "status": "complete",
+      "move_description": "Purges its impurities. Lowers Speed, raises SpAtk and SpDef.",
+      "effect_text": "Purges its impurities. Lowers Speed, raises SpAtk and SpDef.",
+      "priority": "0",
+      "target": "USER",
+      "contact": "No",
+      "move_flags": "snatch_affected, mirror_move_affected"
+    },
+    "MOVE_GHASTLY_ECHO": {
+      "status": "complete",
+      "move_description": "Deals damage and switches. Switch-in gets 50% boost for 1 turn. Sound-based.",
+      "effect_text": "Deals damage and switches. Switch-in gets 50% boost for 1 turn. Sound-based.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, sound"
+    },
+    "MOVE_RAGING_SOULS": {
+      "status": "complete",
+      "move_description": "Souls from astral plane strike the foe. This lowers Sp. Atk by 2 stages.",
+      "effect_text": "Souls from astral plane strike the foe. This lowers Sp. Atk by 2 stages.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected",
+      "effect_chance": "100%"
+    },
+    "MOVE_REQUIEM": {
+      "status": "complete",
+      "move_description": "Sings a haunting melody. 10% chance to inflict curse. Sound-based.",
+      "effect_text": "Sings a haunting melody. 10% chance to inflict curse. Sound-based.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, sound",
+      "effect_chance": "10%"
+    },
+    "MOVE_SOIL_DRAIN": {
+      "status": "complete",
+      "move_description": "Foe\\'s power is leeched into the ground. Heals 50% of damage done.",
+      "effect_text": "Foe\\'s power is leeched into the ground. Heals 50% of damage done.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected"
+    },
+    "MOVE_SMASHIN_REALITIES": {
+      "status": "complete",
+      "move_description": "Removes weather and terrain. -3 priority. Hammer based.",
+      "effect_text": "Removes weather and terrain. -3 priority. Hammer based.",
+      "priority": "-3",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, hammer"
+    },
+    "MOVE_CREEPING_THORNS": {
+      "status": "complete",
+      "move_description": "Thorn-covered vines surround the foe. This hurts foes on switch in.",
+      "effect_text": "Thorn-covered vines surround the foe. This hurts foes on switch in.",
+      "priority": "0",
+      "target": "OPPONENTS_FIELD",
+      "contact": "No",
+      "move_flags": "magic_coat_affected"
+    },
+    "MOVE_WILD_SWING": {
+      "status": "complete",
+      "move_description": "Forces the target to switch. -6 priority. Hammer-based.",
+      "effect_text": "Forces the target to switch. -6 priority. Hammer-based.",
+      "priority": "-6",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, hammer"
+    },
+    "MOVE_FEMUR_BREAKER": {
+      "status": "complete",
+      "move_description": "The user strikes the foe\\'s legs. Always paralyzes. Hammer-based.",
+      "effect_text": "The user strikes the foe\\'s legs. Always paralyzes. Hammer-based.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, hammer",
+      "effect_chance": "100%"
+    },
+    "MOVE_SQUEAKY_HAMMER": {
+      "status": "complete",
+      "move_description": "An oddly sounding attack that may infatuate the foe. Hammer-based.",
+      "effect_text": "An oddly sounding attack that may infatuate the foe. Hammer-based.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, hammer",
+      "effect_chance": "20%"
+    },
+    "MOVE_PRIMITIVE_STRIKE": {
+      "status": "complete",
+      "move_description": "The foe is struck with ancient attacks. -2 priority. Hammer-based.",
+      "effect_text": "The foe is struck with ancient attacks. -2 priority. Hammer-based.",
+      "priority": "-2",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, hammer"
+    },
+    "MOVE_SMASHING_PUMPKINS": {
+      "status": "complete",
+      "move_description": "Deals damage and sets grassy terrain. Hammer-based.",
+      "effect_text": "Deals damage and sets grassy terrain. Hammer-based.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, hammer",
+      "effect_chance": "100%"
+    },
+    "MOVE_AIRBORNE_SLAM": {
+      "status": "complete",
+      "move_description": "20% chance to confuse. Hammer-based.",
+      "effect_text": "20% chance to confuse. Hammer-based.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "ignores_protect, hammer"
+    },
+    "MOVE_SPINE_BREAKER": {
+      "status": "complete",
+      "move_description": "Strikes the foe fearsomely on the back. 30% chance to paralyze.",
+      "effect_text": "Strikes the foe fearsomely on the back. 30% chance to paralyze.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, hammer",
+      "effect_chance": "30%"
+    },
+    "MOVE_CRACKLE_SLAM": {
+      "status": "complete",
+      "move_description": "Slams foes with lots of electricity. Super-effective against Steel. Hammer-based.",
+      "effect_text": "Slams foes with lots of electricity. Super-effective against Steel. Hammer-based.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, hammer"
+    },
+    "MOVE_SQUALL_HAMMER": {
+      "status": "complete",
+      "move_description": "50% chance to clear hazards. -1 priority. Hammer-based.",
+      "effect_text": "50% chance to clear hazards. -1 priority. Hammer-based.",
+      "priority": "-1",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, no_sheer_force, hammer",
+      "effect_chance": "50%"
+    },
+    "MOVE_MEGATON_HAMMER": {
+      "status": "complete",
+      "move_description": "A massive strike with a hammer of immense power. Ignores Protect.",
+      "effect_text": "A massive strike with a hammer of immense power. Ignores Protect.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "ignores_protect, mirror_move_affected, hammer"
+    },
+    "MOVE_BATTERING_RAM": {
+      "status": "complete",
+      "move_description": "The user launches a heavy object. Breaks barriers. Hammer-based.",
+      "effect_text": "The user launches a heavy object. Breaks barriers. Hammer-based.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, hammer"
+    },
+    "MOVE_PITFALL": {
+      "status": "complete",
+      "move_description": "30% chance to trap and make attacks always hit the target. Hammer-based.",
+      "effect_text": "30% chance to trap and make attacks always hit the target. Hammer-based.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, hammer",
+      "effect_chance": "30%"
+    },
+    "MOVE_VIRAL_STRIKE": {
+      "status": "complete",
+      "move_description": "Transfers the user\\'s status to the target, curing the user. Hammer-based.",
+      "effect_text": "Transfers the user\\'s status to the target, curing the user. Hammer-based.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, hammer"
+    },
+    "MOVE_SHADOW_HAMMER": {
+      "status": "complete",
+      "move_description": "The user slams its ghostly body into the foe. 33% recoil damage.",
+      "effect_text": "The user slams its ghostly body into the foe. 33% recoil damage.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, hammer, reckless"
+    },
+    "MOVE_BONK": {
+      "status": "complete",
+      "move_description": "50% chance to cause drowsiness. Hammer-based.",
+      "effect_text": "50% chance to cause drowsiness. Hammer-based.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, hammer",
+      "effect_chance": "50%"
+    },
+    "MOVE_MOLTEN_STRIKE": {
+      "status": "complete",
+      "move_description": "Lowers the user\\'s speed. Iron fist boost. Hammer-based.",
+      "effect_text": "Lowers the user\\'s speed. Iron fist boost. Hammer-based.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, hammer",
+      "effect_chance": "100%"
+    },
+    "MOVE_MIRAGE_SLAM": {
+      "status": "complete",
+      "move_description": "Predicts a 40bp Future Sight. Hammer-based.",
+      "effect_text": "Predicts a 40bp Future Sight. Hammer-based.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, hammer"
+    },
+    "MOVE_EARTHSPLITTER": {
+      "status": "complete",
+      "move_description": "Can lower the defense of targets. Hammer-based.",
+      "effect_text": "Can lower the defense of targets. Hammer-based.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, hammer",
+      "effect_chance": "50%"
+    },
+    "MOVE_BEETLE_BASH": {
+      "status": "complete",
+      "move_description": "Slams with a beetle-like hammer. 30% to confuse. Hammer-based.",
+      "effect_text": "Slams with a beetle-like hammer. 30% to confuse. Hammer-based.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, hammer",
+      "effect_chance": "30%"
+    },
+    "MOVE_PEBBLE_SHOWER": {
+      "status": "complete",
+      "move_description": "A rain of pebbles hits both targets. 20% flinch chance.",
+      "effect_text": "A rain of pebbles hits both targets. 20% flinch chance.",
+      "priority": "0",
+      "target": "BOTH",
+      "contact": "No",
+      "move_flags": "mirror_move_affected",
+      "effect_chance": "20%"
+    },
+    "MOVE_RAPID_RIVER": {
+      "status": "complete",
+      "move_description": "A surge of water that hits twice. 10% drench chance. Mega Launcher boost.",
+      "effect_text": "A surge of water that hits twice. 10% drench chance. Mega Launcher boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, mega_launcher",
+      "effect_chance": "10%"
+    },
+    "MOVE_TOXIC_NEEDLES": {
+      "status": "complete",
+      "move_description": "Toxic pins are shot at the foe and hit 2 - 5 times. 10% poison chance.",
+      "effect_text": "Toxic pins are shot at the foe and hit 2 - 5 times. 10% poison chance.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected",
+      "effect_chance": "10%"
+    },
+    "MOVE_SMOLDER_BASH": {
+      "status": "complete",
+      "move_description": "Bashes the foe with a fiery horn. 10% chance to burn. Horn-based.",
+      "effect_text": "Bashes the foe with a fiery horn. 10% chance to burn. Horn-based.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, horn",
+      "effect_chance": "10%"
+    },
+    "MOVE_BEATDOWN": {
+      "status": "complete",
+      "move_description": "Attacks the foe with a flurry of blows. hits 2-5 times.",
+      "effect_text": "Attacks the foe with a flurry of blows. hits 2-5 times.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected"
+    },
+    "MOVE_EERIE_FOG": {
+      "status": "complete",
+      "move_description": "An eerie fog lasting eight turns drains boosts from non-Ghost and Psychic mons.",
+      "effect_text": "An eerie fog lasting eight turns drains boosts from non-Ghost and Psychic mons.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "ignores_protect"
+    },
+    "MOVE_MYSTIC_DANCE": {
+      "status": "complete",
+      "move_description": "A mystic, powerful dance that boosts the user\\'s SpAtk and Speed stats.",
+      "effect_text": "A mystic, powerful dance that boosts the user\\'s SpAtk and Speed stats.",
+      "priority": "0",
+      "target": "USER",
+      "contact": "No",
+      "move_flags": "snatch_affected, dance"
+    },
+    "MOVE_RELENTLESS_CLOBBER": {
+      "status": "complete",
+      "move_description": "Pummels the target repeatedly. Hammer based.",
+      "effect_text": "Pummels the target repeatedly. Hammer based.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, hammer"
+    },
+    "MOVE_POP_MAYHEM": {
+      "status": "complete",
+      "move_description": "Pelts the target with hot kernels.10% burn chance.",
+      "effect_text": "Pelts the target with hot kernels.10% burn chance.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, ballistic",
+      "effect_chance": "10%"
+    },
+    "MOVE_KILOBITE": {
+      "status": "complete",
+      "move_description": "Rushes forward and bites the foe. -1 Speed to foe or +1 Speed to user.",
+      "effect_text": "Rushes forward and bites the foe. -1 Speed to foe or +1 Speed to user.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, strong_jaw",
+      "effect_chance": "100%"
+    },
+    "MOVE_TANGLING_HUSK": {
+      "status": "complete",
+      "move_description": "Protects against non-Fire-type moves. Slows attackers on contact.",
+      "effect_text": "Protects against non-Fire-type moves. Slows attackers on contact.",
+      "priority": "4",
+      "target": "USER",
+      "contact": "No",
+      "move_flags": "is_protection"
+    },
+    "MOVE_RIP_AND_TEAR": {
+      "status": "complete",
+      "move_description": "Lowers Speed. 50% chance to bleed. Can\\'t be used twice in a row.",
+      "effect_text": "Lowers Speed. 50% chance to bleed. Can\\'t be used twice in a row.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "every_other_turn, mirror_move_affected, strong_jaw",
+      "effect_chance": "50%"
+    },
+    "MOVE_BRAVADO": {
+      "status": "complete",
+      "move_description": "An attack that is boosted if user is burned, poisoned, or paralyzed.",
+      "effect_text": "An attack that is boosted if user is burned, poisoned, or paralyzed.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected"
+    },
+    "MOVE_TERROR_CHARGE": {
+      "status": "complete",
+      "move_description": "50% chance to bleed. 50% chance to fear. Double damage when switching in.",
+      "effect_text": "50% chance to bleed. 50% chance to fear. Double damage when switching in.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, strong_jaw",
+      "effect_chance": "50%"
+    },
+    "MOVE_TERROR_LOCKS": {
+      "status": "complete",
+      "move_description": "30% chance to bleed. 50% more damage if the foe is bleeding. Keen Edge boost.",
+      "effect_text": "30% chance to bleed. 50% more damage if the foe is bleeding. Keen Edge boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, keen_edge",
+      "effect_chance": "30%"
+    },
+    "MOVE_DREAM_INVERSION": {
+      "status": "complete",
+      "move_description": "Deals 2x damage to sleeping foes. 10% chance for drowsy. Hits both foes.",
+      "effect_text": "Deals 2x damage to sleeping foes. 10% chance for drowsy. Hits both foes.",
+      "priority": "0",
+      "target": "BOTH",
+      "contact": "No",
+      "move_flags": "mirror_move_affected",
+      "effect_chance": "10%"
+    },
+    "MOVE_SPARKLING_BARRAGE": {
+      "status": "complete",
+      "move_description": "The user shoots 3 beams of light at the target.",
+      "effect_text": "The user shoots 3 beams of light at the target.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, arrow"
+    },
+    "MOVE_SPECTRAL_SERENADE": {
+      "status": "complete",
+      "move_description": "The foe is hit with a huge explosion. Can only be used every-other turn.",
+      "effect_text": "The foe is hit with a huge explosion. Can only be used every-other turn.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "every_other_turn, mirror_move_affected"
+    },
+    "MOVE_MERCULIGHT": {
+      "status": "complete",
+      "move_description": "Evades attacks with certainty, paralyzing attackers. May fail if used in succession.",
+      "effect_text": "Evades attacks with certainty, paralyzing attackers. May fail if used in succession.",
+      "priority": "4",
+      "target": "USER",
+      "contact": "No",
+      "move_flags": "is_protection"
+    },
+    "MOVE_BIG_BLAST": {
+      "status": "complete",
+      "move_description": "The foe is hit with a huge explosion. 20% burn chance.",
+      "effect_text": "The foe is hit with a huge explosion. 20% burn chance.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, mega_launcher",
+      "effect_chance": "20%"
+    },
+    "MOVE_SPECTRAL_FLAME": {
+      "status": "complete",
+      "move_description": "Burns the target, including Fire types. Suppresses abilities in fog.",
+      "effect_text": "Burns the target, including Fire types. Suppresses abilities in fog.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "magic_coat_affected"
+    },
+    "MOVE_TREPIDATION": {
+      "status": "complete",
+      "move_description": "The foe falls into despair. All Psychic-type moves they use miss for 3 turns.",
+      "effect_text": "The foe falls into despair. All Psychic-type moves they use miss for 3 turns.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected",
+      "effect_chance": "100%"
+    },
+    "MOVE_ASTRAL_HAND": {
+      "status": "complete",
+      "move_description": "Strikes the foe with a projected fist. Ignores stat boosts. Iron Fist boost.",
+      "effect_text": "Strikes the foe with a projected fist. Ignores stat boosts. Iron Fist boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "ignores_stat_stages, mirror_move_affected, iron_fist"
+    },
+    "MOVE_FETCH": {
+      "status": "complete",
+      "move_description": "The user retrieves its lost item and switches to an ally.",
+      "effect_text": "The user retrieves its lost item and switches to an ally.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "ignores_protect"
+    },
+    "MOVE_TRANSMUTE": {
+      "status": "complete",
+      "move_description": "Recovers a used item if this attack knocks out the opponent.",
+      "effect_text": "Recovers a used item if this attack knocks out the opponent.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected"
+    },
+    "MOVE_CLEAR_SKIES": {
+      "status": "complete",
+      "move_description": "Clears the current weather and prevents new weather from being set for 5 turns.",
+      "effect_text": "Clears the current weather and prevents new weather from being set for 5 turns.",
+      "priority": "0",
+      "target": "ALL_BATTLERS",
+      "contact": "No"
+    },
+    "MOVE_READY_OR_NOT": {
+      "status": "complete",
+      "move_description": "Hides on the first turn scares the foe on the second. 30% flinch chance.",
+      "effect_text": "Hides on the first turn scares the foe on the second. 30% flinch chance.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected",
+      "effect_chance": "30%"
+    },
+    "MOVE_GIANT_GALE": {
+      "status": "complete",
+      "move_description": "Strikes with a mighty gale, but the user\\'s Speed is lowered. Air based.",
+      "effect_text": "Strikes with a mighty gale, but the user\\'s Speed is lowered. Air based.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "affects_user, certain, mirror_move_affected, no_sheer_force, air",
+      "effect_chance": "100%"
+    },
+    "MOVE_VEXING_VOID": {
+      "status": "complete",
+      "move_description": "30% chance to lower Special Defense. Never misses in fog.",
+      "effect_text": "30% chance to lower Special Defense. Never misses in fog.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected",
+      "effect_chance": "30%"
+    },
+    "MOVE_ECLIPSE": {
+      "status": "complete",
+      "move_description": "Deals heavy damage. Afterwards the user loses its Dark typing.",
+      "effect_text": "Deals heavy damage. Afterwards the user loses its Dark typing.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected",
+      "effect_chance": "100%"
+    },
+    "MOVE_TAKE_FLIGHT": {
+      "status": "complete",
+      "move_description": "Deals damage and then switches out. Air based.",
+      "effect_text": "Deals damage and then switches out. Air based.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, air"
+    },
+    "MOVE_CALTROPS": {
+      "status": "complete",
+      "move_description": "Spreads spikes that inflict bleeding on the next opponent to switch in.",
+      "effect_text": "Spreads spikes that inflict bleeding on the next opponent to switch in.",
+      "priority": "0",
+      "target": "OPPONENTS_FIELD",
+      "contact": "No",
+      "move_flags": "magic_coat_affected"
+    },
+    "MOVE_SAFE_PASSAGE": {
+      "status": "complete",
+      "move_description": "Guides an ally onto the field. They take -35% damage this turn.",
+      "effect_text": "Guides an ally onto the field. They take -35% damage this turn.",
+      "priority": "0",
+      "target": "USER",
+      "contact": "No"
+    },
+    "MOVE_ESPER_WALTZ": {
+      "status": "complete",
+      "move_description": "50% chance to raise Special Attack. Dance move.",
+      "effect_text": "50% chance to raise Special Attack. Dance move.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, dance",
+      "effect_chance": "50%"
+    },
+    "MOVE_ZAP_JIVE": {
+      "status": "complete",
+      "move_description": "50% chance to raise Speed. Dance move.",
+      "effect_text": "50% chance to raise Speed. Dance move.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, dance",
+      "effect_chance": "50%"
+    },
+    "MOVE_HEX_TROT": {
+      "status": "complete",
+      "move_description": "50% chance to raise Speed. Dance move.",
+      "effect_text": "50% chance to raise Speed. Dance move.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, dance",
+      "effect_chance": "50%"
+    },
+    "MOVE_BAD_EGG": {
+      "status": "complete",
+      "move_description": "Throws an egg filled with toxins. Badly poisons the target",
+      "effect_text": "Throws an egg filled with toxins. Badly poisons the target",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected",
+      "effect_chance": "100%"
+    },
+    "MOVE_DRAGON_JAB": {
+      "status": "complete",
+      "move_description": "A jabbing attack. 30%  chance to inflict bleeding. Mighty Horn boost.",
+      "effect_text": "A jabbing attack. 30%  chance to inflict bleeding. Mighty Horn boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, horn",
+      "effect_chance": "30%"
+    },
+    "MOVE_ICICLE_IMPALE": {
+      "status": "complete",
+      "move_description": "A jabbing attack. 30%  chance to lower Defense. Mighty Horn boost.",
+      "effect_text": "A jabbing attack. 30%  chance to lower Defense. Mighty Horn boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, horn",
+      "effect_chance": "30%"
+    },
+    "MOVE_TOXIC_PLUNGE": {
+      "status": "complete",
+      "move_description": "Dives and then attacks on the next turn. 20% chance to poison.",
+      "effect_text": "Dives and then attacks on the next turn. 20% chance to poison.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected",
+      "effect_chance": "20%"
+    },
+    "MOVE_SHOWTIME": {
+      "status": "complete",
+      "move_description": "Clears other rooms and sets Magic Room, then switches to an ally.",
+      "effect_text": "Clears other rooms and sets Magic Room, then switches to an ally.",
+      "priority": "0",
+      "target": "USER",
+      "contact": "No"
+    },
+    "MOVE_BANISHED_POWER": {
+      "status": "complete",
+      "move_description": "Deals damage and raises the user\\'s highest attack or defense by 1 stage.",
+      "effect_text": "Deals damage and raises the user\\'s highest attack or defense by 1 stage.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "affects_user, mirror_move_affected",
+      "effect_chance": "100%"
+    },
+    "MOVE_TRIPLE_TREMOR": {
+      "status": "complete",
+      "move_description": "Hits three times. More powerful with each successive hit.",
+      "effect_text": "Hits three times. More powerful with each successive hit.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, striker"
+    },
+    "MOVE_FIRE_GLAIVE": {
+      "status": "complete",
+      "move_description": "Strikes with a white hot horn, ignoring stat changes. Might Horn boost.",
+      "effect_text": "Strikes with a white hot horn, ignoring stat changes. Might Horn boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "ignores_stat_stages, mirror_move_affected, horn"
+    },
+    "MOVE_DEPLETION_BEAM": {
+      "status": "complete",
+      "move_description": "Foe\\'s last move has 3 PP cut. Mega launcher boost.",
+      "effect_text": "Foe\\'s last move has 3 PP cut. Mega launcher boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, mega_launcher, weather"
+    },
+    "MOVE_ONE_INCH_PUNCH": {
+      "status": "complete",
+      "move_description": "A powerful punch that never misses. High crit rate. Iron Fist boost.",
+      "effect_text": "A powerful punch that never misses. High crit rate. Iron Fist boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, iron_fist"
+    },
+    "MOVE_BERSERKER_HORN": {
+      "status": "complete",
+      "move_description": "Rotates its body like a drill. High crit ratio. Mighty Horn boost.",
+      "effect_text": "Rotates its body like a drill. High crit ratio. Mighty Horn boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, horn, drill",
+      "effect_chance": "10%"
+    },
+    "MOVE_ONI_FIST": {
+      "status": "complete",
+      "move_description": "A strong punch from the shadows. Always hits. Iron Fist boost.",
+      "effect_text": "A strong punch from the shadows. Always hits. Iron Fist boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, iron_fist"
+    },
+    "MOVE_INSECT_IMPACT": {
+      "status": "complete",
+      "move_description": "A powerful punch. 30% chance to drop defense. Iron Fist boost.",
+      "effect_text": "A powerful punch. 30% chance to drop defense. Iron Fist boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, iron_fist",
+      "effect_chance": "30%"
+    },
+    "MOVE_LIGHTNING_BULLET": {
+      "status": "complete",
+      "move_description": "Shoots a strong energy projectile. 10% paralyze chance Mega Launcher Boost.",
+      "effect_text": "Shoots a strong energy projectile. 10% paralyze chance Mega Launcher Boost.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, mega_launcher",
+      "effect_chance": "10%"
+    },
+    "MOVE_METALLIC_MELODY": {
+      "status": "complete",
+      "move_description": "The user emits a sound by hitting their metallic body rhythmically.",
+      "effect_text": "The user emits a sound by hitting their metallic body rhythmically.",
+      "priority": "0",
+      "target": "BOTH",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, sound"
+    },
+    "MOVE_BLUE_MOON": {
+      "status": "complete",
+      "move_description": "The user\\'s spirit surges from a azure full moon. Cannot be used twice in a row.",
+      "effect_text": "The user\\'s spirit surges from a azure full moon. Cannot be used twice in a row.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "every_other_turn, mirror_move_affected, lunar"
+    },
+    "MOVE_FIVE_STAR_FURY": {
+      "status": "complete",
+      "move_description": "Hits 2 to 5 times. Has +1 priority. Iron Fist boost.",
+      "effect_text": "Hits 2 to 5 times. Has +1 priority. Iron Fist boost.",
+      "priority": "1",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, iron_fist"
+    },
+    "MOVE_TSUNAMI_HAMMER": {
+      "status": "complete",
+      "move_description": "Super effective vs Poison. Can\\'t be used twice in a row. Hammer-based.",
+      "effect_text": "Super effective vs Poison. Can\\'t be used twice in a row. Hammer-based.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "every_other_turn, mirror_move_affected, hammer"
+    },
+    "MOVE_SEPTIC_SWITCH": {
+      "status": "complete",
+      "move_description": "Supresses the targets abilities then switches out.",
+      "effect_text": "Supresses the targets abilities then switches out.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected"
+    },
+    "MOVE_WATERLOG": {
+      "status": "complete",
+      "move_description": "Makes the target move last. 20% drench chance, 50% in rain.",
+      "effect_text": "Makes the target move last. 20% drench chance, 50% in rain.",
+      "priority": "3",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, magic_coat_affected",
+      "effect_chance": "20%"
+    },
+    "MOVE_INCITE": {
+      "status": "complete",
+      "move_description": "Adds the Dark type to the target and enrages them.",
+      "effect_text": "Adds the Dark type to the target and enrages them.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, magic_coat_affected"
+    },
+    "MOVE_TOXIC_TERRAIN": {
+      "status": "complete",
+      "move_description": "Boosts Poison-type moves for 8 turns and deals 1/16 HP damage.",
+      "effect_text": "Boosts Poison-type moves for 8 turns and deals 1/16 HP damage.",
+      "priority": "0",
+      "target": "ALL_BATTLERS",
+      "contact": "No"
+    },
+    "MOVE_JETSTREAM_BURST": {
+      "status": "complete",
+      "move_description": "Attacks with wind that hits both targets.",
+      "effect_text": "Attacks with wind that hits both targets.",
+      "priority": "0",
+      "target": "BOTH",
+      "contact": "No",
+      "move_flags": "mirror_move_affected"
+    },
+    "MOVE_SKY_QUAKE": {
+      "status": "complete",
+      "move_description": "Howling winds shake the heavens, hitting both foes.",
+      "effect_text": "Howling winds shake the heavens, hitting both foes.",
+      "priority": "0",
+      "target": "BOTH",
+      "contact": "No",
+      "move_flags": "mirror_move_affected"
+    },
+    "MOVE_SUNSTRIKE": {
+      "status": "complete",
+      "move_description": "Strikes and negates evs, items, boosts, and hits lowest defense.",
+      "effect_text": "Strikes and negates evs, items, boosts, and hits lowest defense.",
+      "priority": "1",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected"
+    },
+    "MOVE_TEMPEST_STORM": {
+      "status": "complete",
+      "move_description": "Hits both sides with a thundershock at the end of each turn for 2-5 turns.",
+      "effect_text": "Hits both sides with a thundershock at the end of each turn for 2-5 turns.",
+      "priority": "0",
+      "target": "ALL_BATTLERS",
+      "contact": "No"
+    },
+    "MOVE_PRISM_BLAST": {
+      "status": "complete",
+      "move_description": "Fires and energy prism that damages and reduces accuracy. 10% chance to confuse.",
+      "effect_text": "Fires and energy prism that damages and reduces accuracy. 10% chance to confuse.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, mega_launcher, ballistic",
+      "effect_chance": "10%"
+    },
+    "MOVE_SEISMIC_SLAM": {
+      "status": "complete",
+      "move_description": "Charges with earth shattering power. 33% recoil damage.",
+      "effect_text": "Charges with earth shattering power. 33% recoil damage.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, reckless"
+    },
+    "MOVE_CHILLER": {
+      "status": "complete",
+      "move_description": "Hits the foe with 3 explosive snowballs. 10% Frostbite.",
+      "effect_text": "Hits the foe with 3 explosive snowballs. 10% Frostbite.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, throwing",
+      "effect_chance": "10%"
+    },
+    "MOVE_SPREAD_BOMB": {
+      "status": "complete",
+      "move_description": "A wide reaching bomb is thrown, hitting the field with A 30% burn chance.",
+      "effect_text": "A wide reaching bomb is thrown, hitting the field with A 30% burn chance.",
+      "priority": "0",
+      "target": "FOES_AND_ALLY",
+      "contact": "No",
+      "move_flags": "mirror_move_affected",
+      "effect_chance": "20%"
+    },
+    "MOVE_BALL_TOSS": {
+      "status": "complete",
+      "move_description": "Throws a ball forward. 20% flinch chance",
+      "effect_text": "Throws a ball forward. 20% flinch chance",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, throwing"
+    },
+    "MOVE_PARTY_FAVORS": {
+      "status": "complete",
+      "move_description": "Heals you and your ally by 25% and does damage.",
+      "effect_text": "Heals you and your ally by 25% and does damage.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, throwing"
+    },
+    "MOVE_SHOT_PUT": {
+      "status": "complete",
+      "move_description": "Throws a heavy sphere. 30% to lower speed.",
+      "effect_text": "Throws a heavy sphere. 30% to lower speed.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, throwing"
+    },
+    "MOVE_BLOCK_DROPPER": {
+      "status": "complete",
+      "move_description": "Drops 2 to 5 blocks onto the target.",
+      "effect_text": "Drops 2 to 5 blocks onto the target.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, throwing"
+    },
+    "MOVE_SABER_SLASHES": {
+      "status": "complete",
+      "move_description": "Hits twice. Uses elec. or fire based on effectiveness.",
+      "effect_text": "Hits twice. Uses elec. or fire based on effectiveness.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, keen_edge"
+    },
+    "MOVE_DRAGON_DASH": {
+      "status": "complete",
+      "move_description": "Lunges at the target quickly. +1 prio.",
+      "effect_text": "Lunges at the target quickly. +1 prio.",
+      "priority": "1",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected"
+    },
+    "MOVE_POCKET_SAND": {
+      "status": "complete",
+      "move_description": "The user throws sand on a dime. 10% acc. drop, +1 priority.",
+      "effect_text": "The user throws sand on a dime. 10% acc. drop, +1 priority.",
+      "priority": "1",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, throwing",
+      "effect_chance": "10%"
+    },
+    "MOVE_CONCOCTION": {
+      "status": "complete",
+      "move_description": "Attacks and uses a random berry effect.",
+      "effect_text": "Attacks and uses a random berry effect.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected"
+    },
+    "MOVE_UNSCREW": {
+      "status": "complete",
+      "move_description": "Tampers with the target. Stronger vs Steel.",
+      "effect_text": "Tampers with the target. Stronger vs Steel.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected"
+    },
+    "MOVE_GODSPEED": {
+      "status": "complete",
+      "move_description": "Swoops with incredible speed. +2 prio.",
+      "effect_text": "Swoops with incredible speed. +2 prio.",
+      "priority": "2",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, air"
+    },
+    "MOVE_PSYCHO_WAVE": {
+      "status": "complete",
+      "move_description": "A hazardous energy ball hits the foe. 50% recoil damage.",
+      "effect_text": "A hazardous energy ball hits the foe. 50% recoil damage.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, reckless"
+    },
+    "MOVE_ATOMIC_FIRE": {
+      "status": "complete",
+      "move_description": "A hazardous energy ball hits the foe. 50% recoil damage.",
+      "effect_text": "A hazardous energy ball hits the foe. 50% recoil damage.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, reckless"
+    },
+    "MOVE_RAIN_FLUSH": {
+      "status": "complete",
+      "move_description": "An all consuming rain hits the foe. drops your defenses.",
+      "effect_text": "An all consuming rain hits the foe. drops your defenses.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected",
+      "effect_chance": "100%"
+    },
+    "MOVE_ICE_WALL": {
+      "status": "complete",
+      "move_description": "The user applies a stone cold barrier, setting reflect.",
+      "effect_text": "The user applies a stone cold barrier, setting reflect.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected"
+    },
+    "MOVE_OBSCURED_SHOT": {
+      "status": "complete",
+      "move_description": "User strikes first. It fails if the foe is not attacking.",
+      "effect_text": "User strikes first. It fails if the foe is not attacking.",
+      "priority": "1",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected"
+    },
+    "MOVE_BLITZ_ARROW": {
+      "status": "complete",
+      "move_description": "Shoots an arrow with fighter will. 20% flinch chance.",
+      "effect_text": "Shoots an arrow with fighter will. 20% flinch chance.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "No",
+      "move_flags": "mirror_move_affected, arrow",
+      "effect_chance": "20%"
+    },
+    "MOVE_RUMBLE_KICK": {
+      "status": "complete",
+      "move_description": "A kick from a reinforced leg. 20% Atk drop. Striker.",
+      "effect_text": "A kick from a reinforced leg. 20% Atk drop. Striker.",
+      "priority": "0",
+      "target": "SELECTED",
+      "contact": "Yes",
+      "move_flags": "mirror_move_affected, striker",
+      "effect_chance": "30%"
+    },
+    "PRIMALSUN": {
+      "status": "complete",
+      "move_description": "The user maximizes its Special Attack stat in exchange for HP equal to half its max HP.",
+      "effect_text": "The user maximizes its Special Attack stat in exchange for HP equal to half its max HP.",
+      "priority": "0",
+      "target": "User"
+    },
+    "FROSTWALKER": {
+      "status": "complete",
+      "move_description": "The user cloaks itself in ice and attacks. Building up more power, it raises the user's Speed stat. It can be used to freeze water to traverse it.",
+      "effect_text": "The user cloaks itself in ice and attacks. Building up more power, it raises the user's Speed stat. It can be used to freeze water to traverse it.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,CanMirrorMove",
+      "effect_chance": "100%"
+    },
+    "WAVELASH": {
+      "status": "complete",
+      "move_description": "The user slashes the target with water.",
+      "effect_text": "The user slashes the target with water.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,CanMirrorMove"
+    },
+    "FIRECRACKERS": {
+      "status": "complete",
+      "move_description": "The target is attacked with small exploding flames. It may leave the target burned.",
+      "effect_text": "The target is attacked with small exploding flames. It may leave the target burned.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove",
+      "effect_chance": "10%"
+    },
+    "SWIFTSTRIKE": {
+      "status": "complete",
+      "move_description": "The user swiftly strikes its target. It is sure to strike first.",
+      "effect_text": "The user swiftly strikes its target. It is sure to strike first.",
+      "priority": "1",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,CanMirrorMove"
+    },
+    "FANGLEECH": {
+      "status": "complete",
+      "move_description": "A life-stealing attack. The user's HP is restored by half the damage taken by the target.",
+      "effect_text": "A life-stealing attack. The user's HP is restored by half the damage taken by the target.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,CanMirrorMove"
+    },
+    "SHADOWSTEP": {
+      "status": "complete",
+      "move_description": "The user swiftly strikes its target. It is sure to strike first.",
+      "effect_text": "The user swiftly strikes its target. It is sure to strike first.",
+      "priority": "1",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,CanMirrorMove"
+    },
+    "DRUMBEAT": {
+      "status": "complete",
+      "move_description": "The user slams the opponent with it's body causing a loud bang.",
+      "effect_text": "The user slams the opponent with it's body causing a loud bang.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,CanMirrorMove"
+    },
+    "BEATDROP": {
+      "status": "complete",
+      "move_description": "The user slams the ground creating a loud bang damaging all nearby opponents.",
+      "effect_text": "The user slams the ground creating a loud bang damaging all nearby opponents.",
+      "priority": "0",
+      "target": "AllNearFoes",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,CanMirrorMove"
+    },
+    "BLAZINGBULL": {
+      "status": "complete",
+      "move_description": "The user performs a tackle like a raging bull. It can also break barriers, such as Light Screen and Reflect.",
+      "effect_text": "The user performs a tackle like a raging bull. It can also break barriers, such as Light Screen and Reflect.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,CanMirrorMove"
+    },
+    "SURGINGBULL": {
+      "status": "complete",
+      "move_description": "The user performs a tackle like a raging bull. It can also break barriers, such as Light Screen and Reflect.",
+      "effect_text": "The user performs a tackle like a raging bull. It can also break barriers, such as Light Screen and Reflect.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,CanMirrorMove"
+    },
+    "ENIGMATICDASH": {
+      "status": "complete",
+      "move_description": "The user cloaks itself in happy thoughts and attacks. Building up more power, it raises the user's Speed stat.",
+      "effect_text": "The user cloaks itself in happy thoughts and attacks. Building up more power, it raises the user's Speed stat.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,CanMirrorMove",
+      "effect_chance": "100%"
+    },
+    "BLAZINGSTAMPEDE": {
+      "status": "complete",
+      "move_description": "After engulfing itself in fire, the user charges at the opponent with the power of a herd. May raise the user's attack.",
+      "effect_text": "After engulfing itself in fire, the user charges at the opponent with the power of a herd. May raise the user's attack.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,CanMirrorMove",
+      "effect_chance": "50%"
+    },
+    "IRONBARB": {
+      "status": "complete",
+      "move_description": "The target is struck with a sharp object.",
+      "effect_text": "The target is struck with a sharp object.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,CanMirrorMove"
+    },
+    "KAOLINBASH": {
+      "status": "complete",
+      "move_description": "A bash while coated in fresh clay deals damage. Water Types are dried up and take super-effective damage.",
+      "effect_text": "A bash while coated in fresh clay deals damage. Water Types are dried up and take super-effective damage.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove"
+    },
+    "DIAMONDBREATH": {
+      "status": "complete",
+      "move_description": "Opposing Pokemon are blasted with rare ores. This may sharply lower the target's Special Defense.",
+      "effect_text": "Opposing Pokemon are blasted with rare ores. This may sharply lower the target's Special Defense.",
+      "priority": "0",
+      "target": "AllNearFoes",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove,CannotMetronome",
+      "effect_chance": "20%"
+    },
+    "SOVEREIGNEDGE": {
+      "status": "complete",
+      "move_description": "The target is sliced with a sharp horn, dealing damage. Drastically raises Atk if scores a KO.",
+      "effect_text": "The target is sliced with a sharp horn, dealing damage. Drastically raises Atk if scores a KO.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,CanMirrorMove"
+    },
+    "HEATEDREVUP": {
+      "status": "complete",
+      "move_description": "By heating up, the user's Atk, Spatk and Speed are sharply raised.",
+      "effect_text": "By heating up, the user's Atk, Spatk and Speed are sharply raised.",
+      "priority": "0",
+      "target": "User"
+    },
+    "NIGHTBOUQUET": {
+      "status": "complete",
+      "move_description": "A bouquet filled with nightshades is thrown at the target, dealing damage and leaving a layer of toxic spikes.",
+      "effect_text": "A bouquet filled with nightshades is thrown at the target, dealing damage and leaving a layer of toxic spikes.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect",
+      "effect_chance": "100%"
+    },
+    "TRIPLEWHIRLING": {
+      "status": "complete",
+      "move_description": "Consecutive spin attacks deal damage, each hit being stronger than the previous. This move targets Sp.Def instead of Def.",
+      "effect_text": "Consecutive spin attacks deal damage, each hit being stronger than the previous. This move targets Sp.Def instead of Def.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,CanMirrorMove"
+    },
+    "CODEPOWER": {
+      "status": "complete",
+      "move_description": "Malicious files corrupt and heat the enemy, which may cause a burn. Hits Steel-Types effectively.",
+      "effect_text": "Malicious files corrupt and heat the enemy, which may cause a burn. Hits Steel-Types effectively.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove",
+      "effect_chance": "50%"
+    },
+    "CODEQUARANTINE": {
+      "status": "complete",
+      "move_description": "Protects the user from attacks. Also paralyses any attacker that makes contact with the user.",
+      "effect_text": "Protects the user from attacks. Also paralyses any attacker that makes contact with the user.",
+      "priority": "4",
+      "target": "User"
+    },
+    "CODE:INJECTION": {
+      "status": "complete",
+      "move_description": "By editing the enemy's data, a virus is injected. This also lowers their Sp.Defense.",
+      "effect_text": "By editing the enemy's data, a virus is injected. This also lowers their Sp.Defense.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove,Pulse",
+      "effect_chance": "100%"
+    },
+    "DUNEGLIDER": {
+      "status": "complete",
+      "move_description": "The user glides towards the target while rising up sand. This move always goes first under Sandstorm.",
+      "effect_text": "The user glides towards the target while rising up sand. This move always goes first under Sandstorm.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,CanMirrorMove"
+    },
+    "GENEBLASTER": {
+      "status": "complete",
+      "move_description": "A tackle or a beam charged with energy deals damage. Uses the user's highest atk stat.",
+      "effect_text": "A tackle or a beam charged with energy deals damage. Uses the user's highest atk stat.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove"
+    },
+    "PESTILENCEBURST": {
+      "status": "complete",
+      "move_description": "A beatiful yet terrifying blossom erupts. The lower the user's HP, the less powerful this attack becomes.",
+      "effect_text": "A beatiful yet terrifying blossom erupts. The lower the user's HP, the less powerful this attack becomes.",
+      "priority": "0",
+      "target": "AllNearOthers",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove"
+    },
+    "NAZCAPATTERNS": {
+      "status": "complete",
+      "move_description": "Weird shapes attack at the target. This move follows the user's type and uses the highest attack.",
+      "effect_text": "Weird shapes attack at the target. This move follows the user's type and uses the highest attack.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove,CannotMetronome"
+    },
+    "QUAKINGSPEAR": {
+      "status": "complete",
+      "move_description": "A spike that shakes the earth is shot at the target, forcing it out of battle. In the wild, the battle ends.",
+      "effect_text": "A spike that shakes the earth is shot at the target, forcing it out of battle. In the wild, the battle ends.",
+      "priority": "-6",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,CanMirrorMove,Tail"
+    },
+    "STRIDENTSPARK": {
+      "status": "complete",
+      "move_description": "Punches that break the sound barrier deal damage. Hits Sound types super effectively.",
+      "effect_text": "Punches that break the sound barrier deal damage. Hits Sound types super effectively.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,Punching"
+    },
+    "SPARKLECLUSTER": {
+      "status": "complete",
+      "move_description": "Covered in explosive dust, the user crashes against the target. It also damages the user.",
+      "effect_text": "Covered in explosive dust, the user crashes against the target. It also damages the user.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Recoil,Contact,CanProtect,CanMirrorMove"
+    },
+    "SPICYMAW": {
+      "status": "complete",
+      "move_description": "A bite that releases spicy herbs deals damage. The residual spiciness boosts the user's Atk.",
+      "effect_text": "A bite that releases spicy herbs deals damage. The residual spiciness boosts the user's Atk.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,CanMirrorMove",
+      "effect_chance": "100%"
+    },
+    "SPIRITSPEAR": {
+      "status": "complete",
+      "move_description": "The foe's soul is pierced by enchanted horns, which lower speed by 1 stage.",
+      "effect_text": "The foe's soul is pierced by enchanted horns, which lower speed by 1 stage.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "Soul,CanProtect,CanMirrorMove",
+      "effect_chance": "100%"
+    },
+    "SPLITMASK": {
+      "status": "complete",
+      "move_description": "The two personalities split and lunge forward. Hits both enemies in double battles.",
+      "effect_text": "The two personalities split and lunge forward. Hits both enemies in double battles.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "Twice,CanProtect,CanMirrorMove"
+    },
+    "TETRAJECTILE": {
+      "status": "complete",
+      "move_description": "Four heads fire incendiary shots up to 4 times in a row.",
+      "effect_text": "Four heads fire incendiary shots up to 4 times in a row.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove"
+    },
+    "VINDUNAR": {
+      "status": "complete",
+      "move_description": "Mystical wind deals damage to the target. Uses highest attack stat and never misses under Rain.",
+      "effect_text": "Mystical wind deals damage to the target. Uses highest attack stat and never misses under Rain.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove,CannotMetronome"
+    },
+    "WHIRLYHELIX": {
+      "status": "complete",
+      "move_description": "A mighty gale storms the opponent. It does more damage the faster the user is.",
+      "effect_text": "A mighty gale storms the opponent. It does more damage the faster the user is.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove"
+    },
+    "RHYTHMICCOMBO": {
+      "status": "complete",
+      "move_description": "A rhythmic dance deals damage, and becomes more powerful with each successful hit.",
+      "effect_text": "A rhythmic dance deals damage, and becomes more powerful with each successful hit.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,CanMirrorMove"
+    },
+    "INSTANTWHISTLE": {
+      "status": "complete",
+      "move_description": "Unexpected whistling gathers the attention of enemy Pokemon, redirecting moves to itself.",
+      "effect_text": "Unexpected whistling gathers the attention of enemy Pokemon, redirecting moves to itself.",
+      "priority": "2",
+      "target": "User"
+    },
+    "DISCORDANTSHRIEK": {
+      "status": "complete",
+      "move_description": "Chilling screams deal damage for 2 or 3 turns, then it confuses the user.",
+      "effect_text": "Chilling screams deal damage for 2 or 3 turns, then it confuses the user.",
+      "priority": "0",
+      "target": "RandomNearFoe",
+      "contact": "Yes",
+      "move_flags": "MultiTurn,Contact,CanProtect,CanMirrorMove"
+    },
+    "HEARTBEAT": {
+      "status": "complete",
+      "move_description": "The user deals damage multiple times at high speeds. Boosts the user's Speed but lowers its SpDef.",
+      "effect_text": "The user deals damage multiple times at high speeds. Boosts the user's Speed but lowers its SpDef.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,CanMirrorMove"
+    },
+    "AUDIOBREAK": {
+      "status": "complete",
+      "move_description": "With a punch faster than sound, the user breaks the target's focus, disabling Sound moves and breaking screens.",
+      "effect_text": "With a punch faster than sound, the user breaks the target's focus, disabling Sound moves and breaking screens.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,CanMirrorMove"
+    },
+    "SERENEWAVE": {
+      "status": "complete",
+      "move_description": "A soothing wave hinders the fighting spirit of the opponents, lowering Sp.Attack.",
+      "effect_text": "A soothing wave hinders the fighting spirit of the opponents, lowering Sp.Attack.",
+      "priority": "0",
+      "target": "AllNearFoes",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove",
+      "effect_chance": "100%"
+    },
+    "FURIOUSPUMMELING": {
+      "status": "complete",
+      "move_description": "A reckless assault that beats down the opponent, lowering Attack.",
+      "effect_text": "A reckless assault that beats down the opponent, lowering Attack.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "CanProtect,CanMirrorMove,Contact",
+      "effect_chance": "100%"
+    },
+    "ROUNDABOUT": {
+      "status": "complete",
+      "move_description": "A sudden hit and run deals damage, and switches the user out.",
+      "effect_text": "A sudden hit and run deals damage, and switches the user out.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,CanMirrorMove"
+    },
+    "DESERTWHIRL": {
+      "status": "complete",
+      "move_description": "The target becomes trapped within a whirlwind for four to five turns. Never misses under Sandstorm.",
+      "effect_text": "The target becomes trapped within a whirlwind for four to five turns. Never misses under Sandstorm.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove"
+    },
+    "HOARFROSTTIDE": {
+      "status": "complete",
+      "move_description": "Cold water storms the opponent, which may inflict frostbite. Never misses under Rain and Snow.",
+      "effect_text": "Cold water storms the opponent, which may inflict frostbite. Never misses under Rain and Snow.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove",
+      "effect_chance": "20%"
+    },
+    "MANAFANGS": {
+      "status": "complete",
+      "move_description": "Mana charged fangs strike at the target, which absorb HP equal to 75% of dmg dealt.",
+      "effect_text": "Mana charged fangs strike at the target, which absorb HP equal to 75% of dmg dealt.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,CanMirrorMove"
+    },
+    "MERCURIANTRAP": {
+      "status": "complete",
+      "move_description": "Liquid metal drowns the user's body, before being hurled. Contact causes bad poison.",
+      "effect_text": "Liquid metal drowns the user's body, before being hurled. Contact causes bad poison.",
+      "priority": "-3",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect"
+    },
+    "RAIDERTONITRUS": {
+      "status": "complete",
+      "move_description": "Two turns after this move is used, wicked thunderbolts will raze the opposing Pokemon.",
+      "effect_text": "Two turns after this move is used, wicked thunderbolts will raze the opposing Pokemon.",
+      "priority": "0",
+      "target": "AllNearFoes"
+    },
+    "SINGESLAYER": {
+      "status": "complete",
+      "move_description": "Fire-imbued claws maul the target, which may leave a burn. Double power if target is statused.",
+      "effect_text": "Fire-imbued claws maul the target, which may leave a burn. Double power if target is statused.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove",
+      "effect_chance": "50%"
+    },
+    "HUNTERSWILDS": {
+      "status": "complete",
+      "move_description": "Depending on the highest attacking stat, this move has different effects.",
+      "effect_text": "Depending on the highest attacking stat, this move has different effects.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove,CannotMetronome"
+    },
+    "TERIUMPALM": {
+      "status": "complete",
+      "move_description": "A palm absorbs HP by the target's Sp.Atk stat amount, then lowers the target's Sp.Attack stat.",
+      "effect_text": "A palm absorbs HP by the target's Sp.Atk stat amount, then lowers the target's Sp.Attack stat.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove"
+    },
+    "TERRESTRIALCLAW": {
+      "status": "complete",
+      "move_description": "A claw imbued with energy strikes. Different stats are raised depending on the terrain.",
+      "effect_text": "A claw imbued with energy strikes. Different stats are raised depending on the terrain.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "CanProtect,CanMirrorMove,Contact"
+    },
+    "TRITIUMCANNON": {
+      "status": "complete",
+      "move_description": "A blast of unbridled energy is set off, dealing damage. This also damages the user.",
+      "effect_text": "A blast of unbridled energy is set off, dealing damage. This also damages the user.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove,CannotMetronome,Pulse"
+    },
+    "WHITEWRAITHS": {
+      "status": "complete",
+      "move_description": "A two-turn attack. Wraiths are absorbed, increasing Attack. Unleashes in 1 turn under Sun.",
+      "effect_text": "A two-turn attack. Wraiths are absorbed, increasing Attack. Unleashes in 1 turn under Sun.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,CanMirrorMove"
+    },
+    "SOULSUCKER": {
+      "status": "complete",
+      "move_description": "The user drains the target's soul, dealing damage. The user's HP is restored by half the damage taken by the target.",
+      "effect_text": "The user drains the target's soul, dealing damage. The user's HP is restored by half the damage taken by the target.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Soul,Contact,CanProtect,CanMirrorMove"
+    },
+    "SPECTRALHORDE": {
+      "status": "complete",
+      "move_description": "Cursed energy is sent forward, dealing damage to opposing Pokemon.",
+      "effect_text": "Cursed energy is sent forward, dealing damage to opposing Pokemon.",
+      "priority": "0",
+      "target": "AllNearFoes",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove,CannotMetronome"
+    },
+    "SHATTERBLADE": {
+      "status": "complete",
+      "move_description": "A blade made of icicles is shattered against the target, dealing damage with a high crit ratio.",
+      "effect_text": "A blade made of icicles is shattered against the target, dealing damage with a high crit ratio.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove,CannotMetronome,HighCriticalHitRate,Slicing"
+    },
+    "PYROCLASTICSWEEP": {
+      "status": "complete",
+      "move_description": "Fierce flames are shot forward. The lower the user's HP, the less powerful this attack becomes.",
+      "effect_text": "Fierce flames are shot forward. The lower the user's HP, the less powerful this attack becomes.",
+      "priority": "0",
+      "target": "AllNearFoes",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove"
+    },
+    "TORBIDVINESTORM": {
+      "status": "complete",
+      "move_description": "Life-draining vines entangle opposing Pokemon, restoring the user's HP by half of damage dealt.",
+      "effect_text": "Life-draining vines entangle opposing Pokemon, restoring the user's HP by half of damage dealt.",
+      "priority": "0",
+      "target": "AllNearFoes",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove"
+    },
+    "ARMAMENTSTRIKE": {
+      "status": "complete",
+      "move_description": "Mechanical gadgets destroy the target with a hi-tech barrage. Uses higher Atk and lowers Defs.",
+      "effect_text": "Mechanical gadgets destroy the target with a hi-tech barrage. Uses higher Atk and lowers Defs.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove,Punching,HighCriticalHitRate"
+    },
+    "HANABIDANCE": {
+      "status": "complete",
+      "move_description": "A sword dance strikes three times with true precision, landing critical hits. May burn the target.",
+      "effect_text": "A sword dance strikes three times with true precision, landing critical hits. May burn the target.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,CanMirrorMove,CannotMetronome",
+      "effect_chance": "20%"
+    },
+    "IADOSGUARD": {
+      "status": "complete",
+      "move_description": "Protects itself from damage. It also lowers the Attack of attackers that make contact.",
+      "effect_text": "Protects itself from damage. It also lowers the Attack of attackers that make contact.",
+      "priority": "4",
+      "target": "User"
+    },
+    "VENAMSKISS": {
+      "status": "complete",
+      "move_description": "The user kisses with corrosive acid that may leave the target poisoned. It is Super Effective against Steel-types.",
+      "effect_text": "The user kisses with corrosive acid that may leave the target poisoned. It is Super Effective against Steel-types.",
+      "priority": "0",
+      "target": "SingleNonUser",
+      "contact": "Yes",
+      "move_flags": "Contact",
+      "effect_chance": "10%"
+    },
+    "GALESTRIKE": {
+      "status": "complete",
+      "move_description": "The user summons power when they are against the odds.",
+      "effect_text": "The user summons power when they are against the odds.",
+      "priority": "0",
+      "target": "SingleNonUser",
+      "contact": "Yes",
+      "move_flags": "Contact",
+      "effect_chance": "35%"
+    },
+    "MULTIPULSE": {
+      "status": "complete",
+      "move_description": "The uses shoots holy energy at the target, changing type depending on plate held.",
+      "effect_text": "The uses shoots holy energy at the target, changing type depending on plate held.",
+      "priority": "0",
+      "target": "SingleNonUser"
+    },
+    "SPECTRALSCREAM": {
+      "status": "complete",
+      "move_description": "The users makes a spine-chilling scream, with a chance of raising defense.",
+      "effect_text": "The users makes a spine-chilling scream, with a chance of raising defense.",
+      "priority": "0",
+      "target": "SingleNonUser",
+      "contact": "No",
+      "move_flags": "Sound",
+      "effect_chance": "60%"
+    },
+    "AQUABATICS": {
+      "status": "complete",
+      "move_description": "The user loosens up with aquabatics, raising its Sp. Atk and Speed.",
+      "effect_text": "The user loosens up with aquabatics, raising its Sp. Atk and Speed.",
+      "priority": "0",
+      "target": "User",
+      "contact": "No",
+      "move_flags": "Snachable, NoMirror"
+    },
+    "BARBEDWEB": {
+      "status": "complete",
+      "move_description": "The user spreads spiked silk which may inflict Poison.",
+      "effect_text": "The user spreads spiked silk which may inflict Poison.",
+      "priority": "0",
+      "target": "AllOpposing",
+      "contact": "No",
+      "move_flags": "HighCrit; Kingrock",
+      "effect_chance": "30%"
+    },
+    "COLDTRUTH": {
+      "status": "complete",
+      "move_description": "A strong disturbing chill hits adjacent opponents, inflicting Torment upon them.",
+      "effect_text": "A strong disturbing chill hits adjacent opponents, inflicting Torment upon them.",
+      "priority": "0",
+      "target": "AllOpposing",
+      "effect_chance": "100%"
+    },
+    "FEVERPITCH": {
+      "status": "complete",
+      "move_description": "The user emits a rocking hot sound, getting stronger with more hype.",
+      "effect_text": "The user emits a rocking hot sound, getting stronger with more hype.",
+      "priority": "0",
+      "target": "SingleNonUser",
+      "contact": "No",
+      "move_flags": "Sound; Kingrock",
+      "effect_chance": "10%"
+    },
+    "THUNDERRAID": {
+      "status": "complete",
+      "move_description": "Quickly strikes the target up to three times, each hit increasing in power.",
+      "effect_text": "Quickly strikes the target up to three times, each hit increasing in power.",
+      "priority": "0",
+      "target": "SingleNonUser",
+      "move_flags": "Kingrock",
+      "effect_chance": "100%"
+    },
+    "UPROOT": {
+      "status": "complete",
+      "move_description": "The user attacks the target like uprooting a plant, lowering the target's Sp. Def harshly.",
+      "effect_text": "The user attacks the target like uprooting a plant, lowering the target's Sp. Def harshly.",
+      "priority": "0",
+      "target": "SingleNonUser",
+      "move_flags": "Kingrock",
+      "effect_chance": "100%"
+    },
+    "BUNRAKUBEATDOWN": {
+      "status": "complete",
+      "move_description": "The user attacks the opponent, controlling knocked out ally Pokemon with strings for extra damage.",
+      "effect_text": "The user attacks the opponent, controlling knocked out ally Pokemon with strings for extra damage.",
+      "priority": "0",
+      "target": "SingleNonUser",
+      "move_flags": "Kingrock"
+    },
+    "HEAVENLYWING": {
+      "status": "complete",
+      "move_description": "A shining wing strikes the target, removing stat changes.",
+      "effect_text": "A shining wing strikes the target, removing stat changes.",
+      "priority": "0",
+      "target": "SingleNonUser",
+      "move_flags": "Kingrock",
+      "effect_chance": "100%"
+    },
+    "MATRIXSHOT": {
+      "status": "complete",
+      "move_description": "A rock clumped with gems is fired at the target, targetting its special defense.",
+      "effect_text": "A rock clumped with gems is fired at the target, targetting its special defense.",
+      "priority": "0",
+      "target": "SingleNonUser",
+      "move_flags": "Kingrock"
+    },
+    "DESERTSMARK": {
+      "status": "complete",
+      "move_description": "Applies a sinister mark on the target, damaging over time and changing its type to Ground.",
+      "effect_text": "Applies a sinister mark on the target, damaging over time and changing its type to Ground.",
+      "priority": "0",
+      "target": "SingleNonUser"
+    },
+    "ULTRAMEGADEATH": {
+      "status": "complete",
+      "move_description": "This attack will be Physical or Special, depending on which would do more damage.",
+      "effect_text": "This attack will be Physical or Special, depending on which would do more damage.",
+      "priority": "0",
+      "target": "SingleNonUser",
+      "move_flags": "Kingrock",
+      "effect_chance": "20%"
+    },
+    "DECIMATION": {
+      "status": "complete",
+      "move_description": "The user absorbs the life energy from the target, leaving them completely lifeless.",
+      "effect_text": "The user absorbs the life energy from the target, leaving them completely lifeless.",
+      "priority": "1",
+      "target": "SingleNonUser",
+      "contact": "No",
+      "move_flags": "Beam; Kingrock",
+      "effect_chance": "100%"
+    },
+    "PYROKINESIS": {
+      "status": "complete",
+      "move_description": "The user lobs a ball of fire at the target formed from psychic energy. It may also leave the target with a burn.",
+      "effect_text": "The user lobs a ball of fire at the target formed from psychic energy. It may also leave the target with a burn.",
+      "priority": "0",
+      "target": "SingleNonUser",
+      "move_flags": "Kingrock, Defrost",
+      "effect_chance": "30%"
+    },
+    "ALPHASHOT": {
+      "status": "complete",
+      "move_description": "The user fires a golden ball of energy at the target.",
+      "effect_text": "The user fires a golden ball of energy at the target.",
+      "priority": "0",
+      "target": "SingleNonUser",
+      "move_flags": "Kingrock"
+    },
+    "GILDEDARROW": {
+      "status": "complete",
+      "move_description": "The user fires a golden arrow of energy at the target. Critical hits land more easily.",
+      "effect_text": "The user fires a golden arrow of energy at the target. Critical hits land more easily.",
+      "priority": "0",
+      "target": "SingleNonUser",
+      "contact": "No",
+      "move_flags": "HighCrit; Kingrock"
+    },
+    "GILDEDHELIX": {
+      "status": "complete",
+      "move_description": "Two golden arrows matching the user's type are fired. Critical hits land more easily.",
+      "effect_text": "Two golden arrows matching the user's type are fired. Critical hits land more easily.",
+      "priority": "0",
+      "target": "SingleNonUser",
+      "contact": "No",
+      "move_flags": "HighCrit; Kingrock"
+    },
+    "POISONSWEEP": {
+      "status": "complete",
+      "move_description": "The user engulfs their foot with poison and proceeds to knock over their opponent. It may lower speed.",
+      "effect_text": "The user engulfs their foot with poison and proceeds to knock over their opponent. It may lower speed.",
+      "priority": "0",
+      "target": "SingleNonUser",
+      "contact": "Yes",
+      "move_flags": "Contact; Kingrock",
+      "effect_chance": "30%"
+    },
+    "STACKINGSHOT": {
+      "status": "complete",
+      "move_description": "The user attacks in quick jabs. It becomes stronger the more it's used. ",
+      "effect_text": "The user attacks in quick jabs. It becomes stronger the more it's used. ",
+      "priority": "0",
+      "target": "SingleNonUser",
+      "contact": "Yes",
+      "move_flags": "Contact, Punch; Kingrock",
+      "effect_chance": "30%"
+    },
+    "IRRITATION": {
+      "status": "complete",
+      "move_description": "Does massive damage if the opponent is inflicted with a status.",
+      "effect_text": "Does massive damage if the opponent is inflicted with a status.",
+      "priority": "0",
+      "target": "SingleNonUser",
+      "move_flags": "Kingrock"
+    },
+    "MAGMADRIFT": {
+      "status": "complete",
+      "move_description": "It swamps the area around the user with a giant wave of molten rock. It can also be used for crossing lava.",
+      "effect_text": "It swamps the area around the user with a giant wave of molten rock. It can also be used for crossing lava.",
+      "priority": "0",
+      "target": "AllNonUsers",
+      "move_flags": "Kingrock, Defrost"
+    },
+    "DELUGE": {
+      "status": "complete",
+      "move_description": "The power of this move is doubled if the user has been hurt by the target in the same turn.",
+      "effect_text": "The power of this move is doubled if the user has been hurt by the target in the same turn.",
+      "priority": "-4",
+      "target": "SingleNonUser",
+      "contact": "Yes",
+      "move_flags": "Contact; Kingrock"
+    },
+    "MUDBARRAGE": {
+      "status": "complete",
+      "move_description": "The user pelts the opponent with large amounts of mud, hitting two to five times in a row.",
+      "effect_text": "The user pelts the opponent with large amounts of mud, hitting two to five times in a row.",
+      "priority": "0",
+      "target": "SingleNonUser",
+      "move_flags": "Kingrock"
+    },
+    "SLASHANDBURN": {
+      "status": "complete",
+      "move_description": "The user slashes the opponent harshly. It may leave the target with a burn.",
+      "effect_text": "The user slashes the opponent harshly. It may leave the target with a burn.",
+      "priority": "0",
+      "target": "SingleNonUser",
+      "contact": "Yes",
+      "move_flags": "Contact, Sharp; Kingrock",
+      "effect_chance": "10%"
+    },
+    "ARENITEWALL": {
+      "status": "complete",
+      "move_description": "Puts up a wall of sand that reduces the power of super-effective moves.",
+      "effect_text": "Puts up a wall of sand that reduces the power of super-effective moves.",
+      "priority": "0",
+      "target": "BothSides",
+      "contact": "No",
+      "move_flags": "Snachable, NoMirror"
+    },
+    "QUICKSILVERSPEAR": {
+      "status": "complete",
+      "move_description": "The user hurls a spear of quicksilver to pin the target. Drops speed and deals constant damage on Shadows/Rifts.",
+      "effect_text": "The user hurls a spear of quicksilver to pin the target. Drops speed and deals constant damage on Shadows/Rifts.",
+      "priority": "0",
+      "target": "SingleNonUser",
+      "move_flags": "Kingrock",
+      "effect_chance": "100%"
+    },
+    "SPARKLEON": {
+      "status": "complete",
+      "move_description": "A reckless, dazzling tackle. It also damages the user.",
+      "effect_text": "A reckless, dazzling tackle. It also damages the user.",
+      "priority": "0",
+      "target": "SingleNonUser",
+      "contact": "Yes",
+      "move_flags": "Contact, Recoil; Kingrock"
+    },
+    "SOLARFLARE": {
+      "status": "complete",
+      "move_description": "The user tackles the opponent, engulfed in incredible flames. It may raise the user's Attack.",
+      "effect_text": "The user tackles the opponent, engulfed in incredible flames. It may raise the user's Attack.",
+      "priority": "0",
+      "target": "SingleNonUser",
+      "move_flags": "Kingrock",
+      "effect_chance": "50%"
+    },
+    "HOARFROSTMOON": {
+      "status": "complete",
+      "move_description": "The user releases an icy, crescent burst at the opponents. It may raise the user's Special Attack.",
+      "effect_text": "The user releases an icy, crescent burst at the opponents. It may raise the user's Special Attack.",
+      "priority": "0",
+      "target": "AllOpposing",
+      "move_flags": "Kingrock",
+      "effect_chance": "50%"
+    },
+    "HEXINGSLASH": {
+      "status": "complete",
+      "move_description": "A relentless attack using cursed tendrils. Drains HP and has a chance to poison.",
+      "effect_text": "A relentless attack using cursed tendrils. Drains HP and has a chance to poison.",
+      "priority": "0",
+      "target": "SingleNonUser",
+      "contact": "Yes",
+      "move_flags": "Contact, Healing, Sharp; Kingrock",
+      "effect_chance": "30%"
+    },
+    "WAKEUPSHOCK": {
+      "status": "complete",
+      "move_description": "This attack inflicts big damage on a sleeping target. It also wakes the target up.",
+      "effect_text": "This attack inflicts big damage on a sleeping target. It also wakes the target up.",
+      "priority": "0",
+      "target": "SingleNonUser",
+      "contact": "Yes",
+      "move_flags": "Contact; Kingrock"
+    },
+    "VILEASSAULT": {
+      "status": "complete",
+      "move_description": "A relentless attack that cuts off a target's escape.",
+      "effect_text": "A relentless attack that cuts off a target's escape.",
+      "priority": "0",
+      "target": "SingleNonUser",
+      "contact": "Yes",
+      "move_flags": "Contact; Kingrock"
+    },
+    "ETHEREALTEMPEST": {
+      "status": "complete",
+      "move_description": "The target is hit with unearthly wind. It may paralyze the target.",
+      "effect_text": "The target is hit with unearthly wind. It may paralyze the target.",
+      "priority": "0",
+      "target": "SingleNonUser",
+      "effect_chance": "20%"
+    },
+    "MIRRORBEAM": {
+      "status": "complete",
+      "move_description": "The user shoots a reflective beam that matches its secondary typing.",
+      "effect_text": "The user shoots a reflective beam that matches its secondary typing.",
+      "priority": "0",
+      "target": "SingleNonUser",
+      "effect_chance": "20%"
+    },
+    "PROBOPOG": {
+      "status": "complete",
+      "move_description": "Please don't hack it in, it's a bad move on its own, don't be weirdchamp",
+      "effect_text": "Please don't hack it in, it's a bad move on its own, don't be weirdchamp",
+      "priority": "0",
+      "target": "SingleNonUser",
+      "move_flags": "Kingrock"
+    },
+    "UNLEASHEDPOWER": {
+      "status": "complete",
+      "move_description": "Rejuvenation effect code 80A. Filler.",
+      "effect_text": "Rejuvenation effect code 80A. Filler.",
+      "priority": "0"
+    },
+    "BLINDINGSPEED": {
+      "status": "complete",
+      "move_description": "Filler",
+      "effect_text": "Filler",
+      "priority": "2",
+      "target": "SingleNonUser",
+      "contact": "No",
+      "move_flags": "ZMove, InterceptMove; Kingrock"
+    },
+    "ELYSIANSHIELD": {
+      "status": "complete",
+      "move_description": "Filler",
+      "effect_text": "Filler",
+      "priority": "0",
+      "target": "User",
+      "contact": "No",
+      "move_flags": "ZMove, InterceptMove"
+    },
+    "CHTHONICMALADY": {
+      "status": "complete",
+      "move_description": "Filler",
+      "effect_text": "Filler",
+      "priority": "0",
+      "target": "SingleNonUser",
+      "contact": "No",
+      "move_flags": "ZMove, InterceptMove; NoProtect"
+    },
+    "DOMAINSHIFT": {
+      "status": "complete",
+      "move_description": "Filler",
+      "effect_text": "Filler",
+      "priority": "0",
+      "target": "User",
+      "contact": "No",
+      "move_flags": "ZMove, InterceptMove"
+    },
+    "CORALBREAK": {
+      "status": "complete",
+      "move_description": "The user creates waves in the water to attack the target. This attack does physical damage.",
+      "effect_text": "The user creates waves in the water to attack the target. This attack does physical damage.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "abe",
+      "effect_chance": "15%"
+    },
+    "ATOMICPUNCH": {
+      "status": "complete",
+      "move_description": "A Punch inbued with radiation, capable of infecting the enemy",
+      "effect_text": "A Punch inbued with radiation, capable of infecting the enemy",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "abe",
+      "effect_chance": "15%"
+    },
+    "METALWHIP": {
+      "status": "complete",
+      "move_description": "A whip made of sharp steel used to hold and hurt the enemy",
+      "effect_text": "A whip made of sharp steel used to hold and hurt the enemy",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "abef",
+      "effect_chance": "100%"
+    },
+    "SHUFFLE": {
+      "status": "complete",
+      "move_description": "A gift in the form of a bomb. May restore HP.",
+      "effect_text": "A gift in the form of a bomb. May restore HP.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "be",
+      "effect_chance": "100%"
+    },
+    "NUCLEARWASTE": {
+      "status": "complete",
+      "move_description": "Spits toxic, radioactive sludge that badly poisons the foe.",
+      "effect_text": "Spits toxic, radioactive sludge that badly poisons the foe.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "bce",
+      "effect_chance": "100%"
+    },
+    "GAMMARAY": {
+      "status": "complete",
+      "move_description": "A blast of nuclear radiation that is super effective on all types.",
+      "effect_text": "A blast of nuclear radiation that is super effective on all types.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "be"
+    },
+    "RADIOACID": {
+      "status": "complete",
+      "move_description": "A powerful blast of radioactive waste. May cause a burn.",
+      "effect_text": "A powerful blast of radioactive waste. May cause a burn.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "be",
+      "effect_chance": "30%"
+    },
+    "SKYFALL": {
+      "status": "complete",
+      "move_description": "The user pressurizes the air around the target, crushing it. It may leave the target with paralysis.",
+      "effect_text": "The user pressurizes the air around the target, crushing it. It may leave the target with paralysis.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "abe",
+      "effect_chance": "30%"
+    },
+    "FLAMEIMPACT": {
+      "status": "complete",
+      "move_description": "The user tackles the target at high temps gained by air friction. This attack always goes first.",
+      "effect_text": "The user tackles the target at high temps gained by air friction. This attack always goes first.",
+      "priority": "2",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "abefg"
+    },
+    "SUBDUCTION": {
+      "status": "complete",
+      "move_description": "“The user creates a massive earthquake that causes the land underneath the foe to rise up and crash down on them.\\\"\n619,INSTANTCRUSH,Instant Crush,000,60,PSYCHIC,Special,100,15,0,00,1,bef,Cool,The user compress the foe with it's psychic powers. This attack always goes first.\n620,GETLUCKY,Get Lucky,023,70,PSYCHIC,Special,100,5,100,00,0,bef,Cool,The user locates the foe weak spot and sends strong psychic waves to hit it. Raises critical chances.\n621,LASERPULSE,Laser Pulse,164,90,NORMAL,Special,100,20,20,00,0,bef,Cool,The user attack with a laser that cycles between Fire, Electric and Ice types\n622,GEMSTONEGLIMMER,Gemstone Glimmer,047,75,ROCK,Special,95,15,25,04,0,bf,Cool,Unleashes a blinding light from its body. May lower the foe's accuracy.\n623,HALFLIFE,Half-life,06C,1,NUCLEAR,Special,90,10,0,00,0,bf,Cool,It cuts the target's HP to half.\n624,OCEANSWRATH,Ocean's Wrath,0D0,90,WATER,Special,100,15,0,00,0,bef,Cool,Traps foes in a giant whirlpool for four to five turns.\n625,FISSIONBURST,Fission Burst,0E0,150,NUCLEAR,Physical,100,5,0,08,0,bef,Cool,The user explodes to inflict damage on those around it. The user faints upon using this move.\n626,CAUSTICBREATH,Caustic Breath,165,60,DRAGON,Special,100,10,100,00,0,bef,Cool,The user damages opposing Pokémon and lower its defense and special defense.\n627,NUCLEARSLASH,Nuclear Slash,000,55,NUCLEAR,Physical,90,20,0,00,0,abefh,Cool,The target is attacked with a slash of claws or blades. Critical hits land more easily.\n628,THUNDERSTORM,Thunderstorm,166,0,ELECTRIC,Status,0,10,0,20,0,,Cool,Summons a five-turn thunderstorm to hurt all combatants except the Ground and Electric types every other turn.\n629,SUDDENSTRIKE,Sudden Strike,000,40,DARK,Physical,100,30,0,00,1,abef,Cool,The user strikes the target in a sudden burst of speed.\n630,EXPUNGE,Expunge,168,110,NUCLEAR,Special,70,5,0,00,0,be,Cool,Purges the foe of impurities, dealing extra damage to Nuclear types.\n631,FALLOUT,Fallout,167,0,NUCLEAR,Status,0,10,0,20,0,,Cool,Summons a five-turn nuclear fallout to hurt all combatants except the Nuclear and Steel types every turn.\n632,PROTONBEAM,Proton Beam,03F,100,NUCLEAR,Special,90,5,0,00,0,bef,Cool,The user attacks the target at full power. The attack's recoil sharply reduces the user's Sp. Atk stat.\n633,INFERNALBLADE,Infernal Blade,00A,90,FIRE,Physical,95,10,10,00,0,abeg,Cool,The user slashes the foe with cursed fire, hits Fairy-type for super effective damage and may also cause burn.\n634,QUANTUMLEAP,Quantum Leap,0CD,100,NUCLEAR,Physical,100,5,0,00,0,aef,Cool,The user vanishes in the first turn and attacks the foe with full power in the next one.\n635,METALCRUNCHER,Metal Cruncher,043,120,STEEL,Physical,85,5,70,00,0,abe,Cool,The user crunches up the target with metal fangs. It has a high chance of lowering the target's Defense.\n636,DRAINLIFE,Drain Life,0DD,75,DARK,Physical,100,10,0,00,0,abe,Cool,The user drains the foe's energy with its fangs. The user's HP is restored by half the damage inflicted.\n637,STICKYTERRAIN,Sticky Terrain,169,0,POISON,Status,0,10,0,01,0,m,Cool,The user makes the ground all slimy and gooey for five turns. Priority attacks won't work.\n638,NUCLEARWIND,Nuclear Wind,168,65,NUCLEAR,Special,95,10,3,04,0,bef,Cool,The user emits radiation from its body and uses its powerful wings to launch fallout at its foes.",
+      "effect_text": "“The user creates a massive earthquake that causes the land underneath the foe to rise up and crash down on them.\\\"\n619,INSTANTCRUSH,Instant Crush,000,60,PSYCHIC,Special,100,15,0,00,1,bef,Cool,The user compress the foe with it's psychic powers. This attack always goes first.\n620,GETLUCKY,Get Lucky,023,70,PSYCHIC,Special,100,5,100,00,0,bef,Cool,The user locates the foe weak spot and sends strong psychic waves to hit it. Raises critical chances.\n621,LASERPULSE,Laser Pulse,164,90,NORMAL,Special,100,20,20,00,0,bef,Cool,The user attack with a laser that cycles between Fire, Electric and Ice types\n622,GEMSTONEGLIMMER,Gemstone Glimmer,047,75,ROCK,Special,95,15,25,04,0,bf,Cool,Unleashes a blinding light from its body. May lower the foe's accuracy.\n623,HALFLIFE,Half-life,06C,1,NUCLEAR,Special,90,10,0,00,0,bf,Cool,It cuts the target's HP to half.\n624,OCEANSWRATH,Ocean's Wrath,0D0,90,WATER,Special,100,15,0,00,0,bef,Cool,Traps foes in a giant whirlpool for four to five turns.\n625,FISSIONBURST,Fission Burst,0E0,150,NUCLEAR,Physical,100,5,0,08,0,bef,Cool,The user explodes to inflict damage on those around it. The user faints upon using this move.\n626,CAUSTICBREATH,Caustic Breath,165,60,DRAGON,Special,100,10,100,00,0,bef,Cool,The user damages opposing Pokémon and lower its defense and special defense.\n627,NUCLEARSLASH,Nuclear Slash,000,55,NUCLEAR,Physical,90,20,0,00,0,abefh,Cool,The target is attacked with a slash of claws or blades. Critical hits land more easily.\n628,THUNDERSTORM,Thunderstorm,166,0,ELECTRIC,Status,0,10,0,20,0,,Cool,Summons a five-turn thunderstorm to hurt all combatants except the Ground and Electric types every other turn.\n629,SUDDENSTRIKE,Sudden Strike,000,40,DARK,Physical,100,30,0,00,1,abef,Cool,The user strikes the target in a sudden burst of speed.\n630,EXPUNGE,Expunge,168,110,NUCLEAR,Special,70,5,0,00,0,be,Cool,Purges the foe of impurities, dealing extra damage to Nuclear types.\n631,FALLOUT,Fallout,167,0,NUCLEAR,Status,0,10,0,20,0,,Cool,Summons a five-turn nuclear fallout to hurt all combatants except the Nuclear and Steel types every turn.\n632,PROTONBEAM,Proton Beam,03F,100,NUCLEAR,Special,90,5,0,00,0,bef,Cool,The user attacks the target at full power. The attack's recoil sharply reduces the user's Sp. Atk stat.\n633,INFERNALBLADE,Infernal Blade,00A,90,FIRE,Physical,95,10,10,00,0,abeg,Cool,The user slashes the foe with cursed fire, hits Fairy-type for super effective damage and may also cause burn.\n634,QUANTUMLEAP,Quantum Leap,0CD,100,NUCLEAR,Physical,100,5,0,00,0,aef,Cool,The user vanishes in the first turn and attacks the foe with full power in the next one.\n635,METALCRUNCHER,Metal Cruncher,043,120,STEEL,Physical,85,5,70,00,0,abe,Cool,The user crunches up the target with metal fangs. It has a high chance of lowering the target's Defense.\n636,DRAINLIFE,Drain Life,0DD,75,DARK,Physical,100,10,0,00,0,abe,Cool,The user drains the foe's energy with its fangs. The user's HP is restored by half the damage inflicted.\n637,STICKYTERRAIN,Sticky Terrain,169,0,POISON,Status,0,10,0,01,0,m,Cool,The user makes the ground all slimy and gooey for five turns. Priority attacks won't work.\n638,NUCLEARWIND,Nuclear Wind,168,65,NUCLEAR,Special,95,10,3,04,0,bef,Cool,The user emits radiation from its body and uses its powerful wings to launch fallout at its foes.",
+      "priority": "0",
+      "target": "08",
+      "contact": "No",
+      "move_flags": "befkl"
+    },
+    "INSTANTCRUSH": {
+      "status": "complete",
+      "move_description": "Uranium effect code 000. The user compress the foe with it's psychic powers. This attack always goes first.",
+      "effect_text": "Uranium effect code 000. The user compress the foe with it's psychic powers. This attack always goes first.",
+      "priority": "0"
+    },
+    "GETLUCKY": {
+      "status": "complete",
+      "move_description": "Uranium effect code 023. Effect chance: 100% The user locates the foe weak spot and sends strong psychic waves to hit it. Raises critical chances.",
+      "effect_text": "Uranium effect code 023. Effect chance: 100% The user locates the foe weak spot and sends strong psychic waves to hit it. Raises critical chances.",
+      "priority": "0"
+    },
+    "LASERPULSE": {
+      "status": "complete",
+      "move_description": "Uranium effect code 164. Effect chance: 20% The user attack with a laser that cycles between Fire, Electric and Ice types.",
+      "effect_text": "Uranium effect code 164. Effect chance: 20% The user attack with a laser that cycles between Fire, Electric and Ice types.",
+      "priority": "0"
+    },
+    "GEMSTONEGLIMMER": {
+      "status": "complete",
+      "move_description": "Uranium effect code 047. Effect chance: 25% Unleashes a blinding light from its body. May lower the foe's accuracy.",
+      "effect_text": "Uranium effect code 047. Effect chance: 25% Unleashes a blinding light from its body. May lower the foe's accuracy.",
+      "priority": "0"
+    },
+    "HALFLIFE": {
+      "status": "complete",
+      "move_description": "Uranium effect code 06C. It cuts the target's HP to half.",
+      "effect_text": "Uranium effect code 06C. It cuts the target's HP to half.",
+      "priority": "0"
+    },
+    "OCEANSWRATH": {
+      "status": "complete",
+      "move_description": "Uranium effect code 0D0. Traps foes in a giant whirlpool for four to five turns.",
+      "effect_text": "Uranium effect code 0D0. Traps foes in a giant whirlpool for four to five turns.",
+      "priority": "0"
+    },
+    "FISSIONBURST": {
+      "status": "complete",
+      "move_description": "Uranium effect code 0E0. The user explodes to inflict damage on those around it. The user faints upon using this move.",
+      "effect_text": "Uranium effect code 0E0. The user explodes to inflict damage on those around it. The user faints upon using this move.",
+      "priority": "0"
+    },
+    "CAUSTICBREATH": {
+      "status": "complete",
+      "move_description": "Uranium effect code 165. Effect chance: 100% The user damages opposing Pokémon and lower its defense and special defense.",
+      "effect_text": "Uranium effect code 165. Effect chance: 100% The user damages opposing Pokémon and lower its defense and special defense.",
+      "priority": "0"
+    },
+    "NUCLEARSLASH": {
+      "status": "complete",
+      "move_description": "Uranium effect code 000. The target is attacked with a slash of claws or blades. Critical hits land more easily.",
+      "effect_text": "Uranium effect code 000. The target is attacked with a slash of claws or blades. Critical hits land more easily.",
+      "priority": "0"
+    },
+    "THUNDERSTORM": {
+      "status": "complete",
+      "move_description": "Uranium effect code 166. Summons a five-turn thunderstorm to hurt all combatants except the Ground and Electric types every other turn.",
+      "effect_text": "Uranium effect code 166. Summons a five-turn thunderstorm to hurt all combatants except the Ground and Electric types every other turn.",
+      "priority": "0"
+    },
+    "SUDDENSTRIKE": {
+      "status": "complete",
+      "move_description": "Uranium effect code 000. The user strikes the target in a sudden burst of speed.",
+      "effect_text": "Uranium effect code 000. The user strikes the target in a sudden burst of speed.",
+      "priority": "0"
+    },
+    "EXPUNGE": {
+      "status": "complete",
+      "move_description": "Uranium effect code 168. Purges the foe of impurities, dealing extra damage to Nuclear types.",
+      "effect_text": "Uranium effect code 168. Purges the foe of impurities, dealing extra damage to Nuclear types.",
+      "priority": "0"
+    },
+    "FALLOUT": {
+      "status": "complete",
+      "move_description": "Uranium effect code 167. Summons a five-turn nuclear fallout to hurt all combatants except the Nuclear and Steel types every turn.",
+      "effect_text": "Uranium effect code 167. Summons a five-turn nuclear fallout to hurt all combatants except the Nuclear and Steel types every turn.",
+      "priority": "0"
+    },
+    "PROTONBEAM": {
+      "status": "complete",
+      "move_description": "Uranium effect code 03F. The user attacks the target at full power. The attack's recoil sharply reduces the user's Sp. Atk stat.",
+      "effect_text": "Uranium effect code 03F. The user attacks the target at full power. The attack's recoil sharply reduces the user's Sp. Atk stat.",
+      "priority": "0"
+    },
+    "INFERNALBLADE": {
+      "status": "complete",
+      "move_description": "Uranium effect code 00A. Effect chance: 10% The user slashes the foe with cursed fire, hits Fairy-type for super effective damage and may also cause burn.",
+      "effect_text": "Uranium effect code 00A. Effect chance: 10% The user slashes the foe with cursed fire, hits Fairy-type for super effective damage and may also cause burn.",
+      "priority": "0"
+    },
+    "QUANTUMLEAP": {
+      "status": "complete",
+      "move_description": "Uranium effect code 0CD. The user vanishes in the first turn and attacks the foe with full power in the next one.",
+      "effect_text": "Uranium effect code 0CD. The user vanishes in the first turn and attacks the foe with full power in the next one.",
+      "priority": "0"
+    },
+    "METALCRUNCHER": {
+      "status": "complete",
+      "move_description": "Uranium effect code 043. Effect chance: 70% The user crunches up the target with metal fangs. It has a high chance of lowering the target's Defense.",
+      "effect_text": "Uranium effect code 043. Effect chance: 70% The user crunches up the target with metal fangs. It has a high chance of lowering the target's Defense.",
+      "priority": "0"
+    },
+    "DRAINLIFE": {
+      "status": "complete",
+      "move_description": "Uranium effect code 0DD. The user drains the foe's energy with its fangs. The user's HP is restored by half the damage inflicted.",
+      "effect_text": "Uranium effect code 0DD. The user drains the foe's energy with its fangs. The user's HP is restored by half the damage inflicted.",
+      "priority": "0"
+    },
+    "STICKYTERRAIN": {
+      "status": "complete",
+      "move_description": "Uranium effect code 169. The user makes the ground all slimy and gooey for five turns. Priority attacks won't work.",
+      "effect_text": "Uranium effect code 169. The user makes the ground all slimy and gooey for five turns. Priority attacks won't work.",
+      "priority": "0"
+    },
+    "NUCLEARWIND": {
+      "status": "complete",
+      "move_description": "Uranium effect code 168. Effect chance: 3% The user emits radiation from its body and uses its powerful wings to launch fallout at its foes.",
+      "effect_text": "Uranium effect code 168. Effect chance: 3% The user emits radiation from its body and uses its powerful wings to launch fallout at its foes.",
+      "priority": "0"
+    },
+    "ACHILLESHEEL": {
+      "status": "complete",
+      "move_description": "Deals damage and super-effective against any non-immune the target.",
+      "effect_text": "Deals damage and super-effective against any non-immune the target.",
+      "priority": "0",
+      "target": "normal",
+      "move_flags": "contact, protect, mirror",
+      "contact": "Yes"
+    },
+    "ANCIENTROAR": {
+      "status": "complete",
+      "move_description": "Deals damage. Sound move; bypasses Substitute.",
+      "effect_text": "Deals damage. Sound move; bypasses Substitute.",
+      "priority": "0",
+      "target": "normal",
+      "move_flags": "protect, mirror, sound, bypasssub",
+      "contact": "No"
+    },
+    "CORRODE": {
+      "status": "complete",
+      "move_description": "Deals damage and Poison ignores its normal immunity and treats Steel as super-effective.",
+      "effect_text": "Deals damage and Poison ignores its normal immunity and treats Steel as super-effective.",
+      "priority": "0",
+      "target": "allAdjacent",
+      "move_flags": "protect, mirror",
+      "contact": "No"
+    },
+    "CRYSTALRUSH": {
+      "status": "complete",
+      "move_description": "Deals damage and +1 priority.",
+      "effect_text": "Deals damage and +1 priority.",
+      "priority": "1",
+      "target": "normal",
+      "move_flags": "contact, protect, mirror",
+      "contact": "Yes"
+    },
+    "DARKMATTER": {
+      "status": "complete",
+      "move_description": "Deals damage and user must recharge next turn.",
+      "effect_text": "Deals damage and user must recharge next turn.",
+      "priority": "0",
+      "target": "normal",
+      "move_flags": "recharge, protect, mirror",
+      "contact": "No"
+    },
+    "DRACOJET": {
+      "status": "complete",
+      "move_description": "Deals damage and +1 priority.",
+      "effect_text": "Deals damage and +1 priority.",
+      "priority": "1",
+      "target": "normal",
+      "move_flags": "contact, protect, mirror",
+      "contact": "Yes"
+    },
+    "DRAGONIFY": {
+      "status": "complete",
+      "move_description": "Changes the target's type to Dragon.",
+      "effect_text": "Changes the target's type to Dragon.",
+      "priority": "0",
+      "target": "normal",
+      "move_flags": "protect, reflectable, mirror, allyanim",
+      "contact": "No"
+    },
+    "DRAKONVOICE": {
+      "status": "complete",
+      "move_description": "Spread damage to all adjacent foes. Sound move; bypasses Substitute.",
+      "effect_text": "Spread damage to all adjacent foes. Sound move; bypasses Substitute.",
+      "priority": "0",
+      "target": "allAdjacentFoes",
+      "move_flags": "protect, mirror, sound, bypasssub",
+      "contact": "No"
+    },
+    "JETSTREAM": {
+      "status": "complete",
+      "move_description": "Creates a 2-turn ally-side condition that raises move priority by 1.",
+      "effect_text": "Creates a 2-turn ally-side condition that raises move priority by 1.",
+      "priority": "0",
+      "target": "allySide",
+      "move_flags": "snatch, wind",
+      "contact": "No"
+    },
+    "LIVEWIRE": {
+      "status": "complete",
+      "move_description": "Sets a stackable foe-side switch-in hazard that can paralyze grounded entrants; stronger in rain; up to 5 layers. Grounded Electric/Ground entrants remove it; Heavy-Duty Boots avoid it.",
+      "effect_text": "Sets a stackable foe-side switch-in hazard that can paralyze grounded entrants; stronger in rain; up to 5 layers. Grounded Electric/Ground entrants remove it; Heavy-Duty Boots avoid it.",
+      "priority": "0",
+      "target": "foeSide",
+      "move_flags": "reflectable, nonsky",
+      "contact": "No"
+    },
+    "LUNARCANNON": {
+      "status": "complete",
+      "move_description": "Two-turn attack; charges first and strikes second. Executes immediately during New Moon weather.",
+      "effect_text": "Two-turn attack; charges first and strikes second. Executes immediately during New Moon weather.",
+      "priority": "0",
+      "target": "normal",
+      "move_flags": "charge, protect, mirror",
+      "contact": "No"
+    },
+    "MEDUSARAY": {
+      "status": "complete",
+      "move_description": "Changes the target's type to Rock.",
+      "effect_text": "Changes the target's type to Rock.",
+      "priority": "0",
+      "target": "normal",
+      "move_flags": "protect, reflectable, mirror, allyanim",
+      "contact": "No"
+    },
+    "MORPH": {
+      "status": "complete",
+      "move_description": "User morphs into the the target.",
+      "effect_text": "User morphs into the the target.",
+      "priority": "0",
+      "target": "normal",
+      "move_flags": "allyanim",
+      "contact": "No"
+    },
+    "NANOREPAIR": {
+      "status": "complete",
+      "move_description": "Heals 1/2 max HP and raises Defense by 1 stage.",
+      "effect_text": "Heals 1/2 max HP and raises Defense by 1 stage.",
+      "priority": "0",
+      "target": "self",
+      "move_flags": "snatch, heal",
+      "contact": "No",
+      "stat_changes": "raises the target's Defense by 1 stage"
+    },
+    "NEWMOON": {
+      "status": "complete",
+      "move_description": "Sets New Moon weather.",
+      "effect_text": "Sets New Moon weather.",
+      "priority": "0",
+      "target": "all",
+      "contact": "No"
+    },
+    "PERMAFROST": {
+      "status": "complete",
+      "move_description": "Sets a stackable foe-side switch-in hazard that can freeze grounded entrants; stronger in hail; up to 5 layers. Grounded Ice/Fire entrants remove it; Heavy-Duty Boots avoid it.",
+      "effect_text": "Sets a stackable foe-side switch-in hazard that can freeze grounded entrants; stronger in hail; up to 5 layers. Grounded Ice/Fire entrants remove it; Heavy-Duty Boots avoid it.",
+      "priority": "0",
+      "target": "foeSide",
+      "move_flags": "reflectable, nonsky",
+      "contact": "No"
+    },
+    "RETROGRADE": {
+      "status": "complete",
+      "move_description": "Reverts a Mega-Evolved the target to its base species/form.",
+      "effect_text": "Reverts a Mega-Evolved the target to its base species/form.",
+      "priority": "0",
+      "target": "normal",
+      "move_flags": "allyanim",
+      "contact": "No"
+    },
+    "SPIRITAWAY": {
+      "status": "complete",
+      "move_description": "Hoopa-Delta-Unleashed-only two-turn carry/sky-drop-style attack. Target is carried off the field during the charge sequence.",
+      "effect_text": "Hoopa-Delta-Unleashed-only two-turn carry/sky-drop-style attack. Target is carried off the field during the charge sequence.",
+      "priority": "0",
+      "target": "normal",
+      "move_flags": "contact, charge, protect, mirror, distance",
+      "contact": "Yes"
+    },
+    "STEALTHCOAL": {
+      "status": "complete",
+      "move_description": "Sets a Fire-type Stealth Rock-style switch-in hazard. Damage scales with Fire effectiveness; Heavy-Duty Boots avoid it.",
+      "effect_text": "Sets a Fire-type Stealth Rock-style switch-in hazard. Damage scales with Fire effectiveness; Heavy-Duty Boots avoid it.",
+      "priority": "0",
+      "target": "foeSide",
+      "move_flags": "reflectable",
+      "contact": "No"
+    },
+    "WILDFIRE": {
+      "status": "complete",
+      "move_description": "Burns opposing targets. If a hit target is Grass-type, burn can spread to susceptible Pokémon on that side.",
+      "effect_text": "Burns opposing targets. If a hit target is Grass-type, burn can spread to susceptible Pokémon on that side.",
+      "priority": "0",
+      "target": "allAdjacentFoes",
+      "move_flags": "protect, reflectable, mirror",
+      "contact": "No",
+      "status_effects": "burn"
+    },
+    "WORMHOLE": {
+      "status": "complete",
+      "move_description": "Deals damage and +1 priority.",
+      "effect_text": "Deals damage and +1 priority.",
+      "priority": "1",
+      "target": "normal",
+      "move_flags": "protect, mirror",
+      "contact": "No"
+    },
+    "ZOMBIESTRIKE": {
+      "status": "complete",
+      "move_description": "Deals damage.",
+      "effect_text": "Deals damage.",
+      "priority": "0",
+      "target": "normal",
+      "move_flags": "contact, protect",
+      "contact": "Yes"
+    },
+    "TIROTEO": {
+      "status": "complete",
+      "move_description": "Hits 2–5 times.",
+      "effect_text": "Hits 2–5 times.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "bef"
+    },
+    "ELECTROBABA": {
+      "status": "complete",
+      "move_description": "Damages and lowers Speed. 100% Speed reduction effect in source data.",
+      "effect_text": "Damages and lowers Speed. 100% Speed reduction effect in source data.",
+      "priority": "0",
+      "target": "04",
+      "contact": "No",
+      "move_flags": "be",
+      "effect_chance": "100%"
+    },
+    "FUEGOLUNAR": {
+      "status": "complete",
+      "move_description": "Deals damage. 20% chance to lower Sp. Def.",
+      "effect_text": "Deals damage. 20% chance to lower Sp. Def.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "be",
+      "effect_chance": "20%"
+    },
+    "ROMPEHIELOS": {
+      "status": "complete",
+      "move_description": "High-power recoil attack. Source row also carries a 10% effect-chance field.",
+      "effect_text": "High-power recoil attack. Source row also carries a 10% effect-chance field.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "abef",
+      "effect_chance": "10%"
+    },
+    "TRINCHAR": {
+      "status": "complete",
+      "move_description": "Hits three times with increasing power.",
+      "effect_text": "Hits three times with increasing power.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "abef"
+    },
+    "DESBANDADA": {
+      "status": "complete",
+      "move_description": "User switches out after dealing damage.",
+      "effect_text": "User switches out after dealing damage.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "abf"
+    },
+    "FIEBREORO": {
+      "status": "complete",
+      "move_description": "Strongly raises the user's Attack and Speed.",
+      "effect_text": "Strongly raises the user's Attack and Speed.",
+      "priority": "0",
+      "target": "10",
+      "contact": "No",
+      "move_flags": "d"
+    },
+    "MALDIGNICION": {
+      "status": "complete",
+      "move_description": "Deals damage. 30% chance to burn.",
+      "effect_text": "Deals damage. 30% chance to burn.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "befg",
+      "effect_chance": "30%"
+    },
+    "LIMPIASUENOS": {
+      "status": "complete",
+      "move_description": "Drains 50% of damage dealt to a sleeping the target. Requires a sleeping target.",
+      "effect_text": "Drains 50% of damage dealt to a sleeping the target. Requires a sleeping target.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "be"
+    },
+    "ALAFUNESTA": {
+      "status": "complete",
+      "move_description": "Drains 50% of damage dealt.",
+      "effect_text": "Drains 50% of damage dealt.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "be"
+    },
+    "FURIATOTEMICA": {
+      "status": "complete",
+      "move_description": "Deals damage. 30% source effect can inflict burn, paralysis, or freeze.",
+      "effect_text": "Deals damage. 30% source effect can inflict burn, paralysis, or freeze.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "bcde",
+      "effect_chance": "30%"
+    },
+    "ZARZAS": {
+      "status": "complete",
+      "move_description": "Damages and traps the the target for residual damage. Source effect is binding/trapping-style.",
+      "effect_text": "Damages and traps the the target for residual damage. Source effect is binding/trapping-style.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "abcdef",
+      "effect_chance": "100%"
+    },
+    "SOMBRATELA": {
+      "status": "complete",
+      "move_description": "Damages and lowers Speed. 100% Speed reduction effect in source data.",
+      "effect_text": "Damages and lowers Speed. 100% Speed reduction effect in source data.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "bcde",
+      "effect_chance": "100%"
+    },
+    "ABRAZOFEROZ": {
+      "status": "complete",
+      "move_description": "Deals damage. 30% source chance associated with paralysis/flinch behavior.",
+      "effect_text": "Deals damage. 30% source chance associated with paralysis/flinch behavior.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "abcdef",
+      "effect_chance": "30%"
+    },
+    "GEOIMPACTO": {
+      "status": "complete",
+      "move_description": "High-power damage; sharply lowers the user's Sp. Atk.",
+      "effect_text": "High-power damage; sharply lowers the user's Sp. Atk.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "bcde",
+      "effect_chance": "100%"
+    },
+    "PIPADELAPAZ": {
+      "status": "complete",
+      "move_description": "Deals damage. 30% chance to lower the target's Attack.",
+      "effect_text": "Deals damage. 30% chance to lower the target's Attack.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "bcde",
+      "effect_chance": "30%"
+    },
+    "BORRASCA": {
+      "status": "complete",
+      "move_description": "High-power damage. 30% chance to confuse.",
+      "effect_text": "High-power damage. 30% chance to confuse.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "bcde",
+      "effect_chance": "30%"
+    },
+    "OJOSTERRIBLES": {
+      "status": "complete",
+      "move_description": "Deals damage. 30% chance to paralyze.",
+      "effect_text": "Deals damage. 30% chance to paralyze.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "bcde",
+      "effect_chance": "30%"
+    },
+    "DRENANIMA": {
+      "status": "complete",
+      "move_description": "Drains 50% of damage dealt.",
+      "effect_text": "Drains 50% of damage dealt.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "bcde",
+      "effect_chance": "100%"
+    },
+    "DANZAVUDU": {
+      "status": "complete",
+      "move_description": "Deals damage. 30% chance to raise the user's Sp. Atk.",
+      "effect_text": "Deals damage. 30% chance to raise the user's Sp. Atk.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "bcde",
+      "effect_chance": "30%"
+    },
+    "CHOQUEVAPOR": {
+      "status": "complete",
+      "move_description": "Deals damage and lowers the user's Speed. 100% self Speed drop in source data.",
+      "effect_text": "Deals damage and lowers the user's Speed. 100% self Speed drop in source data.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "abcdefg",
+      "effect_chance": "100%"
+    },
+    "PATADAGELIDA": {
+      "status": "complete",
+      "move_description": "Deals damage. 10% chance to freeze.",
+      "effect_text": "Deals damage. 10% chance to freeze.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "abcdef",
+      "effect_chance": "10%"
+    },
+    "COLMILLOSALVAJE": {
+      "status": "complete",
+      "move_description": "Deals damage. 30% source effect can inflict burn, paralysis, or freeze.",
+      "effect_text": "Deals damage. 30% source effect can inflict burn, paralysis, or freeze.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "bcde",
+      "effect_chance": "30%"
+    },
+    "BRAZOMUSGO": {
+      "status": "complete",
+      "move_description": "Deals damage. 50% chance to poison.",
+      "effect_text": "Deals damage. 50% chance to poison.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "abcdef",
+      "effect_chance": "50%"
+    },
+    "LASERESENCIA": {
+      "status": "complete",
+      "move_description": "High-power damage.",
+      "effect_text": "High-power damage.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "bcde"
+    },
+    "CARICATURA": {
+      "status": "complete",
+      "move_description": "Deals damage. 100% chance to confuse.",
+      "effect_text": "Deals damage. 100% chance to confuse.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "bcde",
+      "effect_chance": "100%"
+    },
+    "FLECHASTRAL": {
+      "status": "complete",
+      "move_description": "Hits 2–5 times.",
+      "effect_text": "Hits 2–5 times.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "abef"
+    },
+    "LINGOTAZO": {
+      "status": "complete",
+      "move_description": "Deals damage. 30% chance to paralyze.",
+      "effect_text": "Deals damage. 30% chance to paralyze.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "abe",
+      "effect_chance": "30%"
+    },
+    "ABSORBESENCIA": {
+      "status": "complete",
+      "move_description": "Drains 50% of damage dealt.",
+      "effect_text": "Drains 50% of damage dealt.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "be"
+    },
+    "FUERZAESENCIA": {
+      "status": "complete",
+      "move_description": "Deals damage. 10% chance to lower the target's Sp. Atk.",
+      "effect_text": "Deals damage. 10% chance to lower the target's Sp. Atk.",
+      "priority": "0",
+      "target": "00",
+      "contact": "No",
+      "move_flags": "bef",
+      "effect_chance": "10%"
+    },
+    "MAGIKARPSREVENGE": {
+      "status": "complete",
+      "move_description": "Deals damage to one adjacent target with a 100% chance to confuse it and lower its Defense and Special Attack by 1 stage. The user recovers half of the HP lost by the target, rounded up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down. If this move is successful, the weather changes to Rain Dance for 5 turns unless Rain Dance is already in effect, the user gains the effects of Aqua Ring and Magic Coat, and the user must recharge on the following turn and cannot make a move. Makes contact.",
+      "effect_text": "Deals damage to one adjacent target with a 100% chance to confuse it and lower its Defense and Special Attack by 1 stage. The user recovers half of the HP lost by the target, rounded up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down. If this move is successful, the weather changes to Rain Dance for 5 turns unless Rain Dance is already in effect, the user gains the effects of Aqua Ring and Magic Coat, and the user must recharge on the following turn and cannot make a move. Makes contact.",
+      "priority": "0",
+      "target": "normal"
+    },
+    "SLIMESHOT": {
+      "status": "complete",
+      "move_description": "The user fires a glob of charged slime at the target to attack. This may also lower the target’s Speed stat.",
+      "effect_text": "The user fires a glob of charged slime at the target to attack. This may also lower the target’s Speed stat.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove,Bomb",
+      "effect_chance": "10%"
+    },
+    "ZEALOUSDANCE": {
+      "status": "complete",
+      "move_description": "The user assaults with a frenzied dance. The user boosts the power of its next Fire-type move.",
+      "effect_text": "The user assaults with a frenzied dance. The user boosts the power of its next Fire-type move.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove,Dance",
+      "effect_chance": "100%"
+    },
+    "PSYSONIC": {
+      "status": "complete",
+      "move_description": "The user attacks opponents by unleashing a loud burst of sound directly into their minds. This move never misses.",
+      "effect_text": "The user attacks opponents by unleashing a loud burst of sound directly into their minds. This move never misses.",
+      "priority": "0",
+      "target": "AllNearFoes",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove,Sound"
+    },
+    "PSYCRUSH": {
+      "status": "complete",
+      "move_description": "The user crushes their foe with a telekinetic force. Damage increases with the user's Special Defense stat.",
+      "effect_text": "The user crushes their foe with a telekinetic force. Damage increases with the user's Special Defense stat.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,CanMirrorMove"
+    },
+    "KINETICREND": {
+      "status": "complete",
+      "move_description": "The user deforms the space around the target. Is super-effective on Steel-types.",
+      "effect_text": "The user deforms the space around the target. Is super-effective on Steel-types.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove"
+    },
+    "JOLTKICK": {
+      "status": "complete",
+      "move_description": "The user launches a kick with a high critical-hit ratio. It may also leave the target with paralysis.",
+      "effect_text": "The user launches a kick with a high critical-hit ratio. It may also leave the target with paralysis.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,HighCriticalHitRate",
+      "effect_chance": "10%"
+    },
+    "FROSTKICK": {
+      "status": "complete",
+      "move_description": "The user launches a kick with a high critical-hit ratio. It may also leave the target with frostbite.",
+      "effect_text": "The user launches a kick with a high critical-hit ratio. It may also leave the target with frostbite.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,HighCriticalHitRate",
+      "effect_chance": "10%"
+    },
+    "SCOURINGWINDS": {
+      "status": "complete",
+      "move_description": "The user whips up brutal winds around the opposing team. This may also lower the targets' Sp. Def stat.",
+      "effect_text": "The user whips up brutal winds around the opposing team. This may also lower the targets' Sp. Def stat.",
+      "priority": "0",
+      "target": "AllNearFoes",
+      "contact": "No",
+      "move_flags": "CanProtect",
+      "effect_chance": "10%"
+    },
+    "HAUNT": {
+      "status": "complete",
+      "move_description": "The user drains the target’s life force. The user's HP is restored by half the damage taken by the target.",
+      "effect_text": "The user drains the target’s life force. The user's HP is restored by half the damage taken by the target.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect"
+    },
+    "BITINGCOLD": {
+      "status": "complete",
+      "move_description": "The user chills their target to the bone to inflict frostbite.",
+      "effect_text": "The user chills their target to the bone to inflict frostbite.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove"
+    },
+    "CHILLINGWAIL": {
+      "status": "complete",
+      "move_description": "The user wails eerily at its target, chilling them to the bone. This may also give the target frostbite.",
+      "effect_text": "The user wails eerily at its target, chilling them to the bone. This may also give the target frostbite.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,Sound",
+      "effect_chance": "20%"
+    },
+    "MYSTICBLADE": {
+      "status": "complete",
+      "move_description": "The user conjures a shining blade and then attacks by cutting its target. Critical hits land more easily.",
+      "effect_text": "The user conjures a shining blade and then attacks by cutting its target. Critical hits land more easily.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,HighCriticalHitRate,Blade",
+      "effect_chance": "10%"
+    },
+    "FORCEWAVE": {
+      "status": "complete",
+      "move_description": "The user strikes the air to send a damaging shockwave towards opposing Pokémon.",
+      "effect_text": "The user strikes the air to send a damaging shockwave towards opposing Pokémon.",
+      "priority": "0",
+      "target": "AllNearFoes",
+      "contact": "No",
+      "move_flags": "CanProtect"
+    },
+    "GEODEBURST": {
+      "status": "complete",
+      "move_description": "The user attacks its target with a hail of glittering crystals.",
+      "effect_text": "The user attacks its target with a hail of glittering crystals.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect"
+    },
+    "FORGEBREATH": {
+      "status": "complete",
+      "move_description": "The user spews superheated metal at its target. This may also leave the target with a burn.",
+      "effect_text": "The user spews superheated metal at its target. This may also leave the target with a burn.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect",
+      "effect_chance": "10%"
+    },
+    "EXCITE": {
+      "status": "complete",
+      "move_description": "The user pumps themselves up, raising its Sp. Atk stat.",
+      "effect_text": "The user pumps themselves up, raising its Sp. Atk stat.",
+      "priority": "0",
+      "target": "User"
+    },
+    "SCATTERDUST": {
+      "status": "complete",
+      "move_description": "The user attacks by scattering a cloud of coarse debris. This may also lower the Speed stat of opposing Pokémon.",
+      "effect_text": "The user attacks by scattering a cloud of coarse debris. This may also lower the Speed stat of opposing Pokémon.",
+      "priority": "0",
+      "target": "AllNearFoes",
+      "contact": "No",
+      "move_flags": "CanProtect",
+      "effect_chance": "10%"
+    },
+    "SWEETTOOTH": {
+      "status": "complete",
+      "move_description": "The target is bitten with sweet and sharp fangs. It may make the target flinch.",
+      "effect_text": "The target is bitten with sweet and sharp fangs. It may make the target flinch.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,Biting",
+      "effect_chance": "30%"
+    },
+    "SUPERNOVA": {
+      "status": "complete",
+      "move_description": "The user creates a fiery explosion to inflict damage on those around it. The user faints upon using this move.",
+      "effect_text": "The user creates a fiery explosion to inflict damage on those around it. The user faints upon using this move.",
+      "priority": "0",
+      "target": "AllNearOthers",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove"
+    },
+    "PEPPERSPRAY": {
+      "status": "complete",
+      "move_description": "The user unleashes a spray of spicy vapors at its target to attack. It may also leave the target with a burn.",
+      "effect_text": "The user unleashes a spray of spicy vapors at its target to attack. It may also leave the target with a burn.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,ThawsUser",
+      "effect_chance": "30%"
+    },
+    "TITANSWRATH": {
+      "status": "complete",
+      "move_description": "The damage is based on the user's highest plain, non-HP stat. The move's type is set by the user's type.",
+      "effect_text": "The damage is based on the user's highest plain, non-HP stat. The move's type is set by the user's type.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove,CannotMetronome"
+    },
+    "SIRENSONG": {
+      "status": "complete",
+      "move_description": "An ancient song appeals to the hearts of those listening. It may also induce sleep.",
+      "effect_text": "An ancient song appeals to the hearts of those listening. It may also induce sleep.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,Sound,CannotMetronome",
+      "effect_chance": "10%"
+    },
+    "REBALANCING": {
+      "status": "complete",
+      "move_description": "Buffs an ally or nerfs a foe by raising or sharply lowering their highest stat.",
+      "effect_text": "Buffs an ally or nerfs a foe by raising or sharply lowering their highest stat.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove,CannotMetronome"
+    },
+    "FRIGIDMAW": {
+      "status": "complete",
+      "move_description": "The user hunts down its foe with a deadly precision chomp, which lowers their speed.",
+      "effect_text": "The user hunts down its foe with a deadly precision chomp, which lowers their speed.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,Biting,CannotMetronome",
+      "effect_chance": "100%"
+    },
+    "MANADRAIN": {
+      "status": "complete",
+      "move_description": "The user drains the life force from the target. This move heals the user by 50% of the damage dealt.",
+      "effect_text": "The user drains the life force from the target. This move heals the user by 50% of the damage dealt.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove,CannotMetronome"
+    },
+    "STEAMBURST": {
+      "status": "complete",
+      "move_description": "The user attacks by sending a spray of superheated steam towards its target. This move's power is boosted in the rain.",
+      "effect_text": "The user attacks by sending a spray of superheated steam towards its target. This move's power is boosted in the rain.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove"
+    },
+    "QUESOBLAST": {
+      "status": "complete",
+      "move_description": "Tacos filled with molten cheese fly at the target 3 to 5 times.",
+      "effect_text": "Tacos filled with molten cheese fly at the target 3 to 5 times.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove,CannotMetronome"
+    },
+    "CRIMSONSURGE": {
+      "status": "complete",
+      "move_description": "After doing damage, the target is left poisoned regardless of other status effects.",
+      "effect_text": "After doing damage, the target is left poisoned regardless of other status effects.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove"
+    },
+    "HARDDRIVECRASH": {
+      "status": "complete",
+      "move_description": "The user does an all-out attack, crashing its own hard drives. Lowers foe's PPs.",
+      "effect_text": "The user does an all-out attack, crashing its own hard drives. Lowers foe's PPs.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove"
+    },
+    "SPLINTERSHOT": {
+      "status": "complete",
+      "move_description": "The user unleashes a powerful blast of thorns in a wide spread, hitting foes with splintered fragments.",
+      "effect_text": "The user unleashes a powerful blast of thorns in a wide spread, hitting foes with splintered fragments.",
+      "priority": "0",
+      "target": "AllNearFoes",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,CanMirrorMove,Bomb"
+    },
+    "BOOMINSTALL": {
+      "status": "complete",
+      "move_description": "The user injects the foe with a BOOMing virus. Increases all damage taken by the foe by 25%.",
+      "effect_text": "The user injects the foe with a BOOMing virus. Increases all damage taken by the foe by 25%.",
+      "priority": "0",
+      "target": "NearOther"
+    },
+    "TRIMTACKLE": {
+      "status": "complete",
+      "move_description": "The user tackles the target with a stylish charge. The user's hairstyle determines the type of this move.",
+      "effect_text": "The user tackles the target with a stylish charge. The user's hairstyle determines the type of this move.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove,GravityBoosted"
+    },
+    "STALAGBITE": {
+      "status": "complete",
+      "move_description": "The user bites down with rock-hard fangs formed from stalagmites. May lower the target's Defense stat.",
+      "effect_text": "The user bites down with rock-hard fangs formed from stalagmites. May lower the target's Defense stat.",
+      "priority": "0",
+      "target": "NearOther",
+      "contact": "Yes",
+      "move_flags": "Contact,CanProtect,CanMirrorMove,Biting",
+      "effect_chance": "20%"
+    },
+    "GLACIALGULF": {
+      "status": "complete",
+      "move_description": "The user regains up to half of its max HP. It restores more HP in a hailstorm.",
+      "effect_text": "The user regains up to half of its max HP. It restores more HP in a hailstorm.",
+      "priority": "0",
+      "target": "User"
+    },
+    "GOLDENSPLASH": {
+      "status": "complete",
+      "move_description": "The user splashes around, creating a dazzling display of golden water. Foes always take critical damage.",
+      "effect_text": "The user splashes around, creating a dazzling display of golden water. Foes always take critical damage.",
+      "priority": "0",
+      "target": "AllNearFoes",
+      "contact": "No",
+      "move_flags": "CanProtect,CanMirrorMove,CannotMetronome,CannotSketch"
+    },
+    "PLEGARIACALAMO": {
+      "status": "complete",
+      "move_description": "Deals damage and changes the user's form after the attack.",
+      "effect_text": "Deals damage and changes the user's form after the attack.",
+      "priority": "0"
+    },
+    "PUNZADABURBUJA": {
+      "status": "complete",
+      "move_description": "Deals damage.",
+      "effect_text": "Deals damage.",
+      "priority": "0"
+    },
+    "FLORALETEO": {
+      "status": "complete",
+      "move_description": "Deals damage.",
+      "effect_text": "Deals damage.",
+      "priority": "0"
+    },
+    "CUERNARDIENTE": {
+      "status": "complete",
+      "move_description": "Deals damage.",
+      "effect_text": "Deals damage.",
+      "priority": "0"
+    },
+    "FERMENTACION": {
+      "status": "complete",
+      "move_description": "Deals damage and destroys/melts the the target's held Berry.",
+      "effect_text": "Deals damage and destroys/melts the the target's held Berry.",
+      "priority": "0"
+    },
+    "PROTOPLUMA": {
+      "status": "complete",
+      "move_description": "Deals damage. Source description says it can flinch; exact chance needs source-script verification.",
+      "effect_text": "Deals damage. Source description says it can flinch; exact chance needs source-script verification.",
+      "priority": "0"
+    },
+    "PODERNINFA": {
+      "status": "complete",
+      "move_description": "Deals damage and has a 10% chance to raise all of the user's stats by 1 stage.",
+      "effect_text": "Deals damage and has a 10% chance to raise all of the user's stats by 1 stage.",
+      "priority": "0"
+    },
+    "PODERIGNIS": {
+      "status": "complete",
+      "move_description": "Deals damage and has a 10% chance to raise all of the user's stats by 1 stage.",
+      "effect_text": "Deals damage and has a 10% chance to raise all of the user's stats by 1 stage.",
+      "priority": "0"
+    },
+    "PODERVOLTA": {
+      "status": "complete",
+      "move_description": "Deals damage and has a 10% chance to raise all of the user's stats by 1 stage.",
+      "effect_text": "Deals damage and has a 10% chance to raise all of the user's stats by 1 stage.",
+      "priority": "0"
+    },
+    "PODERCIMEX": {
+      "status": "complete",
+      "move_description": "Deals damage and has a 10% chance to raise all of the user's stats by 1 stage.",
+      "effect_text": "Deals damage and has a 10% chance to raise all of the user's stats by 1 stage.",
+      "priority": "0"
+    },
+    "PODERAQUA": {
+      "status": "complete",
+      "move_description": "Deals damage and has a 10% chance to raise all of the user's stats by 1 stage.",
+      "effect_text": "Deals damage and has a 10% chance to raise all of the user's stats by 1 stage.",
+      "priority": "0"
+    },
+    "ARENAILUSORIA": {
+      "status": "complete",
+      "move_description": "Deals damage and has a 30% chance to inflict burn, paralysis, or freeze.",
+      "effect_text": "Deals damage and has a 30% chance to inflict burn, paralysis, or freeze.",
+      "priority": "0"
+    },
+    "LLUVIAPUNOS": {
+      "status": "complete",
+      "move_description": "Deals damage and has a 50% chance to raise the user's Speed by 1 stage.",
+      "effect_text": "Deals damage and has a 50% chance to raise the user's Speed by 1 stage.",
+      "priority": "0"
+    },
+    "MPREDATORIO": {
+      "status": "complete",
+      "move_description": "Deals damage and prevents the the target from escaping.",
+      "effect_text": "Deals damage and prevents the the target from escaping.",
+      "priority": "0"
+    },
+    "MENTEREY": {
+      "status": "complete",
+      "move_description": "Deals damage and has a 70% chance to raise the user's Sp. Atk by 1 stage.",
+      "effect_text": "Deals damage and has a 70% chance to raise the user's Sp. Atk by 1 stage.",
+      "priority": "0"
+    },
+    "PODEREVOL": {
+      "status": "complete",
+      "move_description": "Deals damage and grows stronger when used consecutively.",
+      "effect_text": "Deals damage and grows stronger when used consecutively.",
+      "priority": "0"
+    },
+    "EBULLICIÓN": {
+      "status": "complete",
+      "move_description": "Deals damage and always burns the target.",
+      "effect_text": "Deals damage and always burns the target.",
+      "priority": "0"
+    },
+    "TRESDESEOS": {
+      "status": "complete",
+      "move_description": "Hits three times, with each hit stronger than the previous hit.",
+      "effect_text": "Hits three times, with each hit stronger than the previous hit.",
+      "priority": "0"
+    },
+    "RITOCHAMANICO": {
+      "status": "complete",
+      "move_description": "Applies a recurring healing effect to the user and has +1 priority.",
+      "effect_text": "Applies a recurring healing effect to the user and has +1 priority.",
+      "priority": "0"
+    },
+    "GOLPESABANA": {
+      "status": "complete",
+      "move_description": "Deals damage; its power doubles if the target is at half HP or less.",
+      "effect_text": "Deals damage; its power doubles if the target is at half HP or less.",
+      "priority": "0"
+    },
+    "AGUIJONLETAL": {
+      "status": "complete",
+      "move_description": "Deals damage and has a 30% chance to burn the target.",
+      "effect_text": "Deals damage and has a 30% chance to burn the target.",
+      "priority": "0"
+    },
+    "VIRAZON": {
+      "status": "complete",
+      "move_description": "Deals damage and raises the user's Speed by 1 stage.",
+      "effect_text": "Deals damage and raises the user's Speed by 1 stage.",
+      "priority": "0"
+    },
+    "COMBUSCRIN": {
+      "status": "complete",
+      "move_description": "Deals damage and lowers the user's Speed by 1 stage.",
+      "effect_text": "Deals damage and lowers the user's Speed by 1 stage.",
+      "priority": "0"
+    },
+    "MIGRACIÓN": {
+      "status": "complete",
+      "move_description": "Deals damage, then switches the user out for another party Pokémon.",
+      "effect_text": "Deals damage, then switches the user out for another party Pokémon.",
+      "priority": "0"
+    },
+    "PATRONAJE": {
+      "status": "complete",
+      "move_description": "Raises the user's critical-hit rate.",
+      "effect_text": "Raises the user's critical-hit rate.",
+      "priority": "0"
+    },
+    "AEROGENERADOR": {
+      "status": "complete",
+      "move_description": "Deals damage and restores the user's HP by 50% of the damage dealt.",
+      "effect_text": "Deals damage and restores the user's HP by 50% of the damage dealt.",
+      "priority": "0"
+    },
+    "HIEDRAAGIL": {
+      "status": "complete",
+      "move_description": "Deals damage with +1 priority.",
+      "effect_text": "Deals damage with +1 priority.",
+      "priority": "0"
+    },
+    "TASER": {
+      "status": "complete",
+      "move_description": "Deals damage. 30% chance to paralyze.",
+      "effect_text": "Deals damage. 30% chance to paralyze.",
+      "priority": "0"
+    },
+    "AGUANOCIVA": {
+      "status": "complete",
+      "move_description": "Deals damage and has a 30% chance to poison the target.",
+      "effect_text": "Deals damage and has a 30% chance to poison the target.",
+      "priority": "0"
+    },
+    "FUEGOCRUZADO": {
+      "status": "complete",
+      "move_description": "Deals damage with +1 priority.",
+      "effect_text": "Deals damage with +1 priority.",
+      "priority": "0"
+    },
+    "CONJUROSOLAR": {
+      "status": "complete",
+      "move_description": "Deals damage and has a 30% chance to burn the target.",
+      "effect_text": "Deals damage and has a 30% chance to burn the target.",
+      "priority": "0"
+    },
+    "CACAREO": {
+      "status": "complete",
+      "move_description": "Deals damage and has a 70% chance to confuse the target.",
+      "effect_text": "Deals damage and has a 70% chance to confuse the target.",
+      "priority": "0"
+    },
+    "TERRAL": {
+      "status": "complete",
+      "move_description": "Deals damage and restores the user's HP by 50% of the damage dealt.",
+      "effect_text": "Deals damage and restores the user's HP by 50% of the damage dealt.",
+      "priority": "0"
+    },
+    "PODERPRIMATE": {
+      "status": "complete",
+      "move_description": "Raises the user's Attack by 1 stage and Speed by 2 stages.",
+      "effect_text": "Raises the user's Attack by 1 stage and Speed by 2 stages.",
+      "priority": "0"
+    },
+    "ELECTROPUNZADA": {
+      "status": "complete",
+      "move_description": "Deals damage and has a 30% chance to make the target flinch.",
+      "effect_text": "Deals damage and has a 30% chance to make the target flinch.",
+      "priority": "0"
+    },
+    "ELECTROARENA": {
+      "status": "complete",
+      "move_description": "Deals damage and has a 30% chance to paralyze the target.",
+      "effect_text": "Deals damage and has a 30% chance to paralyze the target.",
+      "priority": "0"
+    },
+    "COMECEREBRO": {
+      "status": "complete",
+      "move_description": "Deals damage and has a 30% chance to confuse the target.",
+      "effect_text": "Deals damage and has a 30% chance to confuse the target.",
+      "priority": "0"
+    },
+    "ROCAVOLTAICA": {
+      "status": "complete",
+      "move_description": "Deals damage and has a 30% chance to paralyze the target.",
+      "effect_text": "Deals damage and has a 30% chance to paralyze the target.",
+      "priority": "0"
+    },
+    "GHOSTGALLOP": {
+      "status": "complete",
+      "move_description": "Deals damage and has a 20% chance to make the target flinch.",
+      "effect_text": "Deals damage and has a 20% chance to make the target flinch.",
+      "priority": "0"
+    },
+    "IRALLAMEANTE": {
+      "status": "complete",
+      "move_description": "Attacks for 2–3 turns, then confuses the user.",
+      "effect_text": "Attacks for 2–3 turns, then confuses the user.",
+      "priority": "0"
+    },
+    "ENFRIAR": {
+      "status": "complete",
+      "move_description": "Changes the target's type to Ice.",
+      "effect_text": "Changes the target's type to Ice.",
+      "priority": "0"
+    },
+    "AHOGAMIENTO": {
+      "status": "complete",
+      "move_description": "Deals damage and is treated as super effective against Grass-type targets.",
+      "effect_text": "Deals damage and is treated as super effective against Grass-type targets.",
+      "priority": "0"
+    },
+    "DESPRENDIMIENTO": {
+      "status": "complete",
+      "move_description": "Attacks for 2–3 turns, then confuses the user.",
+      "effect_text": "Attacks for 2–3 turns, then confuses the user.",
+      "priority": "0"
+    },
+    "PUASSOBERANAS": {
+      "status": "complete",
+      "move_description": "Deals damage and marks the target for the rest of the turn; if that target hits the user with a contact move, the target becomes poisoned.",
+      "effect_text": "Deals damage and marks the target for the rest of the turn; if that target hits the user with a contact move, the target becomes poisoned.",
+      "priority": "0"
+    },
+    "MORDISCOCARDUMEN": {
+      "status": "complete",
+      "move_description": "Hits the target 2–5 times.",
+      "effect_text": "Hits the target 2–5 times.",
+      "priority": "0"
+    },
+    "BIFIDOVOLADOR": {
+      "status": "complete",
+      "move_description": "Deals damage and is treated as both Flying- and Fighting-type for type effectiveness.",
+      "effect_text": "Deals damage and is treated as both Flying- and Fighting-type for type effectiveness.",
+      "priority": "0"
+    },
+    "PALEOWAVE": {
+      "status": "complete",
+      "move_description": "Deals damage. 20% chance to lower target Attack by 1 stage.",
+      "effect_text": "Deals damage. 20% chance to lower target Attack by 1 stage.",
+      "priority": "0",
+      "target": "normal",
+      "move_flags": "protect, mirror",
+      "contact": "No",
+      "effect_chance": "20%",
+      "stat_changes": "lowers the target's Attack by 1 stage"
+    },
+    "SHADOWSTRIKE": {
+      "status": "complete",
+      "move_description": "Deals damage. 50% chance to lower target Defense by 1 stage.",
+      "effect_text": "Deals damage. 50% chance to lower target Defense by 1 stage.",
+      "priority": "0",
+      "target": "normal",
+      "move_flags": "contact, protect, mirror",
+      "contact": "Yes",
+      "effect_chance": "50%",
+      "stat_changes": "lowers the target's Defense by 1 stage"
+    },
+    "POLARFLARE": {
+      "status": "complete",
+      "move_description": "Spread damage to all adjacent foes. 10% chance to freeze; can defrost the user; toggles Ramnarok between base and Radiant form after use when eligible.",
+      "effect_text": "Spread damage to all adjacent foes. 10% chance to freeze; can defrost the user; toggles Ramnarok between base and Radiant form after use when eligible.",
+      "priority": "0",
+      "target": "allAdjacentFoes",
+      "move_flags": "protect, mirror, defrost, nosketch",
+      "contact": "No",
+      "effect_chance": "10%",
+      "status_effects": "freeze"
     }
   }
 }
