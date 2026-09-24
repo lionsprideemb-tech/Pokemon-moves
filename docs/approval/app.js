@@ -504,7 +504,7 @@ function renderMove(m) {
     ? "Full mechanics audit complete"
     : auditStatus === "source-limited"
       ? "Blocked: exact source mechanics missing"
-      : auditStatus === "source_conflict"
+      : auditStatus === "source-conflict"
         ? "Blocked: source mechanics conflict"
         : "Full mechanics audit pending";
   el.mechanicsAuditBadge.textContent = auditLabel;
@@ -791,7 +791,7 @@ function renderReviewControls() {
   if (!state.selectedId) return;
   const review = getReview(state.selectedId);
   const move = state.moves.find(function(m) { return m.move_id === state.selectedId; });
-  const auditReady = !!(move && move.audit && String(move.audit.status || "").toLowerCase() === "complete");
+  const auditReady = !!(move && move.audit && String(move.audit.status || "").toLowerCase() === "complete" && move.audit.approval_ready !== false);
 
   document.querySelectorAll('.segmented[data-group="move"] button').forEach(function(btn) {
     btn.classList.toggle("active", btn.dataset.value === review.move);
