@@ -12,25 +12,21 @@ This audit tracks:
 ## Progress
 
 - Required effect scripts: **173**
-- Audited in F2 so far: **140/173**
-- Current batch: sorted required-effect positions **131–140**
+- Audited in F2 so far: **150/173**
+- Current batch: sorted required-effect positions **141–150**
 - Direct battle-subscript dependencies found in this batch: **0**
-- Side-effect pointer dependencies found in this batch: **6 unique**
+- Side-effect pointer dependencies found in this batch: **9 unique**
 - Cumulative unique battle subscripts observed: **7**
-- Cumulative unique side-effect pointers observed: **75**
-- Generic-damage-only scripts in this batch: **2** (effects 372 and 373)
+- Cumulative unique side-effect pointers observed: **84**
+- Generic-damage-only scripts in this batch: **1** (effect 382)
 
-## Batch 14 dependency notes
+## Batch 15 dependency notes
 
-- Effect 365 computes its HP-based damage directly from the defender's current HP and ignores type effectiveness.
-- Effect 366 sets up a fixed three-hit sequence, but its always-critical property is not forced in the effect script and needs engine-side critical verification.
-- Effect 367 introduces `MOVE_SUBSCRIPT_PTR_TAKE_HEART`.
-- Effect 368 raises critical stage directly and reuses the one-stage Speed-up handler.
-- Effect 369 (MORTAL_SPIN) only expresses damage + poison here; hazard/bind cleanup is an engine-side dependency.
-- Effect 370 introduces the dedicated `MOVE_SUBSCRIPT_PTR_TIDY_UP` handler.
-- Effect 371 reuses the Protect handler, with the upstream script explicitly noting that the move effect differentiates protection variants.
-- Effects 372 (INCINERATE) and 373 (FIRST_TURN_ONLY) are generic damage scripts; their special item-destruction and eligibility rules are engine-side.
-- Effect 374 introduces `MOVE_SUBSCRIPT_PTR_ADD_TYPE_GRASS` for third-type addition.
+- Effects 375–379 introduce dedicated handlers for third-type Ghost, Psychic-type replacement, Aurora Veil, Strength Sap, and Heal Pulse-style target healing.
+- Effect 380 uses `CheckTargetIsPartner` to choose between normal damage and ally healing, then delegates the healing branch to `MOVE_SUBSCRIPT_PTR_POLLEN_PUFF_HEAL`.
+- Effect 381 (COACHING) explicitly says its fail conditions live outside the script. The pinned upstream source confirms `MOVE_EFFECT_COACHING` checks in `src/individual/BattleController_BeforeMove.c`, including stat-cap and valid-ally conditions.
+- Effect 382 (DOUBLE_POWER_IF_FASTER) is byte-identical to generic HIT, so speed comparison / power doubling is engine-side.
+- Effects 383–384 delegate Life Dew and Entrainment to dedicated handlers.
 
 The dependency manifest is `manifests/mechanics_dependencies.csv`.
 
