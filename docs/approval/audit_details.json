@@ -5697,6 +5697,24 @@
       "target": "the user",
       "contact": "No",
       "move_flags": "No special move flags recorded in the source block"
+    },
+    "PLUNDER": {
+      "status": "complete",
+      "move_description": "Deals damage and steals the target's held item if the user is not already holding an item.",
+      "effect_text": "Deals damage and, if the user is not holding an item, steals the target's held item when possible.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "Yes",
+      "move_flags": "contact, protect, mirror"
+    },
+    "SWINDLE": {
+      "status": "complete",
+      "move_description": "Deals damage and steals the target's held item if the user is not already holding an item.",
+      "effect_text": "Deals damage and, if the user is not holding an item, steals the target's held item when possible. It will not steal while the user is in the middle of consuming a Gem.",
+      "priority": "0 (normal priority)",
+      "target": "one adjacent target",
+      "contact": "No",
+      "move_flags": "protect, mirror"
     }
   }
 }
