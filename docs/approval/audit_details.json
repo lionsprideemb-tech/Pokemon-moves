@@ -5515,13 +5515,13 @@
     },
     "GAYAGENDA": {
       "status": "complete",
-      "move_description": "Affects a target only if the user and target are the same gender. While affected, the target has a 50% chance to be unable to move each turn. The effect ends if the source leaves the field, cannot be passed by Baton Pass, and bypasses Substitute.",
-      "effect_text": "Affects a target only if the user and target are the same gender. While affected, the target has a 50% chance to be unable to move each turn. The effect ends if the source leaves the field, cannot be passed by Baton Pass, and bypasses Substitute.",
+      "move_description": "Targets one adjacent Pokémon and only succeeds if the user and target are the same gender. While the effect is active, the target has a 50% chance to be unable to move each turn. The effect bypasses Substitute, cannot be passed by Baton Pass, and ends if the source leaves the field.",
+      "effect_text": "Targets one adjacent Pokémon and only succeeds if the user and target are the same gender. While the effect is active, the target has a 50% chance to be unable to move each turn. The effect bypasses Substitute, cannot be passed by Baton Pass, and ends if the source leaves the field.",
       "priority": "0 (normal priority)",
       "target": "one adjacent target",
-      "contact": "Yes",
+      "contact": "No",
       "move_flags": "protect, reflectable, mirror, authentic",
-      "multi_hit": "2–5 hits"
+      "source_mechanics": "Verified from Squeetz/clovermon-showdown data/moves.ts at commit 008196c839c1efe859e2d59c092c88370b7752d6. Source flags: protect, reflectable, mirror, authentic; no contact flag."
     },
     "SPOOPERPOWER": {
       "status": "complete",
