@@ -12,26 +12,24 @@ This audit tracks:
 ## Progress
 
 - Required effect scripts: **173**
-- Audited in F2 so far: **170/173**
-- Current batch: sorted required-effect positions **161–170**
-- Direct battle-subscript dependencies found in this batch: **0**
-- Side-effect pointer dependencies found in this batch: **4 unique**
-- Cumulative unique battle subscripts observed: **7**
+- Audited in F2: **173/173**
+- Current batch: final sorted required-effect positions **171–173**
+- Direct battle-subscript dependencies found in this batch: **2 unique**
+- Side-effect pointer dependencies found in this batch: **0**
+- Cumulative unique direct battle subscripts observed: **9**
 - Cumulative unique side-effect pointers observed: **90**
-- Generic-damage-only scripts in this batch: **3** (effects 396, 403, 405)
+- Generic-damage-only scripts in this batch: **2** (effects 406 and 408)
 
-## Batch 17 dependency notes
+## Final batch dependency notes
 
-- Effect 396 (BELCH) is generic damage only; pinned upstream enforces its Berry-eaten prerequisite during move-selection/use validation.
-- Effect 397 (STUFF_CHEEKS) delegates its effect to a dedicated handler, while upstream also validates that the user currently holds a Berry.
-- Effects 398–399 introduce dedicated handlers for Powder and Laser Focus.
-- Effect 400 (GLAIVE_RUSH) uses `SetMoveConditionFlag`; pinned upstream maps this to the user's `wideOpen` state and later clears it in move-end logic.
-- Effect 401 (THROAT_CHOP) also uses `SetMoveConditionFlag`; upstream stores the target's Throat Chop timer in battle state.
-- Effect 402 (FINAL_GAMBIT) directly sets damage equal to the user's current HP and ignores type effectiveness; user fainting is handled separately in post-move processing.
-- Effect 403 (RECOIL_HALF_MAX_HP) is generic damage only; pinned upstream handles Reckless interaction in base-damage calculation and the half-max-HP recoil subscript post-move.
-- Effect 404 delegates Bestow/item transfer to `MOVE_SUBSCRIPT_PTR_GIVE_HELD_ITEM`, with pre-move item/species validity checks elsewhere.
-- Effect 405 (IGNORE_PROTECT) is generic damage only; protect bypass is handled by pre-move engine logic.
+- Effect 406 (SMACK_DOWN) is generic damage only. Pinned upstream confirms pre-move Fly-state hit allowance and post-move grounding/fall-down processing.
+- Effect 407 (MAGIC_ROOM) manipulates the field-condition flag directly and calls `BATTLE_SUBSCRIPT_ATTACK_MESSAGE_AND_ANIMATION` plus `BATTLE_SUBSCRIPT_MAGIC_ROOM_END`. Field-condition processing also invokes MAGIC_ROOM_END when the room expires.
+- Effect 408 (STEEL_BEAM) is generic damage only. Pinned upstream sets and tracks the Steel Beam/Mind Blown recoil condition outside the effect script and dispatches `BATTLE_SUBSCRIPT_HEAVY_RECOIL` post-move, with Magic Guard suppression.
+
+## Phase F2 status
+
+**Effect-script dependency audit complete: 173/173.**
 
 The dependency manifest is `manifests/mechanics_dependencies.csv`.
 
-Phase F2 is not a runtime certification. The goal is to identify every dependency that Mercury Redux must carry over or reimplement.
+This is still **not runtime certification**. The next mechanics step is to resolve and collect the dependency graph behind the 90 side-effect pointers, 9 directly referenced battle subscripts, specialized battle commands, and engine-side hooks, while keeping the 77 upstream-unimplemented moves isolated.
