@@ -3147,7 +3147,7 @@
       "source_description": "Depending on the highest attacking stat, this move has different effects.",
       "source_mechanics": "FunctionCode: EffectDependsOnHigherDamage. Power —, Accuracy 100, PP 2.",
       "audit_basis": "Source-verified against the pinned PokeRover PBS move table.",
-      "approval_ready": "No — exact branch mechanics still require a source that contains Vanguard's custom runtime implementation.",
+      "approval_ready": false,
       "verification_blocker": "The public source snapshot contains FunctionCode EffectDependsOnHigherDamage but not its implementation.",
       "source_limitation": "Exact branch effects are absent from the public PokeRover PBS snapshot; only the custom function name and summary description are present.",
       "source_limit": "FunctionCode EffectDependsOnHigherDamage is referenced by the public PBS data, but its implementation is not present in the audited public repositories."
@@ -3179,7 +3179,7 @@
       "source_description": "A claw imbued with energy strikes. Different stats are raised depending on the terrain.",
       "source_mechanics": "FunctionCode: TypeAndPowerDependOnTerrain. Power 70, Accuracy 100, PP 10.",
       "audit_basis": "Source-verified against the pinned PokeRover PBS move table.",
-      "approval_ready": "No — exact terrain-specific stat boosts still require the missing runtime implementation.",
+      "approval_ready": false,
       "verification_blocker": "The PBS uses FunctionCode TypeAndPowerDependOnTerrain, but Vanguard's description conflicts with the standard Essentials Terrain Pulse behavior and its custom script is not in the public snapshot.",
       "source_limitation": "Vanguard's PBS description conflicts with the standard semantics of its assigned TypeAndPowerDependOnTerrain function.",
       "source_limit": "The public PBS record names FunctionCode TypeAndPowerDependOnTerrain but does not include Vanguard's custom implementation or terrain-to-stat table."
@@ -3898,17 +3898,19 @@
     },
     "CORALBREAK": {
       "status": "complete",
-      "move_description": "Deals damage using the target's Defense stat even though Coral Break is a Special move.",
-      "effect_text": "Deals damage using the target's Defense stat even though Coral Break is a Special move.",
+      "move_description": "An 80-power Water special attack that calculates damage against the target's Defense instead of Special Defense.",
+      "effect_text": "Deals 80 base-power Water-type special damage with 95% accuracy and 15 PP. Although it is categorized as Special, damage is calculated using the target's Defense rather than Special Defense, like a Psyshock-style attack. It makes contact. No battle secondary effect is documented for Coral Break.",
       "priority": "0 (normal priority)",
       "target": "One Pokémon other than the user",
       "contact": "Yes",
       "move_flags": "Uranium flags: abe",
-      "effect_chance": "No separate secondary-effect chance is documented despite the PBS row containing 15 in its chance field.",
-      "source_mechanics": "Effect family 122. Power 80, Accuracy 95, PP 15, target code 00, priority 0.",
+      "effect_chance": "No battle secondary effect",
+      "source_mechanics": "Effect family 122. Power 80, Accuracy 95, PP 15, target code 00, priority 0. The pinned PBS row contains 15 in its chance field, but effect family 122 does not use a secondary-effect roll and Uranium's move documentation lists no secondary effect.",
       "audit_basis": "Source-verified against Pokémon Uranium 1.3.1 move data from the pinned uranium-mining PBS snapshot; publicly documented Uranium mechanics were used where the PBS description alone was incomplete.",
       "source_description": "The user creates waves in the water to attack the target. This attack does physical damage.",
-      "source_uncertainty": "No separate secondary-effect chance is documented despite the PBS row containing 15 in its chance field."
+      "source_uncertainty": "None for battle behavior. The otherwise-unused 15 value in the PBS chance column is preserved as source data but is not presented as a gameplay effect.",
+      "approval_ready": true,
+      "field_utility": "Outside battle, Coral Break can break dead coral in designated underwater areas, functioning as a field utility move and sometimes yielding items or encounters."
     },
     "ATOMICPUNCH": {
       "status": "complete",
@@ -3941,18 +3943,21 @@
       "source_uncertainty": "None noted."
     },
     "SHUFFLE": {
-      "status": "complete",
-      "move_description": "Deals damage with a bomb-like gift. The source description says it may restore HP instead; the audited public move data does not document the exact healing probability or amount, so that limitation is shown rather than guessed.",
-      "effect_text": "Deals damage with a bomb-like gift. The source description says it may restore HP instead; the audited public move data does not document the exact healing probability or amount, so that limitation is shown rather than guessed.",
+      "status": "source-conflict",
+      "move_description": "An unfinished or internally inconsistent Normal special move record resembling a damaging gift move.",
+      "effect_text": "The pinned Uranium 1.3.1 row lists Shuffle as a 60-power Normal-type special move with 90% accuracy and 15 PP, and says the bomb-like gift may restore HP. However, that same row assigns function code 0D6—the Roost healing function used by Roost in the very same Uranium move table—and gives a 100% effect-chance field. No Pokémon in the pinned public pokemon.txt learn Shuffle, and the public Uranium move list does not document it. Because the damage-versus-healing behavior cannot be reconciled from the available source, no heal chance or heal amount is invented.",
       "priority": "0 (normal priority)",
       "target": "One Pokémon other than the user",
       "contact": "No",
       "move_flags": "Uranium flags: be",
-      "effect_chance": "Source limitation: exact heal chance/amount is not documented in the audited public move data.",
-      "source_mechanics": "Effect family 0D6. Power 60, Accuracy 90, PP 15, target code 00, priority 0.",
+      "effect_chance": "Source conflict: row stores 100%, but the behavior attached to that value cannot be source-certified",
+      "source_mechanics": "Pinned row: 60 power, Normal, Special, 90% accuracy, 15 PP, function 0D6, effect chance 100. In the same pinned table, ROOST also uses 0D6, while PRESENT uses 094.",
       "audit_basis": "Source-verified against Pokémon Uranium 1.3.1 move data from the pinned uranium-mining PBS snapshot; publicly documented Uranium mechanics were used where the PBS description alone was incomplete.",
       "source_description": "A gift in the form of a bomb. May restore HP.",
-      "source_uncertainty": "Source limitation: exact heal chance/amount is not documented in the audited public move data."
+      "source_uncertainty": "Source limitation: exact heal chance/amount is not documented in the audited public move data.",
+      "approval_ready": false,
+      "verification_blocker": "The move record combines a damaging move, Roost's function code, and Present-like flavor text. The public source snapshot contains no matching custom runtime implementation or learnset entry that resolves the contradiction.",
+      "source_conflict": "Machine-readable function code and prose description do not agree. Approval is locked until an original Uranium runtime/script or authoritative design record resolves the intended behavior."
     },
     "NUCLEARWASTE": {
       "status": "complete",
@@ -4731,7 +4736,7 @@
       "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "ZARZAS": {
-      "status": "complete",
+      "status": "source-limited",
       "move_description": "Damages the target, traps it for 4–5 turns, and deals 1/16 max HP in residual damage each turn.",
       "effect_text": "Deals 90 base-power physical Grass-type damage with 95% accuracy, then partially traps the target for 4–5 turns. While trapped, the target cannot switch normally and loses 1/16 of its maximum HP at the end of each turn. The exact 0CF effect family used by Zarzas is the same binding function used by Bind, Wrap, Fire Spin, and Sand Tomb in the pinned data; the matching Essentials implementation defines the 4–5 turn duration and 1/16 max-HP residual damage.",
       "priority": "0 (normal priority)",
@@ -4970,14 +4975,18 @@
     },
     "MAGIKARPSREVENGE": {
       "status": "complete",
-      "move_description": "Deals damage to one adjacent target with a 100% chance to confuse it and lower its Defense and Special Attack by 1 stage. The user recovers half of the HP lost by the target, rounded up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down. If this move is successful, the weather changes to Rain Dance for 5 turns unless Rain Dance is already in effect, the user gains the effects of Aqua Ring and Magic Coat, and the user must recharge on the following turn and cannot make a move. Makes contact.",
-      "effect_text": "Deals damage to one adjacent target with a 100% chance to confuse it and lower its Defense and Special Attack by 1 stage. The user recovers half of the HP lost by the target, rounded up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down. If this move is successful, the weather changes to Rain Dance for 5 turns unless Rain Dance is already in effect, the user gains the effects of Aqua Ring and Magic Coat, and the user must recharge on the following turn and cannot make a move. Makes contact.",
+      "move_description": "A Magikarp-only 120-power draining attack with multiple guaranteed secondary effects and a recharge turn.",
+      "effect_text": "Deals 120 base-power damage to one adjacent target with a 100% chance to confuse it and lower both its Defense and Special Attack by 1 stage. The user restores HP equal to 50% of the damage dealt; Big Root increases that recovery to 1.3× the normal drain amount. If the move succeeds, it sets Rain for 5 turns unless Rain is already active, gives the user Aqua Ring and Magic Coat effects, and forces the user to recharge on the following turn. The move makes contact and is restricted by the source to Magikarp.",
       "priority": "0",
       "target": "One adjacent Pokémon",
       "audit_basis": "Source-verified against the pinned Pokémon-Showdown-Sage move definition.",
       "source_mechanics": "Catalog stats: 120 power, 0 accuracy, 10 PP. Source record: SageFox/Pokemon-Showdown-Sage@f6757adccfc138272f10e738afdc36472387e646 → data/moves.js.",
       "move_flags": "contact;drain;magikarp-only;rain-setting;aqua-ring;magic-coat;recharge;confusion;defense-drop;spatk-drop",
-      "contact": "Yes"
+      "contact": "Yes",
+      "effect_chance": "100% confusion; 100% Defense -1; 100% Special Attack -1",
+      "drain_or_healing": "Restores 50% of damage dealt; Big Root multiplies the drain recovery by 1.3",
+      "field_weather_terrain_behavior": "Sets Rain for 5 turns if Rain is not already active",
+      "custom_conditions": "Source-restricted to Magikarp; user must recharge next turn after a successful use"
     },
     "SLIMESHOT": {
       "status": "complete",
@@ -5441,7 +5450,7 @@
       "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "PROTOPLUMA": {
-      "status": "complete",
+      "status": "source-conflict",
       "move_description": "A 60-power Rock-type physical strike whose description says it may make the target flinch.",
       "effect_text": "Deals 60 base-power physical Rock-type damage with 100% accuracy and 15 PP. The source description says the move can make the target flinch, but the pinned Armonia row stores an effect chance of 0%. Because the same 00F effect family is used by flinching moves such as Bite, Air Slash, Headbutt, Zen Headbutt, Waterfall, and Rock Slide, the intended secondary effect is clearly flinching; however, the audited data does not provide a nonzero percentage for Protopluma.",
       "priority": "0 (normal priority)",
