@@ -12,22 +12,22 @@ This audit tracks:
 ## Progress
 
 - Required effect scripts: **173**
-- Audited in F2 so far: **60/173**
-- Current batch: sorted required-effect positions **51–60**
-- Direct battle-subscript calls found in this batch: **1 unique**
+- Audited in F2 so far: **70/173**
+- Current batch: sorted required-effect positions **61–70**
+- Direct battle-subscript calls found in this batch: **0**
 - Side-effect pointer dependencies found in this batch: **7 unique**
-- Cumulative unique side-effect pointers observed: **33**
-- Generic-damage-only scripts in this batch: **1** (effect 269)
+- Cumulative unique side-effect pointers observed: **40**
+- Generic-damage-only scripts in this batch: **1** (effect 282)
 
-## Batch 06 dependency notes
+## Batch 07 dependency notes
 
-- Effect 238 delegates Attack/Defense swapping to `MOVE_SUBSCRIPT_PTR_USER_SWAP_ATK_AND_DEF`.
-- Effect 248 uses the specialized `TrySuckerPunch` command to validate whether the target is attacking.
-- Effect 269 (RECOIL_HALF) is byte-identical to generic HIT; half-damage recoil is handled elsewhere.
-- Effect 271 introduces the two-stage Sp. Defense drop handler.
-- Effect 272 (SHADOW_FORCE) manipulates Phantom Force and semi-invulnerable state, toggles battler visibility, reuses the FEINT side-effect pointer to bypass protection, and directly calls `BATTLE_SUBSCRIPT_CHARGE_MOVE_CLEANUP`.
-- Effects 276–279 introduce handlers for Sp. Attack boosting, Attack+Accuracy boosting, Guard Split, and Power Split.
-- Effect 280 implements its poison check and 2x power multiplier directly in the effect script.
+- Effect 281 delegates Autotomize's Speed boost and weight reduction to `MOVE_SUBSCRIPT_PTR_AUTOTOMIZE`.
+- Effect 282 (ALWAYS_CRITICAL) is structurally just `CalcCrit` + `CalcDamage`; forced-critical behavior must be supplied outside this effect script.
+- Effects 283, 286, 288, and 290 expose dedicated handlers for Quiver Dance, Coil, Shift Gear, and Shell Smash.
+- Effect 284 delegates target type replacement to `MOVE_SUBSCRIPT_PTR_CHANGE_TARGET_TO_WATER_TYPE`.
+- Effect 285 introduces the one-stage Speed-up handler.
+- Effect 287 implements status-dependent 2x power directly and explicitly treats `ABILITY_COMATOSE` as satisfying the status condition.
+- Effect 289 implements no-held-item 2x power directly through `BMON_DATA_HELD_ITEM == ITEM_NONE`.
 
 The dependency manifest is `manifests/mechanics_dependencies.csv`.
 
