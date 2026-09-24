@@ -12,23 +12,23 @@ This audit tracks:
 ## Progress
 
 - Required effect scripts: **173**
-- Audited in F2 so far: **120/173**
-- Current batch: sorted required-effect positions **111–120**
-- Direct battle-subscript dependencies found in this batch: **0**
-- Side-effect pointer dependencies found in this batch: **6 unique**
+- Audited in F2 so far: **130/173**
+- Current batch: sorted required-effect positions **121–130**
+- Direct battle-subscript dependencies found in this batch: **2 unique**
+- Side-effect pointer dependencies found in this batch: **9 unique**
 - Cumulative unique battle subscripts observed: **7**
-- Cumulative unique side-effect pointers observed: **67**
-- Generic-damage-only scripts in this batch: **4** (effects 351–354)
+- Cumulative unique side-effect pointers observed: **72**
+- Generic-damage-only scripts in this batch: **0**
 
-## Batch 12 dependency notes
+## Batch 13 dependency notes
 
-- Effect 345 (Poltergeist) checks the target's held item directly and fails when no item is held.
-- Effect 346 delegates Clangorous Soul's HP cost and all-stat boost to `MOVE_SUBSCRIPT_PTR_CLANGOROUS_SOUL`.
-- Effect 347 introduces the three-quarters drain handler.
-- Effect 348 delegates combined burn + drain behavior to `MOVE_SUBSCRIPT_PTR_BURN_AND_DRAIN_HEALTH`.
-- Effect 349 implements its randomized stronger-power branch directly in the effect script.
-- Effect 350 randomly selects among existing Sleep, Poison, and Paralysis handlers.
-- Effects 351–354 are all byte-identical generic damage scripts. Prevent-escape, mutual trapping, Stealth Rock placement, and Spikes placement therefore depend on engine-side hooks not visible in these effect files.
+- Effect 355 introduces the two-stage Speed-down handler.
+- Effects 356–358 delegate Bleakwind/Wildbolt/Sandsear Storm secondary effects to existing handlers. Their storm/weather-sensitive accuracy behavior is not expressed in these effect scripts and remains an engine-side verification item.
+- Effect 359 delegates Toxic Thread to a dedicated combined poison + Speed-drop handler.
+- Effect 360 has explicit Parental Bond branching: the normal path uses `MOVE_SUBSCRIPT_PTR_MAKE_IT_RAIN`, while the second Parental Bond hit falls back to the ordinary one-stage Sp. Atk drop handler.
+- Effect 361 performs its poisoned-target prerequisite check directly, then delegates Attack/Sp. Atk/Speed drops.
+- Effect 362 delegates simultaneous Attack + Sp. Atk reduction.
+- Effects 363–364 use the established two-turn charge framework, including `BATTLE_SUBSCRIPT_ITEM_SKIP_CHARGE_TURN` and `BATTLE_SUBSCRIPT_CHARGE_MOVE_CLEANUP`, then apply Paralysis or Burn after damage.
 
 The dependency manifest is `manifests/mechanics_dependencies.csv`.
 
