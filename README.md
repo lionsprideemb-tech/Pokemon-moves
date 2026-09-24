@@ -33,7 +33,7 @@ The hg-engine README permits reuse of its code/assets for free hobby projects pr
 - `scripts/sync_from_hg_engine.sh` — reproducibly rebuilds the library from the pinned upstream revision.
 
 ## Mercury Redux use
-Treat this repository as a **source library**, not a ROM build. When Mercury Redux reaches modern move integration, use `manifests/moves.csv` to pull the selected animation + battle script together, then resolve the listed hg-engine support dependencies and test in the Platinum/DS runtime.
+Treat this repository as a **source/donor library**, not Mercury Redux's runtime. Mercury Redux now targets native **pokeplatinum / Pokémon Platinum**. Use `manifests/moves.csv` and the community manifests to identify useful HG-Engine animation/mechanics donors, but port and certify each selected resource inside pokeplatinum before treating it as integrated.
 
 No Nintendo DS ROM image or patched commercial ROM is stored here.
 
@@ -109,3 +109,7 @@ Current source-wide result: **516 unique non-vanilla move designs** after eleven
 Current master totals: **285 Physical, 164 Special, 67 Status**. The canonical 18 types account for **484** designs. **All 18 canonical types have both Physical and Special community-move coverage.** Source-specific custom types such as Sound, Qmarks, Shadow, Nuclear, Crystal, and ??? remain preserved without silent remapping.
 
 Next restart point: **All-Type Source Sweep 12** — audit the next public project as a whole and deduplicate its custom moves against the 516-move master catalog.
+
+## Platinum-runtime certification rule
+
+As of 2026-09-24, an HG-Engine animation assignment means **donor baseline selected**, not **Platinum-certified**. Preview clips rendered in HG-Engine may be used to judge the intended visual concept, but the final Mercury Redux animation must be ported to and tested in the native pokeplatinum battle runtime before approval is considered final.
