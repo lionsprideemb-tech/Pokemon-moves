@@ -12,21 +12,24 @@ This audit tracks:
 ## Progress
 
 - Required effect scripts: **173**
-- Audited in F2 so far: **100/173**
-- Current batch: sorted required-effect positions **91–100**
-- Direct battle-subscript dependencies found in this batch: **4 unique**
-- Side-effect pointer dependencies found in this batch: **11 unique**
-- Cumulative unique battle subscripts observed: **5**
-- Cumulative unique side-effect pointers observed: **59**
+- Audited in F2 so far: **110/173**
+- Current batch: sorted required-effect positions **101–110**
+- Direct battle-subscript dependencies found in this batch: **3 unique**
+- Side-effect pointer dependencies found in this batch: **8 unique**
+- Cumulative unique battle subscripts observed: **7**
+- Cumulative unique side-effect pointers observed: **64**
 - Generic-damage-only scripts in this batch: **0**
 
-## Batch 10 dependency notes
+## Batch 11 dependency notes
 
-- Effects 312–317 delegate Reflect, stat reset, party status cure, full draining, Evasion boost, and +2 Defense to side-effect handlers.
-- Effect 318 exposes one of the deepest dependency stacks yet: Power Herb-style charge skipping, staged stat updates through `BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE`, three +2 stat handlers, and charge cleanup.
-- Effect 319 delegates Snow weather handling to `BATTLE_SUBSCRIPT_HANDLE_SNOW_TEMPORARY`.
-- Effect 320 delegates healing prevention to `MOVE_SUBSCRIPT_PTR_HEAL_BLOCK_START`.
-- Effect 321 combines Burn with Hex-style power doubling and explicitly treats `ABILITY_COMATOSE` as satisfying the status condition.
+- Effect 322 combines poison application with Venoshock-style poisoned-target power doubling.
+- Effect 323 introduces `MOVE_SUBSCRIPT_PTR_GIVE_TARGET_SIMPLE` for Simple Beam-style ability replacement.
+- Effect 324 exposes Meteor Beam's charge dependency stack: Sp. Atk boost, Power Herb skip subscript, and charge cleanup.
+- Effect 325 adds rain-aware charge skipping, `CheckIgnoreWeather`, and a dedicated `BATTLE_SUBSCRIPT_SP_ATK_UP_RAIN_SKIP` path.
+- Effect 326 depends on `TryStickyWeb` and `AddEntryHazardToQueue`, making entry-hazard queue support an explicit Mercury requirement.
+- Effect 328 introduces a +3 Defense handler.
+- Effect 341 sets `BATTLE_STATUS_HIT_FLY` and confusion for Hurricane; its weather-sensitive accuracy behavior is not encoded here and must be checked in engine-side accuracy logic.
+- Effects 342–344 add handlers for self-Defense reduction, Hyperspace Fury behavior, and simultaneous Attack/Defense/Speed boosts.
 
 The dependency manifest is `manifests/mechanics_dependencies.csv`.
 
