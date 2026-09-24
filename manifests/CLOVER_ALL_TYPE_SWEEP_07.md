@@ -13,22 +13,33 @@ Source:
 
 ## Filtering method
 
-As with the Insurgence sweep, this source is a Pokémon Showdown fork. The audit therefore directly compared the fork's `data/moves.ts` against upstream Pokémon Showdown rather than treating every non-Essentials record as custom.
+This repository is a Pokémon Showdown fork, so Sweep 07 used the same stronger fork-diff method established in Sweep 06:
 
-Result of the source diff:
-- **60** fork-specific move designs
-- **2** already existed in the Mercury community catalog: **Inverse Room** and **Scorched Earth**
-- **58** new unique move designs imported
+1. Parse all top-level move definitions from the pinned Clovermon `data/moves.ts`.
+2. Parse upstream Pokémon Showdown's `data/moves.ts`.
+3. Remove every move whose normalized ID or display name exists upstream.
+4. Deduplicate the remaining fork-specific records against `manifests/community_moves.csv`.
 
-## Imported category totals
+Result before master deduplication: **60 fork-specific moves**.
 
+Already present:
+- Inverse Room
+- Scorched Earth
+
+New imports: **58**.
+
+## Result
+
+Imported:
 - **33 Physical**
 - **16 Special**
 - **9 Status**
 
-The sweep adds designs across essentially the entire canonical type spread and also preserves two source-native **???**-type moves without remapping them.
+Type coverage:
+- **56 canonical-type moves**
+- **2 source-native `???`-type moves**
 
-Examples include:
+Representative additions include:
 - Sleazy Spores
 - Slime Gulp
 - Fruit Punch
@@ -36,35 +47,40 @@ Examples include:
 - Speed Weed
 - 1000 Folds
 - Warhead
-- Weird Flex
+- Hulk Up
 - Quick Sand
 - Think Fast
 - Boltbeam
 - Pixie Pummel
 - Great Rage
 - Plunder
+- Ban Hammer
 - Chaos Dunk
 - Erosion Wave
+- Falcon Punch
 - Fire Bomb
+- Futaba Break
 - Overenergize
-- Puke Blood
+- Punch Out
+- Regenerate
 - Riot Shield
+- Spook Out
 - Strato Blade
+- Swindle
 - Toxiravage
 
-The source also contains intentionally comedic/edgy move names; the catalog preserves source names exactly for provenance rather than sanitizing or silently renaming them.
+The source also contains several intentionally comedic/irreverent move names. They are preserved as source metadata rather than pre-approved for Mercury Redux; later design curation can keep, rename, rebalance, or discard them.
 
 ## Animation status
 
-Clovermon Showdown is a battle-simulator source. Its move definitions certify mechanics/data, but it does not provide Nintendo DS battle animations.
-
-Imported records are marked for:
-- DS mechanics reimplementation
-- separate DS animation sourcing or recreation
+Clovermon Showdown provides simulator mechanics, not Nintendo DS battle-animation assets. Imported records therefore remain:
+- mechanics source-certified
+- DS mechanics reimplementation required
+- DS animation sourcing/recreation required
 
 ## Licensing note
 
-The simulator code is MIT-licensed. That does not automatically establish reuse permission for original Pokémon Clover move designs, artwork, or game assets, so the library keeps those provenance boundaries explicit.
+The simulator code is MIT-licensed, but that does not automatically establish reuse permission for original Pokémon Clover move designs or game assets. This repository preserves provenance and does not treat Clover art/animation assets as freely reusable.
 
 ## Master catalog
 
@@ -78,13 +94,9 @@ Current totals:
 - **57 Status**
 - **376 canonical-type designs**
 
-Custom types currently preserved source-faithfully:
-- ???: 2
-- Crystal: 1
-- Nuclear: 12
-- Qmarks: 3
-- Shadow: 1
-- Sound: 8
+Duplicate verification:
+- normalized duplicate IDs: **0**
+- normalized duplicate names: **0**
 
 ## Next restart point
 
