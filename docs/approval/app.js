@@ -502,7 +502,7 @@ function renderMove(m) {
   const auditComplete = auditStatus === "complete";
   const auditLabel = auditComplete
     ? "Full mechanics audit complete"
-    : auditStatus === "source_limited"
+    : auditStatus === "source-limited"
       ? "Blocked: exact source mechanics missing"
       : auditStatus === "source_conflict"
         ? "Blocked: source mechanics conflict"
