@@ -5,18 +5,22 @@ Phase F3 resolves the `MOVE_SUBSCRIPT_PTR_*` dependencies discovered in Phase F2
 ## Progress
 
 - Unique side-effect pointers requiring resolution: **90**
-- Resolved in F3 so far: **30/90**
-- Concrete subscript files collected so far: **24 unique**
+- Resolved in F3 so far: **40/90**
+- Concrete subscript files collected so far: **33 unique**
 - Source: `BluRosie/hg-engine @ 398a3020943f1ae98987e5b12b73d9086bbba3ce`
 
-## Batch 03 notes
+## Batch 04 notes
 
-- `COIL` resolves to `BATTLE_SUBSCRIPT_ATK_DEF_ACC_UP`, which fans out through Attack, Defense, and Accuracy stat-stage updates.
-- `CONFUSE` is a full status pipeline: Own Tempo, Shield Dust, Substitute, Safeguard/Infiltrator, held-item context, confusion duration, move-range failure behavior, and berry curing are all handled in the subscript.
-- `DECORATE` is a two-stat wrapper around the shared stat-stage updater.
-- All four Defense stage pointers in this batch resolve to the already-collected `BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE`.
-- Full, half, and three-quarter drain resolve to three concrete scripts with the same core dependency stack: Leech-boost held-item handling, Liquid Ooze reversal, Magic Guard interaction, and `BATTLE_SUBSCRIPT_UPDATE_HP`.
-- The three drain scripts differ chiefly in the fraction applied to hit damage before the shared drain logic.
+- `ENTRAINMENT` resolves to a direct ability-copy subscript; the script copies the attacker's ability onto the defender, so legality/failure gating remains outside this small handler.
+- `EVASION_UP_1_STAGE` reuses the already-collected shared `BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE`.
+- `FEINT` clears the defender's protecting turn flag and emits the appropriate protection-break message.
+- `FILLET_AWAY` enforces the HP threshold and stat-cap checks, removes half max HP, then raises Attack, Sp. Atk, and Speed by two stages through the shared stat updater.
+- `FLINCH` checks move order, Substitute, Inner Focus, and Shield Dust before setting flinch.
+- `FREEZE` is another deep status pipeline: Magma Armor, Comatose, Purifying Salt, sun, Flower Veil, grounding, Misty Terrain, Shield Dust, Substitute, Ice typing, Safeguard/Infiltrator, and move-choice unlocking are all involved.
+- `GIVE_HELD_ITEM` implements Bestow's actual held-item transfer and checks Quick Claw/Custap flags plus Klutz.
+- `GIVE_TARGET_SIMPLE` carries an explicit protected-ability list and Ability Shield check before replacing the target's ability with Simple.
+- `GUARD_SPLIT` directly averages both battlers' Defense and Sp. Def values.
+- `HEAL_BELL` delegates party status refresh to `TryPartyStatusRefresh` and includes Heal Bell/Aromatherapy/Sparkly Swirl messaging and ability-block reporting.
 
 The mapping manifest is `manifests/mechanics_subscript_resolution.csv`.
 
