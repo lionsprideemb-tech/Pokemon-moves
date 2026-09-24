@@ -1,5 +1,25 @@
 {
   "schema_version": 1,
   "description": "Extended source-verified mechanics keyed by move_id. The approval board merges these fields into each move as full audits are completed.",
-  "moves": {}
+  "moves": {
+    "THOUSANDFOLDS": {
+      "status": "complete",
+      "move_description": "A folded blade tears through a target's protective guard.",
+      "effect_text": "Deals damage even through Protect-style protection, then immediately removes the target's and its side's active protection effects. This clears Protect/Detect, Baneful Bunker, King's Shield, Obstruct, Spiky Shield, Crafty Shield, Mat Block, Quick Guard, and Wide Guard, allowing later attacks that turn to connect normally.",
+      "priority": "0 (normal priority)",
+      "target": "One adjacent Pokémon (NearOther)",
+      "contact": "Yes",
+      "move_flags": "Contact; CanMirrorMove; Blade",
+      "status_effects": "None",
+      "stat_changes": "None",
+      "effect_chance": "Guaranteed protection removal when the move connects",
+      "multi_hit": "No",
+      "recoil": "None",
+      "drain_or_healing": "None",
+      "switching_behavior": "None",
+      "field_weather_terrain_behavior": "None",
+      "source_description": "A folded blade that tears through a target using Protect or Detect.",
+      "source_mechanics": "FunctionCode = RemoveProtections. The source function clears Baneful Bunker, King's Shield, Obstruct, Protect/Detect, Spiky Shield, Crafty Shield, Mat Block, Quick Guard, and Wide Guard."
+    }
+  }
 }
