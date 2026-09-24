@@ -8,25 +8,25 @@ Status legend:
 
 | Type | Physical | Special | Status | Total |
 |---|---:|---:|---:|---:|
-| Normal | **15** | **16** | **6** | **37** |
-| Fire | **19** | **12** | **5** | **36** |
-| Water | **12** | **8** | **2** | **22** |
-| Electric | **11** | **7** | **5** | **23** |
-| Grass | **18** | **5** | **5** | **28** |
-| Ice | **14** | **3** | **4** | **21** |
-| Fighting | **14** | **1** | **4** | **19** |
-| Poison | **13** | **6** | **4** | **23** |
-| Ground | **17** | **7** | **2** | **26** |
-| Flying | **11** | **8** | Pending | **19** |
-| Psychic | **8** | **16** | **4** | **28** |
-| Bug | **6** | **3** | Pending | **9** |
-| Rock | **12** | **8** | **1** | **21** |
-| Ghost | **12** | **12** | **2** | **26** |
+| Normal | **15** | **16** | **7** | **38** |
+| Fire | **22** | **15** | **6** | **43** |
+| Water | **15** | **12** | **2** | **29** |
+| Electric | **13** | **9** | **5** | **27** |
+| Grass | **21** | **6** | **5** | **32** |
+| Ice | **14** | **3** | **5** | **22** |
+| Fighting | **15** | **1** | **4** | **20** |
+| Poison | **14** | **8** | **4** | **26** |
+| Ground | **18** | **9** | **2** | **29** |
+| Flying | **13** | **9** | Pending | **22** |
+| Psychic | **8** | **17** | **4** | **29** |
+| Bug | **7** | **3** | Pending | **10** |
+| Rock | **14** | **9** | **1** | **24** |
+| Ghost | **14** | **12** | **2** | **28** |
 | Dragon | **14** | **5** | **3** | **22** |
 | Dark | **16** | **8** | **4** | **28** |
 | Steel | **18** | **5** | **3** | **26** |
-| Fairy | **19** | **3** | **3** | **25** |
-| **Canonical total** | **249** | **133** | **57** | **439** |
+| Fairy | **20** | **6** | **3** | **29** |
+| **Canonical total** | **271** | **153** | **60** | **484** |
 
 ## Source-specific custom types retained
 
@@ -36,13 +36,13 @@ Status legend:
 | Crystal | **1** | Pending | Pending | **1** |
 | Nuclear | **4** | **6** | **2** | **12** |
 | Qmarks | **2** | **3** | **2** | **7** |
-| Shadow | Pending | Pending | **1** | **1** |
+| Shadow | Pending | Pending | **2** | **2** |
 | Sound | **6** | **1** | **1** | **8** |
 
-**Grand total: 470 unique non-vanilla move designs**
-- 263 Physical
-- 144 Special
-- 63 Status
+**Grand total: 516 unique non-vanilla move designs**
+- 285 Physical
+- 164 Special
+- 67 Status
 
 ## Source coverage so far
 
@@ -84,20 +84,22 @@ Result: **1** imported: Magikarp's Revenge.
 
 ### Pokémon Untamed — All-Type Source Sweep 10
 Pinned commit: `8d757cdeb132c947602dce6a9f327fc5883e84c2`
-Result: **36** imported from `PBS/moves.txt`:
-- 12 Physical
-- 19 Special
-- 5 Status
-- 32 canonical-type designs
-- 4 Qmarks-type designs
+Result: **36** imported from `PBS/moves.txt`.
+This sweep supplied the first custom **Fighting/Special** entry via **Force Wave**, completing Physical + Special coverage for all 18 canonical types.
 
-Filtering excluded:
-- official Struggle
-- internal support/dummy records `SUPERNOVA_ALT` and `PREMONITIONMOVE`
-- four designs already in the master catalog: Venom Strike, Erosion Wave, Ow The Edge, Think Fast
+### Pokémon Armonia dataset via xorgies/PokemonOpalo — All-Type Source Sweep 11
+Pinned commit: `2133a2c0db1a0d8a78a6cc7090fddc62a0d0afeb`
+Source data: `JsonTransformer/txt/armonia/moves.txt`
 
-**Important coverage milestone:** Fighting now has both Physical **and Special** custom-move coverage via **Force Wave**.
+Result: **46** new designs imported after excluding official/alias rows and collapsing the five same-name **Golpe Bífido** helper records into one catalog design.
+- 22 Physical
+- 20 Special
+- 4 Status
+- Includes a source-native Shadow-type status move, **Patronaje**
+- No DS-native battle-animation assets were present in the data mirror
 
-Master catalog progression: **187 → 250 → 293 → 293 → 323 → 345 → 403 → 433 → 434 → 470**.
+A sibling `hispalis/moves.txt` file was also checked: 281 move records, with no non-official IDs surviving the current official/alias filter.
+
+Master catalog progression: **187 → 250 → 293 → 293 → 323 → 345 → 403 → 433 → 434 → 470 → 516**.
 
 This matrix is updated after every source-wide audit. We do **not** search one type/category cell at a time; remaining gaps guide source selection without narrowing the sweep.
