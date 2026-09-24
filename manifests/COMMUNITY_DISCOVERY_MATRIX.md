@@ -60,7 +60,7 @@ Result: **43** imported, including Qmarks/Shadow source-specific records.
 
 ### Pokémon Reborn Episode 19.16 snapshot — All-Type Source Sweep 04
 Pinned commit: `655411b65ee3fc166c916b6f15c55a398d9daf01`
-Result: **0** original named move designs after auditing 771 move records and filtering official move IDs/names.
+Result: **0** original named move designs after auditing 771 move records.
 
 ### Pokémon Uranium 1.3.1 via uranium-mining — All-Type Source Sweep 05
 Pinned commit: `33e18f15c892e431f2d188363daba64bd51406b4`
@@ -72,28 +72,21 @@ Result: **22** imported after direct diff against upstream Pokémon Showdown.
 
 ### Pokémon Clover via Clovermon Showdown — All-Type Source Sweep 07
 Pinned commit: `008196c839c1efe859e2d59c092c88370b7752d6`
-Result: **58** imported after direct diff against upstream Pokémon Showdown.
-Two fork-specific records, **Inverse Room** and **Scorched Earth**, were already present in the master catalog and were not duplicated.
-This sweep added:
-- 33 Physical
-- 16 Special
-- 9 Status
-- 56 canonical-type designs
-- 2 source-native `???`-type designs
+Result: **58** imported after direct diff against upstream Pokémon Showdown; Inverse Room and Scorched Earth were already present and were not duplicated.
 
 ### Pokémon Opalo via xorgies/PokemonOpalo — All-Type Source Sweep 08
 Pinned commit: `2133a2c0db1a0d8a78a6cc7090fddc62a0d0afeb`
-
-The repository is a data-conversion/web project for Pokémon Opalo and includes the Spanish move table at `JsonTransformer/txt/opalo/moves.txt`.
-
-Result: **30** new non-vanilla designs imported after excluding official/translated aliases such as High Jump Kick, Smelling Salts, Struggle, Dual Wingbeat, Liquidation, Flip Turn, First Impression, Smart Strike, Scorching Sands, High Horsepower, Pollen Puff, Psychic Fangs, Darkest Lariat, Accelerock, Lunge, and Fire Lash.
-
-Sweep 08 added:
+Result: **30** imported from `JsonTransformer/txt/opalo/moves.txt`:
 - 14 Physical
 - 15 Special
 - 1 Status
 - all 30 use canonical Pokémon types
 
-Master catalog progression: **187 → 250 → 293 → 293 → 323 → 345 → 403 → 434**.
+### Pokémon Sage-associated Showdown fork — All-Type Source Sweep 09
+Pinned commit: `f6757adccfc138272f10e738afdc36472387e646`
+Result: **1** fork-specific move imported: **Magikarp's Revenge**.
+The only other non-match was `Vice Grip`, excluded as the legacy spelling of official **Vise Grip**.
+
+Master catalog progression: **187 → 250 → 293 → 293 → 323 → 345 → 403 → 433 → 434**.
 
 This matrix is updated after every source-wide audit. We do **not** search one type/category cell at a time; remaining gaps guide source selection without narrowing the sweep.
