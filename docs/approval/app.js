@@ -20,7 +20,8 @@ const animationManifests = [
   "manifests/UNTAMED_DS_ANIMATION_PASS_10.csv",
   "manifests/ARMONIA_DS_ANIMATION_PASS_11.csv",
   "manifests/COMMUNITY_DS_ANIMATION_RESCUE_PASS_12.csv",
-  "manifests/COMMUNITY_DS_ANIMATION_PORT_FALLBACK_PASS_13.csv"
+  "manifests/COMMUNITY_DS_ANIMATION_PORT_FALLBACK_PASS_13.csv",
+  "manifests/COMMUNITY_DS_ANIMATION_DIRECT_RESOLUTION_PASS_14.csv"
 ];
 
 const state = {
