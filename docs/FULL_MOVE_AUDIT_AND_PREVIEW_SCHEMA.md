@@ -16,6 +16,8 @@ Every move should end with these fields resolved or explicitly marked unavailabl
 - `power`
 - `accuracy`
 - `pp`
+- `move_description` — concise, player-facing description in the style of a normal Pokémon move entry
+- `effect_text` — exact plain-English explanation of every gameplay effect; never leave internal function codes unexplained
 - `priority`
 - `target`
 - `contact`
@@ -36,6 +38,8 @@ Every move should end with these fields resolved or explicitly marked unavailabl
 
 ## Animation record
 Every move should also receive:
+
+**Approval rule:** a move is not ready for user approval if an effect is still represented only by an internal function/effect code. Stat changes, status chances, multihit counts, protection behavior, recoil/drain, switching, field effects, and other special rules must be written out in plain English.
 
 - `source_animation_status`
 - `source_animation_reference`
