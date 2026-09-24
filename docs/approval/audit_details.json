@@ -1481,7 +1481,7 @@
     "MOVE_RELENTLESS_CLOBBER": {
       "status": "complete",
       "move_description": "Pummels the target repeatedly. Hammer based.",
-      "effect_text": "Pummels the target repeatedly. Hammer based.",
+      "effect_text": "Hits the target 2–5 times. Each hit is 25 base-power physical Dark-type contact damage. The move is hammer-based.",
       "priority": "0 (normal priority)",
       "target": "One target",
       "contact": "Yes",
@@ -1489,7 +1489,8 @@
       "effect_chance": "No separate chance field",
       "source_description": "Pummels the target repeatedly. Hammer based.",
       "source_mechanics": "Effect family: EFFECT_MULTI_HIT. Power 25, Accuracy 100, PP 20.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "hit_count_or_duration": "Hits 2–5 times."
     },
     "MOVE_POP_MAYHEM": {
       "status": "complete",
@@ -2869,7 +2870,7 @@
     "SPARKLECLUSTER": {
       "status": "complete",
       "move_description": "Covered in explosive dust, the user crashes against the target. It also damages the user.",
-      "effect_text": "Covered in explosive dust, the user crashes against the target. It also damages the user.",
+      "effect_text": "Deals 110 base-power physical Fairy-type contact damage. The user takes recoil equal to one-third of the damage dealt.",
       "priority": "0 (normal priority)",
       "target": "One adjacent Pokémon",
       "contact": "Yes",
@@ -2877,7 +2878,8 @@
       "effect_chance": "No separate chance field",
       "source_description": "Covered in explosive dust, the user crashes against the target. It also damages the user.",
       "source_mechanics": "FunctionCode: RecoilThirdOfDamageDealt. Power 110, Accuracy 100, PP 15.",
-      "audit_basis": "Source-verified against the pinned PokeRover PBS move table."
+      "audit_basis": "Source-verified against the pinned PokeRover PBS move table.",
+      "recoil": "User takes recoil equal to 1/3 of damage dealt."
     },
     "SPICYMAW": {
       "status": "complete",
@@ -3726,7 +3728,7 @@
     "SPARKLEON": {
       "status": "complete",
       "move_description": "A reckless, dazzling tackle. It also damages the user.",
-      "effect_text": "A reckless, dazzling tackle. It also damages the user.",
+      "effect_text": "Deals 120 base-power physical Fairy-type contact damage. The user takes recoil equal to one-quarter of the damage dealt.",
       "priority": "0 (normal priority)",
       "target": "One target other than the user",
       "contact": "Yes",
@@ -3734,7 +3736,8 @@
       "effect_chance": "No separate chance field",
       "source_description": "A reckless, dazzling tackle. It also damages the user.",
       "source_mechanics": "Effect code 0FA. Power 120, Accuracy 100, PP 15.",
-      "audit_basis": "Source-verified against the pinned Rejuvenation Wiki Converter move database; custom behavior is expanded only where supporting public Rejuvenation-derived move logic was available."
+      "audit_basis": "Move data verified against the pinned Rejuvenation Wiki Converter database. Its legacy effect code 0FA is the one-quarter-recoil function family.",
+      "recoil": "User takes recoil equal to 1/4 of damage dealt."
     },
     "SOLARFLARE": {
       "status": "complete",
@@ -4663,14 +4666,16 @@
     "ROMPEHIELOS": {
       "status": "complete",
       "move_description": "High-power recoil attack. Source row also carries a 10% effect-chance field.",
-      "effect_text": "High-power recoil attack. Source row also carries a 10% effect-chance field.",
+      "effect_text": "Deals 120 base-power physical Ice-type contact damage with 95% accuracy. The user takes recoil equal to one-third of the damage dealt, and the move has a 10% chance to burn the target.",
       "priority": "0 (normal priority)",
       "target": "One target other than the user",
       "contact": "Yes",
       "move_flags": "physical-ice;recoil;contact;high-power",
-      "effect_chance": "10%",
+      "effect_chance": "10% chance to burn",
       "source_mechanics": "Function 0FE; source stats 120 power, 95% accuracy, 15 PP; target code 00; raw source flags abef.",
-      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
+      "audit_basis": "Pinned Opalo move-data mirror uses legacy Essentials function 0FE. The matching function deals one-third recoil and can burn the target; the Opalo row's effect-chance field is 10%.",
+      "recoil": "User takes recoil equal to 1/3 of damage dealt.",
+      "status_effects": "10% chance to burn the target"
     },
     "TRINCHAR": {
       "status": "complete",
