@@ -1,5 +1,38 @@
 {
-  "schema_version": 1,
-  "description": "Rendered move-animation previews keyed by move_id. Add {type:'image'|'video', url:'...', caption:'...'} as previews are produced.",
-  "moves": {}
+  "schema_version": 2,
+  "description": "Rendered move-animation previews keyed by move_id. Generated from preview_move_mapping.csv; only committed media is indexed.",
+  "rendered_unique_preview_count": 5,
+  "rendered_move_count": 6,
+  "moves": {
+    "MOVE_ASTRAL_HAND": {
+      "type": "video",
+      "url": "./docs/approval/previews/mp4/anim_0005.mp4",
+      "caption": "Assigned DS animation preview • anim_0005 • DS move 5 • MOVE_MEGA_PUNCH"
+    },
+    "MOVE_DIAMOND_BLADE": {
+      "type": "video",
+      "url": "./docs/approval/previews/mp4/anim_0015.mp4",
+      "caption": "Assigned DS animation preview • anim_0015 • DS move 15 • MOVE_CUT"
+    },
+    "MOVE_FAIRY_SPHERES": {
+      "type": "video",
+      "url": "./docs/approval/previews/mp4/anim_0003.mp4",
+      "caption": "Assigned DS animation preview • anim_0003 • DS move 3 • MOVE_DOUBLE_SLAP"
+    },
+    "MOVE_ONE_INCH_PUNCH": {
+      "type": "video",
+      "url": "./docs/approval/previews/mp4/anim_0005.mp4",
+      "caption": "Assigned DS animation preview • anim_0005 • DS move 5 • MOVE_MEGA_PUNCH"
+    },
+    "MOVE_ROCKET_PUNCH": {
+      "type": "video",
+      "url": "./docs/approval/previews/mp4/anim_0004.mp4",
+      "caption": "Assigned DS animation preview • anim_0004 • DS move 4 • MOVE_COMET_PUNCH"
+    },
+    "MOVE_RUMBLE_KICK": {
+      "type": "video",
+      "url": "./docs/approval/previews/mp4/anim_0025.mp4",
+      "caption": "Assigned DS animation preview • anim_0025 • DS move 25 • MOVE_MEGA_KICK"
+    }
+  }
 }
