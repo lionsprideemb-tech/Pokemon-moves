@@ -1,0 +1,29 @@
+name: Validate Mercury custom move plan
+
+on:
+  push:
+    paths:
+      - "constants/moves_post_gen4.h"
+      - "manifests/community_moves.csv"
+      - "manifests/FULL_MOVE_APPROVAL_DETAILS.csv"
+      - "manifests/MERCURY_CUSTOM_MOVE_BATCH_PLAN.csv"
+      - "manifests/MERCURY_CUSTOM_MOVE_BATCH_SUMMARY.csv"
+      - "scripts/build_mercury_move_plan.py"
+  pull_request:
+    paths:
+      - "constants/moves_post_gen4.h"
+      - "manifests/community_moves.csv"
+      - "manifests/FULL_MOVE_APPROVAL_DETAILS.csv"
+      - "manifests/MERCURY_CUSTOM_MOVE_BATCH_PLAN.csv"
+      - "manifests/MERCURY_CUSTOM_MOVE_BATCH_SUMMARY.csv"
+      - "scripts/build_mercury_move_plan.py"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python scripts/build_mercury_move_plan.py --check
