@@ -102,6 +102,6 @@ Current source-wide result: **403 unique non-vanilla move designs** after seven 
 - Pokémon Insurgence via Insurgence-Showdown: +22
 - Pokémon Clover via Clovermon Showdown: +58
 
-Current master totals: **236 Physical, 110 Special, 57 Status**. The canonical 18 types account for **376** designs. Source-specific custom types are preserved without silently remapping them.
+Current master totals: **236 Physical, 110 Special, 57 Status**. The canonical 18 types account for **376** designs; source-specific custom types including Sound, Qmarks, Shadow, Nuclear, Crystal, and ??? are preserved without silently remapping them.
 
 Next restart point: **All-Type Source Sweep 08** — audit the next public project as a whole and deduplicate its custom moves against the 403-move master catalog.
