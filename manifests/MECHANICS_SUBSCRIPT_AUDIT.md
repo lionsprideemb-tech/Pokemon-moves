@@ -5,22 +5,22 @@ Phase F3 resolves the `MOVE_SUBSCRIPT_PTR_*` dependencies discovered in Phase F2
 ## Progress
 
 - Unique side-effect pointers requiring resolution: **90**
-- Resolved in F3 so far: **50/90**
-- Concrete subscript files collected so far: **43 unique**
+- Resolved in F3 so far: **60/90**
+- Concrete subscript files collected so far: **53 unique**
 - Source: `BluRosie/hg-engine @ 398a3020943f1ae98987e5b12b73d9086bbba3ce`
 
-## Batch 05 notes
+## Batch 06 notes
 
-- `HEAL_BLOCK_START` checks Substitute/current Heal Block state, sets the Heal Block move-effect flag, and installs a five-turn timer.
-- `HEAL_PULSE` calculates 50% target healing, or 75% when the attacker has Mega Launcher, then delegates to `BATTLE_SUBSCRIPT_RECOVER_HP`.
-- `HYPERSPACE_FURY` explicitly removes the target's protecting turn flag and then applies the user's Defense drop through the shared stat-stage updater.
-- `ION_DELUGE` sets `FIELD_CONDITION_ION_DELUGE` directly.
-- `LASER_FOCUS` uses `SetMoveConditionFlag`, exposing another battle-state condition that must be traced through the command/engine layer.
-- `LEECH_SEED_START` handles Substitute, Grass typing including the third-type slot, repeat application, semi-invulnerable/missed states, and attacker ownership of the seed effect.
-- `LIFE_DEW` restores one quarter of max HP through `BATTLE_SUBSCRIPT_UPDATE_HP`.
-- `LIGHT_SCREEN` relies on the specialized `TryLightScreen` command plus the prepared-message animation subscript.
-- `MAKE_IT_RAIN` adds level-scaled coin value on the player's side, then applies the user's Sp. Atk drop via the common stat updater.
-- `PARALYZE` is a full modern status pipeline covering Limber, Comatose, Purifying Salt, Leaf Guard/weather suppression, Flower Veil, Misty Terrain/grounding, Shield Dust, Substitute, Electric immunity including third typing, Safeguard/Infiltrator, Synchronize, and status-curing berries.
+- `POISON` is a full modern status pipeline covering Immunity, Comatose, Purifying Salt, Leaf Guard/weather suppression, Flower Veil, grounding, Misty Terrain, Shield Dust, Substitute, Corrosion, Poison/Steel typing including the third-type slot, Safeguard/Infiltrator, Synchronize, Toxic Spikes context, and berry curing.
+- `POLLEN_PUFF_HEAL` heals an allied target for half max HP via `BATTLE_SUBSCRIPT_RECOVER_HP` while ignoring normal type-effectiveness flow.
+- `POWDER` uses `SetMoveConditionFlag`, exposing another condition-state path for the later command/engine audit.
+- `POWER_SPLIT` directly averages both battlers' Attack and Sp. Atk values.
+- `PRESENT_HEAL` checks Heal Block before dispatching HP recovery.
+- `PRINT_MESSAGE_AND_PLAY_ANIMATION` is the generic buffered-message/animation helper used by several otherwise unrelated mechanics, including Sticky Web setup.
+- `PROTECT` depends on the specialized `TryProtection` command and then displays the prepared protection message.
+- `QUASH` uses `ChangeExecutionOrderPriority`, mirroring the execution-order dependency already seen with After You.
+- `QUIVER_DANCE` fans out through Sp. Atk, Sp. Def, and Speed stat-stage updates.
+- `RAISE_ATTACK_AND_ACCURACY` fans out through Attack and Accuracy stat-stage updates.
 
 The mapping manifest is `manifests/mechanics_subscript_resolution.csv`.
 
