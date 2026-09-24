@@ -12,21 +12,24 @@ This audit tracks:
 ## Progress
 
 - Required effect scripts: **173**
-- Audited in F2 so far: **150/173**
-- Current batch: sorted required-effect positions **141–150**
+- Audited in F2 so far: **160/173**
+- Current batch: sorted required-effect positions **151–160**
 - Direct battle-subscript dependencies found in this batch: **0**
-- Side-effect pointer dependencies found in this batch: **9 unique**
+- Side-effect pointer dependencies found in this batch: **3 unique**
 - Cumulative unique battle subscripts observed: **7**
-- Cumulative unique side-effect pointers observed: **84**
-- Generic-damage-only scripts in this batch: **1** (effect 382)
+- Cumulative unique side-effect pointers observed: **86**
+- Generic-damage-only scripts in this batch: **6** (effects 387, 388, 390, 393, 394, 395)
 
-## Batch 15 dependency notes
+## Batch 16 dependency notes
 
-- Effects 375–379 introduce dedicated handlers for third-type Ghost, Psychic-type replacement, Aurora Veil, Strength Sap, and Heal Pulse-style target healing.
-- Effect 380 uses `CheckTargetIsPartner` to choose between normal damage and ally healing, then delegates the healing branch to `MOVE_SUBSCRIPT_PTR_POLLEN_PUFF_HEAL`.
-- Effect 381 (COACHING) explicitly says its fail conditions live outside the script. The pinned upstream source confirms `MOVE_EFFECT_COACHING` checks in `src/individual/BattleController_BeforeMove.c`, including stat-cap and valid-ally conditions.
-- Effect 382 (DOUBLE_POWER_IF_FASTER) is byte-identical to generic HIT, so speed comparison / power doubling is engine-side.
-- Effects 383–384 delegate Life Dew and Entrainment to dedicated handlers.
+- Effect 386 (DECORATE) delegates its boosts to `MOVE_SUBSCRIPT_PTR_DECORATE`; pinned upstream confirms its failure conditions in `src/individual/BattleController_BeforeMove.c`.
+- Effect 387 (END_TERRAIN) is generic damage only. Pinned upstream handles Steel Roller eligibility before the move and terrain removal after the move; Ice Spinner's terrain removal is also post-move.
+- Effect 388 (FELL_STINGER) is generic damage only; its KO-triggered Attack boost is implemented in `src/individual/ServerDoPostMoveEffects.c`.
+- Effect 389 (PARTING_SHOT) delegates the target's Attack/Sp. Atk drops, while upstream BeforeMove and post-move hooks cover failure validation and switching.
+- Effect 390 (CLEAR_SMOG) is generic damage only; the stat reset is invoked from post-move processing through `BATTLE_SUBSCRIPT_HANDLE_CLEAR_SMOG`.
+- Effects 391–392 delegate Ion Deluge state setup to `MOVE_SUBSCRIPT_PTR_ION_DELUGE`; the status-only variant also prevents duplicate field activation.
+- Effects 393–394 (Burn Up / Double Shock) explicitly rely on engine-side pre-move type validation and post-move type removal.
+- Effect 395 (FORCE_SWITCH_HIT) is generic damage only; the forced-switch trigger is handled in post-move processing.
 
 The dependency manifest is `manifests/mechanics_dependencies.csv`.
 
