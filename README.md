@@ -92,4 +92,6 @@ See:
 - `manifests/COMMUNITY_DISCOVERY_MATRIX.md`
 - `manifests/community_moves.csv`
 
-Current seeded result: **5 Physical Electric moves** from Pokémon Elite Redux. That is Batch 01 of the full all-type collection, not a stopping point for Electric before other types are considered.
+Current source-wide result: **187 source-certified non-vanilla moves from Pokémon Elite Redux**, spanning all 18 types: **130 Physical, 37 Special, and 20 Status**. The original five Physical Electric moves are preserved inside that larger catalog.
+
+Next restart point: **All-Type Source Sweep 02** — audit the next public project as a whole and deduplicate its custom moves against the 187-move master catalog.
