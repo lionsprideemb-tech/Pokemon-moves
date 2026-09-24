@@ -12,24 +12,22 @@ This audit tracks:
 ## Progress
 
 - Required effect scripts: **173**
-- Audited in F2 so far: **50/173**
-- Current batch: sorted required-effect positions **41–50**
-- Direct battle-subscript calls found in this batch: **0**
-- Side-effect pointer dependencies found in this batch: **6 unique**
-- Cumulative unique side-effect pointers observed: **27**
-- Generic-damage-only scripts in this batch: **2** (effects 198 and 228)
+- Audited in F2 so far: **60/173**
+- Current batch: sorted required-effect positions **51–60**
+- Direct battle-subscript calls found in this batch: **1 unique**
+- Side-effect pointer dependencies found in this batch: **7 unique**
+- Cumulative unique side-effect pointers observed: **33**
+- Generic-damage-only scripts in this batch: **1** (effect 269)
 
-## Batch 05 dependency notes
+## Batch 06 dependency notes
 
-- Effect 186 sets the break-screens flag and delegates screen removal to `MOVE_SUBSCRIPT_PTR_BREAK_SCREENS`.
-- Effect 190 uses the specialized `CalcHPFalloffPower` command for HP-dependent power.
-- Effect 198 (RECOIL_THIRD) is byte-identical to generic HIT; its recoil is engine-side.
-- Effect 202 delegates badly poisoned status to `MOVE_SUBSCRIPT_PTR_BADLY_POISON`.
-- Effects 204 and 218 reuse previously seen stat-drop side-effect handlers.
-- Effect 223 uses `TryFeint` plus `MOVE_SUBSCRIPT_PTR_FEINT`, exposing both command-level and side-effect dependencies for protection removal.
-- Effect 227 uses the specialized `TryMetalBurst` command and ignores type effectiveness when its counter calculation succeeds.
-- Effect 228 (SWITCH_HIT) is generic damage only; its post-hit switch behavior is engine-side.
-- Effect 229 introduces a combined Defense + Sp. Defense self-drop handler.
+- Effect 238 delegates Attack/Defense swapping to `MOVE_SUBSCRIPT_PTR_USER_SWAP_ATK_AND_DEF`.
+- Effect 248 uses the specialized `TrySuckerPunch` command to validate whether the target is attacking.
+- Effect 269 (RECOIL_HALF) is byte-identical to generic HIT; half-damage recoil is handled elsewhere.
+- Effect 271 introduces the two-stage Sp. Defense drop handler.
+- Effect 272 (SHADOW_FORCE) manipulates Phantom Force and semi-invulnerable state, toggles battler visibility, reuses the FEINT side-effect pointer to bypass protection, and directly calls `BATTLE_SUBSCRIPT_CHARGE_MOVE_CLEANUP`.
+- Effects 276–279 introduce handlers for Sp. Attack boosting, Attack+Accuracy boosting, Guard Split, and Power Split.
+- Effect 280 implements its poison check and 2x power multiplier directly in the effect script.
 
 The dependency manifest is `manifests/mechanics_dependencies.csv`.
 
