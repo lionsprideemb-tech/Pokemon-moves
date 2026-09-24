@@ -24,6 +24,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: render-move-animation-previews
+  cancel-in-progress: true
+
 env:
   CC: gcc-10
   CXX: g++-10
@@ -31,7 +35,7 @@ env:
   SDL_VIDEODRIVER: dummy
   PREVIEW_START: ${{ github.event.inputs.start || '0' }}
   PREVIEW_COUNT: ${{ github.event.inputs.count || '5' }}
-  HG_ENGINE_COMMIT: "5157c501dc0e6f88ef1654ab121352a5cc9ed7de"
+  HG_ENGINE_COMMIT: "398a3020943f1ae98987e5b12b73d9086bbba3ce"
   POKEHEARTGOLD_COMMIT: "9d8b7591f09b65804da2fb2dfd56f320633e0d36"
 
 jobs:
