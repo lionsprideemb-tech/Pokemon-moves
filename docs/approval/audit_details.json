@@ -4729,21 +4729,22 @@
       "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "ZARZAS": {
-      "status": "source-limited",
-      "move_description": "Entangles the target in damaging brambles.",
-      "effect_text": "Deals 90 base-power physical Grass-type damage, then applies a binding/trapping effect that continues damaging the target at the end of each turn. The mirrored source row guarantees the effect but does not encode a separate player-facing duration in its text, so no duration is invented here.",
+      "status": "complete",
+      "move_description": "Deals damage and partially traps the target for 4–5 turns.",
+      "effect_text": "Deals 90 base-power physical Grass-type damage, then partially traps the target for 4–5 turns. While trapped, the target cannot switch normally and takes residual damage at the end of each turn.",
       "priority": "0 (normal priority)",
       "target": "One target other than the user",
       "contact": "Yes",
       "effect_chance": "100%",
       "status_effects": "Binding/trapping residual-damage effect.",
-      "switching_behavior": "Binding-style effect restricts normal escape/switching according to the source effect family.",
+      "switching_behavior": "Prevents the trapped target from switching normally while the binding effect lasts",
       "source_description": "Ataca al oponente con unas zarzas que le van haciendo daño al final de cada turno.",
       "source_mechanics": "Function 0CF; source stats 90 power, 95% accuracy, 15 PP; target code 00; raw source flags abcdef.",
       "move_flags": "physical-grass;trap;residual;contact",
-      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo move-data mirror. The row uses legacy Essentials function 0CF, whose standard runtime implementation is the 4–5 turn partial-trapping family; this is the same function-family semantics used by Bind/Wrap-style effects.",
       "approval_ready": false,
-      "verification_blocker": "The mirror confirms a binding/trapping residual-damage effect, but does not include the original Opalo battle script needed to certify its exact duration and per-turn damage."
+      "verification_blocker": "The mirror confirms a binding/trapping residual-damage effect, but does not include the original Opalo battle script needed to certify its exact duration and per-turn damage.",
+      "hit_count_or_duration": "Partial-trapping effect lasts 4–5 turns"
     },
     "SOMBRATELA": {
       "status": "complete",
