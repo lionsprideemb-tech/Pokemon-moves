@@ -92,10 +92,12 @@ See:
 - `manifests/COMMUNITY_DISCOVERY_MATRIX.md`
 - `manifests/community_moves.csv`
 
-Current source-wide result: **250 unique non-vanilla move designs** from two audited sources: **187 Pokémon Elite Redux + 63 Pokémon Vanguard** (via the PokeRover PBS snapshot).
+Current source-wide result: **293 unique non-vanilla move designs** from three completed source sweeps:
 
-Across the canonical 18 types, the library now contains **242 moves: 163 Physical, 53 Special, and 26 Status**. Vanguard also contributes **8 source-native Sound-type moves** (6 Physical / 1 Special / 1 Status), preserved without forcing them into a canonical type.
+- Pokémon Elite Redux: 187
+- Pokémon Vanguard via PokeRover: +63
+- Pokémon Rejuvenation via Rejuvenation Wiki Converter: +43
 
-The largest remaining damaging-category holes after these two sweeps are **Special Bug** and **Special Fighting**, but discovery remains source-wide rather than searching those cells in isolation.
+Current master totals: **187 Physical, 73 Special, 33 Status**. All 18 canonical types remain represented, and source-specific custom types such as Sound, Qmarks, and Shadow are preserved without silently remapping them.
 
-Next restart point: **All-Type Source Sweep 03** — audit another public project as a whole and deduplicate its custom move library against the 250-move master catalog.
+Next restart point: **All-Type Source Sweep 04** — audit the next public project as a whole and deduplicate its custom moves against the 293-move master catalog.
