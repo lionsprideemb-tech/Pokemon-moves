@@ -8,25 +8,25 @@ Status legend:
 
 | Type | Physical | Special | Status | Total |
 |---|---:|---:|---:|---:|
-| Normal | **14** | **16** | **5** | **35** |
-| Fire | **18** | **11** | **5** | **34** |
-| Water | **12** | **5** | **2** | **19** |
-| Electric | **10** | **7** | **5** | **22** |
-| Grass | **17** | **4** | **5** | **26** |
-| Ice | **12** | **3** | **2** | **17** |
-| Fighting | **14** | Pending | **3** | **17** |
+| Normal | **15** | **16** | **6** | **37** |
+| Fire | **19** | **12** | **5** | **36** |
+| Water | **12** | **8** | **2** | **22** |
+| Electric | **11** | **7** | **5** | **23** |
+| Grass | **18** | **5** | **5** | **28** |
+| Ice | **14** | **3** | **4** | **21** |
+| Fighting | **14** | **1** | **4** | **19** |
 | Poison | **13** | **6** | **4** | **23** |
-| Ground | **17** | **6** | **2** | **25** |
-| Flying | **11** | **7** | Pending | **18** |
-| Psychic | **8** | **13** | **4** | **25** |
-| Bug | **6** | **2** | Pending | **8** |
-| Rock | **11** | **7** | **1** | **19** |
-| Ghost | **11** | **11** | **2** | **24** |
-| Dragon | **14** | **3** | **3** | **20** |
+| Ground | **17** | **7** | **2** | **26** |
+| Flying | **11** | **8** | Pending | **19** |
+| Psychic | **8** | **16** | **4** | **28** |
+| Bug | **6** | **3** | Pending | **9** |
+| Rock | **12** | **8** | **1** | **21** |
+| Ghost | **12** | **12** | **2** | **26** |
+| Dragon | **14** | **5** | **3** | **22** |
 | Dark | **16** | **8** | **4** | **28** |
-| Steel | **17** | **4** | **3** | **24** |
-| Fairy | **17** | **3** | **3** | **23** |
-| **Canonical total** | **238** | **116** | **53** | **407** |
+| Steel | **18** | **5** | **3** | **26** |
+| Fairy | **19** | **3** | **3** | **25** |
+| **Canonical total** | **249** | **133** | **57** | **439** |
 
 ## Source-specific custom types retained
 
@@ -35,14 +35,14 @@ Status legend:
 | ??? | **1** | **1** | Pending | **2** |
 | Crystal | **1** | Pending | Pending | **1** |
 | Nuclear | **4** | **6** | **2** | **12** |
-| Qmarks | **1** | **1** | **1** | **3** |
+| Qmarks | **2** | **3** | **2** | **7** |
 | Shadow | Pending | Pending | **1** | **1** |
 | Sound | **6** | **1** | **1** | **8** |
 
-**Grand total: 434 unique non-vanilla move designs**
-- 251 Physical
-- 125 Special
-- 58 Status
+**Grand total: 470 unique non-vanilla move designs**
+- 263 Physical
+- 144 Special
+- 63 Status
 
 ## Source coverage so far
 
@@ -52,50 +52,52 @@ Result: **187** imported.
 
 ### Pokémon Vanguard via PokeRover — All-Type Source Sweep 02
 Pinned commit: `4919c813a9d1f3f1e1bed54189bf541d46fc7e8a`
-Result: **63** imported, including 8 Sound-type designs.
+Result: **63** imported.
 
 ### Pokémon Rejuvenation via Rejuvenation Wiki Converter — All-Type Source Sweep 03
 Pinned commit: `05677bfc23298db5bbe484f731ec60c7fd801c5a`
-Result: **43** imported, including Qmarks/Shadow source-specific records.
+Result: **43** imported.
 
 ### Pokémon Reborn Episode 19.16 snapshot — All-Type Source Sweep 04
 Pinned commit: `655411b65ee3fc166c916b6f15c55a398d9daf01`
-Result: **0** original named move designs after auditing 771 move records.
+Result: **0** imported.
 
 ### Pokémon Uranium 1.3.1 via uranium-mining — All-Type Source Sweep 05
 Pinned commit: `33e18f15c892e431f2d188363daba64bd51406b4`
-Result: **30** imported, including 12 Nuclear-type designs.
+Result: **30** imported.
 
 ### Pokémon Insurgence via Insurgence-Showdown — All-Type Source Sweep 06
 Pinned commit: `72d72a7af4642d3c8391ab1118f0afbb2647020b`
-Result: **22** imported after direct diff against upstream Pokémon Showdown.
+Result: **22** imported.
 
 ### Pokémon Clover via Clovermon Showdown — All-Type Source Sweep 07
 Pinned commit: `008196c839c1efe859e2d59c092c88370b7752d6`
-Result: **58** imported after direct diff against upstream Pokémon Showdown; Inverse Room and Scorched Earth were already present and were not duplicated.
+Result: **58** imported.
 
 ### Pokémon Opalo via xorgies/PokemonOpalo — All-Type Source Sweep 08
 Pinned commit: `2133a2c0db1a0d8a78a6cc7090fddc62a0d0afeb`
-Result: **30** imported from `JsonTransformer/txt/opalo/moves.txt`:
-- 14 Physical
-- 15 Special
-- 1 Status
-- all 30 use canonical Pokémon types
+Result: **30** imported.
 
 ### Pokémon Sage-associated Showdown fork — All-Type Source Sweep 09
 Pinned commit: `f6757adccfc138272f10e738afdc36472387e646`
-Result: **1** fork-specific move imported: **Magikarp's Revenge**.
-The only other non-match was `Vice Grip`, excluded as the legacy spelling of official **Vise Grip**.
+Result: **1** imported: Magikarp's Revenge.
 
-### Pokémon Sage via Pokemon-Showdown-Sage — All-Type Source Sweep 09
-Pinned commit: `f6757adccfc138272f10e738afdc36472387e646`
+### Pokémon Untamed — All-Type Source Sweep 10
+Pinned commit: `8d757cdeb132c947602dce6a9f327fc5883e84c2`
+Result: **36** imported from `PBS/moves.txt`:
+- 12 Physical
+- 19 Special
+- 5 Status
+- 32 canonical-type designs
+- 4 Qmarks-type designs
 
-Result: **1** new fork-specific design imported after comparing the old Showdown move table against modern upstream and the official move baseline.
-- **Magikarp's Revenge** — Water / Physical / 120 BP
-- `VICEGRIP` was excluded as the legacy spelling of official **Vise Grip**
-- nested object keys encountered by raw parsing were not treated as moves
-- no DS-native animation asset is provided by the source
+Filtering excluded:
+- official Struggle
+- internal support/dummy records `SUPERNOVA_ALT` and `PREMONITIONMOVE`
+- four designs already in the master catalog: Venom Strike, Erosion Wave, Ow The Edge, Think Fast
 
-Master catalog progression: **187 → 250 → 293 → 293 → 323 → 345 → 403 → 433 → 434**.
+**Important coverage milestone:** Fighting now has both Physical **and Special** custom-move coverage via **Force Wave**.
+
+Master catalog progression: **187 → 250 → 293 → 293 → 323 → 345 → 403 → 433 → 434 → 470**.
 
 This matrix is updated after every source-wide audit. We do **not** search one type/category cell at a time; remaining gaps guide source selection without narrowing the sweep.
