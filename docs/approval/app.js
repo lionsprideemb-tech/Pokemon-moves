@@ -498,9 +498,17 @@ function renderMove(m) {
   setPill(el.typePill, m.type || "Unknown", "type-" + slug(m.type));
   setPill(el.categoryPill, m.category || "Unknown", "");
 
-  const auditComplete = m.audit && String(m.audit.status || "").toLowerCase() === "complete";
-  el.mechanicsAuditBadge.textContent = auditComplete ? "Full mechanics audit complete" : "Full mechanics audit pending";
-  el.mechanicsAuditBadge.style.borderColor = auditComplete ? "#22c55e" : "#f59e0b";
+  const auditStatus = m.audit ? String(m.audit.status || "").toLowerCase() : "";
+  const auditComplete = auditStatus === "complete";
+  const auditLabel = auditComplete
+    ? "Full mechanics audit complete"
+    : auditStatus === "source_limited"
+      ? "Blocked: exact source mechanics missing"
+      : auditStatus === "source_conflict"
+        ? "Blocked: source mechanics conflict"
+        : "Full mechanics audit pending";
+  el.mechanicsAuditBadge.textContent = auditLabel;
+  el.mechanicsAuditBadge.style.borderColor = auditComplete ? "#22c55e" : "#ef4444";
 
   renderGrid(el.coreGrid, [
     ["English review name", displayValue(m.display_name)],
@@ -782,18 +790,28 @@ function slug(value) {
 function renderReviewControls() {
   if (!state.selectedId) return;
   const review = getReview(state.selectedId);
+  const move = state.moves.find(function(m) { return m.move_id === state.selectedId; });
+  const auditReady = !!(move && move.audit && String(move.audit.status || "").toLowerCase() === "complete");
 
   document.querySelectorAll('.segmented[data-group="move"] button').forEach(function(btn) {
     btn.classList.toggle("active", btn.dataset.value === review.move);
+    btn.disabled = !auditReady && btn.dataset.value !== "unreviewed";
+    btn.title = auditReady ? "" : "Approval is locked until the move's full mechanics audit is source-complete.";
   });
   document.querySelectorAll('.segmented[data-group="animation"] button').forEach(function(btn) {
     btn.classList.toggle("active", btn.dataset.value === review.animation);
+    btn.disabled = !auditReady && btn.dataset.value !== "unreviewed";
+    btn.title = auditReady ? "" : "Animation approval is locked until the move's mechanics are fully verified.";
   });
 
   el.reviewNotes.value = review.notes || "";
-  el.saveState.textContent = review.updated_at ?
-    "Saved automatically. Last changed " + formatDate(review.updated_at) + "." :
-    "Saved automatically on this device.";
+  if (!auditReady) {
+    el.saveState.textContent = "Approval locked: this move still has unresolved source mechanics. Notes can still be saved.";
+  } else {
+    el.saveState.textContent = review.updated_at ?
+      "Saved automatically. Last changed " + formatDate(review.updated_at) + "." :
+      "Saved automatically on this device.";
+  }
 }
 
 function getReview(id) {
