@@ -12,21 +12,23 @@ This audit tracks:
 ## Progress
 
 - Required effect scripts: **173**
-- Audited in F2 so far: **30/173**
-- Current batch: sorted required-effect positions **21–30**
-- Direct battle-subscript calls found in this batch: **0**
-- Side-effect pointer dependencies found in this batch: **7 unique**
-- Cumulative unique side-effect pointers observed: **17**
-- Generic-damage-only scripts in this batch: **2** (effects 101 and 103)
+- Audited in F2 so far: **40/173**
+- Current batch: sorted required-effect positions **31–40**
+- Direct battle-subscript calls found in this batch: **1 unique**
+- Side-effect pointer dependencies found in this batch: **8 unique**
+- Cumulative unique side-effect pointers observed: **23**
+- Generic-damage-only scripts in this batch: **1** (effect 121)
 
-## Batch 03 dependency notes
+## Batch 04 dependency notes
 
-- Effects 69–73 delegate one-stage defensive/offensive stat drops to dedicated side-effect handlers.
-- Effect 76 delegates confusion to `MOVE_SUBSCRIPT_PTR_CONFUSE`.
-- Effect 80 delegates recharge-turn handling to `MOVE_SUBSCRIPT_PTR_RECHARGE_TURN`.
-- Effect 85 is a true non-damaging no-op script that sets `MOVE_STATUS_SPLASH`.
-- Effect 101 (LEAVE_WITH_1_HP) is byte-identical to the generic HIT script; the non-KO behavior must be enforced elsewhere.
-- Effect 103 (PRIORITY_1) is also byte-identical to generic HIT; priority must be supplied by move data and/or engine turn-order handling.
+- Effect 111 delegates Protect to `MOVE_SUBSCRIPT_PTR_PROTECT`.
+- Effect 121 (POWER_BASED_ON_FRIENDSHIP) is a generic crit/damage script, so friendship-based power scaling is handled elsewhere.
+- Effect 125 is byte-identical to ordinary BURN_HIT; its thawing component must therefore be engine-side.
+- Effect 132 uses the specialized `WeatherHPRecovery` command, `ABILITY_MEGA_SOL`, and the PRESENT_HEAL handler.
+- Effects 138–140 delegate self-stat boosts to dedicated side-effect handlers.
+- Effect 150 checks `MOVE_EFFECT_FLAG_MINIMIZE` and doubles the power multiplier before damage, while also installing FLINCH.
+- Effect 151 is the first F2 script audited so far with a direct `Call BATTLE_SUBSCRIPT_*`: `BATTLE_SUBSCRIPT_CHARGE_MOVE_CLEANUP`.
+- Effect 172 uses the specialized `FollowMe` command and delegates its user-facing message/animation.
 
 The dependency manifest is `manifests/mechanics_dependencies.csv`.
 
