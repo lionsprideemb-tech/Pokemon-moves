@@ -10,34 +10,28 @@ Phase F3 has completed script dependency resolution and is now mapping mechanics
 
 ## Command / engine audit progress
 
-Batch 01 resolves **10 high-impact mechanics commands** exposed by the required effect/subscript graph.
+- Batch 01: **10 commands**
+- Batch 02: **10 commands**
+- Cumulative resolved command mappings: **20**
 
 The audit distinguishes three implementation classes:
 
-1. **hg-engine new command table** — commands at/after the extended command range with implementations in `src/battle/battle_script_commands.c`.
-2. **vanilla opcode replaced by hg-engine hook** — original HGSS command IDs whose behavior is replaced by an hg-engine hook.
+1. **hg-engine new command table** — extended commands implemented in `src/battle/battle_script_commands.c`.
+2. **vanilla opcode replaced by hg-engine hook** — original HGSS command IDs whose runtime behavior is redirected to hg-engine implementations.
 3. **vanilla BattleScriptCmdTable** — commands still supplied by the base HGSS engine where no hg-engine replacement implementation was found.
 
-## Batch 01 findings
+## Batch 02 findings
 
-- `ChangeStatStage` is the central stat engine and is explicitly replaced by hg-engine's `btl_scr_cmd_33_statbuffchange` hook. It handles modern interactions including Simple, Contrary, and Defiant/Competitive trigger setup.
-- `CheckCanActivateDefiantOrCompetitive` is a separate extended command that consumes that trigger state and dispatches the proper ability branch.
-- `ChangeExecutionOrderPriority` implements After You/Quash turn-order forcing and fails against a battler that has already acted.
-- `AddEntryHazardToQueue` feeds the engine's entry-hazard queue.
-- `StrengthSapCalc` computes recovery from the target's stage-adjusted Attack.
-- `HandleSoak` and `HandleMagicPowder` refuse type replacement on a Terastallized target and otherwise convert the target to a pure type while storing move-condition state.
-- `SetMoveConditionFlag` owns the engine state for Powder, Laser Focus, Glaive Rush, and Throat Chop.
-- `TryLightScreen` and `TryPartyStatusRefresh` remain dependencies on the original HGSS `BattleScriptCmdTable`; no replacement hook/source implementation was found in the pinned hg-engine source.
+- `TryProtection` is not just vanilla Protect logic: hg-engine replaces the command and handles single-user Protect, side-wide protection, Endure, ally-granted protection state, and modern protect-success-counter rules.
+- `TryBreakScreens` is replaced and explicitly clears Reflect, Light Screen, and Aurora Veil together, including all three duration counters.
+- `ResetAllStatChanges` is also replaced and resets every active battler.
+- `TryAuroraVeil` is an extended command; it installs five-turn Aurora Veil, applies the screen-extending held-item duration bonus, and intentionally leaves fail gating to `BattleController_BeforeMove.c`.
+- `StuffCheeks` is an extended Berry dispatcher that chooses the correct held-item recovery/effect subscript; the pinned source contains an explicit TODO for Ripen.
+- `TryStickyWeb` handles duplicate-web failure and installs the side condition before the separate hazard-queue command is used.
+- `TrySynchronizeStatus` and `TryCureStatusBerry` form important parts of the modern status pipeline. The Berry command also records Berry consumption for Belch eligibility.
+- `CheckTargetIsPartner` is the Pollen Puff ally-heal branch point.
+- `TryReflect` remains a dependency on the original HGSS `BattleScriptCmdTable`; no hg-engine replacement hook/source implementation was found at the pinned commit.
 
-## Collected engine source
+The cumulative command mapping is `manifests/mechanics_command_engine_audit.csv`.
 
-The pinned command definitions and engine implementation sources used by this audit are mirrored under:
-
-- `support/hg-engine/battle_commands.inc`
-- `mechanics/hg-engine/engine/battle_script_commands.c`
-- `mechanics/hg-engine/engine/btl_scr_cmd_33_statbuffchange.c`
-- `mechanics/hg-engine/engine/hooks`
-
-The command mapping manifest is `manifests/mechanics_command_engine_audit.csv`.
-
-This is source resolution, not runtime certification. The remaining mechanics-specific commands and broader before-move/post-move engine hooks still require mapping.
+This is source resolution, not runtime certification. More mechanics-specific commands and broader before-move/post-move engine hooks still require mapping.
