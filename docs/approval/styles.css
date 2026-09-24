@@ -258,3 +258,14 @@ footer{padding:0 clamp(18px,4vw,48px) 36px;color:var(--muted);font-size:.85rem}
   .detail-grid,.detail-grid.wide{grid-template-columns:1fr}
   .detail-nav{position:sticky;top:0;z-index:5;background:rgba(18,26,46,.96);padding:8px 0}
 }
+
+.runtime-note{
+  margin:0 clamp(18px,4vw,48px) 14px;
+  padding:12px 14px;
+  border:1px solid var(--warn);
+  border-radius:14px;
+  background:rgba(245,158,11,.08);
+  color:var(--muted);
+  line-height:1.45;
+}
+.runtime-note strong{color:#fcd34d;margin-right:6px}
