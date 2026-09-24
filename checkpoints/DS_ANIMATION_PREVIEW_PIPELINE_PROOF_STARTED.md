@@ -57,3 +57,11 @@ Do not scale to all 303 unique animations until the proof batch has been checked
 
 After proof certification, continue in small render batches and regenerate
 `previews.json` after each successful batch.
+
+## Proof rerun correction
+
+- Canonical preview workflow retained: `generate_preview_tests.py` + `capture_preview_tests.py` + `build_preview_index.py`.
+- Duplicate experimental helper scripts were removed so there is only one preview pipeline to maintain.
+- The workflow is now pinned to hg-engine commit `398a3020943f1ae98987e5b12b73d9086bbba3ce`, matching the animation-library snapshot used by this repository.
+- Workflow concurrency now cancels an older in-progress preview render when a corrected run starts, preventing duplicate proof jobs.
+- Proof scope remains the first 5 unique animations. Do not scale beyond the proof batch until the generated MP4s are visually certified on the approval page.
