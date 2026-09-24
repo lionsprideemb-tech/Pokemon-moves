@@ -12,24 +12,25 @@ This audit tracks:
 ## Progress
 
 - Required effect scripts: **173**
-- Audited in F2 so far: **160/173**
-- Current batch: sorted required-effect positions **151–160**
+- Audited in F2 so far: **170/173**
+- Current batch: sorted required-effect positions **161–170**
 - Direct battle-subscript dependencies found in this batch: **0**
-- Side-effect pointer dependencies found in this batch: **3 unique**
+- Side-effect pointer dependencies found in this batch: **4 unique**
 - Cumulative unique battle subscripts observed: **7**
-- Cumulative unique side-effect pointers observed: **86**
-- Generic-damage-only scripts in this batch: **6** (effects 387, 388, 390, 393, 394, 395)
+- Cumulative unique side-effect pointers observed: **90**
+- Generic-damage-only scripts in this batch: **3** (effects 396, 403, 405)
 
-## Batch 16 dependency notes
+## Batch 17 dependency notes
 
-- Effect 386 (DECORATE) delegates its boosts to `MOVE_SUBSCRIPT_PTR_DECORATE`; pinned upstream confirms its failure conditions in `src/individual/BattleController_BeforeMove.c`.
-- Effect 387 (END_TERRAIN) is generic damage only. Pinned upstream handles Steel Roller eligibility before the move and terrain removal after the move; Ice Spinner's terrain removal is also post-move.
-- Effect 388 (FELL_STINGER) is generic damage only; its KO-triggered Attack boost is implemented in `src/individual/ServerDoPostMoveEffects.c`.
-- Effect 389 (PARTING_SHOT) delegates the target's Attack/Sp. Atk drops, while upstream BeforeMove and post-move hooks cover failure validation and switching.
-- Effect 390 (CLEAR_SMOG) is generic damage only; the stat reset is invoked from post-move processing through `BATTLE_SUBSCRIPT_HANDLE_CLEAR_SMOG`.
-- Effects 391–392 delegate Ion Deluge state setup to `MOVE_SUBSCRIPT_PTR_ION_DELUGE`; the status-only variant also prevents duplicate field activation.
-- Effects 393–394 (Burn Up / Double Shock) explicitly rely on engine-side pre-move type validation and post-move type removal.
-- Effect 395 (FORCE_SWITCH_HIT) is generic damage only; the forced-switch trigger is handled in post-move processing.
+- Effect 396 (BELCH) is generic damage only; pinned upstream enforces its Berry-eaten prerequisite during move-selection/use validation.
+- Effect 397 (STUFF_CHEEKS) delegates its effect to a dedicated handler, while upstream also validates that the user currently holds a Berry.
+- Effects 398–399 introduce dedicated handlers for Powder and Laser Focus.
+- Effect 400 (GLAIVE_RUSH) uses `SetMoveConditionFlag`; pinned upstream maps this to the user's `wideOpen` state and later clears it in move-end logic.
+- Effect 401 (THROAT_CHOP) also uses `SetMoveConditionFlag`; upstream stores the target's Throat Chop timer in battle state.
+- Effect 402 (FINAL_GAMBIT) directly sets damage equal to the user's current HP and ignores type effectiveness; user fainting is handled separately in post-move processing.
+- Effect 403 (RECOIL_HALF_MAX_HP) is generic damage only; pinned upstream handles Reckless interaction in base-damage calculation and the half-max-HP recoil subscript post-move.
+- Effect 404 delegates Bestow/item transfer to `MOVE_SUBSCRIPT_PTR_GIVE_HELD_ITEM`, with pre-move item/species validity checks elsewhere.
+- Effect 405 (IGNORE_PROTECT) is generic damage only; protect bypass is handled by pre-move engine logic.
 
 The dependency manifest is `manifests/mechanics_dependencies.csv`.
 
