@@ -12,21 +12,21 @@ This audit tracks:
 ## Progress
 
 - Required effect scripts: **173**
-- Audited in F2 so far: **90/173**
-- Current batch: sorted required-effect positions **81–90**
-- Direct battle-subscript calls found in this batch: **0**
-- Side-effect pointer dependencies found in this batch: **8 unique**
-- Cumulative unique side-effect pointers observed: **50**
+- Audited in F2 so far: **100/173**
+- Current batch: sorted required-effect positions **91–100**
+- Direct battle-subscript dependencies found in this batch: **4 unique**
+- Side-effect pointer dependencies found in this batch: **11 unique**
+- Cumulative unique battle subscripts observed: **5**
+- Cumulative unique side-effect pointers observed: **59**
 - Generic-damage-only scripts in this batch: **0**
 
-## Batch 09 dependency notes
+## Batch 10 dependency notes
 
-- Effect 301 delegates sleep application to `MOVE_SUBSCRIPT_PTR_SLEEP`.
-- Effects 302–306 introduce dedicated handlers for Spicy Extract, Fillet Away, Shed Tail, After You, and Quash.
-- Effect 307 (Techno Blast) performs Drive detection directly with `CheckItemHoldEffect` and rewrites `BSCRIPT_VAR_MOVE_TYPE`.
-- Effect 308 (Multi-Attack) does the same across the full Memory item set, including Fairy.
-- Effect 310 delegates Leech Seed startup through `MOVE_SUBSCRIPT_PTR_LEECH_SEED_START` and checks target HP.
-- Effect 311 delegates on-hit Light Screen setup to `MOVE_SUBSCRIPT_PTR_LIGHT_SCREEN`.
+- Effects 312–317 delegate Reflect, stat reset, party status cure, full draining, Evasion boost, and +2 Defense to side-effect handlers.
+- Effect 318 exposes one of the deepest dependency stacks yet: Power Herb-style charge skipping, staged stat updates through `BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE`, three +2 stat handlers, and charge cleanup.
+- Effect 319 delegates Snow weather handling to `BATTLE_SUBSCRIPT_HANDLE_SNOW_TEMPORARY`.
+- Effect 320 delegates healing prevention to `MOVE_SUBSCRIPT_PTR_HEAL_BLOCK_START`.
+- Effect 321 combines Burn with Hex-style power doubling and explicitly treats `ABILITY_COMATOSE` as satisfying the status condition.
 
 The dependency manifest is `manifests/mechanics_dependencies.csv`.
 
