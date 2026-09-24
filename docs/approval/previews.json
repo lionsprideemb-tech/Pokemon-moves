@@ -1,0 +1,5 @@
+{
+  "schema_version": 1,
+  "description": "Rendered move-animation previews keyed by move_id. Add {type:'image'|'video', url:'...', caption:'...'} as previews are produced.",
+  "moves": {}
+}
