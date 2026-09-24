@@ -92,12 +92,13 @@ See:
 - `manifests/COMMUNITY_DISCOVERY_MATRIX.md`
 - `manifests/community_moves.csv`
 
-Current source-wide result: **293 unique non-vanilla move designs** from three completed source sweeps:
+Current source-wide result: **293 unique non-vanilla move designs** after four completed source sweeps:
 
 - Pokémon Elite Redux: 187
 - Pokémon Vanguard via PokeRover: +63
 - Pokémon Rejuvenation via Rejuvenation Wiki Converter: +43
+- Pokémon Reborn Episode 19.16: +0 (771 records audited; no original named moves found)
 
 Current master totals: **187 Physical, 73 Special, 33 Status**. All 18 canonical types remain represented, and source-specific custom types such as Sound, Qmarks, and Shadow are preserved without silently remapping them.
 
-Next restart point: **All-Type Source Sweep 04** — audit the next public project as a whole and deduplicate its custom moves against the 293-move master catalog.
+Next restart point: **All-Type Source Sweep 05** — prioritize another public project with genuine original move content and deduplicate it against the 293-move master catalog.
