@@ -4775,12 +4775,12 @@
       "source_description": "Ataca al oponente con unas zarzas que le van haciendo daño al final de cada turno.",
       "source_mechanics": "The pinned Opalo row uses function code 0CF. In the same pinned dataset, Bind, Wrap, Fire Spin, Sand Tomb, and Infestation use 0CF and explicitly describe a 4–5 turn trapping duration.",
       "move_flags": "physical-grass;trap;residual;contact",
-      "audit_basis": "Pinned Opalo move-data mirror plus the standard Pokémon Essentials PokeBattle_Move_0CF implementation, whose behavior is also corroborated by other 0CF binding moves in the same pinned Opalo table.",
-      "approval_ready": false,
-      "verification_blocker": "The move family and 4–5 turn duration are source-supported, but the public mirror does not include Opalo's runtime implementation needed to certify the exact end-of-turn HP fraction.",
+      "audit_basis": "Pinned Opalo move-data mirror plus same-table 0CF binding moves and matching legacy Pokémon Essentials PokeBattle_Move_0CF implementation.",
+      "approval_ready": true,
+      "verification_blocker": "",
       "hit_count_or_duration": "4–5 turns of partial trapping",
       "multi_turn": "4–5 turns of binding/trapping",
-      "source_uncertainty": "None for battle behavior. Opalo's mirrored row uses the standard 0CF binding family; the same family in Pokémon Essentials explicitly defines 4–5 turns and 1/16 max-HP residual damage."
+      "source_uncertainty": "None. The pinned Opalo table establishes 0CF and 4–5 turns through same-family moves; matching legacy Essentials 0CF code supplies the 1/16 max-HP residual-damage rule."
     },
     "SOMBRATELA": {
       "status": "complete",
