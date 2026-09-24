@@ -36,3 +36,18 @@ The hg-engine README permits reuse of its code/assets for free hobby projects pr
 Treat this repository as a **source library**, not a ROM build. When Mercury Redux reaches modern move integration, use `manifests/moves.csv` to pull the selected animation + battle script together, then resolve the listed hg-engine support dependencies and test in the Platinum/DS runtime.
 
 No Nintendo DS ROM image or patched commercial ROM is stored here.
+
+
+## Current mission: community-created move discovery
+
+The official Gen 5–9 baseline is already preserved above. New work in this repository now focuses on **non-vanilla/community-created moves and animations** that can expand Mercury Redux's movepool instead of re-auditing official moves that hg-engine already provides.
+
+Discovery priorities:
+- Find original moves from public ROM hacks, fangames, decomp projects, and battle simulators.
+- Record source provenance, mechanics, move role, and animation evidence.
+- Tag gaps such as `physical-electric`, `special-rock`, `physical-fairy`, priority, spread, utility, and coverage.
+- Prefer DS-native/HG-Engine-compatible resources when they exist.
+- Cross-engine moves are still indexed when the concept/mechanics are valuable, but their animations are marked as requiring DS conversion.
+- Do not copy source code/assets from repositories without a clear reuse license; index the exact source path/commit instead.
+
+The first discovery batch targets **physical Electric moves**, a particularly shallow official movepool for physical Electric attackers. See `manifests/community_moves.csv`.
