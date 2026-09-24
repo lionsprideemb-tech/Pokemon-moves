@@ -2238,16 +2238,18 @@
     },
     "MOVE_SPREAD_BOMB": {
       "status": "complete",
-      "move_description": "A wide reaching bomb is thrown, hitting the field with A 30% burn chance.",
-      "effect_text": "A wide reaching bomb is thrown, hitting the field with A 30% burn chance.",
+      "move_description": "A wide-reaching Fire bomb hits every adjacent Pokémon except the user and can burn them.",
+      "effect_text": "Deals 90 base-power physical Fire-type damage to all adjacent Pokémon except the user. Each affected target has a 20% chance to be burned in the machine-readable move data.",
       "priority": "0 (normal priority)",
       "target": "All adjacent Pokémon",
       "contact": "No",
       "move_flags": "mirror-move-affected;effect-chance-20",
-      "effect_chance": "20% when the listed secondary effect applies",
+      "effect_chance": "20% burn chance per affected target",
       "source_description": "A wide reaching bomb is thrown, hitting the field with A 30% burn chance.",
       "source_mechanics": "Effect family: EFFECT_BURN_HIT. Power 90, Accuracy 100, PP 10.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "status_effects": "20% chance to burn each affected target",
+      "source_data_warning": "Elite Redux's flavor description says 30% burn, but MoveList.textproto encodes effect_chance: 20. The approval record follows the machine-readable 20% behavior and preserves the stale description mismatch as a warning."
     },
     "MOVE_BALL_TOSS": {
       "status": "complete",
@@ -2459,16 +2461,18 @@
     },
     "MOVE_RUMBLE_KICK": {
       "status": "complete",
-      "move_description": "A kick from a reinforced leg. 20% Atk drop. Striker.",
-      "effect_text": "A kick from a reinforced leg. 20% Atk drop. Striker.",
+      "move_description": "A reinforced Fighting-type kick that may lower the target's Attack.",
+      "effect_text": "Deals 90 base-power physical Fighting-type contact damage. It has a 30% chance to lower the target's Attack by 1 stage and is flagged as a Striker move.",
       "priority": "0 (normal priority)",
       "target": "One target",
       "contact": "Yes",
       "move_flags": "contact;mirror-move-affected;striker;effect-chance-30",
-      "effect_chance": "30% when the listed secondary effect applies",
+      "effect_chance": "30% chance to lower Attack",
       "source_description": "A kick from a reinforced leg. 20% Atk drop. Striker.",
       "source_mechanics": "Effect family: EFFECT_ATTACK_DOWN_HIT. Power 90, Accuracy 100, PP 15.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "stat_changes": "30% chance to lower the target's Attack by 1 stage",
+      "source_data_warning": "Elite Redux's flavor description says 20% Attack drop, but MoveList.textproto encodes effect_chance: 30. The approval record follows the machine-readable 30% behavior."
     },
     "PRIMALSUN": {
       "status": "complete",
@@ -3362,16 +3366,17 @@
     },
     "SPECTRALSCREAM": {
       "status": "complete",
-      "move_description": "The users makes a spine-chilling scream, with a chance of raising defense.",
-      "effect_text": "The users makes a spine-chilling scream, with a chance of raising defense.",
+      "move_description": "A Ghost-type scream with a 60% chance to raise either Defense or Special Defense by 1 stage.",
+      "effect_text": "Deals 65 base-power special Ghost-type sound damage. It has a 60% chance to raise one of the user's defensive stats by 1 stage; when the effect triggers, Defense and Special Defense are chosen at random with equal probability.",
       "priority": "0 (normal priority)",
       "target": "One target other than the user",
       "contact": "No",
       "move_flags": "{\"Sound\"}",
-      "effect_chance": "60%",
+      "effect_chance": "60% chance to trigger; then 50/50 Defense or Special Defense",
       "source_description": "The users makes a spine-chilling scream, with a chance of raising defense.",
       "source_mechanics": "Effect code 20B. Power 65, Accuracy 100, PP 10.",
-      "audit_basis": "Source-verified against the pinned Rejuvenation Wiki Converter move database; custom behavior is expanded only where supporting public Rejuvenation-derived move logic was available."
+      "audit_basis": "Source-verified against the pinned Rejuvenation Wiki Converter move database; custom behavior is expanded only where supporting public Rejuvenation-derived move logic was available.",
+      "stat_changes": "On a successful secondary effect, raises the user's Defense or Special Defense by 1 stage, chosen randomly."
     },
     "AQUABATICS": {
       "status": "complete",
@@ -3752,16 +3757,18 @@
     },
     "HEXINGSLASH": {
       "status": "complete",
-      "move_description": "A relentless attack using cursed tendrils. Drains HP and has a chance to poison.",
-      "effect_text": "A relentless attack using cursed tendrils. Drains HP and has a chance to poison.",
+      "move_description": "A draining Ghost-type slash that heals for half the damage dealt and can poison the target.",
+      "effect_text": "Deals 90 base-power physical Ghost-type contact damage. The user restores HP equal to 50% of the damage dealt, and the move has a 30% chance to poison the target. In the audited Rejuvenation-derived runtime, Big Root increases the healing multiplier, with a larger source-specific modifier on Grassy Field; Liquid Ooze reverses the healing into damage to the user.",
       "priority": "0 (normal priority)",
       "target": "One target other than the user",
       "contact": "Yes",
       "move_flags": "{\"Contact\",\"Healing\",\"Sharp\"}; {\"Kingrock\"}",
-      "effect_chance": "30%",
+      "effect_chance": "30% chance to poison",
       "source_description": "A relentless attack using cursed tendrils. Drains HP and has a chance to poison.",
       "source_mechanics": "Effect code 208. Power 90, Accuracy 100, PP 15.",
-      "audit_basis": "Source-verified against the pinned Rejuvenation Wiki Converter move database; custom behavior is expanded only where supporting public Rejuvenation-derived move logic was available."
+      "audit_basis": "Source-verified against the pinned Rejuvenation Wiki Converter move database; custom behavior is expanded only where supporting public Rejuvenation-derived move logic was available.",
+      "status_effects": "30% chance to poison the target",
+      "drain_or_healing": "Restores 50% of damage dealt before source-specific Big Root modifiers; Liquid Ooze reverses the drain into damage."
     },
     "WAKEUPSHOCK": {
       "status": "complete",
@@ -4991,14 +4998,15 @@
     "SLIMESHOT": {
       "status": "complete",
       "move_description": "The user fires a glob of charged slime at the target to attack. This may also lower the target’s Speed stat.",
-      "effect_text": "The user fires a glob of charged slime at the target to attack. This may also lower the target’s Speed stat.",
+      "effect_text": "Deals 85 base-power special Ground-type damage. It has a 10% chance to lower the target's Speed by 1 stage and is flagged as a bomb move.",
       "priority": "0",
       "target": "One adjacent Pokémon",
       "contact": "No",
       "move_flags": "CanProtect,CanMirrorMove,Bomb",
-      "effect_chance": "10%",
+      "effect_chance": "10% chance to lower Speed",
       "audit_basis": "Source-verified against the pinned Pokémon Untamed PBS move data and, where necessary, the project's battle-script implementation.",
-      "source_mechanics": "Catalog stats: 85 power, 100 accuracy, 10 PP. Source record: untamed-team/project-untamed@8d757cdeb132c947602dce6a9f327fc5883e84c2 → PBS/moves.txt."
+      "source_mechanics": "Catalog stats: 85 power, 100 accuracy, 10 PP. Source record: untamed-team/project-untamed@8d757cdeb132c947602dce6a9f327fc5883e84c2 → PBS/moves.txt.",
+      "stat_changes": "10% chance to lower the target's Speed by 1 stage"
     },
     "ZEALOUSDANCE": {
       "status": "complete",
@@ -5048,38 +5056,43 @@
     "JOLTKICK": {
       "status": "complete",
       "move_description": "The user launches a kick with a high critical-hit ratio. It may also leave the target with paralysis.",
-      "effect_text": "The user launches a kick with a high critical-hit ratio. It may also leave the target with paralysis.",
+      "effect_text": "Deals 85 base-power physical Electric-type contact damage with a high critical-hit ratio. It has a 10% chance to paralyze the target.",
       "priority": "0",
       "target": "One adjacent Pokémon",
       "contact": "Yes",
       "move_flags": "Contact,CanProtect,HighCriticalHitRate",
-      "effect_chance": "10%",
+      "effect_chance": "10% chance to paralyze",
       "audit_basis": "Source-verified against the pinned Pokémon Untamed PBS move data and, where necessary, the project's battle-script implementation.",
-      "source_mechanics": "Catalog stats: 85 power, 90 accuracy, 10 PP. Source record: untamed-team/project-untamed@8d757cdeb132c947602dce6a9f327fc5883e84c2 → PBS/moves.txt."
+      "source_mechanics": "Catalog stats: 85 power, 90 accuracy, 10 PP. Source record: untamed-team/project-untamed@8d757cdeb132c947602dce6a9f327fc5883e84c2 → PBS/moves.txt.",
+      "status_effects": "10% chance to paralyze the target",
+      "custom_conditions": "High critical-hit ratio"
     },
     "FROSTKICK": {
       "status": "complete",
       "move_description": "The user launches a kick with a high critical-hit ratio. It may also leave the target with frostbite.",
-      "effect_text": "The user launches a kick with a high critical-hit ratio. It may also leave the target with frostbite.",
+      "effect_text": "Deals 85 base-power physical Ice-type contact damage with a high critical-hit ratio. It has a 10% chance to inflict frostbite in Untamed's status system.",
       "priority": "0",
       "target": "One adjacent Pokémon",
       "contact": "Yes",
       "move_flags": "Contact,CanProtect,HighCriticalHitRate",
-      "effect_chance": "10%",
+      "effect_chance": "10% chance to inflict frostbite",
       "audit_basis": "Source-verified against the pinned Pokémon Untamed PBS move data and, where necessary, the project's battle-script implementation.",
-      "source_mechanics": "Catalog stats: 85 power, 90 accuracy, 10 PP. Source record: untamed-team/project-untamed@8d757cdeb132c947602dce6a9f327fc5883e84c2 → PBS/moves.txt."
+      "source_mechanics": "Catalog stats: 85 power, 90 accuracy, 10 PP. Source record: untamed-team/project-untamed@8d757cdeb132c947602dce6a9f327fc5883e84c2 → PBS/moves.txt.",
+      "status_effects": "10% chance to inflict frostbite",
+      "custom_conditions": "High critical-hit ratio"
     },
     "SCOURINGWINDS": {
       "status": "complete",
       "move_description": "The user whips up brutal winds around the opposing team. This may also lower the targets' Sp. Def stat.",
-      "effect_text": "The user whips up brutal winds around the opposing team. This may also lower the targets' Sp. Def stat.",
+      "effect_text": "Deals 95 base-power special Flying-type damage to all adjacent foes. Each affected target has a 10% chance to have its Special Defense lowered by 1 stage.",
       "priority": "0",
       "target": "All adjacent foes",
       "contact": "No",
       "move_flags": "CanProtect",
-      "effect_chance": "10%",
+      "effect_chance": "10% chance per affected target",
       "audit_basis": "Source-verified against the pinned Pokémon Untamed PBS move data and, where necessary, the project's battle-script implementation.",
-      "source_mechanics": "Catalog stats: 95 power, 90 accuracy, 10 PP. Source record: untamed-team/project-untamed@8d757cdeb132c947602dce6a9f327fc5883e84c2 → PBS/moves.txt."
+      "source_mechanics": "Catalog stats: 95 power, 90 accuracy, 10 PP. Source record: untamed-team/project-untamed@8d757cdeb132c947602dce6a9f327fc5883e84c2 → PBS/moves.txt.",
+      "stat_changes": "10% chance to lower each hit target's Special Defense by 1 stage"
     },
     "HAUNT": {
       "status": "complete",
@@ -5106,14 +5119,16 @@
     "CHILLINGWAIL": {
       "status": "complete",
       "move_description": "The user wails eerily at its target, chilling them to the bone. This may also give the target frostbite.",
-      "effect_text": "The user wails eerily at its target, chilling them to the bone. This may also give the target frostbite.",
+      "effect_text": "Deals 90 base-power special Ghost-type sound damage. It has a 20% chance to inflict frostbite in Untamed's status system.",
       "priority": "0",
       "target": "One adjacent Pokémon",
       "contact": "No",
       "move_flags": "CanProtect,Sound",
-      "effect_chance": "20%",
+      "effect_chance": "20% chance to inflict frostbite",
       "audit_basis": "Source-verified against the pinned Pokémon Untamed PBS move data and, where necessary, the project's battle-script implementation.",
-      "source_mechanics": "Catalog stats: 90 power, 100 accuracy, 10 PP. Source record: untamed-team/project-untamed@8d757cdeb132c947602dce6a9f327fc5883e84c2 → PBS/moves.txt."
+      "source_mechanics": "Catalog stats: 90 power, 100 accuracy, 10 PP. Source record: untamed-team/project-untamed@8d757cdeb132c947602dce6a9f327fc5883e84c2 → PBS/moves.txt.",
+      "status_effects": "20% chance to inflict frostbite",
+      "custom_conditions": "Sound move"
     },
     "MYSTICBLADE": {
       "status": "complete",
@@ -5152,14 +5167,15 @@
     "FORGEBREATH": {
       "status": "complete",
       "move_description": "The user spews superheated metal at its target. This may also leave the target with a burn.",
-      "effect_text": "The user spews superheated metal at its target. This may also leave the target with a burn.",
+      "effect_text": "Deals 85 base-power special Steel-type damage. It has a 10% chance to burn the target.",
       "priority": "0",
       "target": "One adjacent Pokémon",
       "contact": "No",
       "move_flags": "CanProtect",
-      "effect_chance": "10%",
+      "effect_chance": "10% chance to burn",
       "audit_basis": "Source-verified against the pinned Pokémon Untamed PBS move data and, where necessary, the project's battle-script implementation.",
-      "source_mechanics": "Catalog stats: 85 power, 100 accuracy, 15 PP. Source record: untamed-team/project-untamed@8d757cdeb132c947602dce6a9f327fc5883e84c2 → PBS/moves.txt."
+      "source_mechanics": "Catalog stats: 85 power, 100 accuracy, 15 PP. Source record: untamed-team/project-untamed@8d757cdeb132c947602dce6a9f327fc5883e84c2 → PBS/moves.txt.",
+      "status_effects": "10% chance to burn the target"
     },
     "EXCITE": {
       "status": "complete",
@@ -5175,26 +5191,29 @@
     "SCATTERDUST": {
       "status": "complete",
       "move_description": "The user attacks by scattering a cloud of coarse debris. This may also lower the Speed stat of opposing Pokémon.",
-      "effect_text": "The user attacks by scattering a cloud of coarse debris. This may also lower the Speed stat of opposing Pokémon.",
+      "effect_text": "Deals 80 base-power special Bug-type damage to all adjacent foes. Each affected target has a 10% chance to have its Speed lowered by 1 stage.",
       "priority": "0",
       "target": "All adjacent foes",
       "contact": "No",
       "move_flags": "CanProtect",
-      "effect_chance": "10%",
+      "effect_chance": "10% chance per affected target",
       "audit_basis": "Source-verified against the pinned Pokémon Untamed PBS move data and, where necessary, the project's battle-script implementation.",
-      "source_mechanics": "Catalog stats: 80 power, 100 accuracy, 15 PP. Source record: untamed-team/project-untamed@8d757cdeb132c947602dce6a9f327fc5883e84c2 → PBS/moves.txt."
+      "source_mechanics": "Catalog stats: 80 power, 100 accuracy, 15 PP. Source record: untamed-team/project-untamed@8d757cdeb132c947602dce6a9f327fc5883e84c2 → PBS/moves.txt.",
+      "stat_changes": "10% chance to lower each hit target's Speed by 1 stage"
     },
     "SWEETTOOTH": {
       "status": "complete",
       "move_description": "The target is bitten with sweet and sharp fangs. It may make the target flinch.",
-      "effect_text": "The target is bitten with sweet and sharp fangs. It may make the target flinch.",
+      "effect_text": "Deals 50 base-power physical Fairy-type contact damage. It is a biting move and has a 30% chance to make the target flinch.",
       "priority": "0",
       "target": "One adjacent Pokémon",
       "contact": "Yes",
       "move_flags": "Contact,CanProtect,Biting",
-      "effect_chance": "30%",
+      "effect_chance": "30% chance to flinch",
       "audit_basis": "Source-verified against the pinned Pokémon Untamed PBS move data and, where necessary, the project's battle-script implementation.",
-      "source_mechanics": "Catalog stats: 50 power, 100 accuracy, 25 PP. Source record: untamed-team/project-untamed@8d757cdeb132c947602dce6a9f327fc5883e84c2 → PBS/moves.txt."
+      "source_mechanics": "Catalog stats: 50 power, 100 accuracy, 25 PP. Source record: untamed-team/project-untamed@8d757cdeb132c947602dce6a9f327fc5883e84c2 → PBS/moves.txt.",
+      "status_effects": "30% chance to flinch the target",
+      "custom_conditions": "Biting move"
     },
     "SUPERNOVA": {
       "status": "complete",
@@ -5210,14 +5229,16 @@
     "PEPPERSPRAY": {
       "status": "complete",
       "move_description": "The user unleashes a spray of spicy vapors at its target to attack. It may also leave the target with a burn.",
-      "effect_text": "The user unleashes a spray of spicy vapors at its target to attack. It may also leave the target with a burn.",
+      "effect_text": "Deals 85 base-power special Grass-type damage. It has a 30% chance to burn the target, and using the move thaws the user if the user is frozen.",
       "priority": "0",
       "target": "One adjacent Pokémon",
       "contact": "No",
       "move_flags": "CanProtect,ThawsUser",
-      "effect_chance": "30%",
+      "effect_chance": "30% chance to burn",
       "audit_basis": "Source-verified against the pinned Pokémon Untamed PBS move data and, where necessary, the project's battle-script implementation.",
-      "source_mechanics": "Catalog stats: 85 power, 100 accuracy, 15 PP. Source record: untamed-team/project-untamed@8d757cdeb132c947602dce6a9f327fc5883e84c2 → PBS/moves.txt."
+      "source_mechanics": "Catalog stats: 85 power, 100 accuracy, 15 PP. Source record: untamed-team/project-untamed@8d757cdeb132c947602dce6a9f327fc5883e84c2 → PBS/moves.txt.",
+      "status_effects": "30% chance to burn the target",
+      "custom_conditions": "Thaws the user when used"
     },
     "TITANSWRATH": {
       "status": "complete",
@@ -5233,14 +5254,16 @@
     "SIRENSONG": {
       "status": "complete",
       "move_description": "An ancient song appeals to the hearts of those listening. It may also induce sleep.",
-      "effect_text": "An ancient song appeals to the hearts of those listening. It may also induce sleep.",
+      "effect_text": "Deals 90 base-power special Water-type sound damage. It has a 10% chance to put the target to sleep. Because it uses Untamed's Relic Song function family, a non-transformed Meloetta user changes between its applicable forms after a successful use.",
       "priority": "0",
       "target": "One adjacent Pokémon",
       "contact": "No",
       "move_flags": "CanProtect,Sound,CannotMetronome",
-      "effect_chance": "10%",
+      "effect_chance": "10% chance to put the target to sleep",
       "audit_basis": "Source-verified against the pinned Pokémon Untamed PBS move data and, where necessary, the project's battle-script implementation.",
-      "source_mechanics": "Catalog stats: 90 power, 100 accuracy, 10 PP. Source record: untamed-team/project-untamed@8d757cdeb132c947602dce6a9f327fc5883e84c2 → PBS/moves.txt."
+      "source_mechanics": "Catalog stats: 90 power, 100 accuracy, 10 PP. Source record: untamed-team/project-untamed@8d757cdeb132c947602dce6a9f327fc5883e84c2 → PBS/moves.txt.",
+      "status_effects": "10% chance to put the target to sleep",
+      "custom_conditions": "Sound move; uses the Meloetta form-change function after a successful use when the user is an eligible Meloetta."
     },
     "REBALANCING": {
       "status": "complete",
@@ -5356,14 +5379,16 @@
     "STALAGBITE": {
       "status": "complete",
       "move_description": "The user bites down with rock-hard fangs formed from stalagmites. May lower the target's Defense stat.",
-      "effect_text": "The user bites down with rock-hard fangs formed from stalagmites. May lower the target's Defense stat.",
+      "effect_text": "Deals 75 base-power physical Rock-type contact damage. It is a biting move and has a 20% chance to lower the target's Defense by 1 stage.",
       "priority": "0",
       "target": "One adjacent Pokémon",
       "contact": "Yes",
       "move_flags": "Contact,CanProtect,CanMirrorMove,Biting",
-      "effect_chance": "20%",
+      "effect_chance": "20% chance to lower Defense",
       "audit_basis": "Source-verified against the pinned Pokémon Untamed PBS move data and, where necessary, the project's battle-script implementation.",
-      "source_mechanics": "Catalog stats: 75 power, 100 accuracy, 15 PP. Source record: untamed-team/project-untamed@8d757cdeb132c947602dce6a9f327fc5883e84c2 → PBS/moves.txt."
+      "source_mechanics": "Catalog stats: 75 power, 100 accuracy, 15 PP. Source record: untamed-team/project-untamed@8d757cdeb132c947602dce6a9f327fc5883e84c2 → PBS/moves.txt.",
+      "stat_changes": "20% chance to lower the target's Defense by 1 stage",
+      "custom_conditions": "Biting move"
     },
     "GLACIALGULF": {
       "status": "complete",
