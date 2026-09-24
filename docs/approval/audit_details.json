@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "description": "Full plain-English mechanics registry for the current community move library. Every move must have status=complete before approval controls are enabled.",
+  "description": "Full plain-English mechanics registry for the current community move library. Approval requires status=complete. Source-limited/conflicting records remain blocked until authoritative mechanics are recovered.",
   "moves": {
     "THOUSANDFOLDS": {
       "status": "complete",
@@ -3105,19 +3105,20 @@
       "audit_basis": "Source-verified against the pinned PokeRover PBS move table."
     },
     "HUNTERSWILDS": {
-      "status": "source-limited",
-      "move_description": "A Grass-type status move whose exact effect changes according to the user's stronger attacking stat.",
-      "effect_text": "Targets one adjacent Pokémon. The pinned Vanguard PBS explicitly says the result changes depending on the user's highest attacking stat, but the public PokeRover snapshot does not contain the battle-script implementation that defines those branches. The exact Attack-dominant and Special-Attack-dominant outcomes are therefore still being recovered and this move is not approval-ready.",
+      "status": "source_limited",
+      "move_description": "A Grass-type status move whose outcome changes based on the higher attacking stat.",
+      "effect_text": "The public Vanguard PBS states that the effect changes depending on the higher attacking stat, but the PokeRover snapshot does not include the custom EffectDependsOnHigherDamage battle script that defines the exact branches. The move is therefore not approval-ready until that original Vanguard script or an equivalent authoritative source is recovered.",
       "priority": "0 (normal priority)",
-      "target": "One adjacent Pokémon",
+      "target": "One adjacent target",
       "contact": "No",
-      "move_flags": "CanProtect,CanMirrorMove,CannotMetronome",
+      "move_flags": "CanProtect; CanMirrorMove; CannotMetronome",
       "effect_chance": "No separate chance field",
       "source_description": "Depending on the highest attacking stat, this move has different effects.",
       "source_mechanics": "FunctionCode: EffectDependsOnHigherDamage. Power —, Accuracy 100, PP 2.",
       "audit_basis": "Source-verified against the pinned PokeRover PBS move table.",
       "approval_ready": false,
-      "verification_blocker": "The public source snapshot contains FunctionCode EffectDependsOnHigherDamage but not its implementation."
+      "verification_blocker": "The public source snapshot contains FunctionCode EffectDependsOnHigherDamage but not its implementation.",
+      "source_limitation": "Exact branch effects are absent from the public PokeRover PBS snapshot; only the custom function name and summary description are present."
     },
     "TERIUMPALM": {
       "status": "complete",
@@ -3133,19 +3134,20 @@
       "audit_basis": "Source-verified against the pinned PokeRover PBS move table."
     },
     "TERRESTRIALCLAW": {
-      "status": "source-limited",
-      "move_description": "A 70-power Dragon-type physical contact attack whose extra stat effect changes with the active terrain.",
-      "effect_text": "Deals 70 base-power Dragon-type physical damage with 100% accuracy and 10 PP. It makes contact. The pinned Vanguard description says different stats are raised depending on the active terrain. The public snapshot does not include Vanguard's custom implementation that maps each terrain to its exact stat boost, so those terrain-by-terrain boosts are still being recovered and this move is not approval-ready.",
+      "status": "source_conflict",
+      "move_description": "A 70-power Dragon-type physical claw attack tied to the active terrain.",
+      "effect_text": "The source assigns the standard TypeAndPowerDependOnTerrain function: when the user is affected by an active terrain, the move's power is doubled and its type follows that terrain (Electric, Grass, Psychic, or Fairy for Electric, Grassy, Psychic, or Misty Terrain). However, Vanguard's own text says that different stats are raised depending on the terrain, which conflicts with the standard function behavior. This move is not approval-ready until Vanguard's custom battle script is recovered and the discrepancy is resolved.",
       "priority": "0 (normal priority)",
-      "target": "One adjacent Pokémon",
+      "target": "One adjacent target",
       "contact": "Yes",
-      "move_flags": "CanProtect,CanMirrorMove,Contact",
+      "move_flags": "Contact; CanProtect; CanMirrorMove",
       "effect_chance": "No separate chance field",
       "source_description": "A claw imbued with energy strikes. Different stats are raised depending on the terrain.",
       "source_mechanics": "FunctionCode: TypeAndPowerDependOnTerrain. Power 70, Accuracy 100, PP 10.",
       "audit_basis": "Source-verified against the pinned PokeRover PBS move table.",
       "approval_ready": false,
-      "verification_blocker": "The PBS uses FunctionCode TypeAndPowerDependOnTerrain, but Vanguard's description conflicts with the standard Essentials Terrain Pulse behavior and its custom script is not in the public snapshot."
+      "verification_blocker": "The PBS uses FunctionCode TypeAndPowerDependOnTerrain, but Vanguard's description conflicts with the standard Essentials Terrain Pulse behavior and its custom script is not in the public snapshot.",
+      "source_limitation": "Vanguard's PBS description conflicts with the standard semantics of its assigned TypeAndPowerDependOnTerrain function."
     },
     "TRITIUMCANNON": {
       "status": "complete",
@@ -4529,17 +4531,17 @@
     },
     "ZOMBIESTRIKE": {
       "status": "complete",
-      "move_description": "A straightforward physical Ghost-type strike.",
-      "effect_text": "Deals 90 base-power physical Ghost-type damage. It has 90% accuracy, 15 PP, makes contact, and has no secondary effect in the pinned Insurgence source.",
+      "move_description": "A straightforward Ghost-type physical strike.",
+      "effect_text": "Deals damage with no additional secondary effect.",
       "priority": "0 (normal priority)",
-      "target": "One adjacent Pokémon",
+      "target": "One adjacent target",
       "contact": "Yes",
       "effect_chance": "No secondary effect",
       "status_effects": "None",
       "stat_changes": "None",
       "source_mechanics": "Poilerwags/Insurgence-Showdown data/moves.ts at pinned commit 72d72a7af4642d3c8391ab1118f0afbb2647020b.",
       "audit_basis": "Source-verified against the pinned Insurgence-Showdown move definition and its custom callbacks.",
-      "move_flags": "contact;target-normal"
+      "move_flags": "Contact; Protect-blocked"
     },
     "TIROTEO": {
       "status": "complete",
@@ -4837,12 +4839,12 @@
     },
     "LASERESENCIA": {
       "status": "complete",
-      "move_description": "A very powerful Normal special beam attack.",
-      "effect_text": "Deals 150 base-power Normal-type special damage with 100% accuracy and 5 PP. The source describes it as an essence-powered laser and does not document a secondary effect.",
+      "move_description": "Fires a high-powered beam fueled by Pokésencia.",
+      "effect_text": "Deals high-power damage with no additional secondary effect.",
       "priority": "0 (normal priority)",
-      "target": "One target other than the user",
+      "target": "One adjacent target",
       "contact": "No",
-      "move_flags": "special-normal;beam;high-power",
+      "move_flags": "Beam-style special attack",
       "source_mechanics": "Function 000; source stats 150 power, 100% accuracy, 5 PP; target code 00; raw source flags bcde.",
       "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
@@ -5331,41 +5333,41 @@
     },
     "PUNZADABURBUJA": {
       "status": "complete",
-      "move_description": "Launches a high-speed horn like a projectile.",
-      "effect_text": "Deals 45 base-power physical Water-type damage with 100% accuracy and 25 PP. The source row defines no secondary effect.",
+      "move_description": "Fires the user's horn forward at high speed.",
+      "effect_text": "Deals damage with no additional secondary effect.",
       "priority": "0 (normal priority)",
-      "target": "One target other than the user",
+      "target": "One adjacent target",
       "contact": "No",
       "effect_chance": "No secondary effect",
       "source_description": "Ataca disparando su cuerno, que es propulsado a gran velocidad.",
       "source_mechanics": "Function 000; source stats 45 power, 100% accuracy, 25 PP; target code 00; raw source flags bef.",
-      "move_flags": "physical-water;projectile;horn",
+      "move_flags": "Projectile-style attack; no extra effect recorded",
       "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "FLORALETEO": {
       "status": "complete",
-      "move_description": "Blasts the target with seeds propelled by powerful wingbeats.",
-      "effect_text": "Deals 50 base-power special Grass-type damage with 100% accuracy and 15 PP. The source row defines no secondary effect.",
+      "move_description": "Strikes the target with seeds propelled by powerful wingbeats.",
+      "effect_text": "Deals damage with no additional secondary effect.",
       "priority": "0 (normal priority)",
-      "target": "One target other than the user",
+      "target": "One adjacent target",
       "contact": "No",
       "effect_chance": "No secondary effect",
       "source_description": "Azota al objetivo con semillas propulsadas por un fuerte aleteo.",
       "source_mechanics": "Function 000; source stats 50 power, 100% accuracy, 15 PP; target code 00; raw source flags bef.",
-      "move_flags": "special-grass;projectile;seed",
+      "move_flags": "Projectile-style attack; no extra effect recorded",
       "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "CUERNARDIENTE": {
       "status": "complete",
-      "move_description": "Cloaks the user's horns in flame and charges the target.",
-      "effect_text": "Deals 45 base-power physical Fire-type damage with 100% accuracy and 25 PP. The source row defines no secondary effect.",
+      "move_description": "The user cloaks its horns in flame and charges the target.",
+      "effect_text": "Deals damage with no additional secondary effect.",
       "priority": "0 (normal priority)",
-      "target": "One target other than the user",
+      "target": "One adjacent target",
       "contact": "Yes",
       "effect_chance": "No secondary effect",
       "source_description": "Envuelve en llamas su cornamenta para luego embestir con ella.",
       "source_mechanics": "Function 000; source stats 45 power, 100% accuracy, 25 PP; target code 00; raw source flags abef.",
-      "move_flags": "physical-fire;contact;horn;fire",
+      "move_flags": "Contact; horn/fire attack; no extra effect recorded",
       "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "FERMENTACION": {
@@ -5993,17 +5995,17 @@
     },
     "WARHEAD": {
       "status": "complete",
-      "move_description": "A high-powered Steel-type special attack with no added effect.",
-      "effect_text": "Deals 110 base-power special Steel-type damage. It has 80% accuracy, 5 PP, normal priority, and no secondary effect in the pinned Clover source.",
+      "move_description": "A powerful Steel-type special attack.",
+      "effect_text": "Deals damage with no additional secondary effect.",
       "priority": "0 (normal priority)",
-      "target": "One adjacent Pokémon",
+      "target": "One adjacent target",
       "contact": "No",
       "effect_chance": "No secondary effect",
       "status_effects": "None",
       "stat_changes": "None",
       "source_mechanics": "Squeetz/clovermon-showdown data/moves.ts at pinned commit 008196c839c1efe859e2d59c092c88370b7752d6.",
       "audit_basis": "Source-verified against the pinned Clovermon Showdown move definition and its custom callbacks.",
-      "move_flags": "target-normal"
+      "move_flags": "Protect-blocked; Mirror Move-compatible"
     },
     "WEIRDFLEX": {
       "status": "complete",
@@ -6096,17 +6098,17 @@
     },
     "PIXIEPUMMEL": {
       "status": "complete",
-      "move_description": "A powerful contact Fairy-type physical attack with no added effect.",
-      "effect_text": "Deals 120 base-power physical Fairy-type damage. It has 80% accuracy, 5 PP, makes contact, and has no secondary effect in the pinned Clover source.",
+      "move_description": "A powerful Fairy-type physical attack.",
+      "effect_text": "Deals damage with no additional secondary effect.",
       "priority": "0 (normal priority)",
-      "target": "One adjacent Pokémon",
+      "target": "One adjacent target",
       "contact": "Yes",
       "effect_chance": "No secondary effect",
       "status_effects": "None",
       "stat_changes": "None",
       "source_mechanics": "Squeetz/clovermon-showdown data/moves.ts at pinned commit 008196c839c1efe859e2d59c092c88370b7752d6.",
       "audit_basis": "Source-verified against the pinned Clovermon Showdown move definition and its custom callbacks.",
-      "move_flags": "contact;target-normal"
+      "move_flags": "Contact; Protect-blocked; Mirror Move-compatible"
     },
     "GAYAGENDA": {
       "status": "complete",
@@ -6132,12 +6134,12 @@
     },
     "GREATRAGE": {
       "status": "complete",
-      "move_description": "An extremely powerful sound-based Grass-type physical attack.",
-      "effect_text": "Deals 140 base-power physical Grass-type damage with 100% accuracy and 10 PP. It is flagged as a sound move, does not make contact, and has no secondary effect in the pinned Clover source.",
+      "move_description": "A very powerful Grass-type physical sound attack.",
+      "effect_text": "Deals damage with no additional secondary effect. It is sound-based, so sound-related abilities and effects can interact with it.",
       "priority": "0 (normal priority)",
-      "target": "One adjacent Pokémon",
+      "target": "One adjacent target",
       "contact": "No",
-      "move_flags": "Sound move; Protect-affected; Mirror Move-compatible",
+      "move_flags": "Sound; Protect-blocked; Mirror Move-compatible",
       "effect_chance": "No secondary effect",
       "status_effects": "None",
       "stat_changes": "None",
@@ -6191,24 +6193,24 @@
     },
     "ELBOWDROP": {
       "status": "complete",
-      "move_description": "A heavy contact Ghost-type physical attack with no added effect.",
-      "effect_text": "Deals 100 base-power physical Ghost-type damage. It has 100% accuracy, 5 PP, makes contact, and has no secondary effect in the pinned Clover source.",
+      "move_description": "A heavy Ghost-type physical strike.",
+      "effect_text": "Deals damage with no additional secondary effect.",
       "priority": "0 (normal priority)",
-      "target": "One adjacent Pokémon",
+      "target": "One adjacent target",
       "contact": "Yes",
       "effect_chance": "No secondary effect",
       "status_effects": "None",
       "stat_changes": "None",
       "source_mechanics": "Squeetz/clovermon-showdown data/moves.ts at pinned commit 008196c839c1efe859e2d59c092c88370b7752d6.",
       "audit_basis": "Source-verified against the pinned Clovermon Showdown move definition and its custom callbacks.",
-      "move_flags": "contact;target-normal"
+      "move_flags": "Contact; Protect-blocked; Mirror Move-compatible"
     },
     "ANATTACK": {
       "status": "complete",
-      "move_description": "A powerful physical attack using Clover's custom ??? type.",
-      "effect_text": "Deals 120 base-power physical damage of Clover's custom ??? type with 100% accuracy and 5 PP. It does not make contact and has no secondary effect in the pinned source. Its source Z-Move conversion uses 190 base power.",
+      "move_description": "A high-power physical attack of Clover's custom ??? type.",
+      "effect_text": "Deals damage with no additional secondary effect.",
       "priority": "0 (normal priority)",
-      "target": "One adjacent Pokémon",
+      "target": "One adjacent target",
       "contact": "No",
       "effect_chance": "No secondary effect",
       "status_effects": "None",
@@ -6216,14 +6218,14 @@
       "custom_conditions": "Uses Clover's source-native ??? type; source Z base power is 190.",
       "source_mechanics": "Squeetz/clovermon-showdown data/moves.ts at pinned commit 008196c839c1efe859e2d59c092c88370b7752d6.",
       "audit_basis": "Source-verified against the pinned Clovermon Showdown move definition and its custom callbacks.",
-      "move_flags": "source-native-custom-type;target-normal"
+      "move_flags": "Custom ??? type; Protect-blocked; Mirror Move-compatible"
     },
     "CHAOSDUNK": {
       "status": "complete",
-      "move_description": "A powerful contact Rock-type physical attack with no added effect.",
-      "effect_text": "Deals 110 base-power physical Rock-type damage. It has 100% accuracy, 5 PP, makes contact, and has no secondary effect. In the source's Z-Move system its Z base power is 185.",
+      "move_description": "A high-power Rock-type physical strike.",
+      "effect_text": "Deals damage with no additional secondary effect.",
       "priority": "0 (normal priority)",
-      "target": "One adjacent Pokémon",
+      "target": "One adjacent target",
       "contact": "Yes",
       "effect_chance": "No secondary effect",
       "status_effects": "None",
@@ -6231,7 +6233,7 @@
       "custom_conditions": "Source Z base power is 185.",
       "source_mechanics": "Squeetz/clovermon-showdown data/moves.ts at pinned commit 008196c839c1efe859e2d59c092c88370b7752d6.",
       "audit_basis": "Source-verified against the pinned Clovermon Showdown move definition and its custom callbacks.",
-      "move_flags": "contact;target-normal"
+      "move_flags": "Contact; Protect-blocked; Mirror Move-compatible"
     },
     "COMENGO": {
       "status": "complete",
@@ -6319,10 +6321,10 @@
     },
     "FIREBOMB": {
       "status": "complete",
-      "move_description": "A strong Fire-type physical attack with no added effect.",
-      "effect_text": "Deals 100 base-power physical Fire-type damage. It has 95% accuracy, 10 PP, does not make contact, and has no secondary effect. In the source's Z-Move system its Z base power is 180.",
+      "move_description": "A strong Fire-type physical attack.",
+      "effect_text": "Deals damage with no additional secondary effect.",
       "priority": "0 (normal priority)",
-      "target": "One adjacent Pokémon",
+      "target": "One adjacent target",
       "contact": "No",
       "effect_chance": "No secondary effect",
       "status_effects": "None",
@@ -6330,7 +6332,7 @@
       "custom_conditions": "Source Z base power is 180.",
       "source_mechanics": "Squeetz/clovermon-showdown data/moves.ts at pinned commit 008196c839c1efe859e2d59c092c88370b7752d6.",
       "audit_basis": "Source-verified against the pinned Clovermon Showdown move definition and its custom callbacks.",
-      "move_flags": "target-normal"
+      "move_flags": "Protect-blocked; Mirror Move-compatible"
     },
     "FIZZBITCH": {
       "status": "complete",
