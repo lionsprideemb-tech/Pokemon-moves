@@ -66,4 +66,19 @@ Result: **43** additional unique custom designs:
 
 Master catalog progression: **187 → 250 → 293**.
 
+
+### Pokémon Reborn Episode 19.16 snapshot — All-Type Source Sweep 04
+Pinned snapshot commit: `655411b65ee3fc166c916b6f15c55a398d9daf01`
+
+The bundled Reborn README identifies the snapshot as **Episode 19 Final, version 19.16**, updated to Generation 7 / Ultra Sun & Ultra Moon data.
+
+Result:
+- **771 move records audited**
+- all records matched official move IDs/names except one legacy spelling alias: `VICEGRIP` / "Vice Grip" for the official move **Vise Grip**
+- **0 new community-created move designs imported**
+- master catalog remains **293**
+
+This zero-add sweep is preserved because it prevents the same source from being re-audited later and confirms that Reborn 19.16 itself is not a useful source of original named move designs for this library.
+
+
 This matrix is updated from the canonical master manifest after each source-wide sweep. We do **not** search one type/category cell at a time; remaining gaps are targets for later source projects.
