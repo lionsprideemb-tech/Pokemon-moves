@@ -28,6 +28,7 @@ const state = {
   reviews: loadReviews(),
   previews: {},
   auditDetails: {},
+  translations: {},
   filters: {
     search: "",
     source: "",
@@ -87,10 +88,18 @@ async function init() {
       state.auditDetails = {};
     }
 
+    try {
+      const translationData = await fetchJson("./translations.json");
+      state.translations = translationData.moves || {};
+    } catch (err) {
+      state.translations = {};
+    }
+
     state.moves = masterRows.map(function(row) {
       const overlay = animById[row.move_id] || {};
       const audit = state.auditDetails[row.move_id] || {};
-      return normalizeMove(row, overlay, audit);
+      const translation = state.translations[row.move_id] || {};
+      return normalizeMove(row, overlay, audit, translation);
     });
 
     buildFilterOptions();
@@ -254,7 +263,7 @@ function csvToObjects(text) {
   });
 }
 
-function normalizeMove(row, overlay, audit) {
+function normalizeMove(row, overlay, audit, translation) {
   const animationReference = overlay.source_animation_reference ||
     overlay.source_animation_evidence ||
     row.animation_reference || "";
@@ -263,7 +272,13 @@ function normalizeMove(row, overlay, audit) {
   const animationPath = overlay.ds_animation_path || "";
   const dsMoveId = overlay.ds_move_id || "";
 
+  const translatedName = translation.english_name || row.move_name || row.move_id;
+  const originalName = translation.original_name || row.move_name || "";
+
   return Object.assign({}, row, {
+    display_name: translatedName,
+    original_move_name: originalName,
+    name_translation_status: translation.english_name ? "English review translation" : "Source name already used",
     source_animation_reference_audit: animationReference,
     secondary_implementation_evidence: overlay.secondary_implementation_evidence || "",
     ds_animation_class: animationClass,
@@ -315,7 +330,7 @@ function applyFilters() {
   const f = state.filters;
   state.filtered = state.moves.filter(function(m) {
     const searchBlob = [
-      m.move_name,m.move_id,m.source_project,m.type,m.category,m.primary_effect,
+      m.display_name,m.original_move_name,m.move_name,m.move_id,m.source_project,m.type,m.category,m.primary_effect,
       m.secondary_effect,m.tags,m.animation_reference,m.source_animation_reference_audit,
       m.ds_animation_class,m.ds_animation_path,m.notes
     ].join(" ").toLowerCase();
@@ -344,15 +359,15 @@ function sortFiltered() {
   const sort = state.filters.sort;
   state.filtered.sort(function(a, b) {
     if (sort === "source") {
-      return localeSort(a.source_project, b.source_project) || localeSort(a.move_name, b.move_name);
+      return localeSort(a.source_project, b.source_project) || localeSort(a.display_name, b.display_name);
     }
     if (sort === "type") {
-      return localeSort(a.type, b.type) || localeSort(a.move_name, b.move_name);
+      return localeSort(a.type, b.type) || localeSort(a.display_name, b.display_name);
     }
     if (sort === "review") {
-      return reviewRank(a.move_id) - reviewRank(b.move_id) || localeSort(a.move_name, b.move_name);
+      return reviewRank(a.move_id) - reviewRank(b.move_id) || localeSort(a.display_name, b.display_name);
     }
-    return localeSort(a.move_name, b.move_name);
+    return localeSort(a.display_name, b.display_name);
   });
 }
 
@@ -396,7 +411,7 @@ function renderMoveList() {
     const left = document.createElement("div");
     const name = document.createElement("div");
     name.className = "move-row-name";
-    name.textContent = m.move_name || m.move_id;
+    name.textContent = m.display_name || m.move_name || m.move_id;
     const meta = document.createElement("div");
     meta.className = "move-row-meta";
     meta.textContent = [m.type, m.category, shortSource(m.source_project)].filter(Boolean).join(" • ");
@@ -478,7 +493,7 @@ function updatePosition() {
 
 function renderMove(m) {
   el.sourceBadge.textContent = m.source_project || "Unknown source";
-  el.moveName.textContent = m.move_name || m.move_id;
+  el.moveName.textContent = m.display_name || m.move_name || m.move_id;
   el.moveId.textContent = m.move_id || "";
   setPill(el.typePill, m.type || "Unknown", "type-" + slug(m.type));
   setPill(el.categoryPill, m.category || "Unknown", "");
@@ -488,6 +503,8 @@ function renderMove(m) {
   el.mechanicsAuditBadge.style.borderColor = auditComplete ? "#22c55e" : "#f59e0b";
 
   renderGrid(el.coreGrid, [
+    ["English review name", displayValue(m.display_name)],
+    ["Original source name", displayValue(m.original_move_name)],
     ["Power", displayValue(m.power)],
     ["Accuracy", displayAccuracy(m.accuracy)],
     ["PP", displayValue(m.pp)],
@@ -573,11 +590,12 @@ function renderPreview(m) {
       video.muted = true;
       video.playsInline = true;
       video.src = url;
+      video.setAttribute("aria-label", (m.display_name || m.move_name || m.move_id) + " animation preview");
       el.animationPreview.appendChild(video);
     } else {
       const img = document.createElement("img");
       img.src = url;
-      img.alt = (m.move_name || m.move_id) + " animation preview";
+      img.alt = (m.display_name || m.move_name || m.move_id) + " animation preview";
       el.animationPreview.appendChild(img);
     }
     if (preview.caption) {
@@ -783,10 +801,10 @@ function exportReviewsJson() {
 }
 
 function exportReviewsCsv() {
-  const rows = [["move_id","move_name","source_project","move_decision","animation_decision","notes","updated_at"]];
+  const rows = [["move_id","english_review_name","original_source_name","source_project","move_decision","animation_decision","notes","updated_at"]];
   state.moves.forEach(function(m) {
     const r = getReview(m.move_id);
-    rows.push([m.move_id,m.move_name,m.source_project,r.move,r.animation,r.notes,r.updated_at]);
+    rows.push([m.move_id,m.display_name,m.original_move_name,m.source_project,r.move,r.animation,r.notes,r.updated_at]);
   });
   const csv = rows.map(function(row) {
     return row.map(csvEscape).join(",");
