@@ -1,6 +1,6 @@
 # Phase F3 Command / Engine Audit
 
-Phase F3 has completed script dependency resolution and is now mapping mechanics-relevant battle-script commands to the engine implementations that Mercury Redux must preserve or reproduce.
+Phase F3 has completed script dependency resolution and is mapping mechanics-relevant battle-script commands to the engine implementations that Mercury Redux must preserve or reproduce.
 
 ## Completed script resolution
 
@@ -14,25 +14,26 @@ Phase F3 has completed script dependency resolution and is now mapping mechanics
 - Batch 02: **10 commands**
 - Batch 03: **10 commands**
 - Batch 04: **10 commands**
-- Cumulative resolved command mappings: **40**
+- Batch 05: **10 commands**
+- Cumulative resolved command mappings: **50**
 
-## Batch 04 findings
+## Batch 05 findings
 
-- `HandleForestsCurse` and `HandleTrickOrTreat` are genuine engine-level third-type mutations, not cosmetic script effects. They add Grass/Ghost, store persistent move-condition flags, and are guarded against Terastallized targets. Their fail conditions are also enforced in `BattleController_BeforeMove.c`.
-- `HandleBurnUp` and `HandleDoubleShock` remove Fire/Electric typing respectively and store engine state flags. Their type-presence eligibility checks live in `BattleController_BeforeMove.c`, so copying only the post-hit command would be incomplete.
-- `ClearSmog` resets the defender's stat stages, but its activation is wired through `ServerDoPostMoveEffects.c`; this is a concrete example of why post-move hooks must be collected alongside scripts and commands.
-- `ClearAuroraVeil` directly clears the side flag and counter, complementing the broader `TryBreakScreens` command from Batch 02.
-- `AbilityPopup` is a full asynchronous UI command with allocation, animation state, script pausing, and cleanup—not just a message call.
-- `SetCurrentMoveSwitchingStatus` feeds a shared switching state used by Baton Pass, Parting Shot, pivot/forced-switch flows and consumed later by post-move/MoveEnd logic.
-- `RemoveEntryHazardFromQueue` is the cleanup half of the hazard queue model already identified through `AddEntryHazardToQueue`.
+- `GotoIfGrounded` confirms grounding is a shared engine concept rather than a script-only check. `IsClientGrounded` accounts for Levitate/EElevate, Air Balloon, Magnet Rise, Flying typing, Iron Ball, Ingrain, Gravity, explicit grounded state, and semi-invulnerable Fly/Dig/Dive/Phantom Force states.
+- `CheckProtectContactMoves` is the central modern contact-on-protection dispatcher for King's Shield, Spiky Shield, Baneful Bunker, Obstruct, Silk Trap, and Burning Bulwark.
+- `JumpToCurrentEntryHazard` proves hg-engine has an ordered hazard queue rather than relying only on side-condition bits. The queue supports Spikes, Toxic Spikes, Stealth Rock, Sticky Web, and a Sharp Steel slot.
+- `CheckSubstitute` is an hg-engine replacement for the original opcode and includes Infiltrator bypass logic, except for Transform and Sky Drop.
+- `CheckToxicSpikes` is also replaced and handles modern Poison-type absorption. The pinned implementation clears the layer count and also masks `side_condition` with `SIDE_EFFECT_TYPE_TOXIC_SPIKES`; this exact source behavior should be preserved in the archive but explicitly runtime-tested before Mercury certification.
+- `CheckItemHoldEffect`, `GetItemHoldEffect`, and `GetItemEffectParam` remain base-HGSS dependencies. They underpin a surprisingly large amount of modern mechanics, including Power Herb, weather duration items, drain boosts, Room Service, and resist-Berry behavior.
+- `TrySpikes` and `TryToxicSpikes` also remain original HGSS commands, with hg-engine layering its own BeforeMove caps and hazard-queue handling around them.
 
-## Additional engine sources collected
+## Existing engine sources covering this batch
 
+- `mechanics/hg-engine/engine/battle_script_commands.c`
+- `mechanics/hg-engine/engine/other_battle_calculators.c`
 - `mechanics/hg-engine/engine/BattleController_BeforeMove.c`
-- `mechanics/hg-engine/engine/ServerDoPostMoveEffects.c`
-
-These files capture move eligibility/failure gates and post-hit dispatch that cannot be recovered from battle scripts alone.
+- `mechanics/hg-engine/engine/hooks`
 
 The cumulative command mapping is `manifests/mechanics_command_engine_audit.csv`.
 
-This remains source resolution, not runtime certification. The next audit pass should continue through modern item, grounding/terrain, hazard, and protection-contact commands, then expand the before/post-move hook manifest.
+This remains source resolution, not runtime certification. The next pass should continue with remaining terrain/move-property helpers, protection/priority gates, and move-state commands, then convert the discovered cross-file dependencies into a dedicated engine-hook manifest.
