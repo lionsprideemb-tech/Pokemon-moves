@@ -97,13 +97,13 @@ Current source-wide result: **434 unique non-vanilla move designs** after nine c
 - Pokémon Elite Redux: +187
 - Pokémon Vanguard via PokeRover: +63
 - Pokémon Rejuvenation via Rejuvenation Wiki Converter: +43
-- Pokémon Reborn Episode 19.16: +0
+- Pokémon Reborn Episode 19.16: +0 (audited and recorded)
 - Pokémon Uranium 1.3.1 via uranium-mining: +30
 - Pokémon Insurgence via Insurgence-Showdown: +22
 - Pokémon Clover via Clovermon Showdown: +58
 - Pokémon Opalo via xorgies/PokemonOpalo: +30
-- Pokémon Sage-associated Showdown fork: +1
+- Pokémon Sage via Pokemon-Showdown-Sage: +1
 
-Current master totals: **251 Physical, 125 Special, 58 Status**. The canonical 18 types account for **407** designs; source-specific custom types including Sound, Qmarks, Shadow, Nuclear, Crystal, and ??? are preserved without silently remapping them.
+Current master totals: **251 Physical, 125 Special, 58 Status**. Source-specific custom types including Sound, Qmarks, Shadow, Nuclear, Crystal, and ??? are preserved without silently remapping them.
 
 Next restart point: **All-Type Source Sweep 10** — audit the next public project as a whole and deduplicate its custom moves against the 434-move master catalog.
