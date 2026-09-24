@@ -1,13 +1,17 @@
-# Mercury Redux custom move ID policy
+# Mercury Redux custom move ID and validation policy
 
-The current post-Gen-4 official move constants occupy IDs **471–922**. ID **922** is `MOVE_MALIGNANT_CHAIN`.
+The current official modern move constants end at **922 — MOVE_MALIGNANT_CHAIN**.
 
-Custom/community candidates therefore stage from **923** upward. The current 519-candidate library occupies provisional IDs **923–1441**.
+The 519 current community candidates therefore occupy provisional IDs **923–1441**.
 
 Rules:
 1. Do not reserve a giant unused numeric block.
-2. Candidate IDs are provisional until approval is complete.
-3. Final integration compacts only approved moves from the next free official ID.
-4. Build work in 50-move batches; the last batch may be smaller.
-5. Automated validation runs on every move.
-6. Visual certification is deduplicated by donor animation and is mandatory for custom/recreated ports or failures, not for every move individually.
+2. Candidate IDs stay provisional during review.
+3. Final integration removes rejected candidates and compacts the approved set from the next free official ID.
+4. Work in 50-move batches (final batch may be smaller).
+5. Automated structural/mechanics validation runs on every candidate.
+6. **Do not render one video per candidate before approval.**
+7. Platinum/base-era donor animations use deduplicated spot checks.
+8. Post-Gen-4 DS donors get one visual certification per unique donor after the Platinum-native port.
+9. Custom/missing/unresolved animation work is deferred until the move is approved; a final custom/recreated animation must then be visually certified.
+10. Any automated/runtime failure escalates to a targeted visual test.

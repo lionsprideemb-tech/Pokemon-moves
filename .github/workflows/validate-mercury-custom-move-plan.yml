@@ -9,6 +9,7 @@ on:
       - "manifests/MERCURY_CUSTOM_MOVE_BATCH_PLAN.csv"
       - "manifests/MERCURY_CUSTOM_MOVE_BATCH_SUMMARY.csv"
       - "scripts/build_mercury_move_plan.py"
+      - "scripts/validate_mercury_bulk.py"
   pull_request:
     paths:
       - "constants/moves_post_gen4.h"
@@ -17,6 +18,7 @@ on:
       - "manifests/MERCURY_CUSTOM_MOVE_BATCH_PLAN.csv"
       - "manifests/MERCURY_CUSTOM_MOVE_BATCH_SUMMARY.csv"
       - "scripts/build_mercury_move_plan.py"
+      - "scripts/validate_mercury_bulk.py"
 
 jobs:
   validate:
@@ -27,3 +29,5 @@ jobs:
         with:
           python-version: "3.12"
       - run: python scripts/build_mercury_move_plan.py --check
+      - run: python scripts/validate_mercury_bulk.py --batch all
+      - run: python scripts/validate_mercury_bulk.py --batch BULK01
