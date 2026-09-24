@@ -63,8 +63,8 @@
     },
     "MOVE_LIGHTNING_STRIKE": {
       "status": "complete",
-      "move_description": "Leaps, strikes with a lightning bolt. 20% chance to raise Speed. Mega Launcher boost.",
-      "effect_text": "Leaps, strikes with a lightning bolt. 20% chance to raise Speed. Mega Launcher boost.",
+      "move_description": "Deals 70 base-power physical Electric-type damage. It has a 20% chance to raise the user's Speed by 1 stage. The move is flagged for Mega Launcher-style synergy in Elite Redux.",
+      "effect_text": "Deals 70 base-power physical Electric-type damage. It has a 20% chance to raise the user's Speed by 1 stage. The move is flagged for Mega Launcher-style synergy in Elite Redux.",
       "priority": "0 (normal priority)",
       "target": "One target",
       "contact": "No",
@@ -72,7 +72,8 @@
       "effect_chance": "20% when the listed secondary effect applies",
       "source_description": "Leaps, strikes with a lightning bolt. 20% chance to raise Speed. Mega Launcher boost.",
       "source_mechanics": "Effect family: EFFECT_SPEED_UP_HIT. Power 70, Accuracy 100, PP 20.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "stat_changes": "20% chance: user Speed +1 stage"
     },
     "MOVE_VOLT_BOLT": {
       "status": "complete",
@@ -193,8 +194,8 @@
     },
     "MOVE_JAGGED_FANGS": {
       "status": "complete",
-      "move_description": "A ferocious bite. 10% chance to raise user's Attack. Strong Jaw boost.",
-      "effect_text": "A ferocious bite. 10% chance to raise user's Attack. Strong Jaw boost.",
+      "move_description": "Deals 80 base-power physical Rock-type damage. It has a 10% chance to raise the user's Attack by 1 stage and is a biting move boosted by Strong Jaw.",
+      "effect_text": "Deals 80 base-power physical Rock-type damage. It has a 10% chance to raise the user's Attack by 1 stage and is a biting move boosted by Strong Jaw.",
       "priority": "0 (normal priority)",
       "target": "One target",
       "contact": "Yes",
@@ -202,7 +203,8 @@
       "effect_chance": "10% when the listed secondary effect applies",
       "source_description": "A ferocious bite. 10% chance to raise user's Attack. Strong Jaw boost.",
       "source_mechanics": "Effect family: EFFECT_ATTACK_UP_HIT. Power 80, Accuracy 100, PP 15.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "stat_changes": "10% chance: user Attack +1 stage"
     },
     "MOVE_SCORCHED_EARTH": {
       "status": "complete",
@@ -232,8 +234,8 @@
     },
     "MOVE_PRIMAL_BEAM": {
       "status": "complete",
-      "move_description": "An strange beam that uses the user's Attack, may rise own Atk.",
-      "effect_text": "An strange beam that uses the user's Attack, may rise own Atk.",
+      "move_description": "Deals 90 base-power physical Dragon-type damage. It uses the user's Attack and has a 20% chance to raise the user's Attack by 1 stage.",
+      "effect_text": "Deals 90 base-power physical Dragon-type damage. It uses the user's Attack and has a 20% chance to raise the user's Attack by 1 stage.",
       "priority": "0 (normal priority)",
       "target": "One target",
       "contact": "No",
@@ -241,7 +243,8 @@
       "effect_chance": "20% when the listed secondary effect applies",
       "source_description": "An strange beam that uses the user's Attack, may rise own Atk.",
       "source_mechanics": "Effect family: EFFECT_ATTACK_UP_HIT. Power 90, Accuracy 100, PP 10.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "stat_changes": "20% chance: user Attack +1 stage"
     },
     "MOVE_DRACONIC_FANGS": {
       "status": "complete",
@@ -258,8 +261,8 @@
     },
     "MOVE_PIXIE_BEAM": {
       "status": "complete",
-      "move_description": "A powerful magic beam. 20% chance to lower SpAtk. Mega launcher.",
-      "effect_text": "A powerful magic beam. 20% chance to lower SpAtk. Mega launcher.",
+      "move_description": "Deals 110 base-power special Fairy-type damage. It has a 20% chance to lower the target's Special Attack by 1 stage and is flagged for Mega Launcher-style synergy.",
+      "effect_text": "Deals 110 base-power special Fairy-type damage. It has a 20% chance to lower the target's Special Attack by 1 stage and is flagged for Mega Launcher-style synergy.",
       "priority": "0 (normal priority)",
       "target": "One target",
       "contact": "No",
@@ -267,7 +270,8 @@
       "effect_chance": "20% when the listed secondary effect applies",
       "source_description": "A powerful magic beam. 20% chance to lower SpAtk. Mega launcher.",
       "source_mechanics": "Effect family: EFFECT_SPECIAL_ATTACK_DOWN_HIT. Power 110, Accuracy 85, PP 5.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "stat_changes": "20% chance: target Sp. Atk -1 stage"
     },
     "MOVE_PIXIE_SLASH": {
       "status": "complete",
@@ -362,8 +366,8 @@
     },
     "MOVE_SUPERSONIC_SHOT": {
       "status": "complete",
-      "move_description": "Fires a high-speed arrow. Always crits. Archer boost.",
-      "effect_text": "Fires a high-speed arrow. Always crits. Archer boost.",
+      "move_description": "Deals 60 base-power physical Flying-type damage and always lands a critical hit. It is an arrow/projectile-style move in the source.",
+      "effect_text": "Deals 60 base-power physical Flying-type damage and always lands a critical hit. It is an arrow/projectile-style move in the source.",
       "priority": "0 (normal priority)",
       "target": "One target",
       "contact": "No",
@@ -453,8 +457,8 @@
     },
     "MOVE_FAIRY_SPHERES": {
       "status": "complete",
-      "move_description": "Magical spheres hit 2 to 5 times. Hits SpDef. Mega Launcher boost.",
-      "effect_text": "Magical spheres hit 2 to 5 times. Hits SpDef. Mega Launcher boost.",
+      "move_description": "A 20 base-power physical Fairy-type attack that hits 2–5 times. Despite being Physical, damage is calculated against the target's Special Defense rather than Defense. It makes contact and is flagged for Mega Launcher-style synergy.",
+      "effect_text": "A 20 base-power physical Fairy-type attack that hits 2–5 times. Despite being Physical, damage is calculated against the target's Special Defense rather than Defense. It makes contact and is flagged for Mega Launcher-style synergy.",
       "priority": "0 (normal priority)",
       "target": "One target",
       "contact": "Yes",
@@ -462,7 +466,8 @@
       "effect_chance": "No separate chance field",
       "source_description": "Magical spheres hit 2 to 5 times. Hits SpDef. Mega Launcher boost.",
       "source_mechanics": "Effect family: EFFECT_MULTI_HIT. Power 20, Accuracy 100, PP 10.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "multi_hit": "2–5 hits; 20 BP per hit; uses target Sp. Def"
     },
     "MOVE_BRAMBLE_BLAST": {
       "status": "complete",
@@ -648,8 +653,8 @@
     },
     "MOVE_WEB_SHOT": {
       "status": "complete",
-      "move_description": "Fires a sticky trap. Sets up Sticky Web. +1 crit chance. Archer boost.",
-      "effect_text": "Fires a sticky trap. Sets up Sticky Web. +1 crit chance. Archer boost.",
+      "move_description": "Deals 75 base-power physical Bug-type damage. If the hit succeeds, it sets Sticky Web on the target's side of the field. The source also gives the move an increased critical-hit rate and arrow/projectile synergy.",
+      "effect_text": "Deals 75 base-power physical Bug-type damage. If the hit succeeds, it sets Sticky Web on the target's side of the field. The source also gives the move an increased critical-hit rate and arrow/projectile synergy.",
       "priority": "0 (normal priority)",
       "target": "One target",
       "contact": "No",
@@ -739,8 +744,8 @@
     },
     "MOVE_PHANTOM_GLOVES": {
       "status": "complete",
-      "move_description": "Throws foe with a ghostly hand. 30% chance to lower Speed. Mega Launcher boost.",
-      "effect_text": "Throws foe with a ghostly hand. 30% chance to lower Speed. Mega Launcher boost.",
+      "move_description": "Deals 85 base-power physical Ghost-type damage. It has a 30% chance to lower the target's Speed by 1 stage and is flagged for Mega Launcher-style synergy.",
+      "effect_text": "Deals 85 base-power physical Ghost-type damage. It has a 30% chance to lower the target's Speed by 1 stage and is flagged for Mega Launcher-style synergy.",
       "priority": "0 (normal priority)",
       "target": "One target",
       "contact": "Yes",
@@ -748,7 +753,8 @@
       "effect_chance": "30% when the listed secondary effect applies",
       "source_description": "Throws foe with a ghostly hand. 30% chance to lower Speed. Mega Launcher boost.",
       "source_mechanics": "Effect family: EFFECT_SPEED_DOWN_HIT. Power 85, Accuracy 100, PP 10.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "stat_changes": "30% chance: target Speed -1 stage"
     },
     "MOVE_HOMING_FLETCH": {
       "status": "complete",
@@ -804,8 +810,8 @@
     },
     "MOVE_TORRENT_FIST": {
       "status": "complete",
-      "move_description": "Strikes with a water-infused fist. 20% chance to drop speed. Iron Fist boost.",
-      "effect_text": "Strikes with a water-infused fist. 20% chance to drop speed. Iron Fist boost.",
+      "move_description": "Deals 80 base-power physical Water-type damage. It has a 20% chance to lower the target's Speed by 1 stage and is a punching move boosted by Iron Fist.",
+      "effect_text": "Deals 80 base-power physical Water-type damage. It has a 20% chance to lower the target's Speed by 1 stage and is a punching move boosted by Iron Fist.",
       "priority": "0 (normal priority)",
       "target": "One target",
       "contact": "No",
@@ -813,7 +819,8 @@
       "effect_chance": "20% when the listed secondary effect applies",
       "source_description": "Strikes with a water-infused fist. 20% chance to drop speed. Iron Fist boost.",
       "source_mechanics": "Effect family: EFFECT_SPEED_DOWN_HIT. Power 80, Accuracy 100, PP 15.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "stat_changes": "20% chance: target Speed -1 stage"
     },
     "MOVE_STAR_CRASH": {
       "status": "complete",
@@ -882,8 +889,8 @@
     },
     "MOVE_WYRM_WIND": {
       "status": "complete",
-      "move_description": "Hits 2-5 times. Lowers SpDef. Raises Speed. Mega launcher boost.",
-      "effect_text": "Hits 2-5 times. Lowers SpDef. Raises Speed. Mega launcher boost.",
+      "move_description": "A 25 base-power special Dragon-type attack that hits 2–5 times. After its multi-hit sequence, it raises the user's Speed by 1 stage and lowers the user's Special Defense by 1 stage, matching the source's Wyrm Wind move-effect handling.",
+      "effect_text": "A 25 base-power special Dragon-type attack that hits 2–5 times. After its multi-hit sequence, it raises the user's Speed by 1 stage and lowers the user's Special Defense by 1 stage, matching the source's Wyrm Wind move-effect handling.",
       "priority": "0 (normal priority)",
       "target": "One target",
       "contact": "No",
@@ -891,7 +898,9 @@
       "effect_chance": "100% when the listed secondary effect applies",
       "source_description": "Hits 2-5 times. Lowers SpDef. Raises Speed. Mega launcher boost.",
       "source_mechanics": "Effect family: EFFECT_MULTI_HIT. Power 25, Accuracy 100, PP 20.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "multi_hit": "2–5 hits; 25 BP per hit",
+      "stat_changes": "User Speed +1 stage; user Sp. Def -1 stage after the sequence"
     },
     "MOVE_BERRY_SMASH": {
       "status": "complete",
@@ -1039,8 +1048,8 @@
     },
     "MOVE_KARMA": {
       "status": "complete",
-      "move_description": "Purges its impurities. Lowers Speed, raises SpAtk and SpDef.",
-      "effect_text": "Purges its impurities. Lowers Speed, raises SpAtk and SpDef.",
+      "move_description": "Raises the user's Special Attack by 1 stage and Special Defense by 1 stage, but lowers the user's Speed by 1 stage.",
+      "effect_text": "Raises the user's Special Attack by 1 stage and Special Defense by 1 stage, but lowers the user's Speed by 1 stage.",
       "priority": "0 (normal priority)",
       "target": "User",
       "contact": "No",
@@ -1048,7 +1057,8 @@
       "effect_chance": "No separate chance field",
       "source_description": "Purges its impurities. Lowers Speed, raises SpAtk and SpDef.",
       "source_mechanics": "Effect family: EFFECT_KARMA. Power —, Accuracy —, PP 20.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "stat_changes": "User Sp. Atk +1, Sp. Def +1, Speed -1"
     },
     "MOVE_GHASTLY_ECHO": {
       "status": "complete",
@@ -1156,8 +1166,8 @@
     },
     "MOVE_SQUEAKY_HAMMER": {
       "status": "complete",
-      "move_description": "An oddly sounding attack that may infatuate the foe. Hammer-based.",
-      "effect_text": "An oddly sounding attack that may infatuate the foe. Hammer-based.",
+      "move_description": "Deals 80 base-power physical Fairy-type damage. It has a 20% chance to infatuate the target and is flagged as a hammer-based move.",
+      "effect_text": "Deals 80 base-power physical Fairy-type damage. It has a 20% chance to infatuate the target and is flagged as a hammer-based move.",
       "priority": "0 (normal priority)",
       "target": "One target",
       "contact": "Yes",
@@ -1273,13 +1283,13 @@
     },
     "MOVE_PITFALL": {
       "status": "complete",
-      "move_description": "30% chance to trap and make attacks always hit the target. Hammer-based.",
-      "effect_text": "30% chance to trap and make attacks always hit the target. Hammer-based.",
+      "move_description": "Deals 80 base-power physical Ground-type damage. It has a 30% chance to trap the target so it cannot switch normally and apply a sure-hit effect that makes the user's attacks ignore accuracy against that target. Elite Redux stores the sure-hit state on a short timer; the source constant documents it as a two-turn timer with the next turn as the last active turn.",
+      "effect_text": "Deals 80 base-power physical Ground-type damage. It has a 30% chance to trap the target so it cannot switch normally and apply a sure-hit effect that makes the user's attacks ignore accuracy against that target. Elite Redux stores the sure-hit state on a short timer; the source constant documents it as a two-turn timer with the next turn as the last active turn.",
       "priority": "0 (normal priority)",
       "target": "One target",
       "contact": "Yes",
       "move_flags": "contact;mirror-move-affected;hammer;effect-chance-30",
-      "effect_chance": "30% when the listed secondary effect applies",
+      "effect_chance": "30%",
       "source_description": "30% chance to trap and make attacks always hit the target. Hammer-based.",
       "source_mechanics": "Effect family: EFFECT_ARGUMENT_HIT. Power 80, Accuracy 100, PP 10.",
       "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
@@ -1325,8 +1335,8 @@
     },
     "MOVE_MOLTEN_STRIKE": {
       "status": "complete",
-      "move_description": "Lowers the user's speed. Iron fist boost. Hammer-based.",
-      "effect_text": "Lowers the user's speed. Iron fist boost. Hammer-based.",
+      "move_description": "Deals 100 base-power physical Fire-type damage and then lowers the user's Speed. Elite Redux's move record marks this self-Speed drop as guaranteed; its public config does not encode the stage amount separately, so the audit does not invent a larger drop.",
+      "effect_text": "Deals 100 base-power physical Fire-type damage and then lowers the user's Speed. Elite Redux's move record marks this self-Speed drop as guaranteed; its public config does not encode the stage amount separately, so the audit does not invent a larger drop.",
       "priority": "0 (normal priority)",
       "target": "One target",
       "contact": "Yes",
@@ -1351,8 +1361,8 @@
     },
     "MOVE_EARTHSPLITTER": {
       "status": "complete",
-      "move_description": "Can lower the defense of targets. Hammer-based.",
-      "effect_text": "Can lower the defense of targets. Hammer-based.",
+      "move_description": "Deals 90 base-power physical Steel-type damage. It has a 50% chance to lower the target's Defense by 1 stage and is flagged as a hammer-based move.",
+      "effect_text": "Deals 90 base-power physical Steel-type damage. It has a 50% chance to lower the target's Defense by 1 stage and is flagged as a hammer-based move.",
       "priority": "0 (normal priority)",
       "target": "One target",
       "contact": "Yes",
@@ -1455,8 +1465,8 @@
     },
     "MOVE_MYSTIC_DANCE": {
       "status": "complete",
-      "move_description": "A mystic, powerful dance that boosts the user's SpAtk and Speed stats.",
-      "effect_text": "A mystic, powerful dance that boosts the user's SpAtk and Speed stats.",
+      "move_description": "Raises the user's Special Attack by 1 stage and Speed by 1 stage. It is a dance move.",
+      "effect_text": "Raises the user's Special Attack by 1 stage and Speed by 1 stage. It is a dance move.",
       "priority": "0 (normal priority)",
       "target": "User",
       "contact": "No",
@@ -1464,7 +1474,8 @@
       "effect_chance": "No separate chance field",
       "source_description": "A mystic, powerful dance that boosts the user's SpAtk and Speed stats.",
       "source_mechanics": "Effect family: EFFECT_MYSTIC_DANCE. Power —, Accuracy —, PP 20.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "stat_changes": "User Sp. Atk +1 and Speed +1"
     },
     "MOVE_RELENTLESS_CLOBBER": {
       "status": "complete",
@@ -1520,8 +1531,8 @@
     },
     "MOVE_RIP_AND_TEAR": {
       "status": "complete",
-      "move_description": "Lowers Speed. 50% chance to bleed. Can't be used twice in a row.",
-      "effect_text": "Lowers Speed. 50% chance to bleed. Can't be used twice in a row.",
+      "move_description": "Deals 110 base-power physical Dark-type damage. It lowers the target's Speed and has a 50% chance to inflict Elite Redux's Bleed status. It cannot be used on consecutive turns and is a biting move boosted by Strong Jaw.",
+      "effect_text": "Deals 110 base-power physical Dark-type damage. It lowers the target's Speed and has a 50% chance to inflict Elite Redux's Bleed status. It cannot be used on consecutive turns and is a biting move boosted by Strong Jaw.",
       "priority": "0 (normal priority)",
       "target": "One target",
       "contact": "Yes",
@@ -1611,9 +1622,9 @@
     },
     "MOVE_MERCULIGHT": {
       "status": "complete",
-      "move_description": "Evades attacks with certainty, paralyzing attackers. May fail if used in succession.",
-      "effect_text": "Evades attacks with certainty, paralyzing attackers. May fail if used in succession.",
-      "priority": "4 (+4 priority)",
+      "move_description": "Has +4 priority and protects the user from attacks for the turn. Attackers that trigger its protection are paralyzed. Like other Protect-style moves, repeated consecutive use can fail.",
+      "effect_text": "Has +4 priority and protects the user from attacks for the turn. Attackers that trigger its protection are paralyzed. Like other Protect-style moves, repeated consecutive use can fail.",
+      "priority": "+4",
       "target": "User",
       "contact": "No",
       "move_flags": "is-protection;priority-4",
@@ -1741,8 +1752,8 @@
     },
     "MOVE_VEXING_VOID": {
       "status": "complete",
-      "move_description": "30% chance to lower Special Defense. Never misses in fog.",
-      "effect_text": "30% chance to lower Special Defense. Never misses in fog.",
+      "move_description": "Deals 110 base-power special Dark-type damage. It has a 30% chance to lower the target's Special Defense by 1 stage. The source says it never misses in fog.",
+      "effect_text": "Deals 110 base-power special Dark-type damage. It has a 30% chance to lower the target's Special Defense by 1 stage. The source says it never misses in fog.",
       "priority": "0 (normal priority)",
       "target": "One target",
       "contact": "No",
@@ -1806,8 +1817,8 @@
     },
     "MOVE_ESPER_WALTZ": {
       "status": "complete",
-      "move_description": "50% chance to raise Special Attack. Dance move.",
-      "effect_text": "50% chance to raise Special Attack. Dance move.",
+      "move_description": "Deals 80 base-power special Psychic-type damage. It has a 50% chance to raise the user's Special Attack by 2 stages and is a dance move.",
+      "effect_text": "Deals 80 base-power special Psychic-type damage. It has a 50% chance to raise the user's Special Attack by 2 stages and is a dance move.",
       "priority": "0 (normal priority)",
       "target": "One target",
       "contact": "No",
@@ -1815,12 +1826,13 @@
       "effect_chance": "50% when the listed secondary effect applies",
       "source_description": "50% chance to raise Special Attack. Dance move.",
       "source_mechanics": "Effect family: EFFECT_SP_ATTACK_UP_HIT. Power 80, Accuracy 100, PP 10.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "stat_changes": "50% chance: user Sp. Atk +2 stages"
     },
     "MOVE_ZAP_JIVE": {
       "status": "complete",
-      "move_description": "50% chance to raise Speed. Dance move.",
-      "effect_text": "50% chance to raise Speed. Dance move.",
+      "move_description": "Deals 80 base-power special Electric-type damage. It has a 50% chance to raise the user's Speed by 1 stage and is a dance move.",
+      "effect_text": "Deals 80 base-power special Electric-type damage. It has a 50% chance to raise the user's Speed by 1 stage and is a dance move.",
       "priority": "0 (normal priority)",
       "target": "One target",
       "contact": "No",
@@ -1828,12 +1840,13 @@
       "effect_chance": "50% when the listed secondary effect applies",
       "source_description": "50% chance to raise Speed. Dance move.",
       "source_mechanics": "Effect family: EFFECT_SPEED_UP_HIT. Power 80, Accuracy 100, PP 10.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "stat_changes": "50% chance: user Speed +1 stage"
     },
     "MOVE_HEX_TROT": {
       "status": "complete",
-      "move_description": "50% chance to raise Speed. Dance move.",
-      "effect_text": "50% chance to raise Speed. Dance move.",
+      "move_description": "Deals 80 base-power special Ghost-type damage. It has a 50% chance to raise the user's Speed by 1 stage and is a dance move.",
+      "effect_text": "Deals 80 base-power special Ghost-type damage. It has a 50% chance to raise the user's Speed by 1 stage and is a dance move.",
       "priority": "0 (normal priority)",
       "target": "One target",
       "contact": "No",
@@ -1841,7 +1854,8 @@
       "effect_chance": "50% when the listed secondary effect applies",
       "source_description": "50% chance to raise Speed. Dance move.",
       "source_mechanics": "Effect family: EFFECT_SPEED_UP_HIT. Power 80, Accuracy 100, PP 10.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "stat_changes": "50% chance: user Speed +1 stage"
     },
     "MOVE_BAD_EGG": {
       "status": "complete",
@@ -1858,8 +1872,8 @@
     },
     "MOVE_DRAGON_JAB": {
       "status": "complete",
-      "move_description": "A jabbing attack. 30%  chance to inflict bleeding. Mighty Horn boost.",
-      "effect_text": "A jabbing attack. 30%  chance to inflict bleeding. Mighty Horn boost.",
+      "move_description": "Deals 80 base-power physical Dragon-type damage. It has a 30% chance to inflict Elite Redux's Bleed status and is flagged for horn/jabbing synergy.",
+      "effect_text": "Deals 80 base-power physical Dragon-type damage. It has a 30% chance to inflict Elite Redux's Bleed status and is flagged for horn/jabbing synergy.",
       "priority": "0 (normal priority)",
       "target": "One target",
       "contact": "Yes",
@@ -1871,8 +1885,8 @@
     },
     "MOVE_ICICLE_IMPALE": {
       "status": "complete",
-      "move_description": "A jabbing attack. 30%  chance to lower Defense. Mighty Horn boost.",
-      "effect_text": "A jabbing attack. 30%  chance to lower Defense. Mighty Horn boost.",
+      "move_description": "Deals 80 base-power physical Ice-type damage. It has a 30% chance to lower the target's Defense by 1 stage and is flagged for horn/jabbing synergy.",
+      "effect_text": "Deals 80 base-power physical Ice-type damage. It has a 30% chance to lower the target's Defense by 1 stage and is flagged for horn/jabbing synergy.",
       "priority": "0 (normal priority)",
       "target": "One target",
       "contact": "Yes",
@@ -2001,8 +2015,8 @@
     },
     "MOVE_INSECT_IMPACT": {
       "status": "complete",
-      "move_description": "A powerful punch. 30% chance to drop defense. Iron Fist boost.",
-      "effect_text": "A powerful punch. 30% chance to drop defense. Iron Fist boost.",
+      "move_description": "Deals 80 base-power physical Bug-type damage. It has a 30% chance to lower the target's Defense by 1 stage and is a punching move boosted by Iron Fist.",
+      "effect_text": "Deals 80 base-power physical Bug-type damage. It has a 30% chance to lower the target's Defense by 1 stage and is a punching move boosted by Iron Fist.",
       "priority": "0 (normal priority)",
       "target": "One target",
       "contact": "Yes",
@@ -2157,8 +2171,8 @@
     },
     "MOVE_SUNSTRIKE": {
       "status": "complete",
-      "move_description": "Strikes and negates evs, items, boosts, and hits lowest defense.",
-      "effect_text": "Strikes and negates evs, items, boosts, and hits lowest defense.",
+      "move_description": "Deals 60 base-power special Fire-type damage with +1 priority. Its source description says its damage calculation ignores EV-based defensive investment, held-item defensive effects, and stat boosts, and that it targets whichever of the target's Defense or Special Defense yields lower damage resistance.",
+      "effect_text": "Deals 60 base-power special Fire-type damage with +1 priority. Its source description says its damage calculation ignores EV-based defensive investment, held-item defensive effects, and stat boosts, and that it targets whichever of the target's Defense or Special Defense yields lower damage resistance.",
       "priority": "1 (+1 priority)",
       "target": "One target",
       "contact": "No",
@@ -2183,8 +2197,8 @@
     },
     "MOVE_PRISM_BLAST": {
       "status": "complete",
-      "move_description": "Fires and energy prism that damages and reduces accuracy. 10% chance to confuse.",
-      "effect_text": "Fires and energy prism that damages and reduces accuracy. 10% chance to confuse.",
+      "move_description": "Deals 95 base-power special Rock-type damage. It always lowers the target's Accuracy by 1 stage and separately has a 10% chance to confuse the target. It is flagged for Mega Launcher and ballistic/projectile synergy.",
+      "effect_text": "Deals 95 base-power special Rock-type damage. It always lowers the target's Accuracy by 1 stage and separately has a 10% chance to confuse the target. It is flagged for Mega Launcher and ballistic/projectile synergy.",
       "priority": "0 (normal priority)",
       "target": "One target",
       "contact": "No",
@@ -2192,7 +2206,9 @@
       "effect_chance": "10% when the listed secondary effect applies",
       "source_description": "Fires and energy prism that damages and reduces accuracy. 10% chance to confuse.",
       "source_mechanics": "Effect family: MOVE_EFFECT_ACC_MINUS_1. Uses source-defined custom behavior. Power 95, Accuracy 90, PP 5.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "stat_changes": "Target Accuracy -1 stage (100%)",
+      "status_effects": "10% chance to confuse"
     },
     "MOVE_SEISMIC_SLAM": {
       "status": "complete",
@@ -2261,8 +2277,8 @@
     },
     "MOVE_SHOT_PUT": {
       "status": "complete",
-      "move_description": "Throws a heavy sphere. 30% to lower speed.",
-      "effect_text": "Throws a heavy sphere. 30% to lower speed.",
+      "move_description": "Deals 85 base-power physical Steel-type damage. The source description gives it a 30% chance to lower the target's Speed by 1 stage. It is flagged as a throwing move.",
+      "effect_text": "Deals 85 base-power physical Steel-type damage. The source description gives it a 30% chance to lower the target's Speed by 1 stage. It is flagged as a throwing move.",
       "priority": "0 (normal priority)",
       "target": "One target",
       "contact": "No",
