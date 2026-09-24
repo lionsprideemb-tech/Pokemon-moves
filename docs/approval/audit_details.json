@@ -4737,8 +4737,8 @@
     },
     "ZARZAS": {
       "status": "source-limited",
-      "move_description": "Damages the target, traps it for 4–5 turns, and deals 1/16 max HP in residual damage each turn.",
-      "effect_text": "Deals 90 base-power physical Grass-type damage with 95% accuracy, then partially traps the target for 4–5 turns. While trapped, the target cannot switch normally and loses 1/16 of its maximum HP at the end of each turn. The exact 0CF effect family used by Zarzas is the same binding function used by Bind, Wrap, Fire Spin, and Sand Tomb in the pinned data; the matching Essentials implementation defines the 4–5 turn duration and 1/16 max-HP residual damage.",
+      "move_description": "A 90-power Grass physical attack that traps the target for 4–5 turns and deals residual damage each turn.",
+      "effect_text": "Deals 90 base-power Grass-type physical damage with 95% accuracy and 15 PP, then partially traps the target for 4–5 turns. While trapped, the target cannot switch normally and takes residual damage at the end of each turn. The pinned Opalo data certifies the 0CF binding-effect family and the 4–5 turn duration through matching moves in the same dataset, but the mirror does not include Opalo's runtime script needed to certify the exact fraction of max HP lost each turn.",
       "priority": "0 (normal priority)",
       "target": "one adjacent target",
       "contact": "Yes",
@@ -4750,10 +4750,10 @@
       "move_flags": "physical-grass;trap;residual;contact",
       "audit_basis": "Verified against the pinned Opalo move-data mirror plus the corresponding Pokémon Essentials PokeBattle_Move_0CF binding implementation.",
       "approval_ready": false,
-      "verification_blocker": "The 4–5 turn trapping duration is recoverable from the same pinned Opalo 0CF effect family, but the mirror does not include the original runtime script needed to certify the exact end-of-turn HP fraction.",
-      "hit_count_or_duration": "4–5 turns of trapping after a successful damaging hit",
+      "verification_blocker": "The move family and 4–5 turn duration are source-supported, but the public mirror does not include Opalo's runtime implementation needed to certify the exact end-of-turn HP fraction.",
+      "hit_count_or_duration": "4–5 turns of trapping after a successful hit",
       "multi_turn": "4–5 turns of binding/trapping",
-      "source_uncertainty": "None. The mirrored Opalo data identifies effect family 0CF; the same family is used by the source's standard binding moves, and its matching Pokémon Essentials implementation explicitly defines 4–5 turns and 1/16 max-HP end-of-turn damage."
+      "source_uncertainty": "Exact per-turn residual-damage fraction is not source-certified by the public Opalo mirror."
     },
     "SOMBRATELA": {
       "status": "complete",
