@@ -1,0 +1,311 @@
+{
+  "schema_version": 1,
+  "language": "en",
+  "note": "English review/display translations for Spanish-source move names. Original source names remain preserved and visible; translations can be revised during approval.",
+  "moves": {
+    "TIROTEO": {
+      "english_name": "Shootout",
+      "original_name": "Tiroteo"
+    },
+    "ELECTROBABA": {
+      "english_name": "Electro Slime",
+      "original_name": "Electrobaba"
+    },
+    "FUEGOLUNAR": {
+      "english_name": "Moonfire",
+      "original_name": "Fuego Lunar"
+    },
+    "ROMPEHIELOS": {
+      "english_name": "Icebreaker",
+      "original_name": "Rompehielos"
+    },
+    "TRINCHAR": {
+      "english_name": "Carve",
+      "original_name": "Trinchar"
+    },
+    "DESBANDADA": {
+      "english_name": "Stampede",
+      "original_name": "Desbandada"
+    },
+    "FIEBREORO": {
+      "english_name": "Gold Rush",
+      "original_name": "Fiebre del Oro"
+    },
+    "MALDIGNICION": {
+      "english_name": "Malediction",
+      "original_name": "Maldignición"
+    },
+    "LIMPIASUENOS": {
+      "english_name": "Dream Cleanse",
+      "original_name": "Limpia Sueños"
+    },
+    "ALAFUNESTA": {
+      "english_name": "Dire Wing",
+      "original_name": "Ala Funesta"
+    },
+    "FURIATOTEMICA": {
+      "english_name": "Totemic Fury",
+      "original_name": "Furia Totémica"
+    },
+    "ZARZAS": {
+      "english_name": "Brambles",
+      "original_name": "Zarzas"
+    },
+    "SOMBRATELA": {
+      "english_name": "Shadow Web",
+      "original_name": "Sombratela"
+    },
+    "ABRAZOFEROZ": {
+      "english_name": "Fierce Hug",
+      "original_name": "Abrazo Feroz"
+    },
+    "GEOIMPACTO": {
+      "english_name": "Geo Impact",
+      "original_name": "Geoimpacto"
+    },
+    "PIPADELAPAZ": {
+      "english_name": "Peace Pipe",
+      "original_name": "Pipa de la Paz"
+    },
+    "BORRASCA": {
+      "english_name": "Squall",
+      "original_name": "Borrasca"
+    },
+    "OJOSTERRIBLES": {
+      "english_name": "Dreadful Eyes",
+      "original_name": "Ojos Terribles"
+    },
+    "DRENANIMA": {
+      "english_name": "Soul Drain",
+      "original_name": "Drenánima"
+    },
+    "DANZAVUDU": {
+      "english_name": "Voodoo Dance",
+      "original_name": "Danza Vudú"
+    },
+    "CHOQUEVAPOR": {
+      "english_name": "Steam Strike",
+      "original_name": "Choque Vapor"
+    },
+    "PATADAGELIDA": {
+      "english_name": "Icy Kick",
+      "original_name": "Patada Gélida"
+    },
+    "COLMILLOSALVAJE": {
+      "english_name": "Wild Fangs",
+      "original_name": "Colm. Salvaje"
+    },
+    "BRAZOMUSGO": {
+      "english_name": "Moss Arm",
+      "original_name": "Brazo Musgo"
+    },
+    "LASERESENCIA": {
+      "english_name": "Essence Laser",
+      "original_name": "Láser Esencia"
+    },
+    "CARICATURA": {
+      "english_name": "Caricature",
+      "original_name": "Caricatura"
+    },
+    "FLECHASTRAL": {
+      "english_name": "Astral Arrow",
+      "original_name": "Flecha Astral"
+    },
+    "LINGOTAZO": {
+      "english_name": "Ingot Slam",
+      "original_name": "Lingotazo"
+    },
+    "ABSORBESENCIA": {
+      "english_name": "Essence Drain",
+      "original_name": "Absorbesencia"
+    },
+    "FUERZAESENCIA": {
+      "english_name": "Essence Force",
+      "original_name": "Fuerzaesencia"
+    },
+    "PLEGARIACALAMO": {
+      "english_name": "Quill Prayer",
+      "original_name": "Plegaria Cálamo"
+    },
+    "PUNZADABURBUJA": {
+      "english_name": "Bubble Barb",
+      "original_name": "Púa Burbuja"
+    },
+    "FLORALETEO": {
+      "english_name": "Floral Flutter",
+      "original_name": "Floraleteo"
+    },
+    "CUERNARDIENTE": {
+      "english_name": "Fiery Horn",
+      "original_name": "Cuerno Ígneo"
+    },
+    "FERMENTACION": {
+      "english_name": "Fermentation",
+      "original_name": "Fermentación"
+    },
+    "PROTOPLUMA": {
+      "english_name": "Proto Feather",
+      "original_name": "Protopluma"
+    },
+    "PODERNINFA": {
+      "english_name": "Nymph Power",
+      "original_name": "Poder Ninfa"
+    },
+    "PODERIGNIS": {
+      "english_name": "Ignis Power",
+      "original_name": "Poder Ignis"
+    },
+    "PODERVOLTA": {
+      "english_name": "Volta Power",
+      "original_name": "Poder Volta"
+    },
+    "PODERCIMEX": {
+      "english_name": "Cimex Power",
+      "original_name": "Poder Cimex"
+    },
+    "PODERAQUA": {
+      "english_name": "Aqua Power",
+      "original_name": "Poder Aqua"
+    },
+    "ARENAILUSORIA": {
+      "english_name": "Illusory Sand",
+      "original_name": "Arena Ilusoria"
+    },
+    "LLUVIAPUNOS": {
+      "english_name": "Rain of Fists",
+      "original_name": "Lluvia de Puños"
+    },
+    "MPREDATORIO": {
+      "english_name": "Fierce Bite",
+      "original_name": "Mordisco Feroz"
+    },
+    "MENTEREY": {
+      "english_name": "Royal Visage",
+      "original_name": "Semblante Real"
+    },
+    "PODEREVOL": {
+      "english_name": "Evolution Power",
+      "original_name": "Poder Evolutivo"
+    },
+    "EBULLICIÓN": {
+      "english_name": "Boiling",
+      "original_name": "Ebullición"
+    },
+    "TRESDESEOS": {
+      "english_name": "Three Wishes",
+      "original_name": "Tres Deseos"
+    },
+    "RITOCHAMANICO": {
+      "english_name": "Shamanic Rite",
+      "original_name": "Rito Chamánico"
+    },
+    "GOLPESABANA": {
+      "english_name": "Savanna Strike",
+      "original_name": "Golpe Sabana"
+    },
+    "AGUIJONLETAL": {
+      "english_name": "Noxious Burn",
+      "original_name": "Ardor Nocivo"
+    },
+    "VIRAZON": {
+      "english_name": "Sea Breeze",
+      "original_name": "Virazón"
+    },
+    "COMBUSCRIN": {
+      "english_name": "Mane Blast",
+      "original_name": "Combuscrin"
+    },
+    "MIGRACIÓN": {
+      "english_name": "Migration",
+      "original_name": "Migración"
+    },
+    "PATRONAJE": {
+      "english_name": "Patterning",
+      "original_name": "Patronaje"
+    },
+    "AEROGENERADOR": {
+      "english_name": "Wind Turbine",
+      "original_name": "Aerogenerador"
+    },
+    "HIEDRAAGIL": {
+      "english_name": "Agile Ivy",
+      "original_name": "Hiedra Ágil"
+    },
+    "TASER": {
+      "english_name": "Taser",
+      "original_name": "Táser"
+    },
+    "AGUANOCIVA": {
+      "english_name": "Noxious Waters",
+      "original_name": "Aguas Nocivas"
+    },
+    "FUEGOCRUZADO": {
+      "english_name": "Crossfire",
+      "original_name": "Fuego Cruzado"
+    },
+    "CONJUROSOLAR": {
+      "english_name": "Solar Force",
+      "original_name": "Fuerza Solar"
+    },
+    "CACAREO": {
+      "english_name": "Clucking",
+      "original_name": "Cacareo"
+    },
+    "TERRAL": {
+      "english_name": "Heat Drain",
+      "original_name": "Endodrenaje"
+    },
+    "PODERPRIMATE": {
+      "english_name": "Primate Power",
+      "original_name": "Poder Primate"
+    },
+    "ELECTROPUNZADA": {
+      "english_name": "Electro Jab",
+      "original_name": "Electropunzada"
+    },
+    "ELECTROARENA": {
+      "english_name": "Electro Sand",
+      "original_name": "Electroarena"
+    },
+    "COMECEREBRO": {
+      "english_name": "Brain Eater",
+      "original_name": "Comecerebro"
+    },
+    "ROCAVOLTAICA": {
+      "english_name": "Voltaic Rock",
+      "original_name": "Roca Voltaica"
+    },
+    "GHOSTGALLOP": {
+      "english_name": "Spectral Gallop",
+      "original_name": "Galope Espectral"
+    },
+    "IRALLAMEANTE": {
+      "english_name": "Blazing Fury",
+      "original_name": "Ira Llameante"
+    },
+    "ENFRIAR": {
+      "english_name": "Cool Down",
+      "original_name": "Enfriar"
+    },
+    "AHOGAMIENTO": {
+      "english_name": "Deep Dive",
+      "original_name": "Zambullida"
+    },
+    "DESPRENDIMIENTO": {
+      "english_name": "Rockfall",
+      "original_name": "Desprendimiento"
+    },
+    "PUASSOBERANAS": {
+      "english_name": "Royal Darts",
+      "original_name": "Dardos Reales"
+    },
+    "MORDISCOCARDUMEN": {
+      "english_name": "School Bite",
+      "original_name": "Mor. Cardúmen"
+    },
+    "BIFIDOVOLADOR": {
+      "english_name": "Split Strike",
+      "original_name": "Golpe Bífido"
+    }
+  }
+}
