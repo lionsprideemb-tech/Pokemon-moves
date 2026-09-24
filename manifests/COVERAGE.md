@@ -6,7 +6,7 @@ Primary source snapshot: BluRosie/hg-engine @ 398a3020943f1ae98987e5b12b73d9086b
 |---|---:|---:|---:|---|
 | Gen 5 | 471–562 | 92/92 | 92/92 | ✅ Phase A certified |
 | Gen 6 | 563–624 | 62/62 | 62/62 | ✅ Phase B certified |
-| Gen 7 | 625–745 | 121 | pending audit | Pending |
+| Gen 7 | 625–745 | 121/121 | 121/121 | ✅ Phase C certified |
 | Gen 8 + Legends: Arceus | 746–853 | 108 | pending audit | Pending |
 | Gen 9 + DLC | 854–922 | 69 | pending audit | Pending |
 | **Total** | **471–922** | **452** |  |  |
@@ -35,3 +35,13 @@ The pinned hg-engine snapshot contains a dedicated DS animation script for every
 - Source hash mismatches: 0
 - Mechanics coverage: 62/62
 - Missing IDs: none
+
+
+### Phase C — Generation 7
+- IDs: 625–745
+- Animation coverage: 121/121
+- Source hash mismatches: 0
+- Mechanics coverage: 121/121
+- Missing IDs: none
+- Shared hg-engine animation/dependency support snapshot: exact SHA match
+- Z-Move-era scripts preserved from upstream; reuse/placeholder quality classification deferred to Phase H
