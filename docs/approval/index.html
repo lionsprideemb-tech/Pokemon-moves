@@ -12,7 +12,7 @@
     <div>
       <p class="eyebrow">Pokémon Moves Collection</p>
       <h1>Move Approval Board</h1>
-      <p class="subtitle">Review the move, every cataloged mechanic, and the animation assigned to it.</p>
+      <p class="subtitle">Mechanics audit complete: review all 519 candidate moves in compact Mercury ID order, including every cataloged effect and assigned animation.</p>
     </div>
     <div class="top-actions">
       <button id="exportJsonBtn" class="button secondary">Export reviews</button>
@@ -35,12 +35,13 @@
   </section>
 
   <section class="runtime-note" aria-label="Runtime certification note">
-    <strong>Platinum runtime rule:</strong>
-    <span>Assigned HG-Engine animations are donor baselines for visual review. Final animation approval requires a native pokeplatinum port and runtime test.</span>
+    <strong>Approval phase:</strong>
+    <span>519/519 candidate moves now have complete Mercury mechanics. Assigned HG-Engine animations are donor baselines; final animation certification still requires a native pokeplatinum port and runtime test.</span>
   </section>
 
   <section class="filters">
     <input id="searchInput" class="control search" type="search" placeholder="Search move name, ID, effect, animation…">
+    <select id="batchFilter" class="control"><option value="">All approval batches</option></select>
     <select id="sourceFilter" class="control"><option value="">All sources</option></select>
     <select id="typeFilter" class="control"><option value="">All types</option></select>
     <select id="categoryFilter" class="control">
@@ -65,6 +66,7 @@
       <div class="panel-head">
         <strong id="visibleCount">0 moves</strong>
         <select id="sortSelect" class="mini-control" aria-label="Sort moves">
+          <option value="id">Mercury ID</option>
           <option value="name">Name A–Z</option>
           <option value="source">Source</option>
           <option value="type">Type</option>

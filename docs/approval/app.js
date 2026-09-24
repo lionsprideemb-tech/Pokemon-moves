@@ -34,12 +34,13 @@ const state = {
   translations: {},
   filters: {
     search: "",
+    batch: "",
     source: "",
     type: "",
     category: "",
     animation: "",
     review: "",
-    sort: "name"
+    sort: "id"
   }
 };
 
@@ -55,6 +56,12 @@ async function init() {
   try {
     const masterText = await fetchText(RAW + "manifests/community_moves.csv");
     const masterRows = csvToObjects(masterText);
+    const planText = await fetchText(RAW + "manifests/MERCURY_CUSTOM_MOVE_BATCH_PLAN.csv");
+    const planRows = csvToObjects(planText);
+    const planById = {};
+    planRows.forEach(function(row) {
+      if (row.move_id) planById[row.move_id] = row;
+    });
 
     const manifestResults = await Promise.all(
       animationManifests.map(async function(path) {
@@ -102,7 +109,8 @@ async function init() {
       const overlay = animById[row.move_id] || {};
       const audit = state.auditDetails[row.move_id] || {};
       const translation = state.translations[row.move_id] || {};
-      return normalizeMove(row, overlay, audit, translation);
+      const plan = planById[row.move_id] || {};
+      return normalizeMove(row, overlay, audit, translation, plan);
     });
 
     buildFilterOptions();
@@ -122,7 +130,7 @@ async function init() {
 function cacheElements() {
   [
     "totalCount","reviewedCount","approvedCount","animationApprovedCount","remainingCount",
-    "progressText","progressBar","searchInput","sourceFilter","typeFilter","categoryFilter",
+    "progressText","progressBar","searchInput","batchFilter","sourceFilter","typeFilter","categoryFilter",
     "animationFilter","reviewFilter","sortSelect","visibleCount","moveList","detailPanel",
     "emptyState","moveDetail","prevBtn","nextBtn","positionText","sourceBadge","moveName",
     "moveId","typePill","categoryPill","mechanicsAuditBadge","coreGrid","effectsGrid",
@@ -136,6 +144,7 @@ function bindEvents() {
     state.filters.search = e.target.value.trim().toLowerCase();
     applyFilters();
   });
+  el.batchFilter.addEventListener("change", filterHandler("batch"));
   el.sourceFilter.addEventListener("change", filterHandler("source"));
   el.typeFilter.addEventListener("change", filterHandler("type"));
   el.categoryFilter.addEventListener("change", filterHandler("category"));
@@ -266,7 +275,7 @@ function csvToObjects(text) {
   });
 }
 
-function normalizeMove(row, overlay, audit, translation) {
+function normalizeMove(row, overlay, audit, translation, plan) {
   const animationReference = overlay.source_animation_reference ||
     overlay.source_animation_evidence ||
     row.animation_reference || "";
@@ -291,6 +300,10 @@ function normalizeMove(row, overlay, audit, translation) {
     animation_audit_notes: overlay.notes || "",
     animation_manifest_path: overlay.animation_manifest_path || "",
     audit: audit,
+    provisional_ds_id: plan.provisional_ds_id || "",
+    batch_id: plan.batch_id || "",
+    visual_policy: plan.visual_policy || "",
+    mechanics_audit_status: plan.mechanics_audit_status || audit.status || "",
     animation_bucket: animationBucket(animationClass, animationReference, animationPath, row.animation_status)
   });
 }
@@ -307,6 +320,7 @@ function animationBucket(cls, ref, path, original) {
 }
 
 function buildFilterOptions() {
+  fillSelect(el.batchFilter, unique(state.moves.map(function(m) { return m.batch_id; })));
   fillSelect(el.sourceFilter, unique(state.moves.map(function(m) { return m.source_project; })));
   fillSelect(el.typeFilter, unique(state.moves.map(function(m) { return m.type; })));
   fillSelect(el.animationFilter, unique(state.moves.map(function(m) { return m.animation_bucket; })));
@@ -335,10 +349,11 @@ function applyFilters() {
     const searchBlob = [
       m.display_name,m.original_move_name,m.move_name,m.move_id,m.source_project,m.type,m.category,m.primary_effect,
       m.secondary_effect,m.tags,m.animation_reference,m.source_animation_reference_audit,
-      m.ds_animation_class,m.ds_animation_path,m.notes
+      m.ds_animation_class,m.ds_animation_path,m.notes,m.batch_id,m.provisional_ds_id,m.visual_policy
     ].join(" ").toLowerCase();
 
     if (f.search && !searchBlob.includes(f.search)) return false;
+    if (f.batch && m.batch_id !== f.batch) return false;
     if (f.source && m.source_project !== f.source) return false;
     if (f.type && m.type !== f.type) return false;
     if (f.category && m.category !== f.category) return false;
@@ -361,6 +376,9 @@ function applyFilters() {
 function sortFiltered() {
   const sort = state.filters.sort;
   state.filtered.sort(function(a, b) {
+    if (sort === "id") {
+      return Number(a.provisional_ds_id || 999999) - Number(b.provisional_ds_id || 999999);
+    }
     if (sort === "source") {
       return localeSort(a.source_project, b.source_project) || localeSort(a.display_name, b.display_name);
     }
@@ -417,7 +435,13 @@ function renderMoveList() {
     name.textContent = m.display_name || m.move_name || m.move_id;
     const meta = document.createElement("div");
     meta.className = "move-row-meta";
-    meta.textContent = [m.type, m.category, shortSource(m.source_project)].filter(Boolean).join(" • ");
+    meta.textContent = [
+      m.provisional_ds_id ? "#" + m.provisional_ds_id : "",
+      m.batch_id,
+      m.type,
+      m.category,
+      shortSource(m.source_project)
+    ].filter(Boolean).join(" • ");
     left.appendChild(name);
     left.appendChild(meta);
 
@@ -514,6 +538,8 @@ function renderMove(m) {
   el.mechanicsAuditBadge.style.borderColor = auditComplete ? "#22c55e" : "#ef4444";
 
   renderGrid(el.coreGrid, [
+    ["Mercury provisional ID", displayValue(m.provisional_ds_id)],
+    ["Approval batch", displayValue(m.batch_id)],
     ["English review name", displayValue(m.display_name)],
     ["Original source name", displayValue(m.original_move_name)],
     ["Power", displayValue(m.power)],
@@ -521,7 +547,8 @@ function renderMove(m) {
     ["PP", displayValue(m.pp)],
     ["Type", displayValue(m.type)],
     ["Category", displayValue(m.category)],
-    ["Tags / flags", displayValue(m.tags)]
+    ["Tags / flags", displayValue(m.tags)],
+    ["Visual review policy", displayValue(m.visual_policy)]
   ]);
 
   const effects = [
