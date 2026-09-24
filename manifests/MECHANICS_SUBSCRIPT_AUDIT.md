@@ -1,28 +1,33 @@
 # Mechanics Subscript Resolution
 
-Phase F3 resolves the `MOVE_SUBSCRIPT_PTR_*` dependencies discovered in Phase F2 to the concrete hg-engine battle subscripts that implement them.
+Phase F3 resolves script-level dependencies discovered by the Phase F2 effect audit.
 
-## Progress
+## Side-effect pointer resolution
 
-- Unique side-effect pointers requiring resolution: **90**
-- Resolved side-effect pointers: **90/90**
-- Concrete subscript files collected from pointer resolution: **72 unique**
+- Unique `MOVE_SUBSCRIPT_PTR_*` dependencies: **90**
+- Resolved: **90/90**
+- Unique concrete files represented by that mapping: **72**
+
+## Direct battle-subscript resolution
+
+- Unique direct `BATTLE_SUBSCRIPT_*` dependencies from Phase F2: **9**
+- Resolved: **9/9**
+- New concrete files collected in this pass: **8**
+- One dependency, `BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE`, was already present from side-effect pointer resolution.
+- Total unique collected subscript files after this pass: **80**
 - Source: `BluRosie/hg-engine @ 398a3020943f1ae98987e5b12b73d9086bbba3ce`
 
-## Batch 09 notes
+## Direct dependency findings
 
-- `STUFF_CHEEKS` boosts Defense by two stages, invokes the specialized `StuffCheeks` command to process the Berry, then removes the held item.
-- `TAKE_HEART` raises Sp. Atk and Sp. Def by one stage each and also clears the user's major status condition.
-- `THRASH` writes the rampage duration into status state and locks the attacker to the current move.
-- `TIDY_UP` is a large field-cleanup script: it removes Substitutes from all battler slots, clears Spikes, Toxic Spikes, Stealth Rock, and Sticky Web on both sides, then raises the user's Attack and Speed.
-- `TOXIC_THREAD` combines Speed -2 through the common stat updater with the full Poison subscript.
-- `USER_DEF_AND_SPDEF_DOWN_1_STAGE`, `USER_DEF_DOWN_HIT`, `V_CREATE`, and `WORK_UP` are wrappers around the shared stat-stage system.
-- `USER_SWAP_ATK_AND_DEF` toggles the Power Trick move-effect flag and directly swaps the user's Attack and Defense values.
+- `ATTACK_MESSAGE_AND_ANIMATION` is the common attack-message plus move-animation helper.
+- `CHARGE_MOVE_CLEANUP` clears locked-move state and marks charge-move completion.
+- `CREATE_TERRAIN_OVERLAY` contains terrain presentation plus Quark Drive/paradox activation/reset handling; its source includes an upstream TODO around terrain-move behavior.
+- `HANDLE_SNOW_TEMPORARY` installs five-turn snow, handles duration-extending held items, and resets/activates Protosynthesis-related state.
+- `ITEM_SKIP_CHARGE_TURN` contains Power Herb-style animation/item consumption and semi-invulnerable visual handling.
+- `MAGIC_ROOM_END` clears the Magic Room field condition and prints the end message.
+- `POWER_HERB_METEOR_BEAM` and `SP_ATK_UP_RAIN_SKIP` both call the shared stat-stage updater; the Power Herb variant also consumes the item.
+- `UPDATE_STAT_STAGE` itself calls Defiant and Competitive handlers and depends on `ChangeStatStage` plus `CheckCanActivateDefiantOrCompetitive`.
 
-## Side-effect pointer resolution status
+The direct mapping manifest is `manifests/mechanics_direct_subscripts.csv`.
 
-**Complete: 90/90.**
-
-This does not finish all of Phase F3. The next step is to resolve and collect the **9 direct `BATTLE_SUBSCRIPT_*` dependencies** discovered in Phase F2, then continue into specialized battle-command and engine-hook mapping.
-
-The mapping manifest is `manifests/mechanics_subscript_resolution.csv`.
+Phase F3 is still active. The next step is to inventory and resolve the specialized battle commands and nested battle-subscript dependencies exposed by the collected effect/subscript graph, then map the corresponding C implementations and engine hooks.
