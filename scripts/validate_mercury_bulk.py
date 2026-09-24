@@ -23,9 +23,14 @@ def main():
         if r["type"] not in TYPES: errors.append(f"{r['move_id']}: bad type {r['type']}")
         if r["category"] not in CATS: errors.append(f"{r['move_id']}: bad category {r['category']}")
         if not r["move_name"]: errors.append(f"{r['move_id']}: missing name")
-        try:
-            if int(r["pp"])<=0: raise ValueError
-        except ValueError: errors.append(f"{r['move_id']}: invalid PP {r['pp']}")
+        complete=r["mechanics_audit_status"].lower()=="complete"
+        if complete:
+            try:
+                if int(r["pp"])<=0: raise ValueError
+            except ValueError:
+                errors.append(f"{r['move_id']}: complete record has invalid PP {r['pp']}")
+        elif r["visual_policy"]!="BLOCKED_MECHANICS":
+            errors.append(f"{r['move_id']}: incomplete mechanics must be BLOCKED_MECHANICS")
         for key in ("power","accuracy"):
             if r[key]:
                 try: int(r[key])
@@ -37,5 +42,6 @@ def main():
         for e in errors: print("ERROR:",e)
         raise SystemExit(1)
     blocked=sum(r["mechanics_audit_status"].lower()!="complete" for r in rows)
-    print(f"PASS: {len(rows)} rows structurally valid; {blocked} mechanics-blocked.")
+    ready=len(rows)-blocked
+    print(f"PASS: {len(rows)} rows structurally valid; {ready} mechanics-ready; {blocked} quarantined blocker(s).")
 if __name__=="__main__": main()

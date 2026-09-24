@@ -89,7 +89,7 @@
 "88","1010","BULK02","MOVE_SQUEAKY_HAMMER","Squeaky Hammer","Fairy","Physical","80","100","15","complete","direct hg-engine DS reuse","MOVE_GIGATON_HAMMER","UNIQUE_DONOR_VISUAL_ONCE_AFTER_PORT"
 "89","1011","BULK02","MOVE_PRIMITIVE_STRIKE","Primitive Strike","Ground","Physical","120","95","5","complete","direct hg-engine DS reuse","MOVE_GIGATON_HAMMER","UNIQUE_DONOR_VISUAL_ONCE_AFTER_PORT"
 "90","1012","BULK02","MOVE_SMASHING_PUMPKINS","Smashing Pumpkins","Grass","Physical","60","","20","complete","direct hg-engine DS reuse","MOVE_GIGATON_HAMMER","UNIQUE_DONOR_VISUAL_ONCE_AFTER_PORT"
-"91","1013","BULK02","MOVE_AIRBORNE_SLAM","Airborne Slam","Normal","Physical","","","","complete","direct hg-engine DS reuse","MOVE_GIGATON_HAMMER","UNIQUE_DONOR_VISUAL_ONCE_AFTER_PORT"
+"91","1013","BULK02","MOVE_AIRBORNE_SLAM","Airborne Slam","Normal","Physical","","","","source-limited","direct hg-engine DS reuse","MOVE_GIGATON_HAMMER","BLOCKED_MECHANICS"
 "92","1014","BULK02","MOVE_SPINE_BREAKER","Spine Breaker","Rock","Physical","80","100","15","complete","direct hg-engine DS reuse","MOVE_GIGATON_HAMMER","UNIQUE_DONOR_VISUAL_ONCE_AFTER_PORT"
 "93","1015","BULK02","MOVE_CRACKLE_SLAM","Crackle Slam","Electric","Physical","70","100","15","complete","direct hg-engine DS reuse","MOVE_GIGATON_HAMMER","UNIQUE_DONOR_VISUAL_ONCE_AFTER_PORT"
 "94","1016","BULK02","MOVE_SQUALL_HAMMER","Squall Hammer","Flying","Physical","95","100","10","complete","direct hg-engine DS reuse","MOVE_GIGATON_HAMMER","UNIQUE_DONOR_VISUAL_ONCE_AFTER_PORT"

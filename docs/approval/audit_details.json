@@ -1205,17 +1205,20 @@
       "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
     },
     "MOVE_AIRBORNE_SLAM": {
-      "status": "complete",
-      "move_description": "20% chance to confuse. Hammer-based.",
-      "effect_text": "20% chance to confuse. Hammer-based.",
+      "status": "source-limited",
+      "move_description": "Source-limited hammer attack: the source says it has a 20% chance to confuse, but its base power, accuracy, PP, and implemented effect are missing.",
+      "effect_text": "The pinned Elite Redux record describes a Normal-type physical hammer attack with a 20% confusion chance and an ignores-Protect flag, but the same record omits base power, accuracy, PP, and effect chance and uses EFFECT_PLACEHOLDER. Those missing values are not guessed.",
       "priority": "0 (normal priority)",
       "target": "One target",
       "contact": "No",
       "move_flags": "ignores-protect;hammer",
-      "effect_chance": "No separate chance field",
+      "effect_chance": "Description says 20%, but the machine-readable effect-chance field is absent.",
       "source_description": "20% chance to confuse. Hammer-based.",
-      "source_mechanics": "Effect family: EFFECT_PLACEHOLDER. Power —, Accuracy —, PP —.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "source_mechanics": "Effect family: EFFECT_PLACEHOLDER. Power —, Accuracy —, PP —, effect chance —.",
+      "audit_basis": "Source-verified against pinned Elite Redux MoveList.textproto; required battle values are absent in the source record.",
+      "approval_ready": false,
+      "verification_blocker": "The pinned source omits base power, accuracy, PP, and effect-chance data and uses EFFECT_PLACEHOLDER.",
+      "source_limitation": "The public Elite Redux config does not contain enough numeric/runtime information to reproduce this move faithfully."
     },
     "MOVE_SPINE_BREAKER": {
       "status": "complete",
