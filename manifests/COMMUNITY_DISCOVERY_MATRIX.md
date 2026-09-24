@@ -87,6 +87,15 @@ Pinned commit: `f6757adccfc138272f10e738afdc36472387e646`
 Result: **1** fork-specific move imported: **Magikarp's Revenge**.
 The only other non-match was `Vice Grip`, excluded as the legacy spelling of official **Vise Grip**.
 
+### Pokémon Sage via Pokemon-Showdown-Sage — All-Type Source Sweep 09
+Pinned commit: `f6757adccfc138272f10e738afdc36472387e646`
+
+Result: **1** new fork-specific design imported after comparing the old Showdown move table against modern upstream and the official move baseline.
+- **Magikarp's Revenge** — Water / Physical / 120 BP
+- `VICEGRIP` was excluded as the legacy spelling of official **Vise Grip**
+- nested object keys encountered by raw parsing were not treated as moves
+- no DS-native animation asset is provided by the source
+
 Master catalog progression: **187 → 250 → 293 → 293 → 323 → 345 → 403 → 433 → 434**.
 
 This matrix is updated after every source-wide audit. We do **not** search one type/category cell at a time; remaining gaps guide source selection without narrowing the sweep.
