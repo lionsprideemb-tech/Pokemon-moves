@@ -1,0 +1,125 @@
+name: Sync DS modern moves
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/sync-ds-moves.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out library
+        uses: actions/checkout@v4
+
+      - name: Fetch pinned hg-engine source
+        run: |
+          rm -rf /tmp/hg-engine
+          git clone --filter=blob:none https://github.com/BluRosie/hg-engine.git /tmp/hg-engine
+          cd /tmp/hg-engine
+          git checkout 398a3020943f1ae98987e5b12b73d9086bbba3ce
+
+      - name: Collect post-Gen-IV DS animations and move scripts
+        shell: bash
+        run: |
+          set -euo pipefail
+          SRC=/tmp/hg-engine
+
+          mkdir -p animations/hg-engine/{gen5,gen6,gen7,gen8,gen9}
+          mkdir -p mechanics/hg-engine/move_scripts
+          mkdir -p support/hg-engine
+          mkdir -p references/hg-engine
+
+          for id in $(seq 471 922); do
+            f=$(printf "%03d.s" "$id")
+            if [ "$id" -le 562 ]; then gen=gen5
+            elif [ "$id" -le 624 ]; then gen=gen6
+            elif [ "$id" -le 745 ]; then gen=gen7
+            elif [ "$id" -le 853 ]; then gen=gen8
+            else gen=gen9
+            fi
+            cp "$SRC/armips/move/move_anim/$f" "animations/hg-engine/$gen/$f"
+          done
+
+          find "$SRC/data/battle_scripts/moves" -maxdepth 1 -type f -name 'move_script_*.s' -print0 |
+          while IFS= read -r -d '' f; do
+            base=$(basename "$f")
+            id4=$(echo "$base" | sed -E 's/^move_script_([0-9]{4}).*/\1/')
+            id=$((10#$id4))
+            if [ "$id" -ge 471 ] && [ "$id" -le 922 ]; then
+              cp "$f" "mechanics/hg-engine/move_scripts/$base"
+            fi
+          done
+
+          cp "$SRC/armips/include/animscriptcmd.s" support/hg-engine/animscriptcmd.s
+          cp "$SRC/include/constants/moves.h" support/hg-engine/moves.h
+          cp "$SRC/include/constants/move_effects.h" support/hg-engine/move_effects.h
+          cp "$SRC/include/move_data.h" support/hg-engine/move_data.h
+
+          if [ -d "$SRC/armips/move/move_sub_anim" ]; then
+            rm -rf support/hg-engine/move_sub_anim
+            cp -R "$SRC/armips/move/move_sub_anim" support/hg-engine/move_sub_anim
+          fi
+
+          if [ -d "$SRC/rawdata/move_spa" ]; then
+            rm -rf support/hg-engine/move_spa
+            cp -R "$SRC/rawdata/move_spa" support/hg-engine/move_spa
+          fi
+
+          if [ -f "$SRC/documentation/wiki/Move-Data-Structure-Documentation.md" ]; then
+            cp "$SRC/documentation/wiki/Move-Data-Structure-Documentation.md" references/hg-engine/
+          fi
+
+          cat > manifests/COVERAGE.md <<'EOF'
+          # DS Modern Move Coverage
+
+          Primary source snapshot: BluRosie/hg-engine @ 398a3020943f1ae98987e5b12b73d9086bbba3ce
+
+          | Generation | Move IDs | Animation scripts |
+          |---|---:|---:|
+          | Gen 5 | 471–562 | 92 |
+          | Gen 6 | 563–624 | 62 |
+          | Gen 7 | 625–745 | 121 |
+          | Gen 8 + Legends: Arceus | 746–853 | 108 |
+          | Gen 9 + DLC | 854–922 | 69 |
+          | **Total** | **471–922** | **452** |
+
+          The pinned hg-engine snapshot contains a dedicated DS animation script for every ID from 471 through 922.
+          Matching move battle scripts are also mirrored under mechanics/hg-engine/move_scripts for later Mercury Redux porting.
+          EOF
+
+          python3 - <<'PY'
+          from pathlib import Path
+          expected = set(range(471, 923))
+          found = set()
+          for p in Path("animations/hg-engine").glob("gen*/*.s"):
+              try:
+                  found.add(int(p.stem))
+              except ValueError:
+                  pass
+          missing = sorted(expected - found)
+          extras = sorted(found - expected)
+          if missing or extras:
+              raise SystemExit(f"Animation validation failed: missing={missing}, extras={extras}")
+          if len(found) != 452:
+              raise SystemExit(f"Expected 452 animations, found {len(found)}")
+          print("Validated 452/452 post-Gen-IV animation scripts.")
+          PY
+
+      - name: Commit synchronized library
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add animations mechanics support references manifests/COVERAGE.md
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Sync complete DS modern move library from hg-engine"
+            git push
+          fi
