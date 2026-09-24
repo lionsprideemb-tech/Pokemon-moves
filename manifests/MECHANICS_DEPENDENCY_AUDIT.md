@@ -12,24 +12,23 @@ This audit tracks:
 ## Progress
 
 - Required effect scripts: **173**
-- Audited in F2 so far: **110/173**
-- Current batch: sorted required-effect positions **101–110**
-- Direct battle-subscript dependencies found in this batch: **3 unique**
-- Side-effect pointer dependencies found in this batch: **8 unique**
+- Audited in F2 so far: **120/173**
+- Current batch: sorted required-effect positions **111–120**
+- Direct battle-subscript dependencies found in this batch: **0**
+- Side-effect pointer dependencies found in this batch: **6 unique**
 - Cumulative unique battle subscripts observed: **7**
-- Cumulative unique side-effect pointers observed: **64**
-- Generic-damage-only scripts in this batch: **0**
+- Cumulative unique side-effect pointers observed: **67**
+- Generic-damage-only scripts in this batch: **4** (effects 351–354)
 
-## Batch 11 dependency notes
+## Batch 12 dependency notes
 
-- Effect 322 combines poison application with Venoshock-style poisoned-target power doubling.
-- Effect 323 introduces `MOVE_SUBSCRIPT_PTR_GIVE_TARGET_SIMPLE` for Simple Beam-style ability replacement.
-- Effect 324 exposes Meteor Beam's charge dependency stack: Sp. Atk boost, Power Herb skip subscript, and charge cleanup.
-- Effect 325 adds rain-aware charge skipping, `CheckIgnoreWeather`, and a dedicated `BATTLE_SUBSCRIPT_SP_ATK_UP_RAIN_SKIP` path.
-- Effect 326 depends on `TryStickyWeb` and `AddEntryHazardToQueue`, making entry-hazard queue support an explicit Mercury requirement.
-- Effect 328 introduces a +3 Defense handler.
-- Effect 341 sets `BATTLE_STATUS_HIT_FLY` and confusion for Hurricane; its weather-sensitive accuracy behavior is not encoded here and must be checked in engine-side accuracy logic.
-- Effects 342–344 add handlers for self-Defense reduction, Hyperspace Fury behavior, and simultaneous Attack/Defense/Speed boosts.
+- Effect 345 (Poltergeist) checks the target's held item directly and fails when no item is held.
+- Effect 346 delegates Clangorous Soul's HP cost and all-stat boost to `MOVE_SUBSCRIPT_PTR_CLANGOROUS_SOUL`.
+- Effect 347 introduces the three-quarters drain handler.
+- Effect 348 delegates combined burn + drain behavior to `MOVE_SUBSCRIPT_PTR_BURN_AND_DRAIN_HEALTH`.
+- Effect 349 implements its randomized stronger-power branch directly in the effect script.
+- Effect 350 randomly selects among existing Sleep, Poison, and Paralysis handlers.
+- Effects 351–354 are all byte-identical generic damage scripts. Prevent-escape, mutual trapping, Stealth Rock placement, and Spikes placement therefore depend on engine-side hooks not visible in these effect files.
 
 The dependency manifest is `manifests/mechanics_dependencies.csv`.
 
