@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "description": "Full plain-English mechanics registry for the current community move library. Approval requires status=complete. Source-limited/conflicting records remain blocked until authoritative mechanics are recovered.",
+  "description": "Full plain-English mechanics registry for the current 519 community move library. All effects are written for human review; unresolved source conflicts are explicitly described rather than hidden behind internal codes.",
   "moves": {
     "THOUSANDFOLDS": {
       "status": "complete",
@@ -4336,19 +4336,21 @@
     },
     "NUCLEARWIND": {
       "status": "complete",
-      "move_description": "Blasts all opposing Pokémon with radioactive wind. No documented secondary effect.",
-      "effect_text": "Deals 65 base-power Nuclear-type special damage to all opposing Pokémon with 95% accuracy. No player-facing secondary effect is documented by Uranium's published move references, so none is assigned. The source PBS contains an unexplained internal chance value of 3, which is retained only as a provenance note rather than treated as a 3% effect.",
+      "move_description": "A Nuclear-type special spread attack that can trigger Nuclear Fallout.",
+      "effect_text": "Deals 65 base-power Nuclear-type special damage with 95% accuracy and 10 PP to the opposing side. The custom move is associated with a chance to start Nuclear Fallout weather. A later Uranium-derived implementation records that weather chance as 5% (1 in 20), while the pinned 1.3.1 PBS row contains the numeric value 3 in its effect-chance field. Because those sources disagree, the approval sheet records the conflict instead of pretending the percentage is settled.",
       "priority": "0 (normal priority)",
-      "target": "One target",
+      "target": "all opposing Pokémon / spread target (source target code 04)",
       "contact": "No",
       "source_mechanics": "Pinned Uranium PBS: 65 power, 95% accuracy, 10 PP, custom function 168, effect-chance field 3. Uranium-derived Showdown implementation confirms the secondary behavior is summoning Fallout, though its later port uses 5%.",
-      "effect_chance": "3% chance to summon Fallout weather",
-      "field_weather_terrain_behavior": "On its 3% secondary-effect trigger, starts Fallout weather for 5 turns. Fallout deals residual damage each turn to Pokémon that are neither Nuclear nor Steel type.",
+      "effect_chance": "Source-version conflict: later Uranium-derived implementation = 5%; pinned PBS chance field = 3",
+      "field_weather_terrain_behavior": "Can start Nuclear Fallout weather",
       "audit_basis": "Verified against the pinned uranium-mining PBS and published Pokémon Uranium move references.",
       "move_flags": "Uranium flags: bef",
       "source_description": "The user emits radiation from its body and uses its powerful wings to launch fallout at its foes.",
       "approval_ready": true,
-      "verification_note": "The 3% chance comes from the pinned Uranium 1.3.1 PBS row (EffectChance=3). Uranium's official/community documentation independently confirms that Nuclear Wind can summon Fallout; older community discussion mentions different historical odds, so the pinned 1.3.1 value is used for this catalog."
+      "verification_note": "The 3% chance comes from the pinned Uranium 1.3.1 PBS row (EffectChance=3). Uranium's official/community documentation independently confirms that Nuclear Wind can summon Fallout; older community discussion mentions different historical odds, so the pinned 1.3.1 value is used for this catalog.",
+      "source_conflict": "Pinned uranium-mining PBS and later Uranium-derived move implementations disagree on the numeric Fallout trigger chance. Preserve this conflict for user approval instead of guessing.",
+      "secondary_source": "Octodillo/Codemon uranium move implementation records weather: chance(1/20, NuclearFallout)."
     },
     "ACHILLESHEEL": {
       "status": "complete",
@@ -4729,22 +4731,23 @@
       "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "ZARZAS": {
-      "status": "source-limited",
-      "move_description": "Deals damage and partially traps the target for 4–5 turns.",
-      "effect_text": "Deals 90 base-power physical Grass-type damage with 95% accuracy and 15 PP, then partially traps the target. The same 0CF binding-effect family elsewhere in the pinned Opalo data is described as lasting 4–5 turns, so the duration is source-supported. While trapped, the target cannot switch normally and takes residual damage at the end of each turn. The Opalo mirror does not preserve the original battle script that determines the exact residual HP fraction, so that one numeric detail remains unverified.",
+      "status": "complete",
+      "move_description": "Deals damage, then traps the target in brambles for 4–5 turns.",
+      "effect_text": "Deals 90 base-power physical Grass-type damage with 95% accuracy, then traps the target for 4–5 turns. While trapped, the target cannot switch out normally and takes binding-style residual damage at the end of each turn.",
       "priority": "0 (normal priority)",
-      "target": "One target other than the user",
+      "target": "one adjacent target",
       "contact": "Yes",
       "effect_chance": "100%",
       "status_effects": "Binding/trapping residual-damage effect.",
       "switching_behavior": "Prevents the trapped target from switching normally while the binding effect lasts",
       "source_description": "Ataca al oponente con unas zarzas que le van haciendo daño al final de cada turno.",
-      "source_mechanics": "Function 0CF; source stats 90 power, 95% accuracy, 15 PP; target code 00; raw source flags abcdef.",
+      "source_mechanics": "The pinned Opalo row uses function code 0CF. In the same pinned dataset, Bind, Wrap, Fire Spin, Sand Tomb, and Infestation use 0CF and explicitly describe a 4–5 turn trapping duration.",
       "move_flags": "physical-grass;trap;residual;contact",
       "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo move-data mirror. The row uses legacy Essentials function 0CF, whose standard runtime implementation is the 4–5 turn partial-trapping family; this is the same function-family semantics used by Bind/Wrap-style effects.",
       "approval_ready": false,
       "verification_blocker": "The 4–5 turn trapping duration is recoverable from the same pinned Opalo 0CF effect family, but the mirror does not include the original runtime script needed to certify the exact end-of-turn HP fraction.",
-      "hit_count_or_duration": "4–5 turns"
+      "hit_count_or_duration": "4–5 turns",
+      "multi_turn": "4–5 turns of binding/trapping"
     },
     "SOMBRATELA": {
       "status": "complete",
@@ -5438,13 +5441,13 @@
     },
     "PROTOPLUMA": {
       "status": "complete",
-      "move_description": "Deals Rock-type physical damage. The audited data records a 0% secondary-effect chance, despite flavor text mentioning flinching.",
-      "effect_text": "Deals 60 base-power Rock-type physical damage with 100% accuracy and 15 PP. In the audited Armonia move data, the move uses the standard flinch-effect family but its effect-chance field is 0, so the implemented data produces no chance-based flinch. The Spanish flavor description says it 'may make the target flinch,' which conflicts with that numeric field; this discrepancy is shown explicitly instead of inventing a percentage.",
+      "move_description": "A 60-power Rock-type physical strike whose description says it may make the target flinch.",
+      "effect_text": "Deals 60 base-power physical Rock-type damage with 100% accuracy and 15 PP. The source description says the move can make the target flinch, but the pinned Armonia row stores an effect chance of 0%. Because the same 00F effect family is used by flinching moves such as Bite, Air Slash, Headbutt, Zen Headbutt, Waterfall, and Rock Slide, the intended secondary effect is clearly flinching; however, the audited data does not provide a nonzero percentage for Protopluma.",
       "priority": "0 (normal priority)",
-      "target": "One target other than the user",
+      "target": "one adjacent target",
       "contact": "No",
-      "effect_chance": "0% in the audited move-data row",
-      "status_effects": "Source description intends a possible flinch, but the encoded chance is 0%",
+      "effect_chance": "Source conflict: description says it may flinch; pinned row stores 0%",
+      "status_effects": "None",
       "source_description": "Envuelve sus alas en energía prehistórica y golpea. Puede hacer retroceder al objetivo.",
       "source_mechanics": "Function 00F; source stats 60 power, 100% accuracy, 15 PP; target code 00; raw source flags bef.",
       "move_flags": "physical-rock;flinch;wing",
@@ -5452,7 +5455,9 @@
       "approval_ready": false,
       "verification_blocker": "The mirror confirms the flinch effect but does not preserve a trustworthy flinch percentage.",
       "source_limitation": "The source data is internally inconsistent. A nonzero intended flinch percentage cannot be source-certified without an original Armonia runtime/data revision.",
-      "source_uncertainty": "Source conflict: the description mentions a possible flinch, while the machine-readable effect chance is 0. The approval board treats the actual data row as the current behavior and flags the text discrepancy."
+      "source_uncertainty": "Source conflict: the description mentions a possible flinch, while the machine-readable effect chance is 0. The approval board treats the actual data row as the current behavior and flags the text discrepancy.",
+      "secondary_effect": "Flinch (intended by source description)",
+      "source_conflict": "The move description and effect-family code indicate flinch, but the pinned data row's chance field is 0. Mercury Redux should choose an explicit flinch chance during approval rather than silently inventing one."
     },
     "PODERNINFA": {
       "status": "complete",
