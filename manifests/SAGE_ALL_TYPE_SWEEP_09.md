@@ -1,60 +1,67 @@
-# Pokémon Sage-Associated Showdown Fork — All-Type Source Sweep 09
+# Pokémon Sage All-Type Source Sweep 09
 
-Status: **PASS — ONE FORK-SPECIFIC DESIGN IMPORTED**
+Status: **PASS — SOURCE-WIDE AUDIT COMPLETE**
 
 Date: 2026-09-24
 
 Source:
-- Repository: `SageFox/Pokemon-Showdown-Sage`
+- Sage-associated public fork: `SageFox/Pokemon-Showdown-Sage`
 - Pinned commit: `f6757adccfc138272f10e738afdc36472387e646`
-- Move table: `data/moves.js`
-- License: MIT for the Showdown fork code
+- Move data: `data/moves.js`
+- Repository README is generic legacy Pokémon Showdown documentation rather than independent Pokémon Sage documentation
+- Repository code license: MIT
+- Move-design provenance: treated conservatively as fork-specific Sage-associated evidence
 
-## Filtering
+## Filtering method
 
-The legacy move table was compared against modern upstream Pokémon Showdown by normalized move ID and display name.
+The legacy Showdown move table was compared against:
+- modern upstream Pokémon Showdown
+- current Pokémon Essentials official move IDs/names
+- the existing community move master catalog
 
-Only two source records failed the official-upstream comparison:
-1. `Vice Grip`
-2. `Magikarp's Revenge`
+A naive object-key parser also encounters nested keys such as `secondary`, `boosts`, `self`, `effect`, and `moveData`; these were explicitly rejected as non-move records.
 
-`Vice Grip` is the legacy spelling of official **Vise Grip**, so it was excluded.
+`VICEGRIP` was excluded because it is the legacy spelling/identifier for official **Vise Grip**.
 
-That leaves **1 genuine fork-specific design**.
+## Result
 
-## Imported move
+Exactly **1** new non-vanilla move design survived filtering:
 
-**Magikarp's Revenge**
-- Water / Physical
-- 120 BP
-- always hits
-- 10 PP
-- only succeeds when used by Magikarp
-- drains 50% of damage
-- sets Rain Dance
-- grants the user Aqua Ring and Magic Coat
-- confuses the target
-- lowers the target's Defense and Special Attack by 1 stage
-- forces the user to recharge next turn
+### Magikarp's Revenge
+- Type: Water
+- Category: Physical
+- Power: 120
+- Accuracy: always hits in source
+- PP: 10
+- Restricted to Magikarp
+- Drains 50% of damage dealt
+- Sets Rain Dance
+- Grants Aqua Ring
+- Grants Magic Coat
+- Forces recharge next turn
+- 100% confuses the target
+- Lowers target Defense by 1
+- Lowers target Sp. Atk by 1
 
-## Provenance caution
-
-The repository name associates the fork with Pokémon Sage, but its README is generic legacy Pokémon Showdown documentation and does not independently document the authorship/origin of this move. The catalog therefore labels it **Sage-associated fork evidence**, not an independently verified official Pokémon Sage move record.
+This is an unusually dense mechanics package and will need a dedicated DS battle-script implementation rather than a simple effect-code mapping.
 
 ## Master catalog
 
 Before Sweep 09: **433**
-
-After Sweep 09: **434 unique designs**
+After Sweep 09: **434**
 
 Current totals:
 - **251 Physical**
 - **125 Special**
 - **58 Status**
-- **407 canonical-type designs**
-- normalized duplicate IDs: **0**
-- normalized duplicate names: **0**
+
+Duplicate normalized IDs: **0**
+Duplicate normalized names: **0**
+
+## Animation status
+
+The source is battle-simulator code only and provides no Nintendo DS animation assets. Animation will require separate sourcing or recreation.
 
 ## Next restart point
 
-**All-Type Source Sweep 10** — continue source-wide discovery against the **434-design** master catalog.
+**All-Type Source Sweep 10** — audit the next public project source-wide and deduplicate against the **434-move** master catalog.
