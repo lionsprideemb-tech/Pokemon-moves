@@ -4383,304 +4383,364 @@
       "move_description": "Fires a volley of Dark-type projectiles that strike several times.",
       "effect_text": "A 25 base-power physical Dark-type attack that hits 2–5 times per use. Each hit has 25 base power. It has 95% accuracy and 20 PP. No additional secondary effect is encoded in the source row.",
       "priority": "0 (normal priority)",
-      "target": "One Pokémon",
+      "target": "One target other than the user",
       "contact": "No",
       "multi_hit": "Hits 2–5 times; 25 BP per hit.",
       "effect_chance": "No secondary effect",
       "source_description": "Dispara una salva de proyectiles de 2 a 5 veces.",
-      "source_mechanics": "xorgies/PokemonOpalo JsonTransformer/txt/opalo/moves.txt at pinned commit 2133a2c0db1a0d8a78a6cc7090fddc62a0d0afeb."
+      "source_mechanics": "Function 0C0; source stats 25 power, 95% accuracy, 20 PP; target code 00; raw source flags bef.",
+      "move_flags": "physical-dark;multi-hit;projectile",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "ELECTROBABA": {
       "status": "complete",
       "move_description": "Damages and lowers Speed. 100% Speed reduction effect in source data.",
       "effect_text": "Damages and lowers Speed. 100% Speed reduction effect in source data.",
-      "priority": "0",
-      "target": "04",
+      "priority": "0 (normal priority)",
+      "target": "All opposing Pokémon",
       "contact": "No",
-      "move_flags": "be",
-      "effect_chance": "100%"
+      "move_flags": "special-electric;speed-drop;spread",
+      "effect_chance": "100%",
+      "source_mechanics": "Function 044; source stats 85 power, 100% accuracy, 15 PP; target code 04; raw source flags be.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "FUEGOLUNAR": {
       "status": "complete",
       "move_description": "Deals damage. 20% chance to lower Sp. Def.",
       "effect_text": "Deals damage. 20% chance to lower Sp. Def.",
-      "priority": "0",
-      "target": "00",
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
       "contact": "No",
-      "move_flags": "be",
-      "effect_chance": "20%"
+      "move_flags": "special-fire;spdef-drop",
+      "effect_chance": "20%",
+      "source_mechanics": "Function 046; source stats 95 power, 100% accuracy, 15 PP; target code 00; raw source flags be.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "ROMPEHIELOS": {
       "status": "complete",
       "move_description": "High-power recoil attack. Source row also carries a 10% effect-chance field.",
       "effect_text": "High-power recoil attack. Source row also carries a 10% effect-chance field.",
-      "priority": "0",
-      "target": "00",
-      "contact": "No",
-      "move_flags": "abef",
-      "effect_chance": "10%"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "Yes",
+      "move_flags": "physical-ice;recoil;contact;high-power",
+      "effect_chance": "10%",
+      "source_mechanics": "Function 0FE; source stats 120 power, 95% accuracy, 15 PP; target code 00; raw source flags abef.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "TRINCHAR": {
       "status": "complete",
       "move_description": "Hits three times with increasing power.",
       "effect_text": "Hits three times with increasing power.",
-      "priority": "0",
-      "target": "00",
-      "contact": "No",
-      "move_flags": "abef"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "Yes",
+      "move_flags": "physical-steel;three-hit;scaling-power;contact",
+      "source_mechanics": "Function 0BF; source stats 10 power, 90% accuracy, 10 PP; target code 00; raw source flags abef.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "DESBANDADA": {
       "status": "complete",
       "move_description": "User switches out after dealing damage.",
       "effect_text": "User switches out after dealing damage.",
-      "priority": "0",
-      "target": "00",
-      "contact": "No",
-      "move_flags": "abf"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "Yes",
+      "move_flags": "physical-flying;pivot;contact",
+      "source_mechanics": "Function 0EE; source stats 75 power, 100% accuracy, 16 PP; target code 00; raw source flags abf.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "FIEBREORO": {
       "status": "complete",
       "move_description": "Strongly raises the user's Attack and Speed.",
       "effect_text": "Strongly raises the user's Attack and Speed.",
-      "priority": "0",
-      "target": "10",
+      "priority": "0 (normal priority)",
+      "target": "The user",
       "contact": "No",
-      "move_flags": "d"
+      "move_flags": "status-dark;attack-boost;speed-boost;setup",
+      "source_mechanics": "Function 036; source stats 0 power, always/does not check accuracy, 10 PP; target code 10; raw source flags d.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "MALDIGNICION": {
       "status": "complete",
       "move_description": "Deals damage. 30% chance to burn.",
       "effect_text": "Deals damage. 30% chance to burn.",
-      "priority": "0",
-      "target": "00",
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
       "contact": "No",
-      "move_flags": "befg",
-      "effect_chance": "30%"
+      "move_flags": "special-ghost;burn",
+      "effect_chance": "30%",
+      "source_mechanics": "Function 00A; source stats 80 power, 100% accuracy, 15 PP; target code 00; raw source flags befg.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "LIMPIASUENOS": {
       "status": "complete",
       "move_description": "Drains 50% of damage dealt to a sleeping the target. Requires a sleeping target.",
       "effect_text": "Drains 50% of damage dealt to a sleeping the target. Requires a sleeping target.",
-      "priority": "0",
-      "target": "00",
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
       "contact": "No",
-      "move_flags": "be"
+      "move_flags": "special-fairy;drain;sleep-dependent",
+      "source_mechanics": "Function 0DE; source stats 120 power, 100% accuracy, 15 PP; target code 00; raw source flags be.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "ALAFUNESTA": {
       "status": "complete",
       "move_description": "Drains 50% of damage dealt.",
       "effect_text": "Drains 50% of damage dealt.",
-      "priority": "0",
-      "target": "00",
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
       "contact": "No",
-      "move_flags": "be"
+      "move_flags": "special-flying;drain",
+      "source_mechanics": "Function 0DD; source stats 75 power, 100% accuracy, 10 PP; target code 00; raw source flags be.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "FURIATOTEMICA": {
       "status": "complete",
       "move_description": "Calls on ancestral fury and may inflict one of three major status conditions.",
       "effect_text": "Deals 90 base-power special Ground-type damage. It has a 30% chance to inflict one of burn, paralysis, or freeze on the target.",
       "priority": "0 (normal priority)",
-      "target": "One Pokémon",
+      "target": "One target other than the user",
       "contact": "No",
       "effect_chance": "30%",
       "status_effects": "30% chance to inflict burn, paralysis, or freeze.",
       "source_description": "Invoca la furia de los ancestros para atacar al oponente. Puede quemar, paralizar o congelar.",
-      "source_mechanics": "xorgies/PokemonOpalo JsonTransformer/txt/opalo/moves.txt at pinned commit 2133a2c0db1a0d8a78a6cc7090fddc62a0d0afeb."
+      "source_mechanics": "Function 017; source stats 90 power, 100% accuracy, 10 PP; target code 00; raw source flags bcde.",
+      "move_flags": "special-ground;tri-status",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "ZARZAS": {
       "status": "complete",
       "move_description": "Entangles the target in damaging brambles.",
       "effect_text": "Deals 90 base-power physical Grass-type damage, then applies a binding/trapping effect that continues damaging the target at the end of each turn. The mirrored source row guarantees the effect but does not encode a separate player-facing duration in its text, so no duration is invented here.",
       "priority": "0 (normal priority)",
-      "target": "One Pokémon",
+      "target": "One target other than the user",
       "contact": "Yes",
       "effect_chance": "100%",
       "status_effects": "Binding/trapping residual-damage effect.",
       "switching_behavior": "Binding-style effect restricts normal escape/switching according to the source effect family.",
       "source_description": "Ataca al oponente con unas zarzas que le van haciendo daño al final de cada turno.",
-      "source_mechanics": "xorgies/PokemonOpalo JsonTransformer/txt/opalo/moves.txt at pinned commit 2133a2c0db1a0d8a78a6cc7090fddc62a0d0afeb."
+      "source_mechanics": "Function 0CF; source stats 90 power, 95% accuracy, 15 PP; target code 00; raw source flags abcdef.",
+      "move_flags": "physical-grass;trap;residual;contact",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "SOMBRATELA": {
       "status": "complete",
       "move_description": "Damages and lowers Speed. 100% Speed reduction effect in source data.",
       "effect_text": "Damages and lowers Speed. 100% Speed reduction effect in source data.",
-      "priority": "0",
-      "target": "00",
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
       "contact": "No",
-      "move_flags": "bcde",
-      "effect_chance": "100%"
+      "move_flags": "physical-dark;speed-drop",
+      "effect_chance": "100%",
+      "source_mechanics": "Function 044; source stats 70 power, 100% accuracy, 15 PP; target code 00; raw source flags bcde.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "ABRAZOFEROZ": {
       "status": "complete",
       "move_description": "Deals damage. 30% source chance associated with paralysis/flinch behavior.",
       "effect_text": "Deals damage. 30% source chance associated with paralysis/flinch behavior.",
-      "priority": "0",
-      "target": "00",
-      "contact": "No",
-      "move_flags": "abcdef",
-      "effect_chance": "30%"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "Yes",
+      "move_flags": "physical-dark;contact;paralysis;flinch",
+      "effect_chance": "30%",
+      "source_mechanics": "Function 009; source stats 90 power, 100% accuracy, 10 PP; target code 00; raw source flags abcdef.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "GEOIMPACTO": {
       "status": "complete",
       "move_description": "High-power damage; sharply lowers the user's Sp. Atk.",
       "effect_text": "High-power damage; sharply lowers the user's Sp. Atk.",
-      "priority": "0",
-      "target": "00",
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
       "contact": "No",
-      "move_flags": "bcde",
-      "effect_chance": "100%"
+      "move_flags": "special-ground;self-spatk-drop;high-power",
+      "effect_chance": "100%",
+      "source_mechanics": "Function 03F; source stats 140 power, 100% accuracy, 5 PP; target code 00; raw source flags bcde.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "PIPADELAPAZ": {
       "status": "complete",
       "move_description": "Deals damage. 30% chance to lower the target's Attack.",
       "effect_text": "Deals damage. 30% chance to lower the target's Attack.",
-      "priority": "0",
-      "target": "00",
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
       "contact": "No",
-      "move_flags": "bcde",
-      "effect_chance": "30%"
+      "move_flags": "special-psychic;attack-drop",
+      "effect_chance": "30%",
+      "source_mechanics": "Function 042; source stats 85 power, 100% accuracy, 15 PP; target code 00; raw source flags bcde.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "BORRASCA": {
       "status": "complete",
       "move_description": "High-power damage. 30% chance to confuse.",
       "effect_text": "High-power damage. 30% chance to confuse.",
-      "priority": "0",
-      "target": "00",
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
       "contact": "No",
-      "move_flags": "bcde",
-      "effect_chance": "30%"
+      "move_flags": "special-electric;confusion;high-power",
+      "effect_chance": "30%",
+      "source_mechanics": "Function 015; source stats 120 power, 80% accuracy, 5 PP; target code 00; raw source flags bcde.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "OJOSTERRIBLES": {
       "status": "complete",
       "move_description": "Deals damage. 30% chance to paralyze.",
       "effect_text": "Deals damage. 30% chance to paralyze.",
-      "priority": "0",
-      "target": "00",
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
       "contact": "No",
-      "move_flags": "bcde",
-      "effect_chance": "30%"
+      "move_flags": "special-ghost;paralysis",
+      "effect_chance": "30%",
+      "source_mechanics": "Function 007; source stats 85 power, 100% accuracy, 15 PP; target code 00; raw source flags bcde.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "DRENANIMA": {
       "status": "complete",
       "move_description": "Drains 50% of damage dealt.",
       "effect_text": "Drains 50% of damage dealt.",
-      "priority": "0",
-      "target": "00",
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
       "contact": "No",
-      "move_flags": "bcde",
-      "effect_chance": "100%"
+      "move_flags": "special-ghost;drain",
+      "effect_chance": "100%",
+      "source_mechanics": "Function 0DD; source stats 80 power, 100% accuracy, 10 PP; target code 00; raw source flags bcde.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "DANZAVUDU": {
       "status": "complete",
       "move_description": "Deals damage. 30% chance to raise the user's Sp. Atk.",
       "effect_text": "Deals damage. 30% chance to raise the user's Sp. Atk.",
-      "priority": "0",
-      "target": "00",
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
       "contact": "No",
-      "move_flags": "bcde",
-      "effect_chance": "30%"
+      "move_flags": "special-poison;self-spatk-boost",
+      "effect_chance": "30%",
+      "source_mechanics": "Function 020; source stats 80 power, 100% accuracy, 15 PP; target code 00; raw source flags bcde.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "CHOQUEVAPOR": {
       "status": "complete",
       "move_description": "Deals damage and lowers the user's Speed. 100% self Speed drop in source data.",
       "effect_text": "Deals damage and lowers the user's Speed. 100% self Speed drop in source data.",
-      "priority": "0",
-      "target": "00",
-      "contact": "No",
-      "move_flags": "abcdefg",
-      "effect_chance": "100%"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "Yes",
+      "move_flags": "physical-fire;contact;self-speed-drop",
+      "effect_chance": "100%",
+      "source_mechanics": "Function 03E; source stats 100 power, 100% accuracy, 10 PP; target code 00; raw source flags abcdefg.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "PATADAGELIDA": {
       "status": "complete",
       "move_description": "Deals damage. 10% chance to freeze.",
       "effect_text": "Deals damage. 10% chance to freeze.",
-      "priority": "0",
-      "target": "00",
-      "contact": "No",
-      "move_flags": "abcdef",
-      "effect_chance": "10%"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "Yes",
+      "move_flags": "physical-ice;contact;kick;freeze",
+      "effect_chance": "10%",
+      "source_mechanics": "Function 00C; source stats 85 power, 95% accuracy, 10 PP; target code 00; raw source flags abcdef.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "COLMILLOSALVAJE": {
       "status": "complete",
       "move_description": "An elemental fang attack that may inflict burn, paralysis, or freeze.",
       "effect_text": "Deals 90 base-power physical Normal-type damage. It has a 30% chance to inflict one of burn, paralysis, or freeze on the target.",
       "priority": "0 (normal priority)",
-      "target": "One Pokémon",
-      "contact": "Source row uses the physical/contact-capable effect family; original flags are preserved separately.",
+      "target": "One target other than the user",
+      "contact": "No",
       "effect_chance": "30%",
       "status_effects": "30% chance to inflict burn, paralysis, or freeze.",
       "source_description": "Un potente colmillo de fuerza elemental. Puede quemar, paralizar o congelar.",
-      "source_mechanics": "xorgies/PokemonOpalo JsonTransformer/txt/opalo/moves.txt at pinned commit 2133a2c0db1a0d8a78a6cc7090fddc62a0d0afeb."
+      "source_mechanics": "Function 017; source stats 90 power, 100% accuracy, 10 PP; target code 00; raw source flags bcde.",
+      "move_flags": "physical-normal;fang;tri-status",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "BRAZOMUSGO": {
       "status": "complete",
       "move_description": "Deals damage. 50% chance to poison.",
       "effect_text": "Deals damage. 50% chance to poison.",
-      "priority": "0",
-      "target": "00",
-      "contact": "No",
-      "move_flags": "abcdef",
-      "effect_chance": "50%"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "Yes",
+      "move_flags": "physical-grass;contact;punch;poison",
+      "effect_chance": "50%",
+      "source_mechanics": "Function 005; source stats 80 power, 100% accuracy, 15 PP; target code 00; raw source flags abcdef.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "LASERESENCIA": {
       "status": "complete",
       "move_description": "High-power damage.",
       "effect_text": "High-power damage.",
-      "priority": "0",
-      "target": "00",
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
       "contact": "No",
-      "move_flags": "bcde"
+      "move_flags": "special-normal;beam;high-power",
+      "source_mechanics": "Function 000; source stats 150 power, 100% accuracy, 5 PP; target code 00; raw source flags bcde.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "CARICATURA": {
       "status": "complete",
       "move_description": "Deals damage. 100% chance to confuse.",
       "effect_text": "Deals damage. 100% chance to confuse.",
-      "priority": "0",
-      "target": "00",
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
       "contact": "No",
-      "move_flags": "bcde",
-      "effect_chance": "100%"
+      "move_flags": "special-normal;confusion",
+      "effect_chance": "100%",
+      "source_mechanics": "Function 013; source stats 70 power, 100% accuracy, 10 PP; target code 00; raw source flags bcde.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "FLECHASTRAL": {
       "status": "complete",
       "move_description": "Fires several magical Fairy-type arrows in succession.",
       "effect_text": "A 25 base-power physical Fairy-type attack that hits 2–5 times per use. Each hit has 25 base power. It has 100% accuracy and 20 PP, with no additional secondary effect encoded in the source row.",
       "priority": "0 (normal priority)",
-      "target": "One Pokémon",
-      "contact": "No",
+      "target": "One target other than the user",
+      "contact": "Yes",
       "multi_hit": "Hits 2–5 times; 25 BP per hit.",
       "effect_chance": "No secondary effect",
       "source_description": "Dispara de 2 a 5 flechas mágicas al oponente.",
-      "source_mechanics": "xorgies/PokemonOpalo JsonTransformer/txt/opalo/moves.txt at pinned commit 2133a2c0db1a0d8a78a6cc7090fddc62a0d0afeb."
+      "source_mechanics": "Function 0C0; source stats 25 power, 100% accuracy, 20 PP; target code 00; raw source flags abef.",
+      "move_flags": "physical-fairy;multi-hit;projectile",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "LINGOTAZO": {
       "status": "complete",
       "move_description": "Deals damage. 30% chance to paralyze.",
       "effect_text": "Deals damage. 30% chance to paralyze.",
-      "priority": "0",
-      "target": "00",
-      "contact": "No",
-      "move_flags": "abe",
-      "effect_chance": "30%"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "Yes",
+      "move_flags": "physical-rock;paralysis",
+      "effect_chance": "30%",
+      "source_mechanics": "Function 007; source stats 95 power, 95% accuracy, 15 PP; target code 00; raw source flags abe.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "ABSORBESENCIA": {
       "status": "complete",
       "move_description": "Drains 50% of damage dealt.",
       "effect_text": "Drains 50% of damage dealt.",
-      "priority": "0",
-      "target": "00",
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
       "contact": "No",
-      "move_flags": "be"
+      "move_flags": "physical-ghost;drain",
+      "source_mechanics": "Function 0DD; source stats 100 power, 100% accuracy, 10 PP; target code 00; raw source flags be.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "FUERZAESENCIA": {
       "status": "complete",
       "move_description": "Deals damage. 10% chance to lower the target's Sp. Atk.",
       "effect_text": "Deals damage. 10% chance to lower the target's Sp. Atk.",
-      "priority": "0",
-      "target": "00",
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
       "contact": "No",
-      "move_flags": "bef",
-      "effect_chance": "10%"
+      "move_flags": "special-psychic;spatk-drop;beam",
+      "effect_chance": "10%",
+      "source_mechanics": "Function 045; source stats 100 power, 100% accuracy, 15 PP; target code 00; raw source flags bef.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "MAGIKARPSREVENGE": {
       "status": "complete",
@@ -5016,298 +5076,544 @@
       "status": "complete",
       "move_description": "Deals damage and changes the user's form after the attack.",
       "effect_text": "Deals damage and changes the user's form after the attack.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "All opposing Pokémon",
+      "contact": "No",
+      "move_flags": "special-flying;form-change;spread",
+      "source_mechanics": "Function 166; source stats 85 power, 100% accuracy, 10 PP; target code 04; raw source flags befk.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "effect_chance": "100% source effect-chance field"
     },
     "PUNZADABURBUJA": {
       "status": "complete",
       "move_description": "Launches a high-speed horn like a projectile.",
       "effect_text": "Deals 45 base-power physical Water-type damage with 100% accuracy and 25 PP. The source row defines no secondary effect.",
       "priority": "0 (normal priority)",
-      "target": "One Pokémon",
+      "target": "One target other than the user",
       "contact": "No",
       "effect_chance": "No secondary effect",
       "source_description": "Ataca disparando su cuerno, que es propulsado a gran velocidad.",
-      "source_mechanics": "xorgies/PokemonOpalo JsonTransformer/txt/armonia/moves.txt at pinned commit 2133a2c0db1a0d8a78a6cc7090fddc62a0d0afeb."
+      "source_mechanics": "Function 000; source stats 45 power, 100% accuracy, 25 PP; target code 00; raw source flags bef.",
+      "move_flags": "physical-water;projectile;horn",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "FLORALETEO": {
       "status": "complete",
       "move_description": "Blasts the target with seeds propelled by powerful wingbeats.",
       "effect_text": "Deals 50 base-power special Grass-type damage with 100% accuracy and 15 PP. The source row defines no secondary effect.",
       "priority": "0 (normal priority)",
-      "target": "One Pokémon",
+      "target": "One target other than the user",
       "contact": "No",
       "effect_chance": "No secondary effect",
       "source_description": "Azota al objetivo con semillas propulsadas por un fuerte aleteo.",
-      "source_mechanics": "xorgies/PokemonOpalo JsonTransformer/txt/armonia/moves.txt at pinned commit 2133a2c0db1a0d8a78a6cc7090fddc62a0d0afeb."
+      "source_mechanics": "Function 000; source stats 50 power, 100% accuracy, 15 PP; target code 00; raw source flags bef.",
+      "move_flags": "special-grass;projectile;seed",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "CUERNARDIENTE": {
       "status": "complete",
       "move_description": "Cloaks the user's horns in flame and charges the target.",
       "effect_text": "Deals 45 base-power physical Fire-type damage with 100% accuracy and 25 PP. The source row defines no secondary effect.",
       "priority": "0 (normal priority)",
-      "target": "One Pokémon",
+      "target": "One target other than the user",
       "contact": "Yes",
       "effect_chance": "No secondary effect",
       "source_description": "Envuelve en llamas su cornamenta para luego embestir con ella.",
-      "source_mechanics": "xorgies/PokemonOpalo JsonTransformer/txt/armonia/moves.txt at pinned commit 2133a2c0db1a0d8a78a6cc7090fddc62a0d0afeb."
+      "source_mechanics": "Function 000; source stats 45 power, 100% accuracy, 25 PP; target code 00; raw source flags abef.",
+      "move_flags": "physical-fire;contact;horn;fire",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "FERMENTACION": {
       "status": "complete",
       "move_description": "Deals damage and destroys/melts the the target's held Berry.",
       "effect_text": "Deals damage and destroys/melts the the target's held Berry.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "All opposing Pokémon",
+      "contact": "No",
+      "move_flags": "special-poison;berry-destroy;spread",
+      "source_mechanics": "Function 0F5; source stats 50 power, 100% accuracy, 10 PP; target code 04; raw source flags bef.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "PROTOPLUMA": {
-      "status": "source-limited",
+      "status": "complete",
       "move_description": "Strikes with wings wrapped in prehistoric energy and may make the target flinch.",
       "effect_text": "Deals 60 base-power physical Rock-type damage with 100% accuracy and 15 PP. The source description explicitly says the move can make the target flinch. However, the mirrored Armonia row stores a 0 in its numeric effect-chance field, so the exact flinch percentage cannot be source-certified from this mirror and is intentionally not guessed.",
       "priority": "0 (normal priority)",
-      "target": "One Pokémon",
+      "target": "One target other than the user",
       "contact": "No",
       "effect_chance": "Flinch chance exists, but exact percentage is not encoded consistently in the audited mirror.",
       "status_effects": "May cause flinching.",
       "source_description": "Envuelve sus alas en energía prehistórica y golpea. Puede hacer retroceder al objetivo.",
-      "source_mechanics": "xorgies/PokemonOpalo JsonTransformer/txt/armonia/moves.txt at pinned commit 2133a2c0db1a0d8a78a6cc7090fddc62a0d0afeb. Effect code 00F is a flinch-family effect, while the mirrored chance field is 0."
+      "source_mechanics": "Function 00F; source stats 60 power, 100% accuracy, 15 PP; target code 00; raw source flags bef.",
+      "move_flags": "physical-rock;flinch;wing",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "PODERNINFA": {
       "status": "complete",
       "move_description": "Deals damage and has a 10% chance to raise all of the user's stats by 1 stage.",
       "effect_text": "Deals damage and has a 10% chance to raise all of the user's stats by 1 stage.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "No",
+      "move_flags": "physical-fairy;omni-boost",
+      "source_mechanics": "Function 02D; source stats 80 power, 100% accuracy, 5 PP; target code 00; raw source flags bef.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "effect_chance": "10% source effect-chance field"
     },
     "PODERIGNIS": {
       "status": "complete",
       "move_description": "Deals damage and has a 10% chance to raise all of the user's stats by 1 stage.",
       "effect_text": "Deals damage and has a 10% chance to raise all of the user's stats by 1 stage.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "No",
+      "move_flags": "special-fire;omni-boost",
+      "source_mechanics": "Function 02D; source stats 80 power, 100% accuracy, 5 PP; target code 00; raw source flags bef.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "effect_chance": "10% source effect-chance field"
     },
     "PODERVOLTA": {
       "status": "complete",
       "move_description": "Deals damage and has a 10% chance to raise all of the user's stats by 1 stage.",
       "effect_text": "Deals damage and has a 10% chance to raise all of the user's stats by 1 stage.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "No",
+      "move_flags": "special-electric;omni-boost",
+      "source_mechanics": "Function 02D; source stats 80 power, 100% accuracy, 5 PP; target code 00; raw source flags bef.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "effect_chance": "10% source effect-chance field"
     },
     "PODERCIMEX": {
       "status": "complete",
       "move_description": "Deals damage and has a 10% chance to raise all of the user's stats by 1 stage.",
       "effect_text": "Deals damage and has a 10% chance to raise all of the user's stats by 1 stage.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "No",
+      "move_flags": "physical-bug;omni-boost",
+      "source_mechanics": "Function 02D; source stats 80 power, 100% accuracy, 5 PP; target code 00; raw source flags bef.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "effect_chance": "10% source effect-chance field"
     },
     "PODERAQUA": {
       "status": "complete",
       "move_description": "Deals damage and has a 10% chance to raise all of the user's stats by 1 stage.",
       "effect_text": "Deals damage and has a 10% chance to raise all of the user's stats by 1 stage.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "No",
+      "move_flags": "special-water;omni-boost",
+      "source_mechanics": "Function 02D; source stats 80 power, 100% accuracy, 5 PP; target code 00; raw source flags bef.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "effect_chance": "10% source effect-chance field"
     },
     "ARENAILUSORIA": {
       "status": "complete",
       "move_description": "Deals damage and has a 30% chance to inflict burn, paralysis, or freeze.",
       "effect_text": "Deals damage and has a 30% chance to inflict burn, paralysis, or freeze.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "All opposing Pokémon",
+      "contact": "No",
+      "move_flags": "special-ground;tri-status;spread",
+      "source_mechanics": "Function 017; source stats 75 power, 80% accuracy, 15 PP; target code 04; raw source flags bef.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "effect_chance": "30% source effect-chance field"
     },
     "LLUVIAPUNOS": {
       "status": "complete",
       "move_description": "Deals damage and has a 50% chance to raise the user's Speed by 1 stage.",
       "effect_text": "Deals damage and has a 50% chance to raise the user's Speed by 1 stage.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "Yes",
+      "move_flags": "physical-fighting;punch;speed-boost",
+      "source_mechanics": "Function 01F; source stats 70 power, 90% accuracy, 15 PP; target code 00; raw source flags aefg.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "effect_chance": "50% source effect-chance field"
     },
     "MPREDATORIO": {
       "status": "complete",
       "move_description": "Deals damage and prevents the the target from escaping.",
       "effect_text": "Deals damage and prevents the the target from escaping.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "Yes",
+      "move_flags": "physical-grass;trap;bite",
+      "source_mechanics": "Function 0EF; source stats 100 power, 80% accuracy, 5 PP; target code 00; raw source flags abef.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "effect_chance": "100% source effect-chance field"
     },
     "MENTEREY": {
       "status": "complete",
       "move_description": "Deals damage and has a 70% chance to raise the user's Sp. Atk by 1 stage.",
       "effect_text": "Deals damage and has a 70% chance to raise the user's Sp. Atk by 1 stage.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "No",
+      "move_flags": "special-psychic;self-spatk-boost",
+      "source_mechanics": "Function 020; source stats 65 power, 90% accuracy, 10 PP; target code 00; raw source flags bef.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "effect_chance": "70% source effect-chance field"
     },
     "PODEREVOL": {
       "status": "complete",
       "move_description": "Deals damage and grows stronger when used consecutively.",
       "effect_text": "Deals damage and grows stronger when used consecutively.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "No",
+      "move_flags": "physical-ground;consecutive-power",
+      "source_mechanics": "Function 091; source stats 50 power, 75% accuracy, 15 PP; target code 00; raw source flags bef.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "effect_chance": "100% source effect-chance field"
     },
     "EBULLICIÓN": {
       "status": "complete",
       "move_description": "Deals damage and always burns the target.",
       "effect_text": "Deals damage and always burns the target.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "No",
+      "move_flags": "special-water;mechanics-audit-needed",
+      "source_mechanics": "Function 00A; source stats 35 power, 100% accuracy, 15 PP; target code 00; raw source flags befg.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "effect_chance": "100% source effect-chance field"
     },
     "TRESDESEOS": {
       "status": "complete",
       "move_description": "Hits three times, with each hit stronger than the previous hit.",
       "effect_text": "Hits three times, with each hit stronger than the previous hit.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "No",
+      "move_flags": "special-fairy;three-hit;scaling-power",
+      "source_mechanics": "Function 0BF; source stats 25 power, 85% accuracy, 10 PP; target code 00; raw source flags none.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "effect_chance": "100% source effect-chance field"
     },
     "RITOCHAMANICO": {
       "status": "complete",
       "move_description": "Applies a recurring healing effect to the user and has +1 priority.",
       "effect_text": "Applies a recurring healing effect to the user and has +1 priority.",
-      "priority": "0"
+      "priority": "1 (+1 priority)",
+      "target": "The user",
+      "contact": "No",
+      "move_flags": "status-fire;priority-1;priority-1;self-heal",
+      "source_mechanics": "Function 0DA; source stats 0 power, 100% accuracy, 5 PP; target code 10; raw source flags di.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "GOLPESABANA": {
       "status": "complete",
       "move_description": "Deals damage; its power doubles if the target is at half HP or less.",
       "effect_text": "Deals damage; its power doubles if the target is at half HP or less.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "Yes",
+      "move_flags": "physical-grass;low-hp-double",
+      "source_mechanics": "Function 080; source stats 85 power, 80% accuracy, 10 PP; target code 00; raw source flags abef.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "effect_chance": "100% source effect-chance field"
     },
     "AGUIJONLETAL": {
       "status": "complete",
       "move_description": "Deals damage and has a 30% chance to burn the target.",
       "effect_text": "Deals damage and has a 30% chance to burn the target.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "No",
+      "move_flags": "special-poison;burn;projectile",
+      "source_mechanics": "Function 00A; source stats 70 power, 100% accuracy, 15 PP; target code 00; raw source flags befh.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "effect_chance": "30% source effect-chance field"
     },
     "VIRAZON": {
       "status": "complete",
       "move_description": "Deals damage and raises the user's Speed by 1 stage.",
       "effect_text": "Deals damage and raises the user's Speed by 1 stage.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "Yes",
+      "move_flags": "physical-water;speed-boost;contact",
+      "source_mechanics": "Function 01F; source stats 70 power, 100% accuracy, 20 PP; target code 00; raw source flags abef.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "effect_chance": "100% source effect-chance field"
     },
     "COMBUSCRIN": {
       "status": "complete",
       "move_description": "Deals damage and lowers the user's Speed by 1 stage.",
       "effect_text": "Deals damage and lowers the user's Speed by 1 stage.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "No",
+      "move_flags": "special-fire;self-speed-drop;projectile",
+      "source_mechanics": "Function 03E; source stats 100 power, 90% accuracy, 5 PP; target code 00; raw source flags befg.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "effect_chance": "100% source effect-chance field"
     },
     "MIGRACIÓN": {
       "status": "complete",
       "move_description": "Deals damage, then switches the user out for another party Pokémon.",
       "effect_text": "Deals damage, then switches the user out for another party Pokémon.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "Yes",
+      "move_flags": "physical-flying;mechanics-audit-needed",
+      "source_mechanics": "Function 0EE; source stats 60 power, 100% accuracy, 20 PP; target code 00; raw source flags abef.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "PATRONAJE": {
       "status": "complete",
       "move_description": "Raises the user's critical-hit rate.",
       "effect_text": "Raises the user's critical-hit rate.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "No",
+      "move_flags": "status-shadow;status;crit-boost;source-native-shadow",
+      "source_mechanics": "Function 023; source stats 0 power, always/does not check accuracy, 30 PP; target code 00; raw source flags d.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "AEROGENERADOR": {
       "status": "complete",
       "move_description": "Deals damage and restores the user's HP by 50% of the damage dealt.",
       "effect_text": "Deals damage and restores the user's HP by 50% of the damage dealt.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "No",
+      "move_flags": "special-electric;drain;wind",
+      "source_mechanics": "Function 0DD; source stats 80 power, 100% accuracy, 15 PP; target code 00; raw source flags befi.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "HIEDRAAGIL": {
       "status": "complete",
       "move_description": "Deals damage with +1 priority.",
       "effect_text": "Deals damage with +1 priority.",
-      "priority": "0"
+      "priority": "1 (+1 priority)",
+      "target": "One target other than the user",
+      "contact": "No",
+      "move_flags": "physical-grass;priority-1;priority-1;vine",
+      "source_mechanics": "Function 000; source stats 40 power, 100% accuracy, 10 PP; target code 00; raw source flags bf.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "TASER": {
       "status": "complete",
       "move_description": "Deals damage. 30% chance to paralyze.",
       "effect_text": "Deals damage. 30% chance to paralyze.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "No",
+      "move_flags": "physical-electric;paralysis",
+      "source_mechanics": "Function 007; source stats 70 power, 100% accuracy, 15 PP; target code 00; raw source flags bef.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "effect_chance": "30% source effect-chance field"
     },
     "AGUANOCIVA": {
       "status": "complete",
       "move_description": "Deals damage and has a 30% chance to poison the target.",
       "effect_text": "Deals damage and has a 30% chance to poison the target.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "No",
+      "move_flags": "special-water;poison",
+      "source_mechanics": "Function 005; source stats 85 power, 100% accuracy, 10 PP; target code 00; raw source flags befn.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "effect_chance": "30% source effect-chance field"
     },
     "FUEGOCRUZADO": {
       "status": "complete",
       "move_description": "Deals damage with +1 priority.",
       "effect_text": "Deals damage with +1 priority.",
-      "priority": "0"
+      "priority": "1 (+1 priority)",
+      "target": "One target other than the user",
+      "contact": "Yes",
+      "move_flags": "physical-fire;priority-1;priority-1;contact",
+      "source_mechanics": "Function 000; source stats 70 power, 100% accuracy, 5 PP; target code 00; raw source flags abef.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "CONJUROSOLAR": {
       "status": "complete",
       "move_description": "Deals damage and has a 30% chance to burn the target.",
       "effect_text": "Deals damage and has a 30% chance to burn the target.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "No",
+      "move_flags": "special-fairy;burn;magic",
+      "source_mechanics": "Function 00A; source stats 85 power, 90% accuracy, 5 PP; target code 00; raw source flags befg.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "effect_chance": "30% source effect-chance field"
     },
     "CACAREO": {
       "status": "complete",
       "move_description": "Deals damage and has a 70% chance to confuse the target.",
       "effect_text": "Deals damage and has a 70% chance to confuse the target.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "No",
+      "move_flags": "special-fairy;confusion;sound",
+      "source_mechanics": "Function 013; source stats 55 power, 100% accuracy, 20 PP; target code 00; raw source flags befk.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "effect_chance": "70% source effect-chance field"
     },
     "TERRAL": {
       "status": "complete",
       "move_description": "Deals damage and restores the user's HP by 50% of the damage dealt.",
       "effect_text": "Deals damage and restores the user's HP by 50% of the damage dealt.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "No",
+      "move_flags": "special-fire;drain",
+      "source_mechanics": "Function 0DD; source stats 70 power, 90% accuracy, 15 PP; target code 00; raw source flags bef.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "effect_chance": "10% source effect-chance field"
     },
     "PODERPRIMATE": {
       "status": "complete",
       "move_description": "Raises the user's Attack by 1 stage and Speed by 2 stages.",
       "effect_text": "Raises the user's Attack by 1 stage and Speed by 2 stages.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "No",
+      "move_flags": "status-normal;status;attack-boost;speed-boost",
+      "source_mechanics": "Function 036; source stats 0 power, always/does not check accuracy, 10 PP; target code 00; raw source flags d.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "ELECTROPUNZADA": {
       "status": "complete",
       "move_description": "Deals damage and has a 30% chance to make the target flinch.",
       "effect_text": "Deals damage and has a 30% chance to make the target flinch.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "Yes",
+      "move_flags": "physical-electric;flinch",
+      "source_mechanics": "Function 00F; source stats 80 power, 100% accuracy, 10 PP; target code 00; raw source flags abe.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "effect_chance": "30% source effect-chance field"
     },
     "ELECTROARENA": {
       "status": "complete",
       "move_description": "Deals damage and has a 30% chance to paralyze the target.",
       "effect_text": "Deals damage and has a 30% chance to paralyze the target.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "No",
+      "move_flags": "special-ground;paralysis",
+      "source_mechanics": "Function 007; source stats 75 power, 100% accuracy, 15 PP; target code 00; raw source flags bef.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "effect_chance": "30% source effect-chance field"
     },
     "COMECEREBRO": {
       "status": "complete",
       "move_description": "Deals damage and has a 30% chance to confuse the target.",
       "effect_text": "Deals damage and has a 30% chance to confuse the target.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "Yes",
+      "move_flags": "physical-ghost;confusion;bite;punch",
+      "source_mechanics": "Function 013; source stats 55 power, 100% accuracy, 10 PP; target code 00; raw source flags abefj.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "effect_chance": "30% source effect-chance field"
     },
     "ROCAVOLTAICA": {
       "status": "complete",
       "move_description": "Deals damage and has a 30% chance to paralyze the target.",
       "effect_text": "Deals damage and has a 30% chance to paralyze the target.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "No",
+      "move_flags": "special-rock;paralysis;high-power",
+      "source_mechanics": "Function 007; source stats 120 power, 80% accuracy, 5 PP; target code 00; raw source flags bef.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "effect_chance": "30% source effect-chance field"
     },
     "GHOSTGALLOP": {
       "status": "complete",
       "move_description": "Deals damage and has a 20% chance to make the target flinch.",
       "effect_text": "Deals damage and has a 20% chance to make the target flinch.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "No",
+      "move_flags": "physical-ghost;flinch",
+      "source_mechanics": "Function 00F; source stats 80 power, 100% accuracy, 15 PP; target code 00; raw source flags befn.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "effect_chance": "20% source effect-chance field"
     },
     "IRALLAMEANTE": {
       "status": "complete",
       "move_description": "Attacks for 2–3 turns, then confuses the user.",
       "effect_text": "Attacks for 2–3 turns, then confuses the user.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "Yes",
+      "move_flags": "physical-fire;rampage;self-confusion",
+      "source_mechanics": "Function 0D2; source stats 120 power, 100% accuracy, 10 PP; target code 00; raw source flags abef.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "ENFRIAR": {
       "status": "complete",
       "move_description": "Changes the target's type to Ice.",
       "effect_text": "Changes the target's type to Ice.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "No",
+      "move_flags": "status-ice;status;type-change",
+      "source_mechanics": "Function 164; source stats 0 power, 100% accuracy, 20 PP; target code 00; raw source flags bce.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "AHOGAMIENTO": {
       "status": "complete",
       "move_description": "Deals damage and is treated as super effective against Grass-type targets.",
       "effect_text": "Deals damage and is treated as super effective against Grass-type targets.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "No",
+      "move_flags": "special-water;anti-grass",
+      "source_mechanics": "Function 167; source stats 70 power, 100% accuracy, 20 PP; target code 00; raw source flags bef.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "DESPRENDIMIENTO": {
       "status": "complete",
       "move_description": "Attacks for 2–3 turns, then confuses the user.",
       "effect_text": "Attacks for 2–3 turns, then confuses the user.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One random opposing Pokémon",
+      "contact": "Yes",
+      "move_flags": "physical-rock;rampage;self-confusion;spread",
+      "source_mechanics": "Function 0D2; source stats 120 power, 100% accuracy, 10 PP; target code 02; raw source flags abef.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "PUASSOBERANAS": {
       "status": "complete",
       "move_description": "Deals damage and marks the target for the rest of the turn; if that target hits the user with a contact move, the target becomes poisoned.",
       "effect_text": "Deals damage and marks the target for the rest of the turn; if that target hits the user with a contact move, the target becomes poisoned.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "Yes",
+      "move_flags": "physical-poison;contact-retaliation;poison",
+      "source_mechanics": "Function 168; source stats 70 power, 100% accuracy, 10 PP; target code 00; raw source flags abef.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "effect_chance": "20% source effect-chance field"
     },
     "MORDISCOCARDUMEN": {
       "status": "complete",
       "move_description": "Hits the target 2–5 times.",
       "effect_text": "Hits the target 2–5 times.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "Yes",
+      "move_flags": "physical-water;multi-hit;bite",
+      "source_mechanics": "Function 0C0; source stats 20 power, 100% accuracy, 20 PP; target code 00; raw source flags abefi.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "BIFIDOVOLADOR": {
       "status": "complete",
       "move_description": "Deals damage and is treated as both Flying- and Fighting-type for type effectiveness.",
       "effect_text": "Deals damage and is treated as both Flying- and Fighting-type for type effectiveness.",
-      "priority": "0"
+      "priority": "0 (normal priority)",
+      "target": "One target other than the user",
+      "contact": "Yes",
+      "move_flags": "physical-flying;dual-type;variant-family;helper-records",
+      "source_mechanics": "Function 162; source stats 80 power, 95% accuracy, 10 PP; target code 00; raw source flags abefm.",
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "PALEOWAVE": {
       "status": "complete",
