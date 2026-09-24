@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#111827">
+  <title>Pokémon Move Approval Board</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Pokémon Moves Collection</p>
+      <h1>Move Approval Board</h1>
+      <p class="subtitle">Review the move, every cataloged mechanic, and the animation assigned to it.</p>
+    </div>
+    <div class="top-actions">
+      <button id="exportJsonBtn" class="button secondary">Export reviews</button>
+      <button id="exportCsvBtn" class="button secondary">Export CSV</button>
+      <label class="button secondary file-button">Import reviews<input id="importInput" type="file" accept=".json,application/json"></label>
+    </div>
+  </header>
+
+  <section class="dashboard" aria-label="Review progress">
+    <div class="metric"><strong id="totalCount">—</strong><span>Total moves</span></div>
+    <div class="metric"><strong id="reviewedCount">—</strong><span>Fully reviewed</span></div>
+    <div class="metric"><strong id="approvedCount">—</strong><span>Move approved</span></div>
+    <div class="metric"><strong id="animationApprovedCount">—</strong><span>Animation approved</span></div>
+    <div class="metric"><strong id="remainingCount">—</strong><span>Remaining</span></div>
+  </section>
+
+  <section class="progress-wrap">
+    <div class="progress-label"><span>Full review progress</span><strong id="progressText">0%</strong></div>
+    <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+  </section>
+
+  <section class="filters">
+    <input id="searchInput" class="control search" type="search" placeholder="Search move name, ID, effect, animation…">
+    <select id="sourceFilter" class="control"><option value="">All sources</option></select>
+    <select id="typeFilter" class="control"><option value="">All types</option></select>
+    <select id="categoryFilter" class="control">
+      <option value="">All categories</option>
+      <option>Physical</option><option>Special</option><option>Status</option>
+    </select>
+    <select id="animationFilter" class="control"><option value="">All animation states</option></select>
+    <select id="reviewFilter" class="control">
+      <option value="">All review states</option>
+      <option value="unreviewed">Needs review</option>
+      <option value="move-approved">Move approved</option>
+      <option value="move-revise">Move needs changes</option>
+      <option value="move-reject">Move rejected</option>
+      <option value="animation-approved">Animation approved</option>
+      <option value="animation-change">Animation needs change</option>
+      <option value="fully-reviewed">Fully reviewed</option>
+    </select>
+  </section>
+
+  <main class="workspace">
+    <aside class="move-panel">
+      <div class="panel-head">
+        <strong id="visibleCount">0 moves</strong>
+        <select id="sortSelect" class="mini-control" aria-label="Sort moves">
+          <option value="name">Name A–Z</option>
+          <option value="source">Source</option>
+          <option value="type">Type</option>
+          <option value="review">Review status</option>
+        </select>
+      </div>
+      <div id="moveList" class="move-list" aria-live="polite"></div>
+    </aside>
+
+    <section id="detailPanel" class="detail-panel">
+      <div id="emptyState" class="empty-state">
+        <h2>Choose a move to review</h2>
+        <p>The complete record and its assigned animation will appear here.</p>
+      </div>
+
+      <article id="moveDetail" class="move-detail hidden">
+        <div class="detail-nav">
+          <button id="prevBtn" class="button ghost">← Previous</button>
+          <span id="positionText"></span>
+          <button id="nextBtn" class="button ghost">Next →</button>
+        </div>
+
+        <div class="move-title-row">
+          <div>
+            <div id="sourceBadge" class="source-badge"></div>
+            <h2 id="moveName"></h2>
+            <code id="moveId"></code>
+          </div>
+          <div class="pill-row">
+            <span id="typePill" class="pill"></span>
+            <span id="categoryPill" class="pill"></span>
+          </div>
+        </div>
+
+        <section class="card">
+          <div class="section-title">
+            <h3>Core mechanics</h3>
+            <span id="mechanicsAuditBadge" class="audit-badge">Catalog record</span>
+          </div>
+          <div id="coreGrid" class="detail-grid"></div>
+        </section>
+
+        <section class="card">
+          <h3>Effects & behavior</h3>
+          <div id="effectsGrid" class="detail-grid wide"></div>
+        </section>
+
+        <section class="card">
+          <h3>Source record</h3>
+          <div id="sourceGrid" class="detail-grid wide"></div>
+        </section>
+
+        <section class="card animation-card">
+          <div class="section-title">
+            <h3>Assigned animation</h3>
+            <span id="animationStateBadge" class="audit-badge"></span>
+          </div>
+          <div id="animationPreview" class="animation-preview"></div>
+          <div id="animationGrid" class="detail-grid wide"></div>
+          <div id="animationLinks" class="link-row"></div>
+        </section>
+
+        <section class="card review-card">
+          <h3>Your approval</h3>
+
+          <div class="review-block">
+            <span class="review-label">Move decision</span>
+            <div class="segmented" data-group="move">
+              <button data-value="approved">Approve move</button>
+              <button data-value="revise">Needs changes</button>
+              <button data-value="reject">Reject move</button>
+              <button data-value="unreviewed">Clear</button>
+            </div>
+          </div>
+
+          <div class="review-block">
+            <span class="review-label">Animation decision</span>
+            <div class="segmented" data-group="animation">
+              <button data-value="approved">Approve animation</button>
+              <button data-value="change">Change animation</button>
+              <button data-value="unreviewed">Clear</button>
+            </div>
+          </div>
+
+          <label class="notes-label" for="reviewNotes">Review notes</label>
+          <textarea id="reviewNotes" rows="5" placeholder="What should change? Why do you like this animation? Distribution concerns?"></textarea>
+          <p id="saveState" class="save-state">Saved automatically on this device.</p>
+        </section>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>Review decisions are stored in your browser. Use <strong>Export reviews</strong> to back them up or send them back for repository updates.</p>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
