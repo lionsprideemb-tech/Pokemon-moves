@@ -5438,20 +5438,21 @@
       "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "PROTOPLUMA": {
-      "status": "source-limited",
-      "move_description": "A 60-power Rock physical wing attack that can make the target flinch.",
-      "effect_text": "Deals 60 base-power Rock-type physical damage with 100% accuracy and 15 PP. The source description says it can make the target flinch. The mirrored row identifies the standard flinch effect family but stores 0 in its effect-chance field, so the exact flinch percentage still needs the original Armonia battle script and this move is not approval-ready.",
+      "status": "source-conflict",
+      "move_description": "Deals damage. The source description says it may make the target flinch, but the mirrored move row encodes a 0% secondary-effect chance.",
+      "effect_text": "Deals 60 base-power physical Rock-type damage with 100% accuracy. Its source description says the target may flinch, and its legacy function code is the standard flinch-effect family. However, the same source row sets the move's effect-chance field to 0. In the corresponding Essentials battle engine, additional effects only trigger when a random roll is below that effect-chance value, so the mirrored data as written gives Protopluma no functioning flinch chance. No percentage is invented here.",
       "priority": "0 (normal priority)",
       "target": "One target other than the user",
       "contact": "No",
-      "effect_chance": "Flinch chance exists, but exact percentage is not encoded consistently in the audited mirror.",
-      "status_effects": "May cause flinching.",
+      "effect_chance": "0% in the mirrored Armonia data (conflicts with the description saying it may flinch)",
+      "status_effects": "Source description intends a possible flinch, but the encoded chance is 0%",
       "source_description": "Envuelve sus alas en energía prehistórica y golpea. Puede hacer retroceder al objetivo.",
       "source_mechanics": "Function 00F; source stats 60 power, 100% accuracy, 15 PP; target code 00; raw source flags bef.",
       "move_flags": "physical-rock;flinch;wing",
-      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "audit_basis": "Source contradiction verified: the pinned Armonia mirror uses legacy flinch function 00F but stores EffectChance 0. Legacy Essentials runtime logic gates pbAdditionalEffect through the move's numeric addlEffect chance, so a value of 0 does not trigger the flinch effect under standard semantics.",
       "approval_ready": false,
-      "verification_blocker": "The mirror confirms the flinch effect but does not preserve a trustworthy flinch percentage."
+      "verification_blocker": "The mirror confirms the flinch effect but does not preserve a trustworthy flinch percentage.",
+      "source_limitation": "The source data is internally inconsistent. A nonzero intended flinch percentage cannot be source-certified without an original Armonia runtime/data revision."
     },
     "PODERNINFA": {
       "status": "complete",
