@@ -1011,16 +1011,17 @@
     },
     "MOVE_INVERSE_ROOM": {
       "status": "complete",
-      "move_description": "The user exerts an unknown power that reverses the type chart for 5 turns.",
-      "effect_text": "The user exerts an unknown power that reverses the type chart for 5 turns.",
+      "move_description": "Reverses type matchups for 5 turns.",
+      "effect_text": "For 5 turns, type effectiveness is inverted: matchups that would normally be super effective become resisted, while resisted matchups become super effective. Immunities follow Elite Redux's Inverse Room rules.",
       "priority": "0 (normal priority)",
-      "target": "ALL_BATTLERS",
+      "target": "Entire battlefield",
       "contact": "No",
       "move_flags": "mirror-move-affected",
       "effect_chance": "No separate chance field",
       "source_description": "The user exerts an unknown power that reverses the type chart for 5 turns.",
       "source_mechanics": "Effect family: EFFECT_INVERSE_ROOM. Power —, Accuracy —, PP 5.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "field_weather_terrain_behavior": "Creates Inverse Room for 5 turns, reversing type effectiveness while active."
     },
     "MOVE_BLAZING_BONE": {
       "status": "complete",
@@ -1703,7 +1704,7 @@
       "move_description": "Clears the current weather and prevents new weather from being set for 5 turns.",
       "effect_text": "Clears the current weather and prevents new weather from being set for 5 turns.",
       "priority": "0 (normal priority)",
-      "target": "ALL_BATTLERS",
+      "target": "Entire battlefield",
       "contact": "No",
       "move_flags": "None recorded",
       "effect_chance": "No separate chance field",
@@ -2119,7 +2120,7 @@
       "move_description": "Boosts Poison-type moves for 8 turns and deals 1/16 HP damage.",
       "effect_text": "Boosts Poison-type moves for 8 turns and deals 1/16 HP damage.",
       "priority": "0 (normal priority)",
-      "target": "ALL_BATTLERS",
+      "target": "Entire battlefield",
       "contact": "No",
       "move_flags": "None recorded",
       "effect_chance": "No separate chance field",
@@ -2171,7 +2172,7 @@
       "move_description": "Hits both sides with a thundershock at the end of each turn for 2-5 turns.",
       "effect_text": "Hits both sides with a thundershock at the end of each turn for 2-5 turns.",
       "priority": "0 (normal priority)",
-      "target": "ALL_BATTLERS",
+      "target": "Entire battlefield",
       "contact": "No",
       "move_flags": "None recorded",
       "effect_chance": "No separate chance field",
@@ -3103,9 +3104,9 @@
       "audit_basis": "Source-verified against the pinned PokeRover PBS move table."
     },
     "HUNTERSWILDS": {
-      "status": "complete",
-      "move_description": "Depending on the highest attacking stat, this move has different effects.",
-      "effect_text": "Depending on the highest attacking stat, this move has different effects.",
+      "status": "source-limited",
+      "move_description": "A Grass-type status move whose exact effect changes according to the user's stronger attacking stat.",
+      "effect_text": "Targets one adjacent Pokémon. The pinned Vanguard PBS explicitly says the result changes depending on the user's highest attacking stat, but the public PokeRover snapshot does not contain the battle-script implementation that defines those branches. The exact Attack-dominant and Special-Attack-dominant outcomes are therefore still being recovered and this move is not approval-ready.",
       "priority": "0 (normal priority)",
       "target": "One adjacent Pokémon",
       "contact": "No",
@@ -3113,7 +3114,9 @@
       "effect_chance": "No separate chance field",
       "source_description": "Depending on the highest attacking stat, this move has different effects.",
       "source_mechanics": "FunctionCode: EffectDependsOnHigherDamage. Power —, Accuracy 100, PP 2.",
-      "audit_basis": "Source-verified against the pinned PokeRover PBS move table."
+      "audit_basis": "Source-verified against the pinned PokeRover PBS move table.",
+      "approval_ready": false,
+      "verification_blocker": "The public source snapshot contains FunctionCode EffectDependsOnHigherDamage but not its implementation."
     },
     "TERIUMPALM": {
       "status": "complete",
@@ -3129,9 +3132,9 @@
       "audit_basis": "Source-verified against the pinned PokeRover PBS move table."
     },
     "TERRESTRIALCLAW": {
-      "status": "complete",
-      "move_description": "A claw imbued with energy strikes. Different stats are raised depending on the terrain.",
-      "effect_text": "A claw imbued with energy strikes. Different stats are raised depending on the terrain.",
+      "status": "source-limited",
+      "move_description": "A 70-power Dragon-type physical contact attack whose extra stat effect changes with the active terrain.",
+      "effect_text": "Deals 70 base-power Dragon-type physical damage with 100% accuracy and 10 PP. It makes contact. The pinned Vanguard description says different stats are raised depending on the active terrain. The public snapshot does not include Vanguard's custom implementation that maps each terrain to its exact stat boost, so those terrain-by-terrain boosts are still being recovered and this move is not approval-ready.",
       "priority": "0 (normal priority)",
       "target": "One adjacent Pokémon",
       "contact": "Yes",
@@ -3139,7 +3142,9 @@
       "effect_chance": "No separate chance field",
       "source_description": "A claw imbued with energy strikes. Different stats are raised depending on the terrain.",
       "source_mechanics": "FunctionCode: TypeAndPowerDependOnTerrain. Power 70, Accuracy 100, PP 10.",
-      "audit_basis": "Source-verified against the pinned PokeRover PBS move table."
+      "audit_basis": "Source-verified against the pinned PokeRover PBS move table.",
+      "approval_ready": false,
+      "verification_blocker": "The PBS uses FunctionCode TypeAndPowerDependOnTerrain, but Vanguard's description conflicts with the standard Essentials Terrain Pulse behavior and its custom script is not in the public snapshot."
     },
     "TRITIUMCANNON": {
       "status": "complete",
@@ -3624,7 +3629,7 @@
       "move_description": "Puts up a wall of sand that reduces the power of super-effective moves.",
       "effect_text": "Puts up a wall of sand that reduces the power of super-effective moves.",
       "priority": "0 (normal priority)",
-      "target": "BothSides",
+      "target": "Both sides of the field",
       "contact": "No",
       "move_flags": "{\"Snachable\",\"NoMirror\"}",
       "effect_chance": "No separate chance field",
@@ -3764,8 +3769,8 @@
     },
     "UNLEASHEDPOWER": {
       "status": "complete",
-      "move_description": "A supreme Hidden Power attack that adapts its type and attacking category to the user.",
-      "effect_text": "150-power attack. Its type becomes the user's Hidden Power type. It deals physical or special damage depending on which would deal more damage. It breaks Reflect, Light Screen, Arenite Wall, and Anti-Matter Shield.",
+      "move_description": "A 150-power attack that uses the user's Hidden Power type and whichever attacking category would deal more damage.",
+      "effect_text": "Has 150 base power. Its type becomes the user's Hidden Power type. Before damage, it chooses Physical or Special according to which calculation would deal more damage. After it hits, it removes Reflect, Light Screen, Arenite Wall, and Anti-Matter Shield from the target's side.",
       "priority": "0 (normal priority)",
       "target": "One Pokémon other than the user",
       "contact": "No",
@@ -3775,8 +3780,8 @@
     },
     "BLINDINGSPEED": {
       "status": "complete",
-      "move_description": "A +2 priority strike that adapts to the user and lets its ally act immediately.",
-      "effect_text": "80-power attack with +2 priority. Its type becomes the user's primary type. It deals physical or special damage depending on which would deal more. In a Double Battle, the user's partner receives an After You-style effect, causing that ally to act immediately after the user.",
+      "move_description": "An 80-power +2 priority attack that adopts the user's primary type and chooses the stronger damage category.",
+      "effect_text": "Has 80 base power and +2 priority. Its type becomes the user's primary type. Before damage, it chooses Physical or Special according to which would deal more. In Double Battles, the user's partner receives an After You-style effect and is moved up to act immediately after the user when possible.",
       "priority": "+2",
       "target": "One Pokémon other than the user",
       "contact": "Source move database marks this as an Intercept Z-Move; contact behavior is not the defining mechanic.",
@@ -3879,8 +3884,8 @@
     },
     "NUCLEARWASTE": {
       "status": "complete",
-      "move_description": "Badly poisons the target. In Uranium, this move can inflict its poison even on targets whose Lead Skin would otherwise make them immune to Nuclear-type moves.",
-      "effect_text": "Badly poisons the target. In Uranium, this move can inflict its poison even on targets whose Lead Skin would otherwise make them immune to Nuclear-type moves.",
+      "move_description": "Badly poisons one target.",
+      "effect_text": "A Nuclear-type status move with 85% accuracy and 10 PP. If it succeeds, it badly poisons the target, causing toxic poison damage that increases each turn the target remains active.",
       "priority": "0 (normal priority)",
       "target": "One Pokémon other than the user",
       "contact": "No",
@@ -3968,8 +3973,8 @@
     },
     "INSTANTCRUSH": {
       "status": "complete",
-      "move_description": "Deals damage with +1 priority.",
-      "effect_text": "Deals damage with +1 priority.",
+      "move_description": "A 60-power Psychic special attack with +1 priority.",
+      "effect_text": "Deals 60 base-power Psychic-type special damage with 100% accuracy and 15 PP. It has +1 priority, so it normally acts before standard-priority moves. No additional secondary effect is documented.",
       "priority": "1 (+1 priority)",
       "target": "One Pokémon other than the user",
       "contact": "No",
@@ -4120,8 +4125,8 @@
     },
     "SUDDENSTRIKE": {
       "status": "complete",
-      "move_description": "Deals damage with +1 priority.",
-      "effect_text": "Deals damage with +1 priority.",
+      "move_description": "A 40-power Dark physical attack with +1 priority.",
+      "effect_text": "Deals 40 base-power Dark-type physical damage with 100% accuracy and 30 PP. It has +1 priority and makes contact. No additional secondary effect is documented.",
       "priority": "1 (+1 priority)",
       "target": "One Pokémon other than the user",
       "contact": "Yes",
@@ -4258,9 +4263,9 @@
       "source_uncertainty": "None noted."
     },
     "NUCLEARWIND": {
-      "status": "complete",
-      "move_description": "Deals damage to all opposing Pokémon. The source move table contains a value of 3 in its effect-chance field, but neither the audited description nor Uranium's public move documentation identifies a secondary effect, so no extra effect is being invented.",
-      "effect_text": "Deals damage to all opposing Pokémon. The source move table contains a value of 3 in its effect-chance field, but neither the audited description nor Uranium's public move documentation identifies a secondary effect, so no extra effect is being invented.",
+      "status": "source-limited",
+      "move_description": "A 65-power Nuclear special wind attack aimed at opposing Pokémon.",
+      "effect_text": "Deals 65 base-power Nuclear-type special damage with 95% accuracy and 10 PP. Uranium's published move documentation does not describe any secondary effect. The pinned PBS contains an unexplained numeric effect-chance value of 3 alongside a custom function shared with Expunge, but the public data snapshot does not define what that value does for Nuclear Wind. No 3% effect is assigned until the original battle script is recovered.",
       "priority": "0 (normal priority)",
       "target": "All opposing Pokémon",
       "contact": "No",
@@ -4270,14 +4275,16 @@
       "audit_basis": "Source-verified against Pokémon Uranium 1.3.1 move data from the pinned uranium-mining PBS snapshot; publicly documented Uranium mechanics were used where the PBS description alone was incomplete.",
       "move_flags": "Uranium flags: bef",
       "source_description": "The user emits radiation from its body and uses its powerful wings to launch fallout at its foes.",
-      "source_uncertainty": "PBS chance field = 3, but no secondary effect is documented; left unattributed."
+      "source_uncertainty": "PBS chance field = 3, but no secondary effect is documented; left unattributed.",
+      "approval_ready": false,
+      "verification_blocker": "The pinned PBS has an unexplained EffectChance=3 for custom function 168, while public Uranium move documentation lists no secondary effect."
     },
     "ACHILLESHEEL": {
       "status": "complete",
       "move_description": "Deals damage and super-effective against any non-immune the target.",
       "effect_text": "Deals damage and super-effective against any non-immune the target.",
       "priority": "0",
-      "target": "normal",
+      "target": "One adjacent Pokémon",
       "move_flags": "contact, protect, mirror",
       "contact": "Yes"
     },
@@ -4286,7 +4293,7 @@
       "move_description": "Deals damage. Sound move; bypasses Substitute.",
       "effect_text": "Deals damage. Sound move; bypasses Substitute.",
       "priority": "0",
-      "target": "normal",
+      "target": "One adjacent Pokémon",
       "move_flags": "protect, mirror, sound, bypasssub",
       "contact": "No"
     },
@@ -4295,16 +4302,16 @@
       "move_description": "Deals damage and Poison ignores its normal immunity and treats Steel as super-effective.",
       "effect_text": "Deals damage and Poison ignores its normal immunity and treats Steel as super-effective.",
       "priority": "0",
-      "target": "allAdjacent",
+      "target": "All adjacent Pokémon",
       "move_flags": "protect, mirror",
       "contact": "No"
     },
     "CRYSTALRUSH": {
       "status": "complete",
-      "move_description": "Deals damage and +1 priority.",
-      "effect_text": "Deals damage and +1 priority.",
+      "move_description": "A fast Crystal-type physical strike.",
+      "effect_text": "Deals 45 base-power Crystal-type physical damage with 100% accuracy and 30 PP. It makes contact and has +1 priority. No additional secondary effect is documented.",
       "priority": "1",
-      "target": "normal",
+      "target": "One adjacent Pokémon",
       "move_flags": "contact, protect, mirror",
       "contact": "Yes"
     },
@@ -4313,16 +4320,16 @@
       "move_description": "Deals damage and user must recharge next turn.",
       "effect_text": "Deals damage and user must recharge next turn.",
       "priority": "0",
-      "target": "normal",
+      "target": "One adjacent Pokémon",
       "move_flags": "recharge, protect, mirror",
       "contact": "No"
     },
     "DRACOJET": {
       "status": "complete",
-      "move_description": "Deals damage and +1 priority.",
-      "effect_text": "Deals damage and +1 priority.",
+      "move_description": "A fast Dragon-type physical strike.",
+      "effect_text": "Deals 40 base-power Dragon-type physical damage with 100% accuracy and 20 PP. It makes contact and has +1 priority. No additional secondary effect is documented.",
       "priority": "1",
-      "target": "normal",
+      "target": "One adjacent Pokémon",
       "move_flags": "contact, protect, mirror",
       "contact": "Yes"
     },
@@ -4331,7 +4338,7 @@
       "move_description": "Changes the target's type to Dragon.",
       "effect_text": "Changes the target's type to Dragon.",
       "priority": "0",
-      "target": "normal",
+      "target": "One adjacent Pokémon",
       "move_flags": "protect, reflectable, mirror, allyanim",
       "contact": "No"
     },
@@ -4340,7 +4347,7 @@
       "move_description": "Spread damage to all adjacent foes. Sound move; bypasses Substitute.",
       "effect_text": "Spread damage to all adjacent foes. Sound move; bypasses Substitute.",
       "priority": "0",
-      "target": "allAdjacentFoes",
+      "target": "All adjacent foes",
       "move_flags": "protect, mirror, sound, bypasssub",
       "contact": "No"
     },
@@ -4349,7 +4356,7 @@
       "move_description": "Creates a 2-turn ally-side condition that raises move priority by 1.",
       "effect_text": "Creates a 2-turn ally-side condition that raises move priority by 1.",
       "priority": "0",
-      "target": "allySide",
+      "target": "User's side",
       "move_flags": "snatch, wind",
       "contact": "No"
     },
@@ -4358,7 +4365,7 @@
       "move_description": "Sets a stackable foe-side switch-in hazard that can paralyze grounded entrants; stronger in rain; up to 5 layers. Grounded Electric/Ground entrants remove it; Heavy-Duty Boots avoid it.",
       "effect_text": "Sets a stackable foe-side switch-in hazard that can paralyze grounded entrants; stronger in rain; up to 5 layers. Grounded Electric/Ground entrants remove it; Heavy-Duty Boots avoid it.",
       "priority": "0",
-      "target": "foeSide",
+      "target": "Opposing side",
       "move_flags": "reflectable, nonsky",
       "contact": "No"
     },
@@ -4367,25 +4374,25 @@
       "move_description": "Two-turn attack; charges first and strikes second. Executes immediately during New Moon weather.",
       "effect_text": "Two-turn attack; charges first and strikes second. Executes immediately during New Moon weather.",
       "priority": "0",
-      "target": "normal",
+      "target": "One adjacent Pokémon",
       "move_flags": "charge, protect, mirror",
       "contact": "No"
     },
     "MEDUSARAY": {
       "status": "complete",
       "move_description": "Changes the target's type to Rock.",
-      "effect_text": "Changes the target's type to Rock.",
+      "effect_text": "A Rock-type status move with 100% accuracy and 20 PP. If it succeeds, the target's typing is replaced with pure Rock. It is reflectable by Magic Coat/Magic Bounce-style effects in the source.",
       "priority": "0",
-      "target": "normal",
+      "target": "One adjacent Pokémon",
       "move_flags": "protect, reflectable, mirror, allyanim",
       "contact": "No"
     },
     "MORPH": {
       "status": "complete",
-      "move_description": "User morphs into the the target.",
-      "effect_text": "User morphs into the the target.",
+      "move_description": "Transforms the user into the target.",
+      "effect_text": "A Normal-type status move with 10 PP that transforms the user into the selected target, copying the target's battle form and Transform-style battle properties according to the source implementation. It does not deal damage.",
       "priority": "0",
-      "target": "normal",
+      "target": "One adjacent Pokémon",
       "move_flags": "allyanim",
       "contact": "No"
     },
@@ -4394,17 +4401,17 @@
       "move_description": "Heals 1/2 max HP and raises Defense by 1 stage.",
       "effect_text": "Heals 1/2 max HP and raises Defense by 1 stage.",
       "priority": "0",
-      "target": "self",
+      "target": "User",
       "move_flags": "snatch, heal",
       "contact": "No",
       "stat_changes": "raises the target's Defense by 1 stage"
     },
     "NEWMOON": {
       "status": "complete",
-      "move_description": "Sets New Moon weather.",
-      "effect_text": "Sets New Moon weather.",
+      "move_description": "Creates New Moon weather.",
+      "effect_text": "A Dark-type status move with 5 PP that sets Insurgence's New Moon weather across the battlefield. It does not deal direct damage. Other custom moves and mechanics can check for New Moon while it is active.",
       "priority": "0",
-      "target": "all",
+      "target": "Entire battlefield",
       "contact": "No"
     },
     "PERMAFROST": {
@@ -4412,7 +4419,7 @@
       "move_description": "Sets a stackable foe-side switch-in hazard that can freeze grounded entrants; stronger in hail; up to 5 layers. Grounded Ice/Fire entrants remove it; Heavy-Duty Boots avoid it.",
       "effect_text": "Sets a stackable foe-side switch-in hazard that can freeze grounded entrants; stronger in hail; up to 5 layers. Grounded Ice/Fire entrants remove it; Heavy-Duty Boots avoid it.",
       "priority": "0",
-      "target": "foeSide",
+      "target": "Opposing side",
       "move_flags": "reflectable, nonsky",
       "contact": "No"
     },
@@ -4421,7 +4428,7 @@
       "move_description": "Reverts a Mega-Evolved the target to its base species/form.",
       "effect_text": "Reverts a Mega-Evolved the target to its base species/form.",
       "priority": "0",
-      "target": "normal",
+      "target": "One adjacent Pokémon",
       "move_flags": "allyanim",
       "contact": "No"
     },
@@ -4430,7 +4437,7 @@
       "move_description": "Hoopa-Delta-Unleashed-only two-turn carry/sky-drop-style attack. Target is carried off the field during the charge sequence.",
       "effect_text": "Hoopa-Delta-Unleashed-only two-turn carry/sky-drop-style attack. Target is carried off the field during the charge sequence.",
       "priority": "0",
-      "target": "normal",
+      "target": "One adjacent Pokémon",
       "move_flags": "contact, charge, protect, mirror, distance",
       "contact": "Yes"
     },
@@ -4439,7 +4446,7 @@
       "move_description": "Sets a Fire-type Stealth Rock-style switch-in hazard. Damage scales with Fire effectiveness; Heavy-Duty Boots avoid it.",
       "effect_text": "Sets a Fire-type Stealth Rock-style switch-in hazard. Damage scales with Fire effectiveness; Heavy-Duty Boots avoid it.",
       "priority": "0",
-      "target": "foeSide",
+      "target": "Opposing side",
       "move_flags": "reflectable",
       "contact": "No"
     },
@@ -4448,17 +4455,17 @@
       "move_description": "Burns opposing targets. If a hit target is Grass-type, burn can spread to susceptible Pokémon on that side.",
       "effect_text": "Burns opposing targets. If a hit target is Grass-type, burn can spread to susceptible Pokémon on that side.",
       "priority": "0",
-      "target": "allAdjacentFoes",
+      "target": "All adjacent foes",
       "move_flags": "protect, reflectable, mirror",
       "contact": "No",
       "status_effects": "burn"
     },
     "WORMHOLE": {
       "status": "complete",
-      "move_description": "Deals damage and +1 priority.",
-      "effect_text": "Deals damage and +1 priority.",
+      "move_description": "A fast Psychic special attack.",
+      "effect_text": "Deals 40 base-power Psychic-type special damage with 100% accuracy and 30 PP. It has +1 priority. No additional secondary effect is documented.",
       "priority": "1",
-      "target": "normal",
+      "target": "One adjacent Pokémon",
       "move_flags": "protect, mirror",
       "contact": "No"
     },
@@ -4559,8 +4566,8 @@
     },
     "MALDIGNICION": {
       "status": "complete",
-      "move_description": "Deals damage. 30% chance to burn.",
-      "effect_text": "Deals damage. 30% chance to burn.",
+      "move_description": "An 80-power Ghost special attack that may burn.",
+      "effect_text": "Deals 80 base-power Ghost-type special damage with 100% accuracy and 15 PP. It has a 30% chance to burn the target.",
       "priority": "0 (normal priority)",
       "target": "One target other than the user",
       "contact": "No",
@@ -4582,8 +4589,8 @@
     },
     "ALAFUNESTA": {
       "status": "complete",
-      "move_description": "Drains 50% of damage dealt.",
-      "effect_text": "Drains 50% of damage dealt.",
+      "move_description": "A draining Flying special attack.",
+      "effect_text": "Deals 75 base-power Flying-type special damage with 100% accuracy and 10 PP. The user restores HP equal to 50% of the damage dealt.",
       "priority": "0 (normal priority)",
       "target": "One target other than the user",
       "contact": "No",
@@ -4606,7 +4613,7 @@
       "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "ZARZAS": {
-      "status": "complete",
+      "status": "source-limited",
       "move_description": "Entangles the target in damaging brambles.",
       "effect_text": "Deals 90 base-power physical Grass-type damage, then applies a binding/trapping effect that continues damaging the target at the end of each turn. The mirrored source row guarantees the effect but does not encode a separate player-facing duration in its text, so no duration is invented here.",
       "priority": "0 (normal priority)",
@@ -4618,7 +4625,9 @@
       "source_description": "Ataca al oponente con unas zarzas que le van haciendo daño al final de cada turno.",
       "source_mechanics": "Function 0CF; source stats 90 power, 95% accuracy, 15 PP; target code 00; raw source flags abcdef.",
       "move_flags": "physical-grass;trap;residual;contact",
-      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Opalo move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "approval_ready": false,
+      "verification_blocker": "The mirror confirms a binding/trapping residual-damage effect, but does not include the original Opalo battle script needed to certify its exact duration and per-turn damage."
     },
     "SOMBRATELA": {
       "status": "complete",
@@ -4694,8 +4703,8 @@
     },
     "DRENANIMA": {
       "status": "complete",
-      "move_description": "Drains 50% of damage dealt.",
-      "effect_text": "Drains 50% of damage dealt.",
+      "move_description": "A draining Ghost special attack.",
+      "effect_text": "Deals 80 base-power Ghost-type special damage with 100% accuracy and 10 PP. The user restores HP equal to 50% of the damage dealt.",
       "priority": "0 (normal priority)",
       "target": "One target other than the user",
       "contact": "No",
@@ -4768,8 +4777,8 @@
     },
     "LASERESENCIA": {
       "status": "complete",
-      "move_description": "High-power damage.",
-      "effect_text": "High-power damage.",
+      "move_description": "A very powerful Normal special beam attack.",
+      "effect_text": "Deals 150 base-power Normal-type special damage with 100% accuracy and 5 PP. The source describes it as an essence-powered laser and does not document a secondary effect.",
       "priority": "0 (normal priority)",
       "target": "One target other than the user",
       "contact": "No",
@@ -4817,8 +4826,8 @@
     },
     "ABSORBESENCIA": {
       "status": "complete",
-      "move_description": "Drains 50% of damage dealt.",
-      "effect_text": "Drains 50% of damage dealt.",
+      "move_description": "A powerful draining Ghost physical attack.",
+      "effect_text": "Deals 100 base-power Ghost-type physical damage with 100% accuracy and 10 PP. The user restores HP equal to 50% of the damage dealt.",
       "priority": "0 (normal priority)",
       "target": "One target other than the user",
       "contact": "No",
@@ -4843,14 +4852,14 @@
       "move_description": "Deals damage to one adjacent target with a 100% chance to confuse it and lower its Defense and Special Attack by 1 stage. The user recovers half of the HP lost by the target, rounded up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down. If this move is successful, the weather changes to Rain Dance for 5 turns unless Rain Dance is already in effect, the user gains the effects of Aqua Ring and Magic Coat, and the user must recharge on the following turn and cannot make a move. Makes contact.",
       "effect_text": "Deals damage to one adjacent target with a 100% chance to confuse it and lower its Defense and Special Attack by 1 stage. The user recovers half of the HP lost by the target, rounded up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down. If this move is successful, the weather changes to Rain Dance for 5 turns unless Rain Dance is already in effect, the user gains the effects of Aqua Ring and Magic Coat, and the user must recharge on the following turn and cannot make a move. Makes contact.",
       "priority": "0",
-      "target": "normal"
+      "target": "One adjacent Pokémon"
     },
     "SLIMESHOT": {
       "status": "complete",
       "move_description": "The user fires a glob of charged slime at the target to attack. This may also lower the target’s Speed stat.",
       "effect_text": "The user fires a glob of charged slime at the target to attack. This may also lower the target’s Speed stat.",
       "priority": "0",
-      "target": "NearOther",
+      "target": "One adjacent Pokémon",
       "contact": "No",
       "move_flags": "CanProtect,CanMirrorMove,Bomb",
       "effect_chance": "10%"
@@ -4860,7 +4869,7 @@
       "move_description": "The user assaults with a frenzied dance. The user boosts the power of its next Fire-type move.",
       "effect_text": "The user assaults with a frenzied dance. The user boosts the power of its next Fire-type move.",
       "priority": "0",
-      "target": "NearOther",
+      "target": "One adjacent Pokémon",
       "contact": "No",
       "move_flags": "CanProtect,CanMirrorMove,Dance",
       "effect_chance": "100%"
@@ -4870,7 +4879,7 @@
       "move_description": "The user attacks opponents by unleashing a loud burst of sound directly into their minds. This move never misses.",
       "effect_text": "The user attacks opponents by unleashing a loud burst of sound directly into their minds. This move never misses.",
       "priority": "0",
-      "target": "AllNearFoes",
+      "target": "All adjacent foes",
       "contact": "No",
       "move_flags": "CanProtect,CanMirrorMove,Sound"
     },
@@ -4879,7 +4888,7 @@
       "move_description": "The user crushes their foe with a telekinetic force. Damage increases with the user's Special Defense stat.",
       "effect_text": "The user crushes their foe with a telekinetic force. Damage increases with the user's Special Defense stat.",
       "priority": "0",
-      "target": "NearOther",
+      "target": "One adjacent Pokémon",
       "contact": "Yes",
       "move_flags": "Contact,CanProtect,CanMirrorMove"
     },
@@ -4888,7 +4897,7 @@
       "move_description": "The user deforms the space around the target. Is super-effective on Steel-types.",
       "effect_text": "The user deforms the space around the target. Is super-effective on Steel-types.",
       "priority": "0",
-      "target": "NearOther",
+      "target": "One adjacent Pokémon",
       "contact": "No",
       "move_flags": "CanProtect,CanMirrorMove"
     },
@@ -4897,7 +4906,7 @@
       "move_description": "The user launches a kick with a high critical-hit ratio. It may also leave the target with paralysis.",
       "effect_text": "The user launches a kick with a high critical-hit ratio. It may also leave the target with paralysis.",
       "priority": "0",
-      "target": "NearOther",
+      "target": "One adjacent Pokémon",
       "contact": "Yes",
       "move_flags": "Contact,CanProtect,HighCriticalHitRate",
       "effect_chance": "10%"
@@ -4907,7 +4916,7 @@
       "move_description": "The user launches a kick with a high critical-hit ratio. It may also leave the target with frostbite.",
       "effect_text": "The user launches a kick with a high critical-hit ratio. It may also leave the target with frostbite.",
       "priority": "0",
-      "target": "NearOther",
+      "target": "One adjacent Pokémon",
       "contact": "Yes",
       "move_flags": "Contact,CanProtect,HighCriticalHitRate",
       "effect_chance": "10%"
@@ -4917,7 +4926,7 @@
       "move_description": "The user whips up brutal winds around the opposing team. This may also lower the targets' Sp. Def stat.",
       "effect_text": "The user whips up brutal winds around the opposing team. This may also lower the targets' Sp. Def stat.",
       "priority": "0",
-      "target": "AllNearFoes",
+      "target": "All adjacent foes",
       "contact": "No",
       "move_flags": "CanProtect",
       "effect_chance": "10%"
@@ -4927,7 +4936,7 @@
       "move_description": "The user drains the target’s life force. The user's HP is restored by half the damage taken by the target.",
       "effect_text": "The user drains the target’s life force. The user's HP is restored by half the damage taken by the target.",
       "priority": "0",
-      "target": "NearOther",
+      "target": "One adjacent Pokémon",
       "contact": "Yes",
       "move_flags": "Contact,CanProtect"
     },
@@ -4936,7 +4945,7 @@
       "move_description": "The user chills their target to the bone to inflict frostbite.",
       "effect_text": "The user chills their target to the bone to inflict frostbite.",
       "priority": "0",
-      "target": "NearOther",
+      "target": "One adjacent Pokémon",
       "contact": "No",
       "move_flags": "CanProtect,CanMirrorMove"
     },
@@ -4945,7 +4954,7 @@
       "move_description": "The user wails eerily at its target, chilling them to the bone. This may also give the target frostbite.",
       "effect_text": "The user wails eerily at its target, chilling them to the bone. This may also give the target frostbite.",
       "priority": "0",
-      "target": "NearOther",
+      "target": "One adjacent Pokémon",
       "contact": "No",
       "move_flags": "CanProtect,Sound",
       "effect_chance": "20%"
@@ -4955,7 +4964,7 @@
       "move_description": "The user conjures a shining blade and then attacks by cutting its target. Critical hits land more easily.",
       "effect_text": "The user conjures a shining blade and then attacks by cutting its target. Critical hits land more easily.",
       "priority": "0",
-      "target": "NearOther",
+      "target": "One adjacent Pokémon",
       "contact": "Yes",
       "move_flags": "Contact,CanProtect,HighCriticalHitRate,Blade",
       "effect_chance": "10%"
@@ -4965,7 +4974,7 @@
       "move_description": "The user strikes the air to send a damaging shockwave towards opposing Pokémon.",
       "effect_text": "The user strikes the air to send a damaging shockwave towards opposing Pokémon.",
       "priority": "0",
-      "target": "AllNearFoes",
+      "target": "All adjacent foes",
       "contact": "No",
       "move_flags": "CanProtect"
     },
@@ -4974,7 +4983,7 @@
       "move_description": "The user attacks its target with a hail of glittering crystals.",
       "effect_text": "The user attacks its target with a hail of glittering crystals.",
       "priority": "0",
-      "target": "NearOther",
+      "target": "One adjacent Pokémon",
       "contact": "No",
       "move_flags": "CanProtect"
     },
@@ -4983,7 +4992,7 @@
       "move_description": "The user spews superheated metal at its target. This may also leave the target with a burn.",
       "effect_text": "The user spews superheated metal at its target. This may also leave the target with a burn.",
       "priority": "0",
-      "target": "NearOther",
+      "target": "One adjacent Pokémon",
       "contact": "No",
       "move_flags": "CanProtect",
       "effect_chance": "10%"
@@ -5000,7 +5009,7 @@
       "move_description": "The user attacks by scattering a cloud of coarse debris. This may also lower the Speed stat of opposing Pokémon.",
       "effect_text": "The user attacks by scattering a cloud of coarse debris. This may also lower the Speed stat of opposing Pokémon.",
       "priority": "0",
-      "target": "AllNearFoes",
+      "target": "All adjacent foes",
       "contact": "No",
       "move_flags": "CanProtect",
       "effect_chance": "10%"
@@ -5010,7 +5019,7 @@
       "move_description": "The target is bitten with sweet and sharp fangs. It may make the target flinch.",
       "effect_text": "The target is bitten with sweet and sharp fangs. It may make the target flinch.",
       "priority": "0",
-      "target": "NearOther",
+      "target": "One adjacent Pokémon",
       "contact": "Yes",
       "move_flags": "Contact,CanProtect,Biting",
       "effect_chance": "30%"
@@ -5020,7 +5029,7 @@
       "move_description": "The user creates a fiery explosion to inflict damage on those around it. The user faints upon using this move.",
       "effect_text": "The user creates a fiery explosion to inflict damage on those around it. The user faints upon using this move.",
       "priority": "0",
-      "target": "AllNearOthers",
+      "target": "All adjacent Pokémon except the user",
       "contact": "No",
       "move_flags": "CanProtect,CanMirrorMove"
     },
@@ -5029,7 +5038,7 @@
       "move_description": "The user unleashes a spray of spicy vapors at its target to attack. It may also leave the target with a burn.",
       "effect_text": "The user unleashes a spray of spicy vapors at its target to attack. It may also leave the target with a burn.",
       "priority": "0",
-      "target": "NearOther",
+      "target": "One adjacent Pokémon",
       "contact": "No",
       "move_flags": "CanProtect,ThawsUser",
       "effect_chance": "30%"
@@ -5039,7 +5048,7 @@
       "move_description": "The damage is based on the user's highest plain, non-HP stat. The move's type is set by the user's type.",
       "effect_text": "The damage is based on the user's highest plain, non-HP stat. The move's type is set by the user's type.",
       "priority": "0",
-      "target": "NearOther",
+      "target": "One adjacent Pokémon",
       "contact": "No",
       "move_flags": "CanProtect,CanMirrorMove,CannotMetronome"
     },
@@ -5048,7 +5057,7 @@
       "move_description": "An ancient song appeals to the hearts of those listening. It may also induce sleep.",
       "effect_text": "An ancient song appeals to the hearts of those listening. It may also induce sleep.",
       "priority": "0",
-      "target": "NearOther",
+      "target": "One adjacent Pokémon",
       "contact": "No",
       "move_flags": "CanProtect,Sound,CannotMetronome",
       "effect_chance": "10%"
@@ -5058,7 +5067,7 @@
       "move_description": "Buffs an ally or nerfs a foe by raising or sharply lowering their highest stat.",
       "effect_text": "Buffs an ally or nerfs a foe by raising or sharply lowering their highest stat.",
       "priority": "0",
-      "target": "NearOther",
+      "target": "One adjacent Pokémon",
       "contact": "No",
       "move_flags": "CanProtect,CanMirrorMove,CannotMetronome"
     },
@@ -5067,7 +5076,7 @@
       "move_description": "The user hunts down its foe with a deadly precision chomp, which lowers their speed.",
       "effect_text": "The user hunts down its foe with a deadly precision chomp, which lowers their speed.",
       "priority": "0",
-      "target": "NearOther",
+      "target": "One adjacent Pokémon",
       "contact": "Yes",
       "move_flags": "Contact,CanProtect,Biting,CannotMetronome",
       "effect_chance": "100%"
@@ -5077,7 +5086,7 @@
       "move_description": "The user drains the life force from the target. This move heals the user by 50% of the damage dealt.",
       "effect_text": "The user drains the life force from the target. This move heals the user by 50% of the damage dealt.",
       "priority": "0",
-      "target": "NearOther",
+      "target": "One adjacent Pokémon",
       "contact": "No",
       "move_flags": "CanProtect,CanMirrorMove,CannotMetronome"
     },
@@ -5086,7 +5095,7 @@
       "move_description": "The user attacks by sending a spray of superheated steam towards its target. This move's power is boosted in the rain.",
       "effect_text": "The user attacks by sending a spray of superheated steam towards its target. This move's power is boosted in the rain.",
       "priority": "0",
-      "target": "NearOther",
+      "target": "One adjacent Pokémon",
       "contact": "No",
       "move_flags": "CanProtect,CanMirrorMove"
     },
@@ -5095,7 +5104,7 @@
       "move_description": "Tacos filled with molten cheese fly at the target 3 to 5 times.",
       "effect_text": "Tacos filled with molten cheese fly at the target 3 to 5 times.",
       "priority": "0",
-      "target": "NearOther",
+      "target": "One adjacent Pokémon",
       "contact": "No",
       "move_flags": "CanProtect,CanMirrorMove,CannotMetronome"
     },
@@ -5104,7 +5113,7 @@
       "move_description": "After doing damage, the target is left poisoned regardless of other status effects.",
       "effect_text": "After doing damage, the target is left poisoned regardless of other status effects.",
       "priority": "0",
-      "target": "NearOther",
+      "target": "One adjacent Pokémon",
       "contact": "No",
       "move_flags": "CanProtect,CanMirrorMove"
     },
@@ -5113,7 +5122,7 @@
       "move_description": "The user does an all-out attack, crashing its own hard drives. Lowers foe's PPs.",
       "effect_text": "The user does an all-out attack, crashing its own hard drives. Lowers foe's PPs.",
       "priority": "0",
-      "target": "NearOther",
+      "target": "One adjacent Pokémon",
       "contact": "No",
       "move_flags": "CanProtect,CanMirrorMove"
     },
@@ -5122,7 +5131,7 @@
       "move_description": "The user unleashes a powerful blast of thorns in a wide spread, hitting foes with splintered fragments.",
       "effect_text": "The user unleashes a powerful blast of thorns in a wide spread, hitting foes with splintered fragments.",
       "priority": "0",
-      "target": "AllNearFoes",
+      "target": "All adjacent foes",
       "contact": "Yes",
       "move_flags": "Contact,CanProtect,CanMirrorMove,Bomb"
     },
@@ -5131,14 +5140,14 @@
       "move_description": "The user injects the foe with a BOOMing virus. Increases all damage taken by the foe by 25%.",
       "effect_text": "The user injects the foe with a BOOMing virus. Increases all damage taken by the foe by 25%.",
       "priority": "0",
-      "target": "NearOther"
+      "target": "One adjacent Pokémon"
     },
     "TRIMTACKLE": {
       "status": "complete",
       "move_description": "The user tackles the target with a stylish charge. The user's hairstyle determines the type of this move.",
       "effect_text": "The user tackles the target with a stylish charge. The user's hairstyle determines the type of this move.",
       "priority": "0",
-      "target": "NearOther",
+      "target": "One adjacent Pokémon",
       "contact": "No",
       "move_flags": "CanProtect,CanMirrorMove,GravityBoosted"
     },
@@ -5147,7 +5156,7 @@
       "move_description": "The user bites down with rock-hard fangs formed from stalagmites. May lower the target's Defense stat.",
       "effect_text": "The user bites down with rock-hard fangs formed from stalagmites. May lower the target's Defense stat.",
       "priority": "0",
-      "target": "NearOther",
+      "target": "One adjacent Pokémon",
       "contact": "Yes",
       "move_flags": "Contact,CanProtect,CanMirrorMove,Biting",
       "effect_chance": "20%"
@@ -5164,7 +5173,7 @@
       "move_description": "The user splashes around, creating a dazzling display of golden water. Foes always take critical damage.",
       "effect_text": "The user splashes around, creating a dazzling display of golden water. Foes always take critical damage.",
       "priority": "0",
-      "target": "AllNearFoes",
+      "target": "All adjacent foes",
       "contact": "No",
       "move_flags": "CanProtect,CanMirrorMove,CannotMetronome,CannotSketch"
     },
@@ -5231,9 +5240,9 @@
       "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
     },
     "PROTOPLUMA": {
-      "status": "complete",
-      "move_description": "Strikes with wings wrapped in prehistoric energy and may make the target flinch.",
-      "effect_text": "Deals 60 base-power physical Rock-type damage with 100% accuracy and 15 PP. The source description explicitly says the move can make the target flinch. However, the mirrored Armonia row stores a 0 in its numeric effect-chance field, so the exact flinch percentage cannot be source-certified from this mirror and is intentionally not guessed.",
+      "status": "source-limited",
+      "move_description": "A 60-power Rock physical wing attack that can make the target flinch.",
+      "effect_text": "Deals 60 base-power Rock-type physical damage with 100% accuracy and 15 PP. The source description says it can make the target flinch. The mirrored row identifies the standard flinch effect family but stores 0 in its effect-chance field, so the exact flinch percentage still needs the original Armonia battle script and this move is not approval-ready.",
       "priority": "0 (normal priority)",
       "target": "One target other than the user",
       "contact": "No",
@@ -5242,7 +5251,9 @@
       "source_description": "Envuelve sus alas en energía prehistórica y golpea. Puede hacer retroceder al objetivo.",
       "source_mechanics": "Function 00F; source stats 60 power, 100% accuracy, 15 PP; target code 00; raw source flags bef.",
       "move_flags": "physical-rock;flinch;wing",
-      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "approval_ready": false,
+      "verification_blocker": "The mirror confirms the flinch effect but does not preserve a trustworthy flinch percentage."
     },
     "PODERNINFA": {
       "status": "complete",
@@ -5482,8 +5493,8 @@
     },
     "HIEDRAAGIL": {
       "status": "complete",
-      "move_description": "Deals damage with +1 priority.",
-      "effect_text": "Deals damage with +1 priority.",
+      "move_description": "A fast Grass-type physical strike.",
+      "effect_text": "Deals 40 base-power Grass-type physical damage with 100% accuracy and 10 PP. It has +1 priority. No additional secondary effect is documented.",
       "priority": "1 (+1 priority)",
       "target": "One target other than the user",
       "contact": "No",
@@ -5517,8 +5528,8 @@
     },
     "FUEGOCRUZADO": {
       "status": "complete",
-      "move_description": "Deals damage with +1 priority.",
-      "effect_text": "Deals damage with +1 priority.",
+      "move_description": "A fast Fire-type physical contact attack.",
+      "effect_text": "Deals 70 base-power Fire-type physical damage with 100% accuracy and 5 PP. It makes contact and has +1 priority. No additional secondary effect is documented.",
       "priority": "1 (+1 priority)",
       "target": "One target other than the user",
       "contact": "Yes",
@@ -5647,7 +5658,7 @@
     "ENFRIAR": {
       "status": "complete",
       "move_description": "Changes the target's type to Ice.",
-      "effect_text": "Changes the target's type to Ice.",
+      "effect_text": "An Ice-type status move with 100% accuracy and 20 PP. If it succeeds, the target's typing is replaced with pure Ice. It does not deal damage.",
       "priority": "0 (normal priority)",
       "target": "One target other than the user",
       "contact": "No",
@@ -5691,8 +5702,8 @@
     },
     "MORDISCOCARDUMEN": {
       "status": "complete",
-      "move_description": "Hits the target 2–5 times.",
-      "effect_text": "Hits the target 2–5 times.",
+      "move_description": "A multi-hit Water physical biting attack.",
+      "effect_text": "Deals 20 base-power Water-type physical damage per hit with 100% accuracy and 20 PP. It strikes the target 2–5 times in one use and is treated as a biting move.",
       "priority": "0 (normal priority)",
       "target": "One target other than the user",
       "contact": "Yes",
@@ -5716,7 +5727,7 @@
       "move_description": "Deals damage. 20% chance to lower target Attack by 1 stage.",
       "effect_text": "Deals damage. 20% chance to lower target Attack by 1 stage.",
       "priority": "0",
-      "target": "normal",
+      "target": "One adjacent Pokémon",
       "move_flags": "protect, mirror",
       "contact": "No",
       "effect_chance": "20%",
@@ -5727,7 +5738,7 @@
       "move_description": "Deals damage. 50% chance to lower target Defense by 1 stage.",
       "effect_text": "Deals damage. 50% chance to lower target Defense by 1 stage.",
       "priority": "0",
-      "target": "normal",
+      "target": "One adjacent Pokémon",
       "move_flags": "contact, protect, mirror",
       "contact": "Yes",
       "effect_chance": "50%",
@@ -5738,7 +5749,7 @@
       "move_description": "Spread damage to all adjacent foes. 10% chance to freeze; can defrost the user; toggles Ramnarok between base and Radiant form after use when eligible.",
       "effect_text": "Spread damage to all adjacent foes. 10% chance to freeze; can defrost the user; toggles Ramnarok between base and Radiant form after use when eligible.",
       "priority": "0",
-      "target": "allAdjacentFoes",
+      "target": "All adjacent foes",
       "move_flags": "protect, mirror, defrost, nosketch",
       "contact": "No",
       "effect_chance": "10%",
@@ -5802,8 +5813,8 @@
     },
     "SPEEDWEED": {
       "status": "complete",
-      "move_description": "Deals damage; has +1 priority.",
-      "effect_text": "Deals damage; has +1 priority.",
+      "move_description": "A fast Grass-type physical attack.",
+      "effect_text": "Deals 40 base-power Grass-type physical damage with 100% accuracy and 30 PP. It makes contact and has +1 priority. No additional secondary effect is defined in the pinned Clover source.",
       "priority": "+1 (priority)",
       "target": "one adjacent target",
       "contact": "Yes",
@@ -5868,8 +5879,8 @@
     },
     "QUICKSAND": {
       "status": "complete",
-      "move_description": "Deals damage; has +1 priority.",
-      "effect_text": "Deals damage; has +1 priority.",
+      "move_description": "A fast Ground-type physical attack.",
+      "effect_text": "Deals 40 base-power Ground-type physical damage with 100% accuracy and 20 PP. It has +1 priority. No additional secondary effect is defined in the pinned Clover source.",
       "priority": "+1 (priority)",
       "target": "one adjacent target",
       "contact": "No",
@@ -5877,8 +5888,8 @@
     },
     "THINKFAST": {
       "status": "complete",
-      "move_description": "Deals damage; has +1 priority.",
-      "effect_text": "Deals damage; has +1 priority.",
+      "move_description": "A fast Psychic special attack.",
+      "effect_text": "Deals 40 base-power Psychic-type special damage with 100% accuracy and 20 PP. It has +1 priority. No additional secondary effect is defined in the pinned Clover source.",
       "priority": "+1 (priority)",
       "target": "one adjacent target",
       "contact": "No",
@@ -5949,8 +5960,8 @@
     },
     "WOWWIENER": {
       "status": "complete",
-      "move_description": "Hits the target 2–5 times.",
-      "effect_text": "Hits the target 2–5 times.",
+      "move_description": "A Fire-type special attack that hits several times.",
+      "effect_text": "Deals 30 base-power Fire-type special damage per hit with 100% accuracy and 15 PP. It hits the target 2–5 times in one use. No additional secondary effect is defined in the pinned Clover source.",
       "priority": "0 (normal priority)",
       "target": "one adjacent target",
       "contact": "No",
@@ -5999,7 +6010,7 @@
     "ANATTACK": {
       "status": "complete",
       "move_description": "A powerful physical attack using Clover's custom ??? type.",
-      "effect_text": "Deals 120 base-power physical damage of Clover's source-native ??? type. It has 100% accuracy, 5 PP, does not make contact, and has no secondary effect. In the source's Z-Move system its Z base power is 190.",
+      "effect_text": "Deals 120 base-power physical damage of Clover's custom ??? type with 100% accuracy and 5 PP. It does not make contact and has no secondary effect in the pinned source. Its source Z-Move conversion uses 190 base power.",
       "priority": "0 (normal priority)",
       "target": "One adjacent Pokémon",
       "contact": "No",
@@ -6024,8 +6035,8 @@
     },
     "COMENGO": {
       "status": "complete",
-      "move_description": "Hits the target 2–5 times.",
-      "effect_text": "Hits the target 2–5 times.",
+      "move_description": "A Water-type special attack that hits several times.",
+      "effect_text": "Deals 25 base-power Water-type special damage per hit with 100% accuracy and 30 PP. It hits the target 2–5 times in one use. No additional secondary effect is defined in the pinned Clover source.",
       "priority": "0 (normal priority)",
       "target": "one adjacent target",
       "contact": "No",
@@ -6054,8 +6065,8 @@
     },
     "DILDOCANNON": {
       "status": "complete",
-      "move_description": "Hits the target 2–5 times.",
-      "effect_text": "Hits the target 2–5 times.",
+      "move_description": "A Dragon-type physical attack that hits several times.",
+      "effect_text": "Deals 25 base-power Dragon-type physical damage per hit with 100% accuracy and 10 PP. It hits the target 2–5 times in one use. No additional secondary effect is defined in the pinned Clover source.",
       "priority": "0 (normal priority)",
       "target": "one adjacent target",
       "contact": "No",
@@ -6266,8 +6277,8 @@
     },
     "TOXIRAVAGE": {
       "status": "complete",
-      "move_description": "Deals damage with +1 priority.",
-      "effect_text": "Deals damage with +1 priority.",
+      "move_description": "A fast Poison-type physical contact attack.",
+      "effect_text": "Deals 80 base-power Poison-type physical damage with 100% accuracy and 10 PP. It makes contact and has +1 priority. No additional secondary effect is defined in the pinned Clover source.",
       "priority": "+1 (priority)",
       "target": "one adjacent target",
       "contact": "Yes",
