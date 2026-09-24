@@ -42,12 +42,54 @@ No Nintendo DS ROM image or patched commercial ROM is stored here.
 
 The official Gen 5–9 baseline is already preserved above. New work in this repository now focuses on **non-vanilla/community-created moves and animations** that can expand Mercury Redux's movepool instead of re-auditing official moves that hg-engine already provides.
 
-Discovery priorities:
-- Find original moves from public ROM hacks, fangames, decomp projects, and battle simulators.
-- Record source provenance, mechanics, move role, and animation evidence.
-- Tag gaps such as `physical-electric`, `special-rock`, `physical-fairy`, priority, spread, utility, and coverage.
+### Full collection scope
+
+**Physical Electric was only the first discovery batch, not the project scope.**
+
+The master target is to collect and source-certify community-created moves across **all 18 Pokémon types**:
+
+- Normal
+- Fire
+- Water
+- Electric
+- Grass
+- Ice
+- Fighting
+- Poison
+- Ground
+- Flying
+- Psychic
+- Bug
+- Rock
+- Ghost
+- Dragon
+- Dark
+- Steel
+- Fairy
+
+For every type, collect **Physical and Special moves**. Community-created **Status moves are also retained** so the library does not accidentally discard useful non-damaging designs.
+
+Discovery is source-wide rather than type-locked: when a public hack/fangame/decomp source is audited, extract all distinct custom moves from that source across every type/category in one pass, then deduplicate them into `manifests/community_moves.csv`.
+
+For every discovered move, record:
+- source project/repository and pinned commit
+- move name, type, category, power, accuracy, PP, mechanics/effects
+- gameplay-role tags
+- exact source data path
+- animation evidence/reference
+- license/reuse status
+- DS portability / conversion requirements
+- notes needed for later Mercury Redux implementation
+
+Priorities:
 - Prefer DS-native/HG-Engine-compatible resources when they exist.
 - Cross-engine moves are still indexed when the concept/mechanics are valuable, but their animations are marked as requiring DS conversion.
-- Do not copy source code/assets from repositories without a clear reuse license; index the exact source path/commit instead.
+- Do not copy source code/assets from repositories without a clear reuse license; index exact source paths/commits instead.
+- Avoid duplicate concepts and duplicate move definitions while preserving materially different implementations.
 
-The first discovery batch targets **physical Electric moves**, a particularly shallow official movepool for physical Electric attackers. See `manifests/community_moves.csv`.
+See:
+- `docs/COMMUNITY_COLLECTION_SCOPE.md`
+- `manifests/COMMUNITY_DISCOVERY_MATRIX.md`
+- `manifests/community_moves.csv`
+
+Current seeded result: **5 Physical Electric moves** from Pokémon Elite Redux. That is Batch 01 of the full all-type collection, not a stopping point for Electric before other types are considered.
