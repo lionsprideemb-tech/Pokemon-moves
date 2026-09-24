@@ -12,22 +12,24 @@ This audit tracks:
 ## Progress
 
 - Required effect scripts: **173**
-- Audited in F2 so far: **70/173**
-- Current batch: sorted required-effect positions **61–70**
-- Direct battle-subscript calls found in this batch: **0**
-- Side-effect pointer dependencies found in this batch: **7 unique**
-- Cumulative unique side-effect pointers observed: **40**
-- Generic-damage-only scripts in this batch: **1** (effect 282)
+- Audited in F2 so far: **80/173**
+- Current batch: sorted required-effect positions **71–80**
+- Direct battle-subscript calls found in this batch: **1 unique**
+- Side-effect pointer dependencies found in this batch: **3 unique**
+- Cumulative unique side-effect pointers observed: **42**
+- Generic-damage-only scripts in this batch: **1** (effect 300)
 
-## Batch 07 dependency notes
+## Batch 08 dependency notes
 
-- Effect 281 delegates Autotomize's Speed boost and weight reduction to `MOVE_SUBSCRIPT_PTR_AUTOTOMIZE`.
-- Effect 282 (ALWAYS_CRITICAL) is structurally just `CalcCrit` + `CalcDamage`; forced-critical behavior must be supplied outside this effect script.
-- Effects 283, 286, 288, and 290 expose dedicated handlers for Quiver Dance, Coil, Shift Gear, and Shell Smash.
-- Effect 284 delegates target type replacement to `MOVE_SUBSCRIPT_PTR_CHANGE_TARGET_TO_WATER_TYPE`.
-- Effect 285 introduces the one-stage Speed-up handler.
-- Effect 287 implements status-dependent 2x power directly and explicitly treats `ABILITY_COMATOSE` as satisfying the status condition.
-- Effect 289 implements no-held-item 2x power directly through `BMON_DATA_HELD_ITEM == ITEM_NONE`.
+- Effect 291 delegates V-create-style defensive/Speed drops to `MOVE_SUBSCRIPT_PTR_V_CREATE`.
+- Effect 292 uses the specialized `CalcHeavySlamPower` battle command.
+- Effect 293 combines Reckless-aware scaling, crash-damage processing, and confusion.
+- Effect 294 directly calls `BATTLE_SUBSCRIPT_CREATE_TERRAIN_OVERLAY` after `UpdateTerrainOverlay`.
+- Effect 295 introduces the `MOVE_SUBSCRIPT_PTR_WORK_UP` handler.
+- Effect 296 combines fixed two-hit logic with the FLINCH side effect.
+- Effects 297 and 298 rely on `MULTIHIT_TRIPLE_KICK` engine behavior; 297 requests up to 10 hits and 298 requests three escalating hits.
+- Effect 299 uses ordinary fixed three-hit multi-hit handling.
+- Effect 300 (PSYBLADE) is generic crit/damage only; its Electric Terrain power modifier is engine-side.
 
 The dependency manifest is `manifests/mechanics_dependencies.csv`.
 
