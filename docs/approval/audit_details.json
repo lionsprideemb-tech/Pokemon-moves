@@ -1217,8 +1217,10 @@
       "source_mechanics": "Effect family: EFFECT_PLACEHOLDER. Power —, Accuracy —, PP —, effect chance —.",
       "audit_basis": "Source-verified against pinned Elite Redux MoveList.textproto; required battle values are absent in the source record.",
       "approval_ready": false,
-      "verification_blocker": "The pinned source omits base power, accuracy, PP, and effect-chance data and uses EFFECT_PLACEHOLDER.",
-      "source_limitation": "The public Elite Redux config does not contain enough numeric/runtime information to reproduce this move faithfully."
+      "verification_blocker": "Elite Redux never supplies Airborne Slam's power, accuracy, or PP in the audited config history. A downstream implementation supplies 85/100/10 and 20% confusion but changes the move from Elite Redux's Normal type to Fighting, so those values cannot be treated as authoritative ER recovery without an explicit Mercury design choice.",
+      "source_limitation": "The public Elite Redux config does not contain enough numeric/runtime information to reproduce this move faithfully.",
+      "source_uncertainty": "The 20% confusion intent, Physical split, Normal type, hammer tag, selected target, and Gigaton Hammer animation reference are source-supported. Power/accuracy/PP remain missing from Elite Redux's public config history.",
+      "recovery_note": "Reborn Reatomized publicly implements Airborne Slam as Fighting / Physical / 85 BP / 100% accuracy / 10 PP / 20% confusion. Because that type conflicts with Elite Redux's pinned Normal record, this is retained as a fallback design candidate rather than silently merged."
     },
     "MOVE_SPINE_BREAKER": {
       "status": "complete",
