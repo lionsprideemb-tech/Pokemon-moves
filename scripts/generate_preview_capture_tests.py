@@ -123,7 +123,7 @@ const struct TestBattleScenario BattleTests[] = {{
                 {{ ACTION_NONE, 0 }},
             }}
         }},
-        .expectations = {{}},
+        .expectations = {{ {{0}} }},
     }},
 
 #ifndef GET_TEST_CASE_ONLY
