@@ -46,7 +46,11 @@
       "effect_chance": "20% when the listed secondary effect applies",
       "source_description": "An electric jab strikes the foe. 20% paralysis chance. Mighty Horn boost.",
       "source_mechanics": "Effect family: EFFECT_PARALYZE_HIT. Power 80, Accuracy 100, PP 10.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "duplicate_review_status": "HIGH_OVERLAP",
+      "duplicate_review_group": "DUP-002",
+      "duplicate_review_note": "Both are 80 BP / 100% / 10 PP Electric physical attacks whose only battle role is paralysis; they differ by 20% vs 10% chance and Horn vs Keen Edge synergy.",
+      "duplicate_review_recommendation": "Keep both only if the ability-tag distinction is intentional and distribution supports it."
     },
     "MOVE_SHOCKING_EDGE": {
       "status": "complete",
@@ -59,7 +63,11 @@
       "effect_chance": "10% when the listed secondary effect applies",
       "source_description": "The foe is slashed with an electric blade. 10% paralyze chance. Keen Edge boost.",
       "source_mechanics": "Effect family: EFFECT_PARALYZE_HIT. Power 80, Accuracy 100, PP 10.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "duplicate_review_status": "HIGH_OVERLAP",
+      "duplicate_review_group": "DUP-002",
+      "duplicate_review_note": "Both are 80 BP / 100% / 10 PP Electric physical attacks whose only battle role is paralysis; they differ by 20% vs 10% chance and Horn vs Keen Edge synergy.",
+      "duplicate_review_recommendation": "Keep both only if the ability-tag distinction is intentional and distribution supports it."
     },
     "MOVE_LIGHTNING_STRIKE": {
       "status": "complete",
@@ -125,7 +133,11 @@
       "effect_chance": "20% when the listed secondary effect applies",
       "source_description": "Bites with aquatic fangs. Has 20% flinch chance. Strong Jaw boost.",
       "source_mechanics": "Effect family: EFFECT_FLINCH_HIT. Power 85, Accuracy 100, PP 15.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "duplicate_review_status": "HIGH_OVERLAP",
+      "duplicate_review_group": "DUP-003",
+      "duplicate_review_note": "Both are Water physical contact attacks around 80–85 BP with a 20% flinch chance; primary distinction is Strong Jaw vs Horn synergy.",
+      "duplicate_review_recommendation": "Keep both only if fang/horn distribution is intentionally different."
     },
     "MOVE_OUTBURST": {
       "status": "complete",
@@ -190,7 +202,11 @@
       "effect_chance": "10% when the listed secondary effect applies",
       "source_description": "An affectionate bite. 10% chance to infatuate the foe. Strong Jaw boost.",
       "source_mechanics": "Effect family: EFFECT_ATTRACT_HIT. Power 85, Accuracy 100, PP 15.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "duplicate_review_status": "HIGH_OVERLAP_FAMILY",
+      "duplicate_review_group": "DUP-004",
+      "duplicate_review_note": "All are Fairy physical attacks centered on infatuation; differences are BP/PP/chance and delivery tags (Strong Jaw, Iron Fist, Arrow, Hammer).",
+      "duplicate_review_recommendation": "Review as one move family; retain only the delivery variants that fill real learnset niches."
     },
     "MOVE_JAGGED_FANGS": {
       "status": "complete",
@@ -310,7 +326,11 @@
       "effect_chance": "30% when the listed secondary effect applies",
       "source_description": "Hurls a chunk of a mountain at the foe. 30% flinch chance. Mega Launcher boost.",
       "source_mechanics": "Effect family: EFFECT_FLINCH_HIT. Power 110, Accuracy 90, PP 10.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "duplicate_review_status": "SAME_EFFECT_DISTINCT",
+      "duplicate_review_group": "DUP-010",
+      "duplicate_review_note": "Both are Ground physical flinch attacks, but 110/90/30% ranged Mega Launcher vs 85/100/10% Strong Jaw contact creates distinct roles.",
+      "duplicate_review_recommendation": "No duplicate removal required."
     },
     "MOVE_ARCHER_SHOT": {
       "status": "complete",
@@ -336,7 +356,11 @@
       "effect_chance": "10% when the listed secondary effect applies",
       "source_description": "Slahes with an ice-cold cryo blade. 10% frostbite chance. Keen Edge boost.",
       "source_mechanics": "Effect family: EFFECT_FROSTBITE_HIT. Power 80, Accuracy 100, PP 20.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "duplicate_review_status": "HIGH_OVERLAP_FAMILY",
+      "duplicate_review_group": "DUP-005",
+      "duplicate_review_note": "All are Ice physical attacks with a frostbite chance. Frost Brand and Frost Bolt even share 80 BP / 100% / 20 PP, differing mainly by contact/tag and 10% vs 20% chance.",
+      "duplicate_review_recommendation": "Review as one family; Frost Brand vs Frost Bolt is the closest collision."
     },
     "MOVE_FROST_BOLT": {
       "status": "complete",
@@ -349,7 +373,11 @@
       "effect_chance": "20% when the listed secondary effect applies",
       "source_description": "The user shoots a freezing arrow. 20% frostbite chance. Arrow boost.",
       "source_mechanics": "Effect family: EFFECT_FROSTBITE_HIT. Power 80, Accuracy 100, PP 20.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "duplicate_review_status": "HIGH_OVERLAP_FAMILY",
+      "duplicate_review_group": "DUP-005",
+      "duplicate_review_note": "All are Ice physical attacks with a frostbite chance. Frost Brand and Frost Bolt even share 80 BP / 100% / 20 PP, differing mainly by contact/tag and 10% vs 20% chance.",
+      "duplicate_review_recommendation": "Review as one family; Frost Brand vs Frost Bolt is the closest collision."
     },
     "MOVE_GLACIER_CRASH": {
       "status": "complete",
@@ -401,7 +429,11 @@
       "effect_chance": "30% when the listed secondary effect applies",
       "source_description": "Lifts up objects and hurls them at the foe. 30% confusion. Mega Launcher boost.",
       "source_mechanics": "Effect family: EFFECT_CONFUSE_HIT. Power 90, Accuracy 100, PP 20.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "duplicate_review_status": "SAME_EFFECT_DISTINCT",
+      "duplicate_review_group": "DUP-006",
+      "duplicate_review_note": "Both are Psychic physical confusion attacks, but their power/accuracy/effect-chance tradeoffs and Mega Launcher flag create distinct risk/reward profiles.",
+      "duplicate_review_recommendation": "No duplicate removal required."
     },
     "MOVE_FERTILE_FANGS": {
       "status": "complete",
@@ -414,7 +446,11 @@
       "effect_chance": "10% when the listed secondary effect applies",
       "source_description": "Inserts ingraining fangs. 10% chance to apply Leech Seed. Strong Jaw boost.",
       "source_mechanics": "Effect family: EFFECT_LEECH_SEED_HIT. Power 80, Accuracy 100, PP 20.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "duplicate_review_status": "HIGH_OVERLAP",
+      "duplicate_review_group": "DUP-007",
+      "duplicate_review_note": "Both are Grass physical attacks that can apply Leech Seed, with similar BP and different chance/tag tuning.",
+      "duplicate_review_recommendation": "Keep both only if Strong Jaw vs Arrow distribution is a deliberate niche."
     },
     "MOVE_SCATTER_BLAST": {
       "status": "complete",
@@ -453,7 +489,11 @@
       "effect_chance": "10% when the listed secondary effect applies",
       "source_description": "The foe is slapped cutely. 10% infatuation chance. Iron Fist boost.",
       "source_mechanics": "Effect family: EFFECT_ATTRACT_HIT. Power 85, Accuracy 100, PP 10.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "duplicate_review_status": "HIGH_OVERLAP_FAMILY",
+      "duplicate_review_group": "DUP-004",
+      "duplicate_review_note": "All are Fairy physical attacks centered on infatuation; differences are BP/PP/chance and delivery tags (Strong Jaw, Iron Fist, Arrow, Hammer).",
+      "duplicate_review_recommendation": "Review as one move family; retain only the delivery variants that fill real learnset niches."
     },
     "MOVE_FAIRY_SPHERES": {
       "status": "complete",
@@ -480,7 +520,11 @@
       "effect_chance": "30% when the listed secondary effect applies",
       "source_description": "Fires thorny brambles. 30% chance to apply Leech Seed. Archer boost.",
       "source_mechanics": "Effect family: EFFECT_LEECH_SEED_HIT. Power 85, Accuracy 100, PP 10.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "duplicate_review_status": "HIGH_OVERLAP",
+      "duplicate_review_group": "DUP-007",
+      "duplicate_review_note": "Both are Grass physical attacks that can apply Leech Seed, with similar BP and different chance/tag tuning.",
+      "duplicate_review_recommendation": "Keep both only if Strong Jaw vs Arrow distribution is a deliberate niche."
     },
     "MOVE_ASTEROID_DOWNFALL": {
       "status": "complete",
@@ -506,7 +550,11 @@
       "effect_chance": "20% when the listed secondary effect applies",
       "source_description": "A mystical jab strikes the foe. 20% flinch chance. Mighty Horn boost.",
       "source_mechanics": "Effect family: EFFECT_FLINCH_HIT. Power 80, Accuracy 100, PP 15.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "duplicate_review_status": "HIGH_OVERLAP",
+      "duplicate_review_group": "DUP-003",
+      "duplicate_review_note": "Both are Water physical contact attacks around 80–85 BP with a 20% flinch chance; primary distinction is Strong Jaw vs Horn synergy.",
+      "duplicate_review_recommendation": "Keep both only if fang/horn distribution is intentionally different."
     },
     "MOVE_TECTONIC_FANGS": {
       "status": "complete",
@@ -519,7 +567,11 @@
       "effect_chance": "10% when the listed secondary effect applies",
       "source_description": "User inserts its ground shaking fangs, 10% chance to flinch. Strong Jaw boost.",
       "source_mechanics": "Effect family: EFFECT_FLINCH_HIT. Power 85, Accuracy 100, PP 15.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "duplicate_review_status": "SAME_EFFECT_DISTINCT",
+      "duplicate_review_group": "DUP-010",
+      "duplicate_review_note": "Both are Ground physical flinch attacks, but 110/90/30% ranged Mega Launcher vs 85/100/10% Strong Jaw contact creates distinct roles.",
+      "duplicate_review_recommendation": "No duplicate removal required."
     },
     "MOVE_CUPID_SHOT": {
       "status": "complete",
@@ -532,7 +584,11 @@
       "effect_chance": "20% when the listed secondary effect applies",
       "source_description": "20% chance to infatuate the foe. Arrow move. Archer boost.",
       "source_mechanics": "Effect family: EFFECT_ATTRACT_HIT. Power 75, Accuracy 100, PP 10.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "duplicate_review_status": "HIGH_OVERLAP_FAMILY",
+      "duplicate_review_group": "DUP-004",
+      "duplicate_review_note": "All are Fairy physical attacks centered on infatuation; differences are BP/PP/chance and delivery tags (Strong Jaw, Iron Fist, Arrow, Hammer).",
+      "duplicate_review_recommendation": "Review as one move family; retain only the delivery variants that fill real learnset niches."
     },
     "MOVE_CLAY_DART": {
       "status": "complete",
@@ -610,7 +666,11 @@
       "effect_chance": "20% when the listed secondary effect applies",
       "source_description": "Calls on dark power to attack. 20% chance to inflict bleed.",
       "source_mechanics": "Effect family: EFFECT_BLEED_HIT. Power 90, Accuracy 100, PP 10.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "duplicate_review_status": "SAME_EFFECT_DISTINCT",
+      "duplicate_review_group": "DUP-008",
+      "duplicate_review_note": "Both are Dark physical bleed attacks, but Devious Shot has higher bleed chance, crit/arrow traits and different accuracy behavior while Black Magic is stronger straightforward damage.",
+      "duplicate_review_recommendation": "Distinct enough to keep."
     },
     "MOVE_FLAME_TONGUE": {
       "status": "complete",
@@ -623,7 +683,11 @@
       "effect_chance": "10% when the listed secondary effect applies",
       "source_description": "Slashes foe with a fiery blade. 10% chance to burn. Keen Edge boost.",
       "source_mechanics": "Effect family: EFFECT_BURN_HIT. Power 80, Accuracy 100, PP 10.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "duplicate_review_status": "HIGH_OVERLAP_FAMILY",
+      "duplicate_review_group": "DUP-009",
+      "duplicate_review_note": "All are Fire physical attacks with burn as the secondary identity. Flame Tongue and Smolder Bash are especially close at 80 BP / 100% / 10% burn, separated mainly by blade vs horn tags and PP.",
+      "duplicate_review_recommendation": "Review as one family; do not keep mechanically redundant delivery variants unless learnset tags matter."
     },
     "MOVE_BLAZING_ARROW": {
       "status": "complete",
@@ -636,7 +700,11 @@
       "effect_chance": "20% when the listed secondary effect applies",
       "source_description": "Fires a blazing arrow. +1 crit chance. 20% burn chance. Archer boost.",
       "source_mechanics": "Effect family: EFFECT_BURN_HIT. Power 80, Accuracy 100, PP 10.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "duplicate_review_status": "HIGH_OVERLAP_FAMILY",
+      "duplicate_review_group": "DUP-009",
+      "duplicate_review_note": "All are Fire physical attacks with burn as the secondary identity. Flame Tongue and Smolder Bash are especially close at 80 BP / 100% / 10% burn, separated mainly by blade vs horn tags and PP.",
+      "duplicate_review_recommendation": "Review as one family; do not keep mechanically redundant delivery variants unless learnset tags matter."
     },
     "MOVE_ROCKET_PUNCH": {
       "status": "complete",
@@ -780,7 +848,11 @@
       "effect_chance": "50% when the listed secondary effect applies",
       "source_description": "A devious arrow strike. +1 crit chance. 50% bleed chance. Archer boost.",
       "source_mechanics": "Effect family: EFFECT_BLEED_HIT. Power 80, Accuracy —, PP 15.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "duplicate_review_status": "SAME_EFFECT_DISTINCT",
+      "duplicate_review_group": "DUP-008",
+      "duplicate_review_note": "Both are Dark physical bleed attacks, but Devious Shot has higher bleed chance, crit/arrow traits and different accuracy behavior while Black Magic is stronger straightforward damage.",
+      "duplicate_review_recommendation": "Distinct enough to keep."
     },
     "MOVE_STARBURST": {
       "status": "complete",
@@ -793,7 +865,11 @@
       "effect_chance": "30% when the listed secondary effect applies",
       "source_description": "The user crashes a star shaped ray down. 30% flinch chance. Mega Launcher boost.",
       "source_mechanics": "Effect family: EFFECT_FLINCH_HIT. Power 110, Accuracy 90, PP 10.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "duplicate_review_status": "SAME_EFFECT_DISTINCT",
+      "duplicate_review_group": "DUP-011",
+      "duplicate_review_note": "Both are Normal physical flinch attacks, but their power/accuracy/PP and throwing/launcher behavior differ materially.",
+      "duplicate_review_recommendation": "No duplicate removal required."
     },
     "MOVE_CHEAP_SHOT": {
       "status": "complete",
@@ -885,7 +961,11 @@
       "effect_chance": "20% when the listed secondary effect applies",
       "source_description": "Uses psychic power to shatter foes' psyche. 20% chance to confuse.",
       "source_mechanics": "Effect family: EFFECT_CONFUSE_HIT. Power 110, Accuracy 90, PP 10.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "duplicate_review_status": "SAME_EFFECT_DISTINCT",
+      "duplicate_review_group": "DUP-006",
+      "duplicate_review_note": "Both are Psychic physical confusion attacks, but their power/accuracy/effect-chance tradeoffs and Mega Launcher flag create distinct risk/reward profiles.",
+      "duplicate_review_recommendation": "No duplicate removal required."
     },
     "MOVE_WYRM_WIND": {
       "status": "complete",
@@ -1045,7 +1125,11 @@
       "effect_chance": "No separate chance field",
       "source_description": "Strikes with a fiery bone 2-5 times. Has +1 priority. Bone-based.",
       "source_mechanics": "Effect family: EFFECT_MULTI_HIT. Power 15, Accuracy 100, PP 10.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "duplicate_review_status": "SAME_EFFECT_DISTINCT",
+      "duplicate_review_group": "DUP-012",
+      "duplicate_review_note": "Both are Fire physical multi-hit attacks, but one is +1 priority Bone-based while the other is Ballistic and can burn.",
+      "duplicate_review_recommendation": "No duplicate removal required."
     },
     "MOVE_KARMA": {
       "status": "complete",
@@ -1163,7 +1247,11 @@
       "effect_chance": "100% when the listed secondary effect applies",
       "source_description": "The user strikes the foe's legs. Always paralyzes. Hammer-based.",
       "source_mechanics": "Effect family: EFFECT_PARALYZE_HIT. Power 120, Accuracy 70, PP 10.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "duplicate_review_status": "SAME_EFFECT_DISTINCT",
+      "duplicate_review_group": "DUP-013",
+      "duplicate_review_note": "Both are Electric physical paralysis attacks, but 120 BP/70 accuracy/100% paralysis Hammer vs 90/100/10% Mega Launcher creates very different risk/reward.",
+      "duplicate_review_recommendation": "No duplicate removal required."
     },
     "MOVE_SQUEAKY_HAMMER": {
       "status": "complete",
@@ -1176,7 +1264,11 @@
       "effect_chance": "20% when the listed secondary effect applies",
       "source_description": "An oddly sounding attack that may infatuate the foe. Hammer-based.",
       "source_mechanics": "Effect family: EFFECT_ATTRACT_HIT. Power 80, Accuracy 100, PP 15.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "duplicate_review_status": "HIGH_OVERLAP_FAMILY",
+      "duplicate_review_group": "DUP-004",
+      "duplicate_review_note": "All are Fairy physical attacks centered on infatuation; differences are BP/PP/chance and delivery tags (Strong Jaw, Iron Fist, Arrow, Hammer).",
+      "duplicate_review_recommendation": "Review as one move family; retain only the delivery variants that fill real learnset niches."
     },
     "MOVE_PRIMITIVE_STRIKE": {
       "status": "complete",
@@ -1442,7 +1534,11 @@
       "effect_chance": "10% when the listed secondary effect applies",
       "source_description": "Bashes the foe with a fiery horn. 10% chance to burn. Horn-based.",
       "source_mechanics": "Effect family: EFFECT_BURN_HIT. Power 80, Accuracy 100, PP 15.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "duplicate_review_status": "HIGH_OVERLAP_FAMILY",
+      "duplicate_review_group": "DUP-009",
+      "duplicate_review_note": "All are Fire physical attacks with burn as the secondary identity. Flame Tongue and Smolder Bash are especially close at 80 BP / 100% / 10% burn, separated mainly by blade vs horn tags and PP.",
+      "duplicate_review_recommendation": "Review as one family; do not keep mechanically redundant delivery variants unless learnset tags matter."
     },
     "MOVE_BEATDOWN": {
       "status": "complete",
@@ -1455,7 +1551,11 @@
       "effect_chance": "No separate chance field",
       "source_description": "Attacks the foe with a flurry of blows. hits 2-5 times.",
       "source_mechanics": "Effect family: EFFECT_MULTI_HIT. Power 25, Accuracy 100, PP 20.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "duplicate_review_status": "HIGH_OVERLAP",
+      "duplicate_review_group": "DUP-014",
+      "duplicate_review_note": "Both are Dark physical 25 BP / 100% / 20 PP multi-hit moves. Relentless Clobber's only clear extra mechanical distinction is the Hammer tag.",
+      "duplicate_review_recommendation": "Strong candidate to merge or redesign one."
     },
     "MOVE_EERIE_FOG": {
       "status": "complete",
@@ -1496,7 +1596,11 @@
       "source_description": "Pummels the target repeatedly. Hammer based.",
       "source_mechanics": "Effect family: EFFECT_MULTI_HIT. Power 25, Accuracy 100, PP 20.",
       "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
-      "hit_count_or_duration": "Hits 2–5 times."
+      "hit_count_or_duration": "Hits 2–5 times.",
+      "duplicate_review_status": "HIGH_OVERLAP",
+      "duplicate_review_group": "DUP-014",
+      "duplicate_review_note": "Both are Dark physical 25 BP / 100% / 20 PP multi-hit moves. Relentless Clobber's only clear extra mechanical distinction is the Hammer tag.",
+      "duplicate_review_recommendation": "Strong candidate to merge or redesign one."
     },
     "MOVE_POP_MAYHEM": {
       "status": "complete",
@@ -2047,7 +2151,11 @@
       "effect_chance": "10% when the listed secondary effect applies",
       "source_description": "Shoots a strong energy projectile. 10% paralyze chance Mega Launcher Boost.",
       "source_mechanics": "Effect family: EFFECT_PARALYZE_HIT. Power 90, Accuracy 100, PP 15.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "duplicate_review_status": "SAME_EFFECT_DISTINCT",
+      "duplicate_review_group": "DUP-013",
+      "duplicate_review_note": "Both are Electric physical paralysis attacks, but 120 BP/70 accuracy/100% paralysis Hammer vs 90/100/10% Mega Launcher creates very different risk/reward.",
+      "duplicate_review_recommendation": "No duplicate removal required."
     },
     "MOVE_METALLIC_MELODY": {
       "status": "complete",
@@ -2244,7 +2352,11 @@
       "effect_chance": "10% when the listed secondary effect applies",
       "source_description": "Hits the foe with 3 explosive snowballs. 10% Frostbite.",
       "source_mechanics": "Effect family: EFFECT_FROSTBITE_HIT. Power 30, Accuracy 100, PP 15.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "duplicate_review_status": "HIGH_OVERLAP_FAMILY",
+      "duplicate_review_group": "DUP-005",
+      "duplicate_review_note": "All are Ice physical attacks with a frostbite chance. Frost Brand and Frost Bolt even share 80 BP / 100% / 20 PP, differing mainly by contact/tag and 10% vs 20% chance.",
+      "duplicate_review_recommendation": "Review as one family; Frost Brand vs Frost Bolt is the closest collision."
     },
     "MOVE_SPREAD_BOMB": {
       "status": "complete",
@@ -2259,7 +2371,11 @@
       "source_mechanics": "Effect family: EFFECT_BURN_HIT. Power 90, Accuracy 100, PP 10.",
       "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
       "status_effects": "20% chance to burn each affected target",
-      "source_data_warning": "Elite Redux's flavor description says 30% burn, but MoveList.textproto encodes effect_chance: 20. The approval record follows the machine-readable 20% behavior and preserves the stale description mismatch as a warning."
+      "source_data_warning": "Elite Redux's flavor description says 30% burn, but MoveList.textproto encodes effect_chance: 20. The approval record follows the machine-readable 20% behavior and preserves the stale description mismatch as a warning.",
+      "duplicate_review_status": "HIGH_OVERLAP_FAMILY",
+      "duplicate_review_group": "DUP-009",
+      "duplicate_review_note": "All are Fire physical attacks with burn as the secondary identity. Flame Tongue and Smolder Bash are especially close at 80 BP / 100% / 10% burn, separated mainly by blade vs horn tags and PP.",
+      "duplicate_review_recommendation": "Review as one family; do not keep mechanically redundant delivery variants unless learnset tags matter."
     },
     "MOVE_BALL_TOSS": {
       "status": "complete",
@@ -2272,7 +2388,11 @@
       "effect_chance": "No separate chance field",
       "source_description": "Throws a ball forward. 20% flinch chance",
       "source_mechanics": "Effect family: EFFECT_FLINCH_HIT. Power 90, Accuracy 100, PP 15.",
-      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit."
+      "audit_basis": "Source-verified against Elite Redux MoveList.textproto at the pinned commit.",
+      "duplicate_review_status": "SAME_EFFECT_DISTINCT",
+      "duplicate_review_group": "DUP-011",
+      "duplicate_review_note": "Both are Normal physical flinch attacks, but their power/accuracy/PP and throwing/launcher behavior differ materially.",
+      "duplicate_review_recommendation": "No duplicate removal required."
     },
     "MOVE_PARTY_FAVORS": {
       "status": "complete",
@@ -2549,7 +2669,11 @@
       "effect_chance": "No separate chance field",
       "source_description": "The user swiftly strikes its target. It is sure to strike first.",
       "source_mechanics": "FunctionCode: None. Power 40, Accuracy 100, PP 30.",
-      "audit_basis": "Source-verified against the pinned PokeRover PBS move table."
+      "audit_basis": "Source-verified against the pinned PokeRover PBS move table.",
+      "duplicate_review_status": "EXACT_DUPLICATE",
+      "duplicate_review_group": "DUP-001",
+      "duplicate_review_note": "Same Fighting/Physical typing, 40 BP, 100 accuracy, 30 PP, +1 priority, contact, target, flags, and no secondary effect. Battle behavior is identical.",
+      "duplicate_review_recommendation": "Keep one or redesign one before final approval."
     },
     "FANGLEECH": {
       "status": "complete",
@@ -2575,7 +2699,11 @@
       "effect_chance": "No separate chance field",
       "source_description": "The user swiftly strikes its target. It is sure to strike first.",
       "source_mechanics": "FunctionCode: None. Power 40, Accuracy 100, PP 30.",
-      "audit_basis": "Source-verified against the pinned PokeRover PBS move table."
+      "audit_basis": "Source-verified against the pinned PokeRover PBS move table.",
+      "duplicate_review_status": "EXACT_DUPLICATE",
+      "duplicate_review_group": "DUP-001",
+      "duplicate_review_note": "Same Fighting/Physical typing, 40 BP, 100 accuracy, 30 PP, +1 priority, contact, target, flags, and no secondary effect. Battle behavior is identical.",
+      "duplicate_review_recommendation": "Keep one or redesign one before final approval."
     },
     "DRUMBEAT": {
       "status": "complete",
@@ -2655,7 +2783,11 @@
       "source_description": "After engulfing itself in fire, the user charges at the opponent with the power of a herd. May raise the user's attack.",
       "source_mechanics": "FunctionCode: RaiseUserAttack1. Power 90, Accuracy 100, PP 15.",
       "audit_basis": "Source-verified against the pinned PokeRover PBS move table.",
-      "stat_changes": "50% chance: user Attack +1 stage"
+      "stat_changes": "50% chance: user Attack +1 stage",
+      "duplicate_review_status": "HIGH_OVERLAP",
+      "duplicate_review_group": "DUP-018",
+      "duplicate_review_note": "Both are Fire physical attacks with a 50% chance to raise the user's Attack by 1. They differ mainly in 90/100/15 contact vs 100/95/10 tuning/flags.",
+      "duplicate_review_recommendation": "Review whether both deserve separate learnset niches."
     },
     "IRONBARB": {
       "status": "complete",
@@ -3595,7 +3727,11 @@
       "effect_chance": "No separate chance field",
       "source_description": "The user fires a golden arrow of energy at the target. Critical hits land more easily.",
       "source_mechanics": "Effect code 20C. Power 80, Accuracy 100, PP 15.",
-      "audit_basis": "Source-verified against the pinned Rejuvenation Wiki Converter move database; custom behavior is expanded only where supporting public Rejuvenation-derived move logic was available."
+      "audit_basis": "Source-verified against the pinned Rejuvenation Wiki Converter move database; custom behavior is expanded only where supporting public Rejuvenation-derived move logic was available.",
+      "duplicate_review_status": "SAME_EFFECT_DISTINCT",
+      "duplicate_review_group": "DUP-015",
+      "duplicate_review_note": "They share a Rejuvenation effect code/high-crit family, but Gilded Helix has a two-arrow/type-matching identity and different BP.",
+      "duplicate_review_recommendation": "No duplicate removal required."
     },
     "GILDEDHELIX": {
       "status": "complete",
@@ -3608,7 +3744,11 @@
       "effect_chance": "No separate chance field",
       "source_description": "Two golden arrows matching the user's type are fired. Critical hits land more easily.",
       "source_mechanics": "Effect code 20C. Power 50, Accuracy 100, PP 15.",
-      "audit_basis": "Source-verified against the pinned Rejuvenation Wiki Converter move database; custom behavior is expanded only where supporting public Rejuvenation-derived move logic was available."
+      "audit_basis": "Source-verified against the pinned Rejuvenation Wiki Converter move database; custom behavior is expanded only where supporting public Rejuvenation-derived move logic was available.",
+      "duplicate_review_status": "SAME_EFFECT_DISTINCT",
+      "duplicate_review_group": "DUP-015",
+      "duplicate_review_note": "They share a Rejuvenation effect code/high-crit family, but Gilded Helix has a two-arrow/type-matching identity and different BP.",
+      "duplicate_review_recommendation": "No duplicate removal required."
     },
     "POISONSWEEP": {
       "status": "complete",
@@ -3761,7 +3901,11 @@
       "source_description": "The user tackles the opponent, engulfed in incredible flames. It may raise the user's Attack.",
       "source_mechanics": "Effect code 01C. Power 100, Accuracy 95, PP 10.",
       "audit_basis": "Source-verified against the pinned Rejuvenation Wiki Converter move database; custom behavior is expanded only where supporting public Rejuvenation-derived move logic was available.",
-      "stat_changes": "50% chance: user Attack +1 stage"
+      "stat_changes": "50% chance: user Attack +1 stage",
+      "duplicate_review_status": "HIGH_OVERLAP",
+      "duplicate_review_group": "DUP-018",
+      "duplicate_review_note": "Both are Fire physical attacks with a 50% chance to raise the user's Attack by 1. They differ mainly in 90/100/15 contact vs 100/95/10 tuning/flags.",
+      "duplicate_review_recommendation": "Review whether both deserve separate learnset niches."
     },
     "HOARFROSTMOON": {
       "status": "complete",
@@ -4258,7 +4402,11 @@
       "move_flags": "Uranium flags: be",
       "effect_chance": "No separate chance-based secondary effect",
       "source_description": "Purges the foe of impurities, dealing extra damage to Nuclear types.",
-      "source_uncertainty": "None noted."
+      "source_uncertainty": "None noted.",
+      "duplicate_review_status": "SAME_EFFECT_DISTINCT",
+      "duplicate_review_group": "DUP-016",
+      "duplicate_review_note": "They share a Uranium effect-code family in the source data but perform different mechanics; this is source-code reuse, not move duplication.",
+      "duplicate_review_recommendation": "No duplicate removal required."
     },
     "FALLOUT": {
       "status": "complete",
@@ -4385,7 +4533,11 @@
       "approval_ready": true,
       "verification_note": "The 3% chance comes from the pinned Uranium 1.3.1 PBS row (EffectChance=3). Uranium's official/community documentation independently confirms that Nuclear Wind can summon Fallout; older community discussion mentions different historical odds, so the pinned 1.3.1 value is used for this catalog.",
       "source_conflict": "Pinned uranium-mining PBS and later Uranium-derived move implementations disagree on the numeric Fallout trigger chance. Preserve this conflict for user approval instead of guessing.",
-      "secondary_source": "Octodillo/Codemon uranium move implementation records weather: chance(1/20, NuclearFallout)."
+      "secondary_source": "Octodillo/Codemon uranium move implementation records weather: chance(1/20, NuclearFallout).",
+      "duplicate_review_status": "SAME_EFFECT_DISTINCT",
+      "duplicate_review_group": "DUP-016",
+      "duplicate_review_note": "They share a Uranium effect-code family in the source data but perform different mechanics; this is source-code reuse, not move duplication.",
+      "duplicate_review_recommendation": "No duplicate removal required."
     },
     "ACHILLESHEEL": {
       "status": "complete",
@@ -4632,7 +4784,11 @@
       "stat_changes": "None",
       "source_mechanics": "Poilerwags/Insurgence-Showdown data/moves.ts at pinned commit 72d72a7af4642d3c8391ab1118f0afbb2647020b.",
       "audit_basis": "Source-verified against the pinned Insurgence-Showdown move definition and its custom callbacks.",
-      "move_flags": "Contact; Protect-blocked"
+      "move_flags": "Contact; Protect-blocked",
+      "duplicate_review_status": "SAME_ROLE_DISTINCT",
+      "duplicate_review_group": "DUP-019",
+      "duplicate_review_note": "Both are Ghost physical contact moves with no secondary effect. Elbow Drop is stronger/more accurate but has only 5 PP; Zombie Strike has 15 PP and lower accuracy/power.",
+      "duplicate_review_recommendation": "Same basic role, but the PP/risk tradeoff is enough to distinguish them if both are distributed intentionally."
     },
     "TIROTEO": {
       "status": "complete",
@@ -5500,7 +5656,11 @@
       "source_description": "Envuelve en llamas su cornamenta para luego embestir con ella.",
       "source_mechanics": "Function 000; source stats 45 power, 100% accuracy, 25 PP; target code 00; raw source flags abef.",
       "move_flags": "Contact; horn/fire attack; no extra effect recorded",
-      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text."
+      "audit_basis": "Source-verified against the pinned xorgies/PokemonOpalo Armonia move-data mirror. Spanish source text is represented by an English review explanation rather than requiring the reviewer to interpret the original text.",
+      "duplicate_review_status": "SAME_ROLE_DISTINCT",
+      "duplicate_review_group": "DUP-020",
+      "duplicate_review_note": "Both are Fire physical moves with no secondary effect, but 100 BP/95%/10 PP non-contact versus 45 BP/100%/25 PP contact/horn gives clearly different power tiers.",
+      "duplicate_review_recommendation": "No duplicate removal required."
     },
     "FERMENTACION": {
       "status": "complete",
@@ -6153,7 +6313,11 @@
       "contact": "No",
       "move_flags": "snatch",
       "audit_basis": "Source-verified against the pinned Clovermon Showdown move definition and its custom callbacks.",
-      "source_mechanics": "Catalog stats: 0 power, 0 accuracy, 15 PP. Source record: Squeetz/clovermon-showdown@008196c839c1efe859e2d59c092c88370b7752d6 → data/moves.ts."
+      "source_mechanics": "Catalog stats: 0 power, 0 accuracy, 15 PP. Source record: Squeetz/clovermon-showdown@008196c839c1efe859e2d59c092c88370b7752d6 → data/moves.ts.",
+      "duplicate_review_status": "SAME_EFFECT_DISTINCT",
+      "duplicate_review_group": "DUP-017",
+      "duplicate_review_note": "Both are Fighting status moves implemented with custom callbacks, but their actual effects are unrelated.",
+      "duplicate_review_recommendation": "No duplicate removal required."
     },
     "HULKUP": {
       "status": "complete",
@@ -6175,7 +6339,11 @@
       "contact": "No",
       "move_flags": "No special move flags recorded in the source block",
       "audit_basis": "Source-verified against the pinned Clovermon Showdown move definition and its custom callbacks.",
-      "source_mechanics": "Catalog stats: 0 power, 0 accuracy, 10 PP. Source record: Squeetz/clovermon-showdown@008196c839c1efe859e2d59c092c88370b7752d6 → data/moves.ts."
+      "source_mechanics": "Catalog stats: 0 power, 0 accuracy, 10 PP. Source record: Squeetz/clovermon-showdown@008196c839c1efe859e2d59c092c88370b7752d6 → data/moves.ts.",
+      "duplicate_review_status": "SAME_EFFECT_DISTINCT",
+      "duplicate_review_group": "DUP-017",
+      "duplicate_review_note": "Both are Fighting status moves implemented with custom callbacks, but their actual effects are unrelated.",
+      "duplicate_review_recommendation": "No duplicate removal required."
     },
     "MOP": {
       "status": "complete",
@@ -6340,7 +6508,11 @@
       "stat_changes": "None",
       "source_mechanics": "Squeetz/clovermon-showdown data/moves.ts at pinned commit 008196c839c1efe859e2d59c092c88370b7752d6.",
       "audit_basis": "Source-verified against the pinned Clovermon Showdown move definition and its custom callbacks.",
-      "move_flags": "Contact; Protect-blocked; Mirror Move-compatible"
+      "move_flags": "Contact; Protect-blocked; Mirror Move-compatible",
+      "duplicate_review_status": "SAME_ROLE_DISTINCT",
+      "duplicate_review_group": "DUP-019",
+      "duplicate_review_note": "Both are Ghost physical contact moves with no secondary effect. Elbow Drop is stronger/more accurate but has only 5 PP; Zombie Strike has 15 PP and lower accuracy/power.",
+      "duplicate_review_recommendation": "Same basic role, but the PP/risk tradeoff is enough to distinguish them if both are distributed intentionally."
     },
     "ANATTACK": {
       "status": "complete",
@@ -6469,7 +6641,11 @@
       "custom_conditions": "Source Z base power is 180.",
       "source_mechanics": "Squeetz/clovermon-showdown data/moves.ts at pinned commit 008196c839c1efe859e2d59c092c88370b7752d6.",
       "audit_basis": "Source-verified against the pinned Clovermon Showdown move definition and its custom callbacks.",
-      "move_flags": "Protect-blocked; Mirror Move-compatible"
+      "move_flags": "Protect-blocked; Mirror Move-compatible",
+      "duplicate_review_status": "SAME_ROLE_DISTINCT",
+      "duplicate_review_group": "DUP-020",
+      "duplicate_review_note": "Both are Fire physical moves with no secondary effect, but 100 BP/95%/10 PP non-contact versus 45 BP/100%/25 PP contact/horn gives clearly different power tiers.",
+      "duplicate_review_recommendation": "No duplicate removal required."
     },
     "FIZZBITCH": {
       "status": "complete",
